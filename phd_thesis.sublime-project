@@ -1,0 +1,12 @@
+{
+    "folders":
+    [
+        {
+            "path": ".",
+            "file_exclude_patterns": [
+            "*.merlin2", "*.aux", "*.out", "*.gz", "*.log", "*.toc","*.bbl", "*.blg", "*.fls", "*.fdb_latexmk","*.zip", "*.lot", "*.lof", "*-blx.bib"
+            ]
+        }
+    ]
+}
+
