@@ -1,4 +1,4 @@
-[submodule "template"]
-	path = template
+[submodule "latex/template"]
+	path = latex/template
 	url = https://github.com/matthieu-lapeyre/cleanthesis.git
 	branch = master
