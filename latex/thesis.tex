@@ -1,0 +1,180 @@
+% **************************************************
+% Document Class Definition
+% **************************************************
+\documentclass[%
+    paper=A4,                   % paper size --> A4 is default in Germany
+    twoside=true,               % onesite or twoside printing
+    openright,                  % doublepage cleaning ends up right side
+    parskip=full,               % spacing value / method for paragraphs
+    chapterprefix=true,         % prefix for chapter marks
+    11pt,                       % font size
+    headings=normal,            % size of headings
+    bibliography=totoc,         % include bib in toc
+    listof=totoc,               % include listof entries in toc
+    titlepage=on,               % own page for each title page
+    captions=tableabove,        % display table captions above the float env
+    draft=true,                % value for draft version
+]{scrreprt}%
+
+% **************************************************
+% Debug LaTeX Information
+% **************************************************
+\listfiles
+
+% **************************************************
+% Information and Commands for Reuse
+% **************************************************
+\newcommand{\thesisTitle}{Studying the role of morphology}
+\newcommand{\thesisName}{Matthieu Lapeyre}
+\newcommand{\thesisSubject}{PhD Thesis report}
+\newcommand{\thesisDate}{March 22, 2014}
+\newcommand{\thesisVersion}{0.2}
+
+\newcommand{\thesisFirstReviewer}{Jane Doe}
+\newcommand{\thesisFirstReviewerUniversity}{\protect{Clean Thesis Style University}}
+\newcommand{\thesisFirstReviewerDepartment}{Department of Clean Thesis Style}
+
+\newcommand{\thesisSecondReviewer}{John Doe}
+\newcommand{\thesisSecondReviewerUniversity}{\protect{Clean Thesis Style University}}
+\newcommand{\thesisSecondReviewerDepartment}{Department of Clean Thesis Style}
+
+\newcommand{\thesisFirstSupervisor}{Pierre Yves Oudeyer}
+\newcommand{\thesisSecondSupervisor}{John Smith}
+
+\newcommand{\thesisUniversity}{\protect{Inria}}
+\newcommand{\thesisUniversityDepartment}{Department of Clean Thesis Style}
+\newcommand{\thesisUniversityInstitute}{Institut for Clean Thesis Dev}
+\newcommand{\thesisUniversityGroup}{Flowers Lab}
+\newcommand{\thesisUniversityCity}{Bordeaux}
+\newcommand{\thesisUniversityStreetAddress}{200 Avenue de la Vieille Tour}
+\newcommand{\thesisUniversityPostalCode}{33401}
+
+% **************************************************
+% Load and Configure Packages
+% **************************************************
+\usepackage[utf8]{inputenc}     % defines file's character encoding
+\usepackage[english]{babel} % babel system, adjust the language of the content
+\usepackage[                    % clean thesis style
+    figuresep=colon,% none,colon,period,space,quad,endash
+    sansserif=false,%
+    hangfigurecaption=false,%
+    hangsection=true,%
+    hangsubsection=true,%
+    colorize=full,% reduced, bw
+    colortheme=bluemagenta,% bluegreen
+]{template/cleanthesis}
+
+\hypersetup{                    % setup the hyperref-package options
+    pdftitle={\thesisTitle},    %   - title (PDF meta)
+    pdfsubject={\thesisSubject},%   - subject (PDF meta)
+    pdfauthor={\thesisName},    %   - author (PDF meta)
+    plainpages=false,           %   -
+    colorlinks=false,           %   - colorize links?
+    pdfborder={0 0 0},          %   -
+    breaklinks=true,            %   - allow line break inside links
+    bookmarksnumbered=true,     %
+    bookmarksopen=true          %
+}
+
+% Other packages
+\usepackage{enumerate}
+\usepackage{graphicx} %graphic path
+\usepackage{subfig} % Subfloat
+\usepackage{pdfpages}
+
+% **************************************************
+% Document PATH
+% **************************************************
+\graphicspath{  {../media/},
+                {../media/experiments/},
+                {../media/photos/},
+                {../media/figures/},
+                {../media/models/}
+                }
+
+% **************************************************
+% Document CONTENT
+% **************************************************
+\begin{document}
+
+% --------------------------
+% rename document parts
+% --------------------------
+\renewcaptionname{english}{\figurename}{Fig.}
+\renewcaptionname{english}{\tablename}{Tab.}
+
+% --------------------------
+% Front matter
+% --------------------------
+% \pagenumbering{roman}           % roman page numbing (invisible for empty page style)
+% \pagestyle{empty}               % no header or footers
+% \input{content/titlepages}      % INCLUDE: all titlepages
+% \cleardoublepage
+
+% \pagestyle{plain}               % display just page numbers
+% \input{content/abstract}        % INCLUDE: the abstracts (english and german)
+% \cleardoublepage
+% %
+% \input{content/acknowledgement} % INCLUDE: acknowledgement
+% \cleardoublepage
+% %
+\setcounter{tocdepth}{2}        % define depth of toc
+\tableofcontents                % display table of contents
+\cleardoublepage
+
+% --------------------------
+% Body matter
+% --------------------------
+\pagenumbering{arabic}          % arabic page numbering
+\setcounter{page}{1}            % set page counter
+\pagestyle{maincontentstyle}    % fancy header and footer
+
+
+\input{content/chapter/introduction.tex}
+\input{content/chapter/related_work.tex}
+\input{content/chapter/approach.tex}
+\input{content/chapter/poppy.tex}
+\input{content/chapter/morphology.tex}
+\input{content/chapter/diffusion.tex}
+\input{content/chapter/conclusion.tex}
+\input{content/chapter/discussion.tex}
+
+\cleardoublepage
+
+% --------------------------
+% Back matter
+% --------------------------
+% {%
+% \setstretch{1.1}
+% \renewcommand{\bibfont}{\normalfont\small}
+% \setlength{\biblabelsep}{0pt}
+% \setlength{\bibitemsep}{0.5\baselineskip plus 0.5\baselineskip}
+% \nocite{*}
+% \printbibliography[nottype=online]
+% \printbibliography[heading=subbibliography,title={Webseiten},type=online,prefixnumbers={@}]
+% }
+% \cleardoublepage
+
+% \listoffigures
+% \cleardoublepage
+
+% \listoftables
+
+% \cleardoublepage
+% \input{content/chapter/appendix.tex}
+
+
+% \cleardoublepage
+
+% \input{content/colophon}
+% \cleardoublepage
+
+% \input{template/content/declaration}
+% \clearpage
+% \newpage
+% \mbox{}
+
+% **************************************************
+% End of Document CONTENT
+% **************************************************
+\end{document}
