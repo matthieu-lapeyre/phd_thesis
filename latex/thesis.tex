@@ -13,7 +13,7 @@
     listof=totoc,               % include listof entries in toc
     titlepage=on,               % own page for each title page
     captions=tableabove,        % display table captions above the float env
-    draft=true,                % value for draft version
+    draft=false,                % value for draft version
 ]{scrreprt}%
 
 % **************************************************
@@ -81,15 +81,20 @@
 \usepackage{graphicx} %graphic path
 \usepackage{subfig} % Subfloat
 \usepackage{pdfpages}
+\usepackage{caption}
+\usepackage{grid-system}
+\newenvironment{NFfigure}{\captionsetup{type=figure}}{}
+
+
+
+% \usepackage{epstopdf} % Convert eps image to pdf
+% \usepackage{epsfig}
 
 % **************************************************
 % Document PATH
 % **************************************************
 \graphicspath{  {../media/},
-                {../media/experiments/},
-                {../media/photos/},
-                {../media/figures/},
-                {../media/models/}
+                {../media/open_hardware/}
                 }
 
 % **************************************************
@@ -111,7 +116,7 @@
 % \input{content/titlepages}      % INCLUDE: all titlepages
 % \cleardoublepage
 
-% \pagestyle{plain}               % display just page numbers
+\pagestyle{plain}               % display just page numbers
 % \input{content/abstract}        % INCLUDE: the abstracts (english and german)
 % \cleardoublepage
 % %
@@ -131,7 +136,9 @@
 
 
 \input{content/chapter/introduction.tex}
-\input{content/chapter/related_work.tex}
+\input{content/chapter/robot_morphology_review.tex}
+\input{content/chapter/experimental_review.tex}
+\input{content/chapter/OP_RP_review.tex}
 \input{content/chapter/approach.tex}
 \input{content/chapter/poppy.tex}
 \input{content/chapter/morphology.tex}
