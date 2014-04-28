@@ -9,7 +9,6 @@
 
 
 \begin{quotation}
-
 First of all, we never actually produced a high-fidelity simulation. We made very simple simulations only. From them, we learned how to tune parameters. Then, we designed the real robots, without running full-blown optimizations. Rather, we used our intuition for a large number of decisions on design trade-offs, using lessons from the simple simulations combined with other limitations such as available motors etcetera. Then, we (again) used our intuition and large amount of experience to tune the robot’s controllers, and make design improvements, until it walked.
 
 Even after obtaining a successful walking motion, we did not manage to create a simulation that walked successfully using the same controller parameters. We tried very hard with some of the best people, but we didn’t succeed. The reason was, I think, that our type of control (using the emergent behavior of a set of simple reflex-like controllers) was highly sensitive to hardware effects like friction. Normally, one uses a local joint controller to make the joint follow a desired trajectory independent of the exact amount of friction. The local controller “abstracts these hardware effects away”, if you know what I mean. This makes the behavior of the whole system quite predictable. However, in our robots, we did not have this kind of abstraction as we were not following trajectories, and thus a little bit of extra friction has an effect on the entire motion.
@@ -17,16 +16,23 @@ Even after obtaining a successful walking motion, we did not manage to create a 
 We did spend a long time making a high-fidelity model in Adams, and also using other methods, but eventually we gave up without success.
 
 -- \textbf{Martijn Wisse - Associate professor at Delft University of Technology}
-
 \end{quotation}
 
 \section{Existing platforms} % (fold)
 
 DarwinOP c'est comme Poppy mais pas forcement pensé pour explorer le role du corps.
 
+\subsubsection{Prototype} % (fold)
 
-\subsection{Humanoids and bipeds} % (fold)
+\subsection{Commercial} % (fold)
 
+Aside the robot prototype,
+
+Darwin \cite{ha2011development}
+
+Other current research platforms are easily accessible and easy to use such as Nao \cite{gouaillier2008nao}, Darwin Op \cite{ha2011development}, Nimbro Op \cite{schwarznimbro} or iCub \cite{metta2008icub}. Yet, they provide a "traditional" morphology (e.g. limited compliance, rigid torso, big feet, over actuated) which can not be easily modified. It makes them unadapted to study the impact of the morphology on biped locomotion and human physical interaction.
+
+Each of these platforms provides key features for robotics but none of them regroups all the ones needed to explore both biped locomotion and physical interaction.
 
 \section{methods for building robots} % (fold)
 
@@ -44,12 +50,67 @@ DarwinOP c'est comme Poppy mais pas forcement pensé pour explorer le role du co
 
 
 \section{Small humanoid robot} % (fold)
-Robotis
+Research on humanoid robot is triving and had lead to a lot of humanoid robot.
+
+We can cite Asimo has one of the first most advanced humanoid robot.
+
+Despite this large number of humanoid platform only few reached a commercial distribution. Among them there is only one adult sized robot, HRP2 while other are kid-size humanoid robot.
+
+Darwin-OP was one of the first affordable and open source humanoid robot. Based on the need in lab to have small  humanoid robot for research application.
+
+For some reason, A 3D clone http://www.thingiverse.com/thing:9793
+http://www.instructables.com/id/Robot-Cloning-by-DIY-3d-printers/
+http://www.instructables.com/id/3D-Printed-Humanoid-Robot-for-under-100000-USD/
+
+Darwin OP has not been really hacked. Maybe it is due to the tools used. SVN sucks, sourceforge is outdated.
+The open community is more github centered
 
 
 
 \section{methods for dissemination and reproducibility} % (fold)
 
+The most common way to  research
+
+Share science
+
+Currently most of the research dessiminatino is done through paper publications. While papers are a high quality way to distribute the
+
+Papers are good to present theoritical idea and results of experiment in high quality formated and writing way. Yet, it is the descendent of the old way to share science coming from a time were Internet did not exist.
+
+The scientific impact could be even more efficient with the use of web modern tools.
+
+It is the intrinsic purpose of Internet to share between people. The first purpose was even specific to the sharing of paper. Twenty years later, the use of internet for scientific purpose does not really change while community driven project as shown amazing innovative works.
+
+However, the research ranking is still only based on paper impact factor while using the modern tools can lead to a demultiplicaiton of this impact by dozens ...
+
+Any obscure youtube video is more seen than the paper is read.
+
+Optional works such has publishing code or videos is not encouraged by the current way to mark the
+
+However, a paper is a nice way to present theory but is not enough. Most of our works are base on experiment results and only few paper actual share the experimental setup to reproduce the results.
+
+While this can be counterproductive for the diffusion of the scientific works, it raise also probelm concerning the validation of experimental result nor posibility to change parameter to evaluate the stability of a given algorithm.
+
+Applying theoritical model presented in a paper on an actual experimental setup is really time consumming.
+
+There is absolutely no raison why consulting an article online should cost 30\$. Fuck lobby
+
+In case you didn’t know, academic publishing is undergoing a major upheaval. Again. It used to be that original discoveries could only be disseminated on paper, published in books and journals, which were mostly found in university libraries because their cost was so high. Then the internet was invented and things began to change, but surprisingly slowly. The big journals still ruled the roost—and even now they still really do, though future of this is uncertain—but paper and libraries eventually started to become less popular among readers. Readers wanted their science to be indexed on the Web and they wanted instant PDF downloads. Journals obliged and competed to add these features at no extra cost. But you still needed a subscription to the journal—or your university library did—to get access to the article for less than \$30/article at the major journals. This is still the typical state of affairs with most journals that predate the internet.
+
+But then something new started happening: first online journals (never on paper) and then so-called open-access journals (online journals that were accessible to readers for free) started to pop up. You may be surprised to learn that these journals are not much cheaper to produce than hardcopy magazines and books—despite the lack of paper—because most of the cost producing a journal is in the editorial services (copy editing, peer review, formatting, layout, marketing, etc). Whereas online journals having the traditional subscription-for-access model charged the reader, open access models charged the authors. Either way, a huge portion of the governmental science budget went towards paying for science publication, though funding agencies tended to prefer open access because the public could access the materials for free.
+
+Novel journal are rising such as https://peerj.com/ which offer free reading and public review + the ability to ask question.
+
+The lobby is maintain thanks to the impact factor while it has quite non-sens now ...
+
+Non informal exchange between scientific. Everyone is working in his lab and wait for the next conf to discuss with other people. Forum man !
+
+
+
+
+The scientific impact and dessimination could be way more efficient if modern tools was used.
+
+Current research
 publish paper ...
 
 Some info on a website ...

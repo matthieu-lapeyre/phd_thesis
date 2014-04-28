@@ -5,12 +5,36 @@
 % \thispagestyle{plain}
 % \mbox{}
 \includepdf{/Users/matthieulapeyre/Documents/phd_thesis/media/thebeast.pdf}
-
 \chapter{Robot morphology: some facinating work} % (fold)
 
 \section{Morphological computation} % (fold)
 
-Works of Tad Mcgeer, theo jansen
+Regarding the role of morphology in biped locomotion, one of the first famous example concerns the work of Tad MacGeer on passive dynamic walkers \cite{mcgeer1990passive}. Thanks to the understanding of the intrinsic dynamics of its structure, McGeer has managed to create a 2D biped robot capable of producing several steps without any controller or motor. The only control of this robot is due to the interaction between the intrinsic inertia of the structure and gravity. This work has been pursued by those of Collins \cite{collins2001three} and Tedrake \cite{Tedrake2004}  who perfected the concept to make 3D walkers possible and over longer distances. The structure of its robot has its own dynamic that allow it to self-stabilize and maintain a walking motion.
+
+The concept of morphological computation has also been associated to the principle of “ecological balance”, as outlined by Pfeifer et al. \cite{pfeifer2005new}, which states that there is a balance or task distribution between morphology, materials, control, and interaction with the environment. For example, morphological computation has been shown to be necessary in order to achieve human-like biped locomotion \cite{matsushita2005locomoting} and the coupling of adequate morphologies with central-pattern generators has been shown to generate robust locomotor behavior \cite{ijspeert2007swimming}\cite{steingrube2010self}.
+
+
+It has also been shown that the compliance of the body explains the dynamics of walking and running \cite{Geyer2006} and several biped robots such as Athlete Robot \cite{niiyama2010athlete} or BioBiped1 \cite{radkhah2011concept} were designed using compliant actuator or elastic material. These robots showed interesting hopping and running behavior while using less power actuator than common humanoid robot such as Asimo or HRP-2.
+
+Among all robots designed to explore morphological computation and compliant body only few allow to explore physical interaction such as Kenshiro \cite{Asano2012} or Acroban which the compliant structure of its vertebral column and legs was shown to permit a self-organized physical human-robot interface allowing non-expert users to lead the robot by the hand \cite{Ly2011bio}\cite{Oudeyer2011}.
+
+The morphological properties of these robotic platforms are especially interesting but unfortunately they are difficult and expensive to reproduce by other research laboratories.
+Most of the studies made on the humanoid robot locomotion in the past 30 years~\cite{park1998biped}~\cite{aoi2005locomotion}~\cite{park1998biped} mainly focus on tackling the challenge of biped walking through the active control of the whole robot dynamics using technics such as ZMP control~\cite{vukobratovic2004zero} requiring very precise and high torque actuation~\cite{akachi2005development}.
+
+The properties of the robot morphology have shown interesting results for robust locomotion, for instance the hexapod robot Rhex~\cite{saranli2001rhex}. Still, it is surprising that only few explored the challenge of biped locomotion through the study of the role of morphology.
+One can cite the work of Chandana Paul and Josh C.Bongard~\cite{paul2001road} and Ken Endo~\cite{endo2002co} which have explored evolutionary optimization on robot morphology to achieve stable biped locomotion. They have showed a strong impact of the morphology on the walking behavior and were able to reduce the complexity of the controller by finding good mechanical properties (limbs length and mass distribution). It has also been shown that human morphological properties such as the compliance of the body explains the dynamics of walking and running \cite{Geyer2006} while experiments made by Kojiro Matsushita~\cite{matsushita2005locomoting} show that an adequate morphology is needed if one is interested in natural looking kind of locomotion.
+
+
+The role of morphology in robot biped locomotion has been particularly explored through the research on passive dynamic walkers~\cite{wisse2007passive}. The most famous example concerns the Tad MacGeer's work~\cite{mcgeer1990passive}. Thanks to the understanding of the intrinsic dynamics of its structure, McGeer has managed to create a 2D biped robot capable of producing several steps without any controller or motor.
+The only control of this robot is obtained through the interaction between the intrinsic inertia of the structure and gravity.
+This work has been pursued with the apparition of semi-passive walker combining both specific passive properties and low power actuation to increase their robustness~\cite{Anderson2005}. We can note the work of Collins~\cite{collins2005bipedal} which explored the case of semi-passive 3D biped robot. Its morphology is based on particular mass distribution, knee locking, round feet and springs on the legs to generate an efficient walking gait while keeping its lateral and frontal balance.
+The concept of 3D semi-passive robot has been pushed even further with the realization of a complete humanoid robot with trunk, arms and head: the robot Denise~\cite{wisse2005three} and Flame presented in~\cite{Hobbelen2008}.
+
+Several studies have also explored the role of the foot and ankle morphology for biped walking on both human~\cite{Adamczyk2006}~\cite{Hughes1990} and robot~\cite{hobbelen2005ankle}~\cite{Davis2010}. However, to our best knowledge no research has focused on the role of the thigh for biped locomotion. While the HRP-4C~\cite{kaneko2009cybernetic} and Kenshiro humanoid~\cite{nakanishi2013design} robot seem to visually have a morphology design close to the thigh shape of Poppy, they did not study, in the associated scientific papers the role of this shape on the dynamic of their humanoid robot.
+Most of the studies made on the humanoid robot locomotion in the past 30 years~\cite{park1998biped}~\cite{aoi2005locomotion}~\cite{park1998biped} mainly focus on tackling the challenge of biped walking through the active control of the whole robot dynamics using technics such as ZMP control~\cite{vukobratovic2004zero} requiring very precise and high torque actuation~\cite{akachi2005development}.
+
+
+
 
 \subsection{Locomotion} % (fold)
 

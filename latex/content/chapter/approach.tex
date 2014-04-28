@@ -4,6 +4,29 @@
 
 \textbf{Keywords:} rapid prototyping - body design - body as an experimental variable - experimentation - 3D printing - open-source - open science
 
+\section{Introduction} % (fold)
+\textbf{Morphology and biped locomotion:} Studying the impact of morphology over the control and/or learning of skills requires the possibility to implement and experiment novel morphologies. Two particularly interesting skills are biped locomotion and robustness to physical interaction with humans. Poppy uses the bio-inspired trunk developed for the Acroban humanoid robot \cite{Ly2011bio}, useful for both these skills. In addition, it also includes a novel hip and thigh physical design which is presented and studied in this article with regards to its impact on locomotion and balance control, as well as optimized design of knees and compliant feet. The geometry of limbs has been optimized to minimize weight thanks to a mesh structure and optimal use of motors, which in turn have allowed the decrease of motor power and weight, as well as energy consumption, while reinforcing safety (see below). Such morphological designs were made possible with the use of 3D printing techniques.
+
+\textbf{Social and physical human-robot interaction:} Most often, robots designed to study the role of morphology in biped locomotion do not afford rich social and physical interaction with humans: with a minimal torso and no head \cite{collins2001three}\cite{niiyama2010athlete}. Poppy was designed to afford such full-body physical interaction (we will illustrate this with the possibility to guide him physically in biped locomotion), as well as to afford social interaction, with a head and gestural apparatus that can be programmed for communicative or affective expression.
+
+\textbf{Full-body compliance:} Important aspects of adaptation to physical obstacles or to humans require humanoid robots to be full-body compliant. This includes both the ability to absorb external shocks due to the passive compliance of the mechanical structure (bendable materials and springs), but also the ability to actively and dynamically control the compliance of motors, which may be either controlled in position with compliance, or directly in torque (thanks to the use of adequate recent servomotor technologies).
+
+\textbf{Robustness and Safety:} The above mentioned research endeavor requires that heavy and long real-world experimentation be conducted with the robot. This implies that the robot should be robust and safe. It should be able to sustain experiments and fall down without easily breaking. At the same time, one should ensure that physical interaction with the robot is safe for humans. The approach taken is again based on morphological design, where the combination of lightweight design, compliance, and robust materials is used.
+
+\textbf{Breakable, repairable:} Even if breaking should be made unusual, real-world experimentation should be expected to break the robot at regular intervals. This should not become a problem for conducting research. Breaking should not be costly and the robot should be easily repairable. This is achieved thanks to 3D printing techniques, affordable off-the-shelf components, and optimized mounting design.
+
+\textbf{Precision, stationarity:} Experiments should be repeatable, implying that the robot properties should be stationary.
+
+\textbf{Transportable outside the lab:} To allow for experiments in natural environments, possibly involving interaction with non-technical humans, the robot should be transportable outside the laboratory.
+
+\textbf{Easy and fast to duplicate:} Such a reuse of the robotic platform requires that it is easy and fast to duplicate. The approach taken is to only use off-the-shelf components (motors and electronics) and limbs which can be printed with regular 3D printing services. The Poppy humanoid platform takes two days to assemble by one user, and was already reproduced twice, including by another laboratory\footnote{Laboratoire de la Perception et de l'Action (J. Droulez), Collège de France, Paris, France\label{LPPA}}.
+
+\textbf{Affordable:} A mid-term goal of this project is to open the hardware and software platform to the academic community (under an open-source mode), to allow other research laboratories to use it as an experimental platform. A key aspect for such an open dissemination is to keep the cost of the robot relatively low. The overall materials needed to build a Poppy robot cost around 7500 euros including 4700 euros for actuators, 1600 euros for of the shell mechanical and electronic components and 1200 euros for 3D printed mechanical parts.
+
+% \end{description}
+
+The Poppy platform presented in this article was designed to target these design goals within the context of biped locomotion. We focus here on the presentation of the design of specific morphological parts: the hip, the thigh, the limb mesh and the knee.
+
 \section{Current limitations}
 
 In the previous chapter, we presented several works showing the importance of the robot morphology and the need to continu the research in this domain. However, we saw that none of the available commercial robot platform permits such scientific exploration.
@@ -45,7 +68,7 @@ In this chapter, we present a design methodology allowing to:
 
 \section{Developping experimental tools}
 
-In this context, we need to find new design methodology allowing to easily explore the role of morphology and we need to find workflow to share scientific contributions with the community. 
+In this context, we need to find new design methodology allowing to easily explore the role of morphology and we need to find workflow to share scientific contributions with the community.
 
 \subsection{The needs}
 hardware platform keyword: robust, flexible, safety, breakable, repairable, stationnarity, affordable, Easy and fast to duplicate, modular, easy to set up.
@@ -61,6 +84,9 @@ hardware platform keyword: robust, flexible, safety, breakable, repairable, stat
 \subsection{Off-the-shell components} % (fold)
 
 
+\section{Limitations} % (fold)
+
+On doit faire des compromis et se résoudre à ne pas faire une solution qui  nous paraissent interessantes car elle poserait problème à la diffusion. C'est chiant mais c'est la vie pour faire de la science cumulative. Il faut se limiter.
 
 
 \section{Conclusion} % (fold)
