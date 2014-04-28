@@ -83,6 +83,7 @@
 \usepackage{pdfpages}
 \usepackage{caption}
 \usepackage{grid-system}
+\usepackage{enumitem}
 \newenvironment{NFfigure}{\captionsetup{type=figure}}{}
 
 
@@ -94,7 +95,8 @@
 % Document PATH
 % **************************************************
 \graphicspath{  {../media/},
-                {../media/open_hardware/}
+                {../media/open_hardware/},
+                {../media/thigh_experiment/}
                 }
 
 % **************************************************
@@ -151,21 +153,21 @@
 % --------------------------
 % Back matter
 % --------------------------
-% {%
-% \setstretch{1.1}
-% \renewcommand{\bibfont}{\normalfont\small}
-% \setlength{\biblabelsep}{0pt}
-% \setlength{\bibitemsep}{0.5\baselineskip plus 0.5\baselineskip}
-% \nocite{*}
-% \printbibliography[nottype=online]
-% \printbibliography[heading=subbibliography,title={Webseiten},type=online,prefixnumbers={@}]
-% }
-% \cleardoublepage
+{%
+\setstretch{1.1}
+\renewcommand{\bibfont}{\normalfont\small}
+\setlength{\biblabelsep}{0pt}
+\setlength{\bibitemsep}{0.5\baselineskip plus 0.5\baselineskip}
+\nocite{*}
+\printbibliography[nottype=online]
+\printbibliography[heading=subbibliography,title={Webseiten},type=online,prefixnumbers={@}]
+}
+\cleardoublepage
 
-% \listoffigures
-% \cleardoublepage
+\listoffigures
+\cleardoublepage
 
-% \listoftables
+\listoftables
 
 % \cleardoublepage
 % \input{content/chapter/appendix.tex}
