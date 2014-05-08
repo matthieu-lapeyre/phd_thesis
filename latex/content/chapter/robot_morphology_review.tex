@@ -7,9 +7,115 @@
 \includepdf{/Users/matthieulapeyre/Documents/phd_thesis/media/thebeast.pdf}
 \chapter{Robot morphology: some facinating work} % (fold)
 
-\section{Morphological computation} % (fold)
+
+\section{Introduction} % (fold)
+For years, artificial intelligence was only considered through complex computation. An interesting evolution during the last decade was the emergence of work showing the importance of the actual robot morphology in the robot behavior.
 
 Regarding the role of morphology in biped locomotion, one of the first famous example concerns the work of Tad MacGeer on passive dynamic walkers \cite{mcgeer1990passive}. Thanks to the understanding of the intrinsic dynamics of its structure, McGeer has managed to create a 2D biped robot capable of producing several steps without any controller or motor. The only control of this robot is due to the interaction between the intrinsic inertia of the structure and gravity. This work has been pursued by those of Collins \cite{collins2001three} and Tedrake \cite{Tedrake2004}  who perfected the concept to make 3D walkers possible and over longer distances. The structure of its robot has its own dynamic that allow it to self-stabilize and maintain a walking motion.
+
+\subsection{Mechanical computation} % (fold)
+
+http://www.clivemaxfield.com/diycalculator/popup-h-mechcomp.shtml
+
+Zuse constructed the Z1 between 1936 and 1938 in his parents' living room in Berlin). Containing approximately 30,000 components, this purely mechanical computer was incredibly sophisticated. At that time, mechanical calculators were based on the decimal number system (because that’s the way people thought). Similarly, when people first started building computers in America (see the discussions on the Mark 1, ENIAC, and so on elsewhere on this site), they initially decided to make them work in decimal, which we now know to be horrendously inefficient. By comparison, although the Z1 allowed numbers to be input in decimal and displayed its results in decimal, it performed all of its internal calculations in binary (this was to become the standard for all digital computers years later).
+
+Furthermore, while everyone else was building computers that worked with integer or fixed-point numbers, the Z1 used a binary floating-point system based on a semi-logarithmic representation. This made it possible to work with very small and very large numbers, thereby making the Z1 suitable for a wide variety of engineering and scientific applications.
+
+The Z1 was freely programmable in that it could read an arbitrary sequence of instructions from a punch tape. It featured a control unit that directed operations throughout the machine, a binary floating-point arithmetic unit with sophisticated exception handling, and a 64-word mechanical memory, where each 22-bit word could store arbitrary data and be addressed by both the punch tape and the main control unit.
+
+The only electromechanical element in the Z1 was a motor, which provided the 1 Hz system clock (there was also a hand crank that could be used to drive the clock manually). The end result was the first freely programmable, binary, floating-point, general-purpose mechanical computer in the world!
+
+\begin{figure}[]
+\centering
+    \subfloat[][]{\label{}\includegraphics[width=0.42\linewidth]{hist-z1-reconstruct.jpg}}
+    \hfil
+    \subfloat[][]{\label{}\includegraphics[width=0.42\linewidth]{curta_calculator.jpg}}
+    \caption{}
+    \label{fig:mcgeer_work}
+\end{figure}
+
+\begin{figure}[tb]
+    \begin{center}
+        \includegraphics[width=0.8\linewidth]{plane_explanation.jpg}
+    \end{center}
+    \caption{Caption here}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[]
+\centering
+    \subfloat[][]{\label{}\includegraphics[width=0.56\linewidth]{bernoulli_wing_lift.png}}
+    \hfil
+    \subfloat[][]{\label{}\includegraphics[width=0.42\linewidth]{airfoil_bernouilli.png}}
+    \caption{}
+    \label{fig:}
+\end{figure}
+
+
+http://tensegritywiki.blogspot.fr/2010/08/mechanism-as-mind-tensegrity-and.html
+\subsection{Passive dynamic walkers} % (fold)
+
+\begin{figure}[]
+\centering
+    \subfloat[][Tad McGeer with his prototypes]{\label{fig:tad_mcgeer}\includegraphics[width=0.49\linewidth]{tad_mcgeer.jpg}}
+    \hfil
+    \subfloat[][Passive walker robot]{\label{fig:mcgeer_walker}\includegraphics[width=0.49\linewidth]{mcgeer_walker.jpg}}
+    \caption{}
+    \label{fig:mcgeer_work}
+\end{figure}
+
+\begin{figure}[]
+    \begin{center}
+        \includegraphics[width=0.6\linewidth]{passive_walkers.jpg}
+    \end{center}
+    \caption{Caption here}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[]
+    \begin{center}
+        \includegraphics[width=0.99\linewidth]{cornell_biped_series.jpg}
+    \end{center}
+    \caption{Caption here}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[]
+    \begin{center}
+        \includegraphics[width=0.6\linewidth]{comparison_cost_transport.jpg}
+    \end{center}
+    \caption{Caption here}
+    \label{fig:figure1}
+\end{figure}
+
+
+
+\section{Complex emergent behavior} % (fold)
+
+
+\begin{figure}[]
+\centering
+    \subfloat[][]{\label{}\includegraphics[width=0.32\linewidth]{strandbeest_theory.jpg}}
+    \hfil
+    \subfloat[][]{\label{}\includegraphics[width=0.32\linewidth]{strandbeest_motion.jpg}}
+    \hfil
+    \subfloat[][]{\label{}\includegraphics[width=0.32\linewidth]{strandbeest_leg_element.jpg}}
+    \caption{}
+    \label{fig:}
+\end{figure}
+
+
+\begin{figure}[]
+    \begin{center}
+        \includegraphics[width=0.99\linewidth]{theo_jansen_beast.jpg}
+    \end{center}
+    \caption{Caption here}
+    \label{fig:figure1}
+\end{figure}
+
+
+
+
 
 The concept of morphological computation has also been associated to the principle of “ecological balance”, as outlined by Pfeifer et al. \cite{pfeifer2005new}, which states that there is a balance or task distribution between morphology, materials, control, and interaction with the environment. For example, morphological computation has been shown to be necessary in order to achieve human-like biped locomotion \cite{matsushita2005locomoting} and the coupling of adequate morphologies with central-pattern generators has been shown to generate robust locomotor behavior \cite{ijspeert2007swimming}\cite{steingrube2010self}.
 
