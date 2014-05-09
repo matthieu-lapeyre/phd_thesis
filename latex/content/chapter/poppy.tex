@@ -10,75 +10,178 @@
 
 \chapter{The Poppy development} % (fold)
 
-\section{Poppy overview} % (fold)
+\section{Motivations} % (fold)
 
-Where is no platform allowing both the easy exploration of the morphology and the reuse of the results in other laboratory.
-Exploration of the morphology
-Body intelligence
-Given this methodology we will now interest ourself about the conception of an actual robot.
-Following the design process methodology introduce in the previous chapter, we are
-Lightweight
+As we highlighted in the chapter\ref{}, using concepts such as morphological computation, passive dynamics and ecological balance seem to be promising for making robot more robust to their environment. However exploring these concepts require to consider the morphology as an experimental variable and therefore design experimental platform allowing to easily and quickly change it.
 
+We addressed these needs by applying the methodology presented in the chapter\ref{} on the design of a whole new humanoid platform we named Poppy\texttrademark, one of the first 3D printed and open source (software \& hardware)humanoid robot.
 
-Need - Why you
-As we saw, concepts such as morphological computation, passive dynamics and ecological balance seem to be promising for making robot more robust to their environment. However there is not robotic platform allowing to easily explore these concepts. To do so, we need a robot where the morphology has been thought to be an experimental variable.
-We need an easy to use platform both to run experiment and modify its morphology.
+The choice of an humanoid platform was motivated by our interest on exploring interaction between the morphology and cognition for biped locomotion. Also, when we began this work (mid-2012), no other robotic platform was available to easily explore morphological aspect. Thus we decided to extend the ability of Poppy to the exploration a wider range of scientific challenge such as Human Robot Interaction (HRI), sensorimotor learning, ... Allowing the Poppy platform to raise its ambition to become a benchmarking platform.
 
+Thanks to our FabLab-inspired approach, the first functional and diffusible prototype has been achieved in just 4 months. Then a second version occurred to make the robot more versatile and easy to use for non-expert user such as the education and artistic communities.
 
-
-
-
-
-Task
-We addressed this need by applying our previously-presented methodology on the design on a whole new humanoid robot called Poppy.
-However, as we aim to offer a benchmarking platform, not only useful to explore morphology variation but also human-robot interaction (HRI) and control algorithm, we decided to extend the design of Poppy to make it more versatile and adapted to several present robotic challenges.
-
-Finally, as we are interested by the role of morphology, the conception of poppy follows some concept such as morphological computation, passive dynamics and ecological balance.
-
-Object - Why document
-In this chapter we will explain the design of Poppy from both a conceptual and a technical point of view.
-
-Finding - What
-Following our Fablab-inspired methodology, we managed to build a whole new humanoid robot. The first functional and diffusable prototype has been designed in just 4 months. Then a second design times occurred to make the robot more polyvalent and easy to use for non-expert user.
-
-Conclusion - So What
-This design process leads to the creation of Poppy, one of the first 3D printed and open source humanoid robot which can be used as a core platform for research, education or artistic applications.
-
-Perspectives - What now
-We will do some experiments showing we can explore the role of the morphology with Poppy.
-We will explain how the platform can be use for education and art experiment.
-Limit concerns electronics:
-
-
+In this chapter, we will explain the design of Poppy from both a conceptual and a technical point of view.
 
 
 \section{Design guidelines} % (fold)
 
-Many humanoid robots use powerful motors often associated with highly accurate sensors. This has a cost, both in terms of weight and computation resources. Moreover, to ensure the accuracy of the sensory-motor space it is necessary to design very rigid mechanical parts. The whole structure obtained is powerful but very heavy and so not very agile. This kind of robots can intensively repeat precise and complex movements, but are somewhat uncomfortable when it comes to walking on uneven ground.
+\subsubsection{Modular morphology} % (fold)
+The whole structure must be easy to reconfigure both for repairing or hacking purpose. This mean the process to replace a Poppy's part must be simple, low-cost and not require time or special tooling.
 
-We decided to design a lightweight and compliant robot requiring low actuation power. All our design choices, such as the materials, the motors or the sensors, have been made in this direction and to try to tackle the challenges presented in the introduction. In the next sections we will detail each part of the robot and how they fit within these designs principles.
 
-\subsection{A lightweight structure} % (fold)
+\subsubsection{Less is more: keep it simple}
+
+The fact we want to design an easily reproducible robot means we are limited in our design choices. In most case, finding a simple solution avoid the use of an easy solution: we should minimize the number of part and suppliers, be careful of the availability of our parts in each country, take in account the cost and the assembly complexity. All these constraints make the design of the robot way more complex than a unique prototype robot.
+It also raises some limitation to the main Poppy version while some interesting or efficient solution cannot be kept due to their complexity.
+
+
+\subsubsection{A lightweight structure and under-actuated} % (fold)
+
+Many humanoid robots use powerful motors often associated with highly accurate sensors. This has a cost, both in terms of weight and computation resources. Moreover, to ensure the accuracy of the sensory-motor space it is necessary to design very rigid mechanical parts. The whole structure obtained is powerful but very heavy and due to inertia not very agile. This kind of robots can intensively repeat precise and complex movements, but are somewhat uncomfortable when it comes to walking on uneven ground.
 
 All mechanical parts were designed to optimize their weight and make the platform Poppy as light as possible. The obtained mass reduction allows the use of less powerful motors which are therefore lighter. We can thus have a lightweight robot, strong and powerful enough to perform tasks such as walking and physical interaction.
 
 Weight reduction was achieved through the use of trellis structures. These structures, mainly used in civil engineering, are among the best technical solutions to optimize the weight/resistance ratio. All the limbs of Poppy are based on this structure and have been optimized using finite element analysis (FEA) to perform structural simulation and validate parts performance and safety factors.
 
-\subsection{Bio-inspired morphology} % (fold)
-Human being is a great example of biped locomotion ability. Strictly mimicking the human morphology is certainly not a good idea has the element composing a robot are not comparable. However, studying the functional interest of certain human bio-mechanic properties can reveal interesting insight to explore novel humanoid design.
+\subsubsection{Bio-inspired morphology} % (fold)
+Human being is a great example of biped locomotion ability. Strictly mimicking the human morphology is certainly not a good idea as the element composing a robot are not comparable. However, studying the functional interest of certain human bio-mechanic properties can reveal interesting insight to explore novel humanoid design.
 
-\subsection{Ecological balance principle} % (fold)
+\subsubsection{Ecological balance principle} % (fold)
 The ecological balance principle, introduce by Rolf Pfeifer, states that there is a balance or task distribution between morphology, materials, control, and interaction with the environment.
+Following this principle, we try to keep a balance between the different part of the robot.
 
-\subsection{Whole body compliance} % (fold)
-Important aspects of adaptation to physical obstacles or to humans require humanoid robots to be full-body compliant. This includes both the ability to absorb external shocks due to the passive compliance of the mechanical structure (bendable materials and springs), but also the ability to actively and dynamically control the compliance of motors, which may be either controlled in position with compliance, or directly in torque (thanks to the use of adequate recent servomotor technologies).
+\subsubsection{Whole body compliance} % (fold)
+Important aspects of adaptation to physical obstacles or HRI require humanoid robots to be full-body compliant. This includes both the ability to absorb external shocks due to the passive compliance of the mechanical structure (bendable materials and springs), but also the ability to actively and dynamically control the compliance of motors, which may be either controlled in position with compliance, or directly in torque (thanks to the use of adequate recent servomotor technologies).
+
+\subsubsection{Take care of the aesthetic} % (fold)
+In the scientific community, design and aesthetic are often left aside as a superficial feature. But when an object has to interact with human, the design and aesthetic are the communication channels. The interaction with our senses change the way we understand the purpose of a object.
+
+As any communication tool, the message we convey can be noised or enforced by the form. Thus the robot appearance must fit the robot abilities and try to give insights to the user about what it can or cannot do.
+
+Both at a macro or micro scale, the Poppy aesthetic is thought to show some conceptual aspects of its design.
+\begin{itemize}
+    \item Modular
+    \item Smooth and compliant
+    \item Lightweight
+    \item Under-actuated
+\end{itemize}
+
+We do not hide the stuff, user can see motors, wire...
 
 
 
-\section{The application of our design methodology} % (fold)
+\section{Poppy overview} % (fold)
+
+Poppy (Fig.~\ref{fig:Poppy_comparaison}) is a 84cm high humanoid robot which weights 3.5kg. It has a sensorimotor space consisting of 25 motorized joints using Robotis Dynamixel servomotors (MX-28 and AX-12). These servo-motors give access to a large number of internal sensors and allow tuning dynamically their compliance (see \ref{ssub:robot_actuation}). The sensors space is extended by the addition of 8 force sensors under each foot, an inertial measurement unit located in the head and two wide-angle HD cameras. In addition, a 4" LCD screen is located on the face for visual communication (such as emotions, interaction).
+
+
+
+In order to develop an adapted mechanical structure, we interested ourselves in how evolution solved sensorimotor task related to locomotion and in particular bipedal locomotion. As human locomotion represents one of the finest example of mastering bipedal walking, we took functional inspiration of some elements that seem relevant to improve the locomotion of humanoid robots.
+
+\begin{figure}[thpb]
+    \centering
+    \includegraphics[width=6cm]{proportion_poppy.jpg}
+    \caption{Human proportion used for the design of Poppy \cite{dufour2005biomecanique}}
+    \label{fig:proportion_poppy}
+\end{figure}
+
+This bio-inspiration is expressed on the whole structure of Poppy. On the anatomical point of view, it reproduces the human proportions as described in the literature \cite{dufour2005biomecanique}  (see Fig.~\ref{fig:proportion_poppy}) and their sensorimotor space organization: i.e. the main degrees of freedom (actuated and passive), an inertial unit in the head and force sensors distributed underfoot.
+
+As explained in \ref{sec:introduction}, biped locomotion is a central design goal of the Poppy platform. For this purpose, the morphological optimization is mainly expressed on the locomotive system (legs and trunks) in order to increase the robot robustness, agility and stability during the walking.
+
+
+\subsection{Lightweight and compliant structure} % (fold)
+\label{sub:a_ligthweight_and_compliant_structre}
+Many humanoid robots use powerful motors often associated with highly accurate sensors. This has a cost, both in terms of weight and computation resources. Moreover, to ensure the accuracy of the sensory-motor space it is necessary to design very rigid mechanical parts. The whole structure obtained is powerful but very heavy and so not very agile. This kind of robots can intensively repeat precise and complex movements, but are somewhat uncomfortable when it comes to walking on uneven ground.
+
+Following ecological principles \cite{pfeifer2005new} we decided to design a lightweight and compliant robot requiring low actuation power. All our design choices, such as the materials, the motors or the sensors, have been made in this direction and to try to tackle the challenges presented in the introduction. In the next sections we will detail each part of the robot and how they fit within these designs principles.
+
+\subsubsection{Actuation} % (fold)
+\label{ssub:robot_actuation}
+
+While emerging technologies such as linear motor, artificial muscle or using both motors and cables are promising, they are still not ``plug'n'play'' solutions (e.g. require air circuit, associating motor and cable is a complex task, pistons are heavy and slow). It makes their integration in a small platform such as Poppy difficult.
+
+We therefore chose to use Robotis Dynamixel servo-motors\footnote{\url{http://www.robotis.com/xe/dynamixel_en}} for the robot actuation. They are all-in-one-modules which contain drivers, encoders and communication lines. They are also quite powerful, robust and precise. This is done by the combination of maxon motor, metal gear box and precise position sensor (resolution: 0.1\textsuperscript{o}). They embed a 32bits micro-controller dedicated to the communication (serial port), the control of the joint (position, speed or torque) and the measurement of severals internal data such as the real position, speed, load or temperature. They also allow tuning the internal PID or limiting the maximal torque. This permits rich behaviors useful both for physical interaction and locomotion. However these motors are quite heavy (72, 126 and 153g respectively for MX-28, MX-64 and MX-106) in comparison of the Futaba servo-motors\footnote{\url{http://www.futaba-rc.com/servos/brushless.html}}, 20-50g for a comparable output torque. Given these constraints, the challenge consists in minimizing the number of motors and the power needed to reduce the global weight of the robot.
+
+It would be interesting to mix both robotis motors with basic servo-motors where the compliance is not so important. However, as this makes the design more complex we did not explore this solution yet.
+
+% subsubsection robot_actuation (end)
+
+\subsubsection{Material properties} % (fold)
+\label{ssub:material_properties}
+
+All mechanicals parts are made using laser sintering technology. This 3D printing process allows the production of almost any shape without constraint. In addition, the price of the part depends on the total size and not on the complexity of the shape. This permits the production of very optimized shapes without increasing the total price of the robot. Also, this technique is compatible with several materials from polyamide to titanium. Parts manufacturing was subcontracted to an external company\footnote{\url{http://i.materialise.com/}}.
+
+For Poppy's structure we decided to use the polyamide material because it is lightweight and very flexible while keeping good strength properties (see the table \ref{tab:materials}).
+
+\begin{table}[h]
+    \centering
+    \begin{tabularx}{0.8\linewidth }{l X X X}
+        Material & Mass Density $\rho$ ($kg/m^3$) &  Yield strength $\sigma$~($MPa$) & Young Modulus $E$($GPa$)\\
+        \hline
+        Polyamide & $930$ & $49$ & $1.65$\\
+
+        Aluminum & $2700$ & $200$ & $70$\\
+
+        Steel & $7500-8000$ & $350$ & $200$\\
+
+        Titanium & $4500$ & $1200$ & $114$\\
+
+    \end{tabularx}
+
+    \caption{Comparison of material properties. The Young modulus represents the stiffness of the material while the yield strength corresponds to the maximal stress tolerable before plastic deformation.}
+    \label{tab:materials}
+\end{table}
+
+
+% subsubsection material_properties (end)
+
+
+\subsubsection{Structure design} % (fold)
+\label{ssub:structure_design}
+
+
+All mechanical parts were designed to optimize their weight and make the platform Poppy as light as possible. The obtained mass reduction allows the use of less powerful motors which are therefore lighter. We can thus have a lightweight robot, strong and powerful enough to perform tasks such as walking and physical interaction.
+
+Weight reduction was achieved through the use of trellis structures. These structures, mainly used in civil engineering, are among the best technical solutions to optimize the weight/resistance ratio. All the limbs of Poppy are based on this structure and have been optimized using finite element analysis (FEA) to perform structural simulation and validate parts performance and safety factors.
+
+\begin{figure}[thpb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{leg_section.pdf}
+    \caption{a. Section of the Poppy's leg. b. Equivalent square section}
+    \label{fig:leg_section}
+\end{figure}
+
+
+The main quadratic momentum taken at the middle of the leg given the trellis structure (see Fig.~\ref{fig:leg_section}.a) is:
+
+% \begin{equation}
+%     I_x = \iint_s y^2 dxdy
+%     % I_y = \iint_s x^2 dxdy
+%     % with s = dxdy
+% \end{equation}
+\begin{center}
+    $I_x = 54862 mm^4$
+    ,
+    $I_y = 53260 mm^4$
+\end{center}
+
+For instance, given a solid bar with rectangular profile (Fig.~\ref{fig:leg_section}.b):
+
+{\centering
+    $I_x = \frac{b \cdot h^3}{12}$
+    ,
+    $I_y = \frac{b^3 \cdot h}{12}$
+
+}
+It would require a section such as $b=27.72 mm$ and $h=27.59 mm$ to get the same quadratic momentum. Considering the length of the leg part (i.e. $190 mm$), the total mass would be equal to $142 g$ instead of $47 g$ for the actual leg. This corresponds to a reduction of 70\% of the mass.
+
+By using this mesh structure on most of the robot, the total weight of the 3D
+printed parts were reduced of about 1.3kg while still being resistant under shocks and falls.
+
 
 \subsection{The materials} % (fold)
-All mechanicals parts are made using laser sintering technology. This 3D printing process allows the production of almost any shape without constraint. In addition, the price of the part depends on the total size and not on the complexity of the shape. This permits the production of very optimized shapes without increasing the total price of the robot. Also, this technique is compatible with several materials from polyamide to titanium. 
+All mechanicals parts are made using laser sintering technology. This 3D printing process allows the production of almost any shape without constraint. In addition, the price of the part depends on the total size and not on the complexity of the shape. This permits the production of very optimized shapes without increasing the total price of the robot. Also, this technique is compatible with several materials from polyamide to titanium.
 
 For Poppy's structure we decided to use the polyamide material because it is lightweight and very flexible while keeping good strength properties.
 
@@ -86,7 +189,7 @@ For Poppy's structure we decided to use the polyamide material because it is lig
 
 While emerging technologies such as linear motor, artificial muscle or using both motors and cables are promising, they are still not ``plug'n'play'' solutions (e.g. require air circuit, associating motor and cable is a complex task, pistons are heavy and slow). It makes their integration in a small platform such as Poppy difficult.
 
-We therefore chose to use Robotis Dynamixel servo-motors\footnote{\url{http://www.robotis.com/xe/dynamixel_en}} for the robot actuation. 
+We therefore chose to use Robotis Dynamixel servo-motors\footnote{\url{http://www.robotis.com/xe/dynamixel_en}} for the robot actuation.
 
 
 \subsection{Electronics} % (fold)
@@ -145,9 +248,9 @@ Contrary to the design of the hips, it was not possible here to fit the 5 motors
 
 
 \section{A versatile control library: pypot} % (fold)
-Right from the beginning of the poppy platform development with started the development of a new python library to control the robot. 
+Right from the beginning of the poppy platform development with started the development of a new python library to control the robot.
 
-Following the hardware guidelines, the pypot library was developed to be robust, versatile and easy to use. 
+Following the hardware guidelines, the pypot library was developed to be robust, versatile and easy to use.
 
 
 \subsection{Why not using ROS ?} % (fold)
@@ -161,7 +264,8 @@ The high level design allows the use of primitives. Primitives are ...
 This features is really powerful has it allows to create complex behavior as a sum of simple behavior.
 
 
-However the interaction between them is tricky and can lead to undesired behavior. 
+However the interaction between them is tricky and can lead to undesired behavior.
+
 
 
 \section{Conclusions} % (fold)
