@@ -1,5 +1,6 @@
 # Changelog
-
+## v.0.3
+Add lot of content, yet still at 45%
 
 ## v.0.2
 First version of the thesis outline
