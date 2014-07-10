@@ -28,7 +28,7 @@
 \newcommand{\thesisName}{Matthieu Lapeyre}
 \newcommand{\thesisSubject}{PhD Thesis report}
 \newcommand{\thesisDate}{May 9, 2014}
-\newcommand{\thesisVersion}{0.3}
+\newcommand{\thesisVersion}{0.4}
 
 \newcommand{\thesisFirstReviewer}{Jane Doe}
 \newcommand{\thesisFirstReviewerUniversity}{\protect{Clean Thesis Style University}}
@@ -98,6 +98,23 @@
   \nolinebreak[3]\hspace*{\fill}\mbox{#1}
 }
 
+% Math stuff
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+\DeclareRobustCommand\refmark[1]{\textsuperscript{\ref{#1}}}
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+
+\newcommand*{\Value}{\frac{1}{2}x^2}%
+
 % \usepackage{epstopdf} % Convert eps image to pdf
 % \usepackage{epsfig}
 
@@ -109,13 +126,15 @@
                 {../media/thigh_experiment/},
                 {../media/related_work/morphology/},
                 {../media/poppy/},
+                {../media/poppy/approach/},
                 {../media/poppy/conception/},
                 {../media/poppy/pypot/},
                 {../media/applications/education/},
                 {../media/applications/hackathon/},
                 {../media/applications/art/references/},
                 {../media/applications/art/etres-numerique/},
-                {../media/related_work/robotic_platforms/}
+                {../media/related_work/robotic_platforms/},
+                {../media/related_work/3D_printing/}
                 }
 
 % **************************************************
@@ -144,9 +163,9 @@
 % \input{content/acknowledgement} % INCLUDE: acknowledgement
 % \cleardoublepage
 % %
-\setcounter{tocdepth}{2}        % define depth of toc
-\tableofcontents                % display table of contents
-\cleardoublepage
+% \setcounter{tocdepth}{2}        % define depth of toc
+% \tableofcontents                % display table of contents
+% \cleardoublepage
 
 % --------------------------
 % Body matter
@@ -156,37 +175,62 @@
 \pagestyle{maincontentstyle}    % fancy header and footer
 
 
+% \input{content/chapter/temp.tex}
 \input{content/chapter/introduction.tex}
+
+\part{Context} % (fold)
 \input{content/chapter/robot_morphology_review.tex}
 \input{content/chapter/experimental_review.tex}
 \input{content/chapter/OP_RP_review.tex}
+
+\part{The Poppy project} % (fold)
+\begin{quotation}
+    The Poppy project aims at ...
+    % \signed{Matthieu Lapeyre}
+\end{quotation}
 \input{content/chapter/approach.tex}
 \input{content/chapter/poppy.tex}
+\input{content/chapter/community.tex}
+
+\part{Applications} % (fold)
+\begin{quotation}
+    Usage is like oxygen for ideas. You can never fully anticipate how an audience is going to react to something you’ve created until it’s out there. That means every moment you’re working on something without it being in the public it’s actually dying, deprived of the oxyge of the real world.\\
+    \signed{Matt Mullenweg - Wordpress}
+\end{quotation}
+
 \input{content/chapter/morphology.tex}
+\input{content/chapter/education.tex}
+\input{content/chapter/art.tex}
+
+\part{Discussions} % (fold)
 \input{content/chapter/diffusion.tex}
-\input{content/chapter/conclusion.tex}
 \input{content/chapter/discussion.tex}
+\input{content/chapter/conclusion.tex}
+
 
 \cleardoublepage
 
-% --------------------------
-% Back matter
-% --------------------------
+--------------------------
+Back matter
+--------------------------
+
+
+
 {%
 \setstretch{1.1}
 \renewcommand{\bibfont}{\normalfont\small}
 \setlength{\biblabelsep}{0pt}
 \setlength{\bibitemsep}{0.5\baselineskip plus 0.5\baselineskip}
-\nocite{*}
+% \nocite{*}
 \printbibliography[nottype=online]
-\printbibliography[heading=subbibliography,title={Webseiten},type=online,prefixnumbers={@}]
+% \printbibliography[heading=subbibliography,title={Webseiten},type=online,prefixnumbers={@}]
 }
-\cleardoublepage
+% \cleardoublepage
 
-\listoffigures
-\cleardoublepage
+% \listoffigures
+% \cleardoublepage
 
-\listoftables
+% \listoftables
 
 % \cleardoublepage
 % \input{content/chapter/appendix.tex}

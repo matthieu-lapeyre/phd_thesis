@@ -9,6 +9,7 @@
 
 % \cleanchapterquote{third industrial revolution}{the economist}
 
+
 \section{Introduction} % (fold)
 
 With the democratization of personal computers and the development of Internet, computer science and application have know a great expansion. Open source software played a major role, indeed most of the web are running under Linux operating system and Apache while open source software like Qt, openGL, openCL, OpenCV, and so on permitted the realization of a wide variety of daily life applications.
@@ -24,55 +25,151 @@ In this chapter, we will discuss the emergence of new production tools also comi
 
 \section{The 3D printing revolution} % (fold)
 
-A comparison of rapid prototyping technologies (Pham 1997)
-
-"Prototyping is an essential part of the product development and manugacturing cycle required for assessing the forim, fit and functionality of a design before a significant investment in tooling is made.
-Until recently, prototypes were largerly handmade by skilled craftsmen, adding weeks or months to the product development time.
-Because of this, only a few design iterations could be made before tooling went into production, resulting in parts which at best were seldom optimised and at worst did not function properly.
-Rapid Prototyping is a term which embraces a range of new technologies for producing accurate parts directly from CAD models in a few hours, with littel need for human intervention.
-This means that desigenrs have the freedom to produce physical models of theirs drawings more frequently, allowing them to check the assembly and function of the design as well as discussing downstream manufacturing issues with an easy-to-interpret, unambigous prototype.
-Consequently, errors are minimised and product development costs and lead times substantially reduced.
-It has been claimed that rapid proto can cut new product costs by up to 70\% and the time to market by 90\%."
-- Rapid product development in the USA, Europe and Japan (Waterman 1994)
+The 3D printing production technique contained all process based on additive technique.
 
 3D printing is any of various processes of making a three-dimensional object from a numeric model (mainly 3D) primarily through additive processes in which successive layers of material are laid down under computer control.
 
-\subsection{Several available techniques} % (fold)
 
-\subsubsection{Stereolithography (SL)} % (fold)
+Prototyping is an essential step in a product development and manufacturing cycle. It permits to test the form and the functionalities of a new product before large investment in tooling for mass production. Until the last decade, prototypes were largely handmade by skilled craftsmen, adding weeks or months to the product development time. Rapid prototyping techniques permit to produce accurate parts right from a numeric model in few hours and with minimum handling tasks. Consequently, errors are minimised and product development costs and lead times substantially reduced. It has been claimed that rapid proto can cut new product costs by up to 70\% and the time to market by 90\%~\cite{waterman1994rapid}.
 
-This relies on a photosensitive monomer resin which forms a polymer and solidifies when exposed to ultraviolet (UV) light.
-Due to the absorption and scattering of the beam this reaction only takes place near the surface.
+The progress in the 3D printing process allows now to not only consider the 3D printing as a rapid prototyping technique but also as a production technique. 3D printing allows really fast prototyping but most of it permits to create shape either impossible or too expensive to be produced until now (see \figurename~\ref{fig:3D_printed_objects}).
 
-Y'en a plein dans A comparison of rapid prototyping technologies (Pham 1997)
 
-\subsubsection{Selective laser sintering} % (fold)
-SLS uses a fine powder which is heated with a CO2 laser of power in the range of 25-50W such that the surface tensions of the grains are overcome and they fuse together.Before the powder is sintered, the entire bed is headted to just below the melting point of the material in order to minimize thermal distortion and facilitate fusion to the previous layer.
 
-\subsubsection{Filament} % (fold)
+\subsection{Several techniques} % (fold)
 
-\subsection{Totaly revolution the design process} % (fold)
+The 3D printing name gather together several different additive processes.
+
+\subsubsection{Fused Deposition Modeling (FDM)} % (fold)
+
+The FDM technique relies on melting and selectively depositing a thin filament of thermoplastic polymer (ABS - PLA) in a cross-hatching fashion to form each layer of the part. The material is in the form of a wire supplied in sealed spools which is mounted on the machine and the wire is threaded through the FDM head. The head is moved in the horizontal X and Y directions for producing each layer through zigzag movements. The supporting table moves in the vertical direction and is lowered after the completion of each layer.
+
+\begin{figure}[h]
+    \centering
+        \subfloat[][FDM process]{\label{fig:FDM_process}\includegraphics[height=4.5cm]{FDM_technique.jpg}}
+        \hfil
+        \subfloat[][FDM result example]{\label{fig:FDM_part}\includegraphics[height=4.5cm]{FDM_part.jpg}}
+        \hfil
+    \caption{}
+    \label{fig:FDM_technique}
+\end{figure}
+
+It is a really low-cost and office environment friendly technique but is limited by its slowness on dense part, the need of supports and its lack of precision for details, thin walls and surface finish.
+
+
+\subsubsection{Stereo-Lithography (SLA)} % (fold)
+
+This technique relies on a photosensitive monomer resin which forms a polymer and solidifies when exposed to ultraviolet (UV) light. The UV laser beam moves in the horizontal directions and is focused on the top layer to polymerize the photo sensitive resin (see \figurename~\ref{fig:SLA_process}). Due to the absorption and scattering of the beam this reaction only takes place near the surface. Then the cured layer of polymer is lowered by the platform (Z axis) so that a fresj layer of liquid resin covers the part.
+
+\begin{figure}[h]
+    \centering
+        \subfloat[][SLA process]{\label{fig:SLA_process}\includegraphics[height=5cm]{SLA_technique.jpg}}
+        \hfil
+        \subfloat[][SLA example]{\label{fig:formlab_printer}\includegraphics[height=5cm]{SLA_part.jpg}}
+        \hfil
+    \caption{The stereo-lithography technique: an UV laser beam polymerizes the top layer of a photo sensitive resin on the horizontal direction (X/Y) while the platform move in the vertical direction.}
+    \label{fig:SLA_technique}
+\end{figure}
+
+This technique has several advantages such as a good surface finish and is capable to produce high detailed part with thin walls, but is limited by material (only photo polymers) and support structures are always needed which can be difficult to revome.
+
+\subsubsection{Selective Laser Sintering (SLS)} % (fold)
+The Selective Laser Sintering process uses a high power (25-50W) CO2 laser beam which melts and fuses fine powdered material spread on a layer. Before the powder is sintered, the entire bed is headted to just below the melting point of the material in order to minimize thermal distortion and facilitate fusion to the previous layer.
+While the laser acts in the horizontal plane, the platform move along the vertical axis -through a distance corresponding to the layer thickness (usually 0.01 mm)- and a counter-rotating roller spreads a precise amount of fresh powder above the sintered layer. The unsintered powder serves as the support for overhanging portions, if any in the subsequent layers.
+
+\begin{figure}[h]
+    \centering
+        \subfloat[][SLS process]{\label{fig:SLA_process}\includegraphics[height=5cm]{SLS_technique.jpg}}
+        \hfil
+        \subfloat[][]{\label{fig:formlab_printer}\includegraphics[height=5cm]{SLS_part.jpg}}
+        \hfil
+    \caption{}
+    \label{fig:SLS_technique}
+\end{figure}
+
+This technique has really interesting advantage: it is compatible with a large number of different materials, it does not require support and mechanical properties of part are homegenous (the same in any direction). However, this technique requires some handling to extract extra powder from the part and SLS 3D printer are very expensive (+50K).
+
+
+\subsubsection{Direct Metal Laser Sintering (DMLS)} % (fold)
+
+The Direct Metal Laser Sintering is very similar with the SLS process but use a high-powered 200 watt Yb-fiber optic laser in order to fuse metal powder into a solid part by melting it locally. Parts are built up additively layer by layer, typically using layers 20 micrometres thick. This process allows for highly complex geometries to be created directly from the 3D CAD data, fully automatically, in hours and without any tooling. DMLS is a net-shape process, producing parts with high accuracy and detail resolution, good surface quality and excellent mechanical properties.
+
+\begin{figure}[h]
+    \centering
+        \subfloat[][DMLS part]{\label{fig:SLA_process}\includegraphics[height=4.5cm]{DMLS_technique.jpg}}
+        \hfil
+        \subfloat[][DMLS part]{\label{fig:SLA_process}\includegraphics[height=4.5cm]{DMLS_part.jpg}}
+        \hfil
+    \caption{}
+    \label{fig:DMLS_technique}
+\end{figure}
+
+
+
+\subsection{Make possible new design} % (fold)
+
+The layered method of assembly also allows intricate designs - geometries which are impossible to achieve with conventional metal casting.
+
+The cost depends on the size and not on the complexity of the part meaning we can freely optimize the shape.
+
+\begin{figure}[h]
+\centering
+    \subfloat[][Nylon]{\label{fig:3Dprinted_part}\includegraphics[height=3.5cm]{complex_3Dprinted_part.jpeg}}
+    \hfil
+    \subfloat[][Steel]{\label{fig:3Dprinted_steel}\includegraphics[height=3.5cm]{complex_3Dprint_steel.jpg}}
+    \hfil
+    \subfloat[][Odd Guitar]{\label{fig:3Dprinted_guitar}\includegraphics[height=3.5cm]{3D_printed_odd_guitar.jpg}}
+    \caption{}
+    \label{fig:3D_printed_objects}
+\end{figure}
+
 
 \subsection{Expected major impact in the day to come} % (fold)
 
-The SuperDraco differs from most rocket engines in that its combustion chamber is 3D printed by direct metal laser sintering (DMLS), where complex metal structures are printed by using a laser to build the object out of metal powders one thin layer at a time. The regeneratively-cooled combustion chamber is made of inconel; a family of nickel-chromium alloy that’s notable for its high strength and toughness, and is also used in the Falcon 9’s Merlin engine.
 
-“Through 3D printing, robust and high-performing engine parts can be created at a fraction of the cost and time of traditional manufacturing methods,” says Elon Musk, Chief Designer and CEO at SpaceX. “SpaceX is pushing the boundaries of what additive manufacturing can do in the 21st century, ultimately making our vehicles more efficient, reliable and robust than ever before.”
+% \begin{figure}[h]
+% \centering
+%     \subfloat[][A conventional hinge is seen in the background and a 3D-printed metal hinge is seen in the foreground. EADS]{\label{fig:3Dprinted_part}\includegraphics[height=3.5cm]{EADS_3D_printed_hinge.jpg}}
+%     \hfil
+%     \subfloat[][Steel]{\label{fig:3Dprinted_steel}\includegraphics[height=3.5cm]{nice_leg_prothesis.jpg}}
+%     \hfil
+%     \subfloat[][Odd Guitar]{\label{fig:3Dprinted_guitar}\includegraphics[height=3.5cm]{house_printer.jpg}}
+%     \caption{}
+%     \label{fig:3D_printed_objects}
+% \end{figure}
+
+
+\begin{figure}[h]
+\centering
+    \subfloat[][SuperDraco rocket engine]{\label{fig:superdraco}\includegraphics[height=4.5cm]{superdraco.jpg}}
+    \hfil
+    \subfloat[][A conventional hinge is seen in the background and a 3D-printed metal hinge is seen in the foreground. EADS]{\label{fig:EADS_hinge}\includegraphics[height=4.5cm]{EADS_3D_printed_hinge.jpg}}
+    \caption{}
+    \label{fig:3D_printed_objects}
+\end{figure}
+
+The SuperDraco (see \figurename~\ref{fig:superdraco}) differs from most rocket engines in that its combustion chamber is 3D printed by direct metal laser sintering (DMLS), where complex metal structures are printed by using a laser to build the object out of metal powders one thin layer at a time. The regeneratively-cooled combustion chamber is made of inconel; a family of nickel-chromium alloy that is notable for its high strength and toughness.
+
+\begin{quotation}
+    Through 3D printing, robust and high-performing engine parts can be created at a fraction of the cost and time of traditional manufacturing methods. SpaceX is pushing the boundaries of what additive manufacturing can do in the 21st century, ultimately making our vehicles more efficient, reliable and robust than ever before.
+    \signed{Elon Musk, SpaceX CEO/CTO and Tesla Motors CEO.}
+\end{quotation}
+
+
+Parts for cars and satellites can be optimised to be lighter and - simultaneously - incredibly robust.
+
+\begin{quotation}
+    This novel technology offers many advantages. 3D printing, formally known as additive manufacturing, can create complex shapes that are impossible to manufacture with traditional casting and machining techniques. Little to no material is wasted and cutting the number of steps in a manufacturing chain offers enormous cost benefits.
+    \signed{European Space Agency (ESA)}
+\end{quotation}
+
+The AMAZE project has been able to print airplane wing sections as well as jet engine parts, and the ESA hopes to one day print a satellite as one piece.
+
+
 
 As 3D printers became more accessible to consumers, online social platforms have developed to support the community.[131] This includes websites that allow users to access information such as how to build a 3D printer, as well as social forums that discuss how to improve 3D print quality and discuss 3D printing news, as well as social media websites that are dedicated to share 3D models.[132][133][134] RepRap is a wiki based website that was created to hold all information on 3d printing, and has developed into a community that aims to bring 3D printing to everyone. Furthermore, there are other sites such as Thingiverse, which was created initially to allow users to post 3D files for anyone to print, allowing for decreased transaction cost of sharing 3D files. These websites have allowed for greater social interaction between users, creating communities dedicated around 3D printing.
 
-
-\paragraph{A comparison of rapid prototyping technologies (Pham 1997)}
-
-"Prototyping is an essential part of the product development and manugacturing cycle required for assessing the forim, fit and functionality of a design before a significant investment in tooling is made.
-Until recently, prototypes were largerly handmade by skilled craftsmen, adding weeks or months to the product development time.
-Because of this, only a few design iterations could be made before tooling went into production, resulting in parts which at best were seldom optimised and at worst did not function properly.
-Rapid Prototyping is a term which embraces a range of new technologies for producing accurate parts directly from CAD models in a few hours, with littel need for human intervention.
-This means that desigenrs have the freedom to produce physical models of theirs drawings more frequently, allowing them to check the assembly and function of the design as well as discussing downstream manufacturing issues with an easy-to-interpret, unambigous prototype.
-Consequently, errors are minimised and product development costs and lead times substantially reduced.
-It has been claimed that rapid proto can cut new product costs by up to 70\% and the time to market by 90\%."
-- Rapid product development in the USA, Europe and Japan (Waterman 1994)
-
+At The University of Southern California, Professor Behrokh Khoshnevis has built a colossal 3D printer that can build a house in 24 hours. Khoshnevis's robot comes equipped with a nozzle that spews out concrete and can build a home based on a set computer pattern.
 
 
 
@@ -83,7 +180,16 @@ The concept of "open-source hardware" or "open hardware" is not yet as well know
 The emergence of new and accessible rapid prototyping techniques change the way to produce things. Because it is now quick, simple and cheap to make things, it opens the realm of possibility to share hardware because anyone can produce it. Open source hardware is now making sense and is currently exponentially expanding.
 
 \subsection{History} % (fold)
-- Machine à soie de Lyon.
+
+Dominique foray EPFL, valery peress EHESS
+
+In the 18th century, London and Lyon(France) are two majors silk manufacturer town. Because London is on the way to take the leadership, Lyon try an new and original politic for innovation. They decide to freely diffuse the novel technique. Inventors are invited in the city hall to present publicly their innovations. They are then rewarded a first time for the presentation and a second time when the innovation is actually implemented on Lyon machines. Follows this politic, decades of cumulative innovations such as: perforated paper tape (1725 B.Bouchon), punched card program (1728, J-B.Falcon), the Jacquard loom (1801, J-M. Jacquard), sewing machine (1829, B.Thimonnier). Meanwhile, silk production in London is governed by patents, technique are kept secret and monopolized by theirs inventors. \cite{alain1997fate}
+
+The impact of this two opposed political choices turn largely in the advantage for Lyon. In 1815, Lyon had 14500 looms and London 12000. But in 1853, Lyon had 60000 looms while London fell to only 5000. London become a silk importer.
+
+Lyon stimulates inventions and disseminates innovation: looms become programmable, agile order processing and production, standardization of parts, appearance countertops parts, services grow, the Lyon looms park is up to date and operational.
+In London, the industry is controlled by investors, customers must order large series, the choice decreases, the period is longer, the artisans become employees, wages fall, Londoner park looms state is deteriorated
+
 
 - Homebrew computing club
 \subsection{Open Hardware definition} % (fold)
@@ -272,6 +378,8 @@ All kind of object begin to have an open source version even the most advanced o
 
 
 \section{Discussion} % (fold)
+
+Discuter plus en détail d'Arduino, des forks et de l'écosysteme qui s'est créé.
 
 We have now all the tools needed for real open science and open innovation.
 
