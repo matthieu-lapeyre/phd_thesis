@@ -1,78 +1,94 @@
 % !TEX root = ../../thesis.tex
 
-
 \chapter{Motivations and Methodology}
-
-\textbf{Keywords:} rapid prototyping - body design - body as an experimental variable - experimentation - 3D printing - open-source - open science
 
 
 \section{Introduction} % (fold)
 
-In chapter REF, we discussed the emergence of a novel paradigm in the robotics field in the late 80's: the embodied artificial intelligence rejects the symbolic approach and postulates that it is not possible to have intelligence without the body and the environment~\cite{pfeifer2001understanding}.
-Thus an interesting evolution of the last decades is the demonstration of the importance of the morphology for sensorimotor control, cognition and development.
-Exploring the interaction between body properties and cognition could lead to both a better understanding of animals’ behaviour (human being in particular) and to build robot more adapted and robust to an open environment with unpredictable interactions. In particular we can highlight the acquisition of sensorimotor tasks and the exploration of adapted bodies for natural physical and social interaction with humans.
+In chapter REF(related work sur le corps), we discussed the emergence of novel paradigm in the robotics field that appeared in the late 80's. The embodied artificial intelligence rejects the symbolic approach and postulates that it is not possible to have intelligence without an actual robot body associated with its ecological niche~\cite{pfeifer2001understanding}. Following this paradigm, several researchers tried to tackle challenges in which the classical cognitivist approach failed (see REF) e.g. the understanding of natural forms of intelligence that require a direct interaction with the real world.
 
-In this context, we should not only take care of the robot body design but both introduce the morphology as an experimental variable and conduct experiments in the real world, indeed \emph{The world is its own best model} - Rodney Brooks~\cite{brooks1991intelligence}. This is especially the case of dynamic task such as the biped locomotion, t
+Thus an interesting evolution of the last decades is the demonstration of the importance of the morphology for sensorimotor control, cognition and development (~\cite{REF}~\cite{REF}~\cite{REF}). Exploring the interaction between body properties and cognition could lead to both a better understanding of animals’ behaviour (human being in particular) and to build robot more adapted and robust to an open environment with unpredictable interactions. In particular we can highlight the acquisition of sensorimotor tasks and the exploration of adapted bodies for natural physical and social interactions with humans.
 
-The role of the morphology appears as a fascinating open field.
-However such experiments raised two major issues researchers tried to avoid for years by using simulation. First, having a robot moving in the real world leads to problems linked to the platform robustness against mistake. An efficient experimental platform should not break itself while acting in the real world and at least, it should be easy to repair it in case of problem. Second, considering morphology as an experimental variable raised two major epistemological problems:
+In this context, we should not only take care of the robot body design but \textbf{introduce the morphology as an experimental variable and conduct experiments in the real world}. As Rodney Brooks said \emph{the world is its own best model}~\cite{brooks1991intelligence} and simulators cannot handle the complexity of the real physic with multi-point contacts, soft materials and frictions. This is especially the case of complex dynamic tasks such physical interaction or legged locomotion.
 
 
+Following the definition of the robotic morphology given by C.Paul:
+\begin{quotation}
+    The morphology of a robot thus refers to the physical structure and form of a robot. Specifically, the focus is on characteristics such as link sizes, number of links, joint characteristics, mass distribution, actuator characteristics, material properties, sensor characteristics and sensor placements. In short, any characteristic which defines the physical structure of the robot is included in the term morphology.
+    \signed{Chandana Paul~\cite{paul2006morphological}}
+\end{quotation}
 
+We need to find framework allowing to easily and quickly tune morphological parameters on actual robot to explore and hopefully find new way to improve robot behaviour acting in the real world. However considering the morphology as an experimental variable raised two major epistemological problems:
+\begin{itemize}
+    \item \textbf{how can we have an experimental robotic platform allowing both to change easily and quickly its morphology while acting robustly in the real world ? }
+    \item \textbf{how can we make this work, mainly hardware, diffusible and reusable in the research community ? }
+\end{itemize}
 
-So exploring the morphology raises two main problem:
-First, how can we modify easily and quickly the morphology of a physical robotic platform ?
-Second, how can we make our work reproducible in other lab ?
+In the next sections of this chapter, we will \textbf{suggest novel approaches and design processes to create and produce robotic platform  allowing a free exploration of their control and morphology through experimentations in the real world while being easily diffusible and reproducible in the research community.}
 
-In chapter Ref, we presented a review of both commercial and laboratory prototype robot platforms. The current platform are not suitable for these challenges. They do not permit the exploration of the morphology because they are not open source or the hardware is to complicated/expensive to be modified. The others are lab prototype mainly handcrafted and specifically tuned.
+\section{Challenges} % (fold)
 
-However, with the arrival of the "internet of things" trough low cost pro\cite{anderson}
+The role of the morphology appears as a fascinating open field of research but until now not as much explored.
+We presented in chapter REF, a review of both commercial and laboratory prototypes robot platforms. It appears the current platforms are not suitable to tackle these challenges. Commercial robot do not permit the exploration of the morphology because they are either not open source or the hardware is to complicated/expensive to be modified while lab prototypes are mainly handcrafted and specifically tuned which make them impossible to be reproduced in another lab. These robots are not suitable mainly because of the chosen approach and technologies used to design and produce them.
+Indeed, the classic way to design and produce robot is a complicated, time-consuming and expensive process. To be achieved, the current robotic platforms have required dozens of engineers working for years and the raise of important founding for the production.
 
-Cependant certains changement societaux viennent boulverser le context et les habitudes. Ainsi l'emergence du monde des markers a permi l'arrivé de moyens de productions numérique low cost et efficient. L'internet des objets est maintenant possible et est en train de provoquer une révolution industrielle.
-Cette revolution change le paradigm de la production comme internet a permi une ouverture du logiciel, il est maintenant possible d'avoir une ouverture du monde hardware.
+In this context, creating a platform reproducible everywhere without special tooling or skills, and in which the morphology can be freely explored raises methodological and design process challenges:
 
-Our desired is to reduce as much as possible the time required between having an idea and actual experimentation in the real world.
+\subsection{Make the morphology variable} % (fold)
 
-% Task
+Current robotic platform, in particular humanoid ones, have mechanical parts either handcrafted or produced with classic machining technique based on milling or casting various metal alloy or plastic.
+These techniques require specific upfront tooling which make the production of small batch really expensive. Also, to keep the robot cost rather low, scale effect trough mass production is needed. In this context, current robotic platform cannot have their morphology modified because it would require redoing most of the production process. In addition, the design of such mechanical part is constraints because the manufacturing process implies constraints and the complexity of a part greatly increases its cost. The same issues appear with electronics and the robot sensor space which is, in most cases, frozen.
 
-Also joining the new horizons of makers with the need for research in robotics can
+Thus the classic way to design and produce robot is not adapted to the free exploration of the robot morphology, novel design and production paradigm have to be used.
 
-Ainsi l'enjeux est de trouver de nouvelle methode experimentale permettant de facilement rendre le corps comme variable experimentale.
+\subsection{Create reproducible robot prototype} % (fold)
 
-Nous proposons ici de presenter l'approche que nous avons suivi pour explorer la morpho tout en restant ouvert vers la communauté.
+Several interesting robotic platforms explore key aspects in the robot morphology, we can cite Kenshiro~\cite{REF} which uses complex and bio-inspired artificial muscles actuator network, or semi-passive walkers such as Denise~\cite{REF} demonstrating impressive walking ability with few control and power actuation. Unfortunately, none of these robots can be and has ever been transferred to another lab. Indeed their production requires specific tooling and hand tuning only few skilled people have.
 
-% Object
-Nous verrons que les side effects de ces choix ont des consequences interessantes et pertinentes pour d'autres domaines scientifiques, permettant de réunir des acteurs pluridisciplianire et complémentaire dans une même communauté.
+To enhance scientific impact, our work should be reproducible in another lab. This is essential as it permits the validation of scientific results presented in publications, and it enables cumulative science which permits to accelerate the development of new technology. Also we are especially attentive to these criterions:
 
-Tout en favorisant la diffusion scientifique et le bottom-up.
+\begin{description}
+    \item[Precision, stationary] Experiments should be repeatable, implying that the robot morphology properties should be stationary. This means the robot performances should not be dependent of the place or the people skills.
+    \item[Easy and fast to duplicate:] Such a reuse of the robotic platform requires that it is easy and fast to duplicate and does not rely on specific tooling or exotic components.
+    \item[Affordable:] To ensure a wide spread, a key aspect is to keep the cost of platform relatively low. More labs can be involved more the scientific impact is.
+\end{description}
 
-Along our work on building cognitive and developmental learning algorithms \cite{Oudeyer07},\cite{moulin2013exploration}, we had faced these issues and unfortunately no existing platform was available yet. Following the work we made with Acroban~\cite{Ly2010}, we designed a whole new platform called Poppy, which aims to tackle these issues. As theses issues are encountered not only in our lab but also in the robotic community, we decided right from the beginning to make the platform easily accessible to anyone. For this purpose, we designed the robot to be easy to use and to reproduce but also we distribute it freely under open source licenses (both for hardware and software).
+% subsection reproducible_robot (end)
 
-The challenges raised by the development of such platform and its diffusion in the research community take part of the Poppy project which aims to offer an highly-hackable robotic platform.
+\subsection{Keep robotic platform simple and easy-to-use} % (fold)
+The robotic field is intrinsically multidisciplinary. A robot itself requires technologies coming from mechanics, electronics and computer sciences, but the scientific impact of robotics can be way larger and reach non-engineering fields such as human, social or biological sciences. Thus robotic field is an expert field where nobody can be expert in each required skills.
+We have to take into account the fact the end user is certainly expert in one specific field but beginner in the other fields. This mean that in each field, the designed robot has to be simple enough to be understood and used by beginners while having, at the same time, enough potential to not constrain users in their expertise field.
+
+% subsection keep_it_simple (end)
 
 \section{The chosen approach} % (fold)
 
-Create robot those conception permits to easily and quickly explore morphological variants.
+To address these challenges, we suggest exploring an alternative design methodology which is driven by the desire to:
+\begin{itemize}
+    \item freely explore morphological properties
+    \item reduce the required amount of time between an idea and its experimentation on an actual robotic platform in the real life
+    \item keep our work global meaning it can be easily reproduced in any other lab.
+\end{itemize}
 
-Create robot which can be easily reproduced in other lab.
 
-\subsection{Exploring morphological variant with robot} % (fold)
+\subsection{3D print mechanical parts} % (fold)
+We could think of having classical mechanical parts but reconfigurable and adjustable, allowing for example to explore different length of a link or different centre of mass position. However, this limits the morphological exploration to few dimensions with limited range.
 
-The role of the morphology appears as a fascinating open field of research and until now not so explored. Indeed, as we saw in the chapter REF, the way to design and produce robot is a really complicated, time-consuming and costly process. To be achieved, the current robotic platforms have required dozens of engineers working for years and the raise of important founding for the production. In this context, having to change constantly the morphology to explore the variation of few parameters is not possible.
+As we discussed in chapter REF, since few years, novel techniques, especially 3D printing are revolutionizing the way we can produce objects. 3D printers open new horizons for the production of mechanical part, they are able to produce parts which were either not possible or extremely expensive with classical techniques (see \figurename~\ref{fig:complex_3D_printed_part}) but also completely change paradigm associated with production. Indeed the cost does not change with the quantity or the complexity, meaning designers are free to explore the shape they want with almost no constraints.
 
-However as we discussed in chapter REF, since few years, novel techniques, especially 3D printing are revolutionizing the way we produce object. 3D printers open new horizons for the production of part, both fast and cheap. 3D printers are even able to produce parts which were either not possible or extremely costly with classical techniques.
-
-\begin{figure}[]
-    \begin{center}
-        \includegraphics[width=0.8\linewidth]{complex_3Dprinted_part.jpeg}
-    \end{center}
-    \caption{Caption here}
-    \label{fig:figure1}
+\begin{figure}[!h]
+\centering
+    \subfloat[][]{\includegraphics[width=0.4\linewidth]{complex_3Dprinted_part.jpeg}}
+    \hfil
+    \subfloat[][3D printed metal heat exchanger]{\includegraphics[width=0.55\linewidth]{complex_heat_exchanger.jpg}}
+    \caption{}
+    \label{fig:complex_3D_printed_part}
 \end{figure}
 
-Propulsing the 3D printing revolution, Open hardware movement permitted the massive arrival of low cost 3D printers and multi-purpose electronic boards. So there is now affordable technologies allowing low cost production and actuation of robot.
 
-\begin{figure}[]
+Also, these novel techniques come with the open hardware and makers revolution which brought low cost 3D printer to home. The production of mechanical part can be now done in few hours directly on site with limited human handling.
+
+\begin{figure}[!h]
     \begin{center}
         \includegraphics[width=\linewidth]{conception_iterative.pdf}
     \end{center}
@@ -80,106 +96,104 @@ Propulsing the 3D printing revolution, Open hardware movement permitted the mass
     \label{fig:conception_loop}
 \end{figure}
 
-L'impression 3D permet de rendre le processus de design plus rapide, c'est utilisé depuis longtemps dans les centre de R\&D etc...
+The 3D printers have several key abilities:
+\begin{description}
+    \item[Worldwide:] 3D printed part can be obtained everywhere. Either by personal printing or by ordering part other web service such as i.materialise, shapeways or sclupteo.
+    \item[Low cost:] The cost to produce 3D parts is rather low cost, it can be from dozens of cents if produced on personal printer to dozens of euros if ordered though web service.
+    \item[Fast:] In a couple of hours a whole part can be created from scratch. Using web service, it is needed to add the queue and shipping delay which increase the production time to several days.
+    \item[Skill-free:] While the production process is fully numerical, few or no special skills are required.
+    \item[Multi-material, precise and robust:] the current 3D printers can create precise (up to 0.1mm) part in different material such as nylon, PLA, ABS or even titanium and flexible material. The obtained parts are robust and can be used as final parts for several years.
+    \item[Reduce the number of part:] 3D printing permits to print complex part and even assembled part as complex as bearing or gearbox. This means we can replace multiple parts which have to be assembled into one ready-to-use.
+\end{description}
 
-La difference est que maintenant, 1-on commence on garder les pièces imprimés en 3D comme finale. 2- ça devient accessible à tous, soit en achetant une imprimante soit en commandant sur internet. 3- Du coup ce qu'on propose c'est d'utiliser cette technique pour créer de la variation morphologique.
-
-
-SCALABLE production tools
-
-In this thesis we suggest to use modular 3D printed robot to explore the role of morphology.
-
-
-\subsection{Make scientific work reproducible} % (fold)
-
-In chapter REF (section REF), we discussed about very interesting robotic platform used to explore some morphological properties. However, none of these platforms can be used in other labs. They are either built using handcraft technique or costly manufacturing process. So these platforms are only used by the lab which create them and the transposition to other robot is difficult.
-
-We think it is essential for the robotic research to make the necessary effort to make the scientific work reproducible. First, it permits an external validation of argued results. Second, it enables cumulative science which permits to accelerate the development of new technology.
-
-\subsection{Constraints} % (fold)
-
-Solution must be simple, reproducible, easily mountable for noobs
-
-\section{Open} % (fold)
-
-Logiciel et hardware sont open source. Open science et open innovation.
+These properties of the 3D printing process enable for the first to really explore morphological variant of mechanical parts. Indeed, it is now fast and low cost to create alternative design. Associated with modular architecture, we can easily and quickly change robot parts and conduct experiment. Also this process is compatible with the diffusion goals while it is simple and accessible anywhere with Internet connection and a mailing address.
 
 
+\subsection{Electronic architecture based on Arduino} % (fold)
+
+Thanks to 3D printing, exploring morphological variant of mechanical part is now way easier than ever before but unfortunately the printing of electronic components and board is not yet available. However, exploring the role of morphology does not only concern the mechanical properties but also the sensors apparatus i.e. \textbf{which sensor is used and where is it placed on the body}. The Swiss bot (see REF) is a great example of the impact of the sensors position on the robot behaviour.
+
+To permit the exploration of sensor-system variants, we suggest basing the electronic architecture on Arduino. Arduino is an open-source electronics platform based on easy-to-use hardware and software. It's intended for anyone making interactive projects. Arduino board can sense the environment by receiving inputs from a wide variety of sensors, and affects its surroundings by controlling lights, motors, and other actuators. It is not needed to have low-level en embedded programing skills while Arduino boards can be programmed using Arduino programming language\footnote{\url{http://arduino.cc/en/Main/Software}} which abstracts all the complexity.
+
+\begin{figure}[]
+    \begin{center}
+        \includegraphics[width=\linewidth]{arduino_electronique.pdf}
+    \end{center}
+    \caption{The use of Arduino as electronic architecture permit to easily add and/or change sensors while keeping the same electronic board. In addition, it permits to add expressive components such as leds, LCD or sound system allowing user to easily explore human-robot interaction.}
+    \label{fig:arduino_modular_electronic}
+\end{figure}
 
 
-\section{Create an experimental platform} % (fold)
-
-\textbf{Robustness and Safety:} The above mentioned research endeavor requires that heavy and long real-world experimentation be conducted with the robot.
-This implies that the robot should be robust and safe.
-It should be able to sustain experiments and fall down without easily breaking.
-At the same time, one should ensure that physical interaction with the robot is safe for humans.
-The approach taken is again based on morphological design, where the combination of lightweight design, compliance, and robust materials is used.
-\textbf{Morphology and biped locomotion:} Studying the impact of morphology over the control and/or learning of skills requires the possibility to implement and experiment novel morphologies.
-Such morphological designs were made possible with the use of 3D printing techniques.
-
-\textbf{Social and physical human-robot interaction:} Most often, robots designed to study the role of morphology in biped locomotion do not afford rich social and physical interaction with humans: with a minimal torso and no head \cite{collins2001three}\cite{niiyama2010athlete}.
-Poppy was designed to afford such full-body physical interaction (we will illustrate this with the possibility to guide him physically in biped locomotion), as well as to afford social interaction, with a head and gestural apparatus that can be programmed for communicative or affective expression.
-
-\textbf{Full-body compliance:} Important aspects of adaptation to physical obstacles or to humans require humanoid robots to be full-body compliant.
-This includes both the ability to absorb external shocks due to the passive compliance of the mechanical structure (bendable materials and springs), but also the ability to actively and dynamically control the compliance of motors, which may be either controlled in position with compliance, or directly in torque (thanks to the use of adequate recent servomotor technologies).
-
-
-
-\textbf{Breakable, repairable:} Even if breaking should be made unusual, real-world experimentation should be expected to break the robot at regular intervals.
-This should not become a problem for conducting research.
-Breaking should not be costly and the robot should be easily repairable.
-This is achieved thanks to 3D printing techniques, affordable off-the-shelf components, and optimized mounting design.
-
-\textbf{Precision, stationarity:} Experiments should be repeatable, implying that the robot properties should be stationary.
-
-\textbf{Transportable outside the lab:} To allow for experiments in natural environments, possibly involving interaction with non-technical humans, the robot should be transportable outside the laboratory.
-
-\textbf{Easy and fast to duplicate:} Such a reuse of the robotic platform requires that it is easy and fast to duplicate.
-The approach taken is to only use off-the-shelf components (motors and electronics) and limbs which can be printed with regular 3D printing services.
-The Poppy humanoid platform takes two days to assemble by one user, and was already reproduced twice, including by another laboratory\footnote{Laboratoire de la Perception et de l'Action (J.Droulez), Collège de France, Paris, France\label{LPPA}}.
-
-\textbf{Affordable:} A mid-term goal of this project is to open the hardware and software platform to the academic community (under an open-source mode), to allow other research laboratories to use it as an experimental platform.
-A key aspect for such an open dissemination is to keep the cost of the robot relatively low.
-The overall materials needed to build a Poppy robot cost around 7500 euros including 4700 euros for actuators, 1600 euros for of the shell mechanical and electronic components and 1200 euros for 3D printed mechanical parts.
-
-% \end{description}
-
-The Poppy platform presented in this article was designed to target these design goals within the context of biped locomotion.
-We focus here on the presentation of the design of specific morphological parts: the hip, the thigh, the limb mesh and the knee.
+The Arduino community is very active and expanding, more and more sensors are designed to be directly plugged on Arduino boards. Thus using Arduino adds modularity to robot electronic architecture, allowing reconfiguring the sensors space by easily adding new one (see \figurename~\ref{fig:arduino_modular_electronic}).
 
 
 
 
+\subsection{All-in-one actuators} % (fold)
 
-\section{Developping experimental tools}
+As we explained shortly in REF, several techniques are available to make robot move from classic and cheap servomotors to highly powerful and dynamic hydraulic actuators powering the Atlas humanoid robot.
+While some actuator technologies such as Series Elastic Actuator (SEA), cable-driven or artificial muscles are really promising to create more robust and efficient robots, they are still working-in-progress solutions and require advanced skills both to be assembled and used.
 
-In this context, we need to find new design methodology allowing to easily explore the role of morphology and we need to find workflow to share scientific contributions with the community.
-
-\subsection{The needs}
-hardware platform keyword: robust, flexible, safety, breakable, repairable, stationnarity, affordable, Easy and fast to duplicate, modular, easy to set up.
+These technologies are not yet compatible with the creation of diffusible and reproducible robotic platforms in a multidisciplinary research community.
 
 
-\section{Limitations} % (fold)
+\textbf{TODO: Image de systeme mecanique avec cable ou air }
 
-On doit faire des compromis et se résoudre à ne pas faire une solution qui  nous paraissent interessantes car elle poserait problème à la diffusion.
-C'est chiant mais c'est la vie pour faire de la science cumulative.
-Il faut se limiter.
+To permit the diffusion, we need off-the-shell and stationary solutions, easy to assemble, easy-to-use and available anywhere. Also, to allow the exploration of the morphology, actuators have to be modular and permit to explore several parameters.
+
+We therefore chose to use Robotis Dynamixel servo-motors\footnote{\url{http://www.robotis.com/xe/dynamixel_en}} for the robot actuation (see \figurename~\ref{fig:dynamixel_models}). Dynamixel motors are easily accessible while they are mass produced and worldwide shipped. Also they are the most common used actuators in the robotic field and plenty of robot are powered by them among them Darwin-OP~\cite{REF}, Myon~\cite{REF} , Acroban~\cite{REF} or Nimbro~\cite{REF}.
+
+The Dynamixel motors are not simple servomotors, they are all-in-one-modules which contain drivers, encoders and communication bus. They are also quite powerful, robust and rather precise. This is done by the combination of Maxon motors, metal gearbox and precise magnetic rotation sensor (resolution: 0.1\textsuperscript{o}). They embed a 32bits micro-controller dedicated to the communication (serial port TTL or RS232), the control of the joint (position, speed or torque) and the measurement of several internal data such as the real position, speed, load or temperature. They also allow tuning the internal PID or limiting the maximal torque. This permits rich behaviours useful both for physical interaction and locomotion.
+
+
+\begin{figure}[!h]
+\centering
+    \subfloat[][Robotis Dynamixel AX and MX series]{\label{fig:dynamixel_models}\includegraphics[width=0.48\linewidth]{dynamixel_actuator.jpg}}
+    \hfil
+    \subfloat[][Power of each Dynamixel model]{\label{fig:dynamixel_powa}\includegraphics[width=0.48\linewidth]{comparaison-servomoteurs-dynamixel-robotis.png}}\\
+    \caption{The Robotis Dynamixel come with different models from low cost ones such as AX-12/18 to the most powerful MX-series with maxon motor and magnetic encoder.}
+    \label{fig:dynamixel_serie}
+\end{figure}
+
+Different models are available and permit to adjust the actuation to the power required by the joint (see \figurename~\ref{fig:dynamixel_powa}). They are different in size and power but their API remains the same and we can easily switch from one to another without neither changing the code nor the electronic integration. Yet, even if the size change, the foot-print keep the same pattern (see \figurename~\ref{fig:dynamixel_dimension}) which make easy to configure parametric mechanical part, it just takes a couple of minute to transform a part designed to be compatible with Dynamixel MX-28 to one compatible with Dynamixel MX-64.
+
+
+\begin{figure}[tb]
+    \begin{center}
+        \includegraphics[width=\linewidth]{dynamixel_dimension.pdf}
+    \end{center}
+    \caption{The footprint of Dynamixel motors keeps the same pattern, just the dimension are increased following the power of the motor. Thus switching from one model to another only requires to change dimension and not the design of a part. With parametric software as Solidworks, it takes a couple of minute to modify a mechanical part to be compatible with another Dynamixel motor.}
+    \label{fig:dynamixel_dimension}
+\end{figure}
+
+
+\subsection{Accessible and extensible software} % (fold)
+
+Having variability in software is more classical. Here the choice has been made toward ease-of-use and modularity. We design sensory-motor control API adapted to the hardware variability we have. We choose to use Python as main programming language as it allows fast development, easy deployment on all operating system and quick scripting by non-necessary expert developers. It also offers a large variety of scientific and machine-learning libraries used in robotics (e.g. Numpy, Scipy, Scikit-learn).
+This language is rather slow compare to C or Java, but sensorimotor control is done using serial bus communication and as the serial communication is handled through the standard library we can still achieve rather high performance.
+
+
+\subsection{Open source diffusion} % (fold)
+
+\textbf{TODO Figure ?}
+
+Last but not least, one our main challenge is to enable diffusion and reproduction of robotic platform designed with this approach in the scientific community. While the main aspect of such approach is to create variability, reuse and modification of initial design, it is necessary to not only diffuse our work through scientific publications but also distribute sources in the community. For this purpose we use open source license: GPLv3 for software (Control API) and Creative Commons BY-SA License for Hardware (mechanical parts and electronic boards).
+
+In addition, while our work is intended to be reused by external and hopefully numbers of people, the sources have to be clean, robust and well-documented.
+
 
 
 \section{Conclusion} % (fold)
 
-FabLab approach: We use 3D printing, simple design, simple to use library, open source and creative commons licence.
+In this thesis, we aim to enable both the free exploration of morphological variant on real robotic platform and to permit their diffusion in the research community. To do so, we suggest to explore an alternative design based on 3D printing for mechanical parts, Arduino electronic architecture for sensors, Robotis Dynamixel motor for actuation and Python API for control.
 
-Diffusion Open source with git repository
+This design process permits to create low cost and highly hackable experimental robotic platform thanks to a fully modular approach.
 
-We find a really quick and cheap way to conceive Poppy.
+The tools used take part of the makers revolution and emergence of the "internet of things" sometimes called the novel industrial revolution~\cite{anderson}. Therefore we can rely on the hundreds of Fablab around the world as lever arm to increase the dissemination and replicability of robotic platforms designed with such methods.
 
-Based on this work, we will be able both to explore morphology and distribute our works.
+Yet the chosen approach raised some limitations. Indeed, while we want to keep our work reproducible, we have to reduce the complexity of the assembly and the use of our robotic platforms. This means we need to spend more time developing and testing our design to make it as easy to use as possible. Also we are limited in the components we can use, they have to be easily accessible i.e. easily available and with quantity toward web stores.
 
-These needs share a common thread: the need of an easy to get/reproduce hardware platform.
 
-We want to have flexible platform allowing to easily perform scientific experiments.
-We do not want to spend more time on debug than doing actual experiments and then we want to be able to share our research in order to have a scientific impact.
-
+In the next chapter, we will apply this methodology to the design a whole new humanoid robot: Poppy.
 
 
