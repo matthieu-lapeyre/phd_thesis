@@ -1,0 +1,138 @@
+% !TEX root = ../../thesis.tex
+
+\newpage
+\section{Rapid morphological exploration} % (fold)
+\label{sec:morphology-variable}
+
+After showing how mechanics and electronics hack/modification can be done in the previous section, we conduct an experiment showing how the methodology used with Poppy can actually permit to easily and quickly explore the robot morphology in the real world.
+
+While we were working on a new design for Poppy's feet and exploring design similar to the "foot 1" (see \figurename~\ref{fig:pic_foot_1}), we decided to use this context as to conduct an experience over multiple variation of the foot morpholy as an illustration of the methodology we initiate with Poppy.
+
+\begin{figure}[!b]
+\centering
+    \subfloat[][]{\label{fig:pic_foot_1}\includegraphics[width=0.48\linewidth]{pic_foot_1.JPG}}
+    \hfil
+    \subfloat[][]{\label{fig:pic_foot_2}\includegraphics[width=0.48\linewidth]{pic_foot_2.JPG}}\\
+    \subfloat[][]{\label{fig:pic_foot_3}\includegraphics[width=0.48\linewidth]{pic_foot_3.JPG}}
+    \hfil
+    \subfloat[][]{\label{fig:pic_foot_4}\includegraphics[width=0.48\linewidth]{pic_foot_4.JPG}}
+    % \subfloat[][]{\label{fig:pic_shoe}\includegraphics[width=0.48\linewidth]{pic_shoe.JPG}}
+    \caption{}
+    \label{fig:foot_variants}
+\end{figure}
+
+
+\begin{table}
+    \begin{center}
+        \begin{tabular}{|l|c|c|c|c|}
+        \hline
+        \textbf{Type} & \textbf{Foot 1} & \textbf{Foot 2} & \textbf{Foot 3} & \textbf{Foot 4}\\
+        \hline
+        \textbf{Double rotation} & Passive & No & Active & Passive\\
+        \hline
+        \textbf{Human-like foot} & Yes & Yes & No & Yes\\
+        \hline
+        \textbf{Toes} & Yes & No & No & Yes\\
+        \hline
+        \textbf{Rotation axis height} & 75.70 mm & 33 mm & 39 mm & 35.5 mm\\
+        \hline
+
+        \end{tabular}
+        \caption{Table summarizing the different types of feet used. \textbf{Passive double-rotation:} Is a rotation with an active rotation (motor: Dynamixel MX 28) for the sagittal plan and a passive rotation for the frontal plan with two springs. \textbf{Active double-rotation:}  Is a rotation with two motorized rotations (sagittal plan and frontal plan). No double-rotation: Is a rotation with one motorized rotation (sagittal plan). \textbf{Human-like foot:} is a foot design looking like a human foot of a two years old child (size: 130.7 mm shoes size: 23 EU). The feet were tested with and without shoes. \textbf{Rotation axis height:} is the height between the axis of rotation of the sagittal plan and the floor without shoes. \textbf{Toes:} Indicates that the foot has toes.
+        }
+        \label{tab:table_feet}
+    \end{center}
+\end{table}
+
+The aim of this experiment is to quickly explore the effect of feet morphology on stability. Here, we are particularly interested in the stability of the head after a stepping impact. These impacts are quite challenging to simulate realistically and the natural compliance of the Poppy platform makes it even more important to be tested on the real robot.
+
+For the sake of lightness, the initial design of Poppy's feet only had one degree of freedom (pitch rotation). This configuration had the inconvenient of preventing a proper parallel foot/ground contact. Thus, we developed several different feet with two degrees of freedom. Along with a standard motorized 2 DoF flat foot design, we also wanted to explore passive joints with springs. The use of passive joints allows for both lightness and reactive torque for stability.
+
+Moreover, it appeared that a proper foot/ground contact with a convenient friction was difficult to obtain based only 3D printed material. One simple solution to this problem is to use a shoe which can provide a high friction and adapt slightly to the ground imperfections. Furthermore, this solution also allows keeping the feet close to humans ones. Thus, the tested feet (except the flat foot) were designed from a molding of the interior of a shoe. It is to be noted that we also included passive toes (with springs) on some of the tested feet for future work on locomotion. These toes should not have any significant impact on the tested criterion.
+
+
+\subsection{Experimental setup} % (fold)
+\label{sub:experimental_setup}
+
+For this experiment, the robot simply stands upright secured by a slack strap on a fixed gantry. Different markers on the robot are tracked by a motion capture system at 100Hz (Natural Point OptiTrack). See figure \ref{fig:setup} for more details.
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\linewidth]{pic_setup.jpg}
+    \end{center}
+    \caption{Experimental setup. The robot is secured by slack strap on a gantry and tracked by an OptiTrack trio device. Markers are placed on the feet, hips, abdomen, and on the head}
+    \label{fig:setup}
+\end{figure}
+
+Four different feet were tested (cf. Table~\ref{tab:table_feet}). Three out of the four feet were tested both with and without shoes.
+
+
+\subsection{Experiences} % (fold)
+
+The feet were tested with a very simple discrete movement, representative of the kind of impacts happening during walking. The robot performs a single step leftward with the left leg. The left foot is lifted (3cm) and then put back on the ground with a slight lateral displacement towards the exterior (5° at the level of the hip). The whole movement duration is about 0.4s and repeated 20 times for each configuration.
+
+
+\subsection{Results} % (fold)
+
+Figures \ref{fig:head_x}, \ref{fig:head_y} and \ref{fig:head_z} respectively show the evolution of the position of the head marker in the $x$, $y$ and $z$ axis for each tested foot. Dotted vertical lines indicate the beginning and the end of the leg movement.
+
+These figures show that the dynamics of the robot is not trivial, even for the simple movement we tested, the standard deviation is not negligible and shows how chaotic the reaction of such impact can be. This particularity is another proof of the significance of the use of the experiment versus the simulation.
+
+We can clearly see that the foot 3 (standard flat foot) behaves quite differently than other tested feet. In particular in the $x$ and $y$ directions, we see that with this foot the head tends to move more towards the exterior (left of the robot) and towards the rear.
+%% These differences may be explained by the larger ground contact surface
+%% provided by the flat feet.
+
+Regarding the effect of the shoes, results are less clear but most of the time (except for the foot 1) differences occur between a given foot with and without shoe. The friction with the ground can explain these differences. Naked feet tends to slip more than with shoe.
+
+
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=\linewidth]{head_x.pdf}
+    \end{center}
+    \caption{Evolution of the position of the head in the $x$ axis for
+    each tested foot.}
+    \label{fig:head_x}
+\end{figure}
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=\linewidth]{head_y.pdf}
+    \end{center}
+    \caption{Evolution of the position of the head in the $y$ axis for
+    each tested foot.}
+    \label{fig:head_y}
+\end{figure}
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=\linewidth]{head_z.pdf}
+    \end{center}
+    \caption{Evolution of the position of the head in the $z$ axis for
+    each tested foot.}
+    \label{fig:head_z}
+\end{figure}
+
+
+This first experiment allowed us to determine that the use of an active double rotation of the ankle may not be mandatory. Indeed, the observed behaviors of the passive feet were even better than with the flat feet with active rotation. Although a clear interpretation of this phenomenon is still difficult to propose, some clues related to the weight (with one more motor feet are heavier) and ground contact surface (flat foot surface is bigger) have to be investigated.
+
+Moreover, we observed that the shoes added extra friction with the ground without really impairing the stability. Although rarely used in humanoid robotics, these early results encourage us to explore more deeply this possibility.
+
+Finally the most important aspect for us was to actually evaluate the required amount of time needed to conduct such experiment with Poppy. The starting point was the "foot 1" as it was the in progress work. Thus design modifications of the morphology only concern foot 3 and 4:
+\begin{itemize}
+    \item \textbf{Foot 3 (flat):} Modifying the initial Poppy foot design to permit the integration of two Dynamixel motors and the associated flat feet required 16h of CAD design. The printing of the whole needed part (2 legs, 2 foot and 2 ankle) took approximately 30 hours on a low cost FDM printer (Makerbot Replicator 2).
+    \item \textbf{Foot 4:} While the difference with the foot 1 concerns only one parameter (i.e. the articulation position), the modification needed to produce the foot 4 based on the foot 1 was done in approximately 2 hours of CAD. Then the printing of the novel part was achieved in 10 hours.
+\end{itemize}
+
+Then conducting the whole experiment (i.e. design the leg motion, establishment of the experimental setup and data acquisition) was achieved in about one week with two persons. \textbf{Especially the actual experimentation involving to change seven times the Poppy's feet and acquiring at least 20 trials for each took less than two days.}
+
+\subsection{Reuse of this experiment} % (fold)
+
+Everything needed to obtain and use Poppy is available on our GitHub project page: \url{www.github.com/poppy_project}. Also to complete the illustration of this Poppy use-case, we diffuse along the present paper:
+\begin{itemize}
+     \item the whole setup materials i.e. the code used for the experiment and the 3D files to reproduce/modify each foot,
+     \item the acquired raw data that include for each trial all markers position, head IMU measurement and the complete motors data (proprioceptive position evaluation overtime),
+     \item the code used to extract and plot the presented results.
+\end{itemize}
+
+All these materials are available on the repository associated with this experiment: \url{https://github.com/matthieu-lapeyre/Humanoids2014} and can be freely used e.g. for further investigation with the acquired data, or to reproduce and extend the experiment.

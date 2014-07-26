@@ -1,18 +1,48 @@
 % !TEX root = ../../thesis.tex
+% \cleardoublepage
+% \newpage
+% \thispagestyle{plain}
+% \mbox{}
+
+% \includepdf{/Users/matthieulapeyre/Documents/phd_thesis/media/poppy.pdf}
+% \includepdf{/Users/matthieulapeyre/Documents/phd_thesis/media/blueprint}
+% \includepdf{/Users/matthieulapeyre/Documents/phd_thesis/media/franki}
+
 
 \chapter{Exploring the role of morphology with Poppy} % (fold)
 \label{cha:exploring_the_role_of_morphology}
 
 
-Poppy has been designed to be a new experimental platform opening the possibility to systematically study the role of morphology in sensorimotor control, in human-robot interaction and in cognitive development. Indeed, as we discussed in chapter REF, a suitable design of a robot morphology can greatly simplify control problems, increase robustness, and open new modes of interaction with the physical and social world. Thus, being able to study the body as an experimental variable, something which can be systematically changed and experimented, is of paramount importance. Yet, until recently it was complicated because building a robot relied on heavy and costly manufacturing techniques. 3D printing has changed the landscape of what is possible: Poppy Project transposed it to humanoid robotics, and it is now possible to explore new body shapes in just a few days. In addition, its size, weight and power actuation highly reduce the risk of self-damage if a programming error occurs, which means experimentation can be directly conducted in the real world without having to either use physical simulator or build heavy experimental setup.
+Poppy has been designed to be a new experimental platform opening the possibility to systematically study the role of morphology in sensorimotor control, in human-robot interaction and in cognitive development. Indeed, as we discussed in chapter REF, a suitable design of a robot morphology can greatly simplify control problems, increase robustness, and open new modes of interaction with the physical and social world. Thus, being able to study the body as an experimental variable, something which can be systematically changed and experimented, is of paramount importance. Yet, until recently it was complicated because building a robot relied on heavy and costly manufacturing techniques but 3D printing has changed the landscape of possible.
 
-As an application of the methodology presented in the chapter REF, and especially interested by the role of morphology in the understanding of biped locomotion, we decided to use Poppy to explore the impact of particular leg design on bipedal stability.
+We introduced a design methodology relying on the use off-the-shell components, Arduino electronic architecture and in which the 3D printing has a central aspect for the production of mechanical part (see chapter~\ref{REF}).
 
-In this chapter, we suggest to explore the impact of the thigh shape on the lateral stability(see section~\ref{sec:experimental_thigh_shape}) and evaluate the efficient of foot designs for balance and biped locomotion.
+Poppy transposes this methodology to humanoid robotics, and it is now possible to explore new body shapes in just a few days. In addition, its size, weight and power actuation highly reduce the risk of self-damage if a programming error occurs, which means experimentation can be directly conducted in the real world without having to either use physical simulator or build heavy experimental setup.
 
-\input{content/chapter/thigh_shape_xp.tex}
+In this chapter, we present several experiments aiming to show by examples how the Poppy's morphology can be easily and quickly hacked for exploring morphological variants in the real world.
+These experiments will be presented to show 4 differents
 
-\section{Exploring foot and ankle shape for biped locomotion} % (fold)
-\textbf{TODO}
+\begin{enumerate}
+    \item Experimenting the role of morphology (section~\ref{sec:morphology-role})
+    \item Adding new sensors on Poppy (section~\ref{sec:morphology-adding-sensors})
+    \item Fast exploration of morphological variants (section~\ref{sec:morphology-variable})
+    \item Adding a novel mechanism (section~\ref{sec:morphology-add-mechanism})
+\end{enumerate}
 
-% chapter exploring_the_role_of_morphology (end)
+
+% As an application of the methodology presented in the chapter REF, and especially interested by the role of morphology in the understanding of biped locomotion, we decided to use Poppy to explore the impact of particular leg design on bipedal stability.
+
+% In this chapter, we suggest to explore the impact of the thigh shape on the lateral stability(see section~\ref{sec:experimental_thigh_shape}) and evaluate the efficient of foot designs for balance and biped locomotion.
+
+\input{content/chapter/morphology-role.tex}
+\input{content/chapter/morphology-variable.tex}
+\input{content/chapter/morphology-add-mechanism.tex}
+\input{content/chapter/morphology-adding-sensors.tex}
+
+\section{Discussion \& Conclusion} % (fold)
+\textbf{finding:} Nous avons fait varier plusieur parametres et hacké la platforme de differente manière. Globalement les modifications sont relativements simple à mettre en oeuvre et permettent de rapidement tester de nouvelles morphology à bas coût.
+\textbf{conclusion:} Alors ça ouvre la possibilité de
+\textbf{ouverture:}
+limites il faut quand même le faire à la main, la methode presentée implique de devoir demonter et remonter le robot, même si la tache est rendu le plus simple possible, elle requière une intervention.
+
+Cependant, tout comme l'on peut ajouter des moteurs et des capteurs, on peut très bien imaginer la possibilité de créer des pièces à morphology variable. Cela demande de créer des assemblage adaptés pouvant créer des pièces qui change de dimension.

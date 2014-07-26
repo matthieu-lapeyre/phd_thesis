@@ -1,20 +1,28 @@
 % !TEX root = ../../thesis.tex
 
-\section{Experimental Evaluation of the Role of a Bio-inspired Thigh Shape} % (fold)
-\label{sec:experimental_thigh_shape}
+\newpage
+\section{Experimental evaluation of the role of the morphology: the thigh shape} % (fold)
+\label{sec:morphology-role}
+
+\subsection{Motivations} % (fold)
+
+The role of morphology in robot biped locomotion has been particularly explored through the research on passive dynamic walkers~\cite{wisse2007passive}. The most famous example concerns the Tad MacGeer's work~\cite{mcgeer1990passive}. Thanks to the understanding of the intrinsic dynamics of its structure, McGeer has managed to create a 2D biped robot capable of producing several steps without any controller or motor.
+The only control of this robot is obtained through the interaction between the intrinsic inertia of the structure and gravity.
+This work has been pursued with the apparition of semi-passive walker combining both specific passive properties and low power actuation to increase their robustness~\cite{Anderson2005}. We can note the work of Collins~\cite{collins2005bipedal} which explored the case of semi-passive 3D biped robot. Its morphology is based on particular mass distribution, knee locking, round feet and springs on the legs to generate an efficient walking gait while keeping its lateral and frontal balance.
+The concept of 3D semi-passive robot has been pushed even further with the realization of a complete humanoid robot with trunk, arms and head: the robot Denise~\cite{wisse2005three} and Flame presented in~\cite{Hobbelen2008}.
 
 The geometry and distribution of mass in the body has complex influences on biped locomotion. Several studies have for example explored the role of the foot and ankle morphology for biped walking on both human~\cite{Adamczyk2006}~\cite{Hughes1990} and robot~\cite{hobbelen2005ankle}~\cite{Davis2010} However, to our best knowledge no research has focused on the role of the thigh for biped locomotion.  A few robots like HRP-4C~\cite{kaneko2009cybernetic} and Kenshiro humanoid~\cite{nakanishi2013design} robots seem to visually have a morphology design close to the thigh shape of Poppy, but no comparative study of the role of this shape was presented so far.
 
-Thanks to the conception of Poppy allowing easy, cheap and fast morphology modifications, we are able to experiment the impact of various thigh shapes on the robot dynamics. In particular, in this experiment, we investigate the impact of a bio-inspired thigh, bended by a 6\textsuperscript{o} angle and with a geometry inspired by humans, on the balance and biped locomotion and we compare this design with a more traditional straight thigh (see Fig.~\ref{fig:poppy_compared}).
+Thanks to the conception of Poppy allowing easy, cheap and fast morphology modifications, we are able to experiment the impact of various thigh shapes on the robot dynamics. In particular, in this experiment, we will focus on its bio-inspired thigh shape, bended by an angle of 6\textsuperscript{o}. We will investigate the impact of this thigh design on the balance and biped locomotion using a comparison with a more traditional straight thigh (see Fig.~\ref{fig:poppy_compared}).
 
-The results presented in the incoming sections have been published in the Humanoids 2013 conference proceeding~\cite{lapeyre:hal-00861110}.
+% The results presented in the incoming sections have been published in the Humanoids 2013 conference proceeding~\cite{lapeyre:hal-00861110}.
 
 
 \begin{figure}[!t]
 \centering
-    \subfloat[][bended thighs]{\label{fig:poppy_with_bended_legs}\includegraphics[width=0.42\linewidth]{poppy_bended_tigh_square.pdf}}
+    \subfloat[][bended thighs]{\label{fig:poppy_with_bended_legs}\includegraphics[width=0.35\linewidth]{poppy_bended_tigh_square.pdf}}
     \hfil
-    \subfloat[][straight thighs]{\label{fig:poppy_with_classical_legs}\includegraphics[width=0.42\linewidth]{poppy_straight_tigh_square.pdf}}
+    \subfloat[][straight thighs]{\label{fig:poppy_with_classical_legs}\includegraphics[width=0.35\linewidth]{poppy_straight_tigh_square.pdf}}
     \caption{We evaluate the effect of the thigh morphology on the biped locomotion dynamic.
     Experiments are made using the Poppy humanoid platform.
     In this paper, we compare two thigh morphologies: (a) thigh bended by an angle of 6\textsuperscript{o} and (b) a more classical approach with straight thighs.}
@@ -22,7 +30,7 @@ The results presented in the incoming sections have been published in the Humano
 \end{figure}
 
 
-\subsection{Understanding the role of the thigh shape} % (fold)
+\subsection{Understanding the role of the thigh shape in human} % (fold)
 
 If we look closely at the human's femur morphology, it appears that it is inclined by an angle of 6\textsuperscript{o}. This makes the feet closer to the projection of the center of gravity (see Fig.~\ref{fig:human_thigh}) and leads to two main stability enhancements during the walking gait:
 
@@ -88,7 +96,7 @@ In the case of a fall, it is not possible to make the assumption of small pertur
 
 \begin{figure}[thpb]
     \centering
-    \includegraphics[width=0.9\linewidth]{dynamic_thigh_model.pdf}
+    \includegraphics[width=0.8\linewidth]{dynamic_thigh_model.pdf}
     \caption{Comparison of the falling dynamic over time when Poppy is standing on one foot depending on  its thigh morphology: with a bended thigh of 6\textsuperscript{o} (blue) and with a straight thigh (red).}
     \label{fig:dynamic_thigh_model}
 \end{figure}
@@ -135,9 +143,9 @@ Experiments results are shown on the Fig.~\ref{fig:falling_results}. The blue co
 
 \begin{figure}[h]
 \centering
-    \subfloat[][Vertical head position]{\label{fig:fall_result_position}\includegraphics[width=0.49\linewidth]{falling_compare.pdf}}
+    \subfloat[][Vertical head position]{\label{fig:fall_result_position}\includegraphics[width=0.50\linewidth]{falling_compare.pdf}}
     \hfil
-    \subfloat[][Vertical head falling velocity]{\label{fig:fall_result_velocity}\includegraphics[width=0.49\linewidth]{velocity_compare.pdf}}
+    \subfloat[][Vertical head falling velocity]{\label{fig:fall_result_velocity}\includegraphics[width=0.50\linewidth]{velocity_compare.pdf}}
     \caption{Results of the single support falling experiment.
     The blue color is associated with experiments conducted with bended thighs while the red color is assigned to straight thighs.
     For each case, the light color corresponds to the standard deviation and the dark color to the 95\% confidence interval of the mean value while dashed lines represent theoretical results.
@@ -193,22 +201,22 @@ Here the experiment consists in playing an open-loop walking pattern while the r
     \label{fig:CPG}
 \end{figure}
 
-The gait is based on the actual human sagittal joint kinematic~\cite{Nester2003}: hip, knee, ankle (see Fig.~\ref{fig:CPG}.a). A direct transposition of the human joint kinematic on the Poppy's morphology results in a walking speed which is too fast to be handled by users (see Fig.~\ref{fig:CPG}.b). A simple reduction of joints amplitude conducts to an unsuitable leg trajectory where toes bump into the ground during the swing phase (see Fig.~\ref{fig:CPG}.c). So to ensure enough clearance during the swing phase and suitable walking speed for the guidance with user, we modified the joints trajectories by hand to both reduce the length step and increase the foot clearance (see Fig.~\ref{fig:CPG}.d). The actual gait on Poppy is shown on the Fig.~\ref{fig:cpg_on_poppy}.
+The gait is based on the actual human sagittal joint kinematic~\cite{Nester2003}: hip, knee, ankle (see Fig.~\ref{fig:CPG}.a). A direct transposition of the human joint kinematic on the Poppy's morphology results in a walking speed which is too fast to be handled by users (see Fig.~\ref{fig:CPG}.b). A simple reduction of joints amplitude conducts to an unsuitable leg trajectory where toes bump into the ground during the swing phase (see Fig.~\ref{fig:CPG}.c). So to ensure enough clearance during the swing phase and suitable walking speed for the guidance with user, we modified the joints trajectories by hand to both reduce the length step and increase the foot clearance (see Fig.~\ref{fig:CPG}.d). The actual gait on Poppy is shown on the Fig.~\ref{fig:humanoids2013_cpg_on_poppy}.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\linewidth]{walking_poppy.jpg}
+    \includegraphics[width=0.9\linewidth]{walking_poppy.jpg}
     \caption{Walking gait CPG described on Fig.~\ref{fig:CPG}.d applied on the actual Poppy robot.
     The CPG generates a human-like walking gait allowing the robot to walk at 1.8km/h and involves straight leg during the stance phase.
     There is no balance control but stability is obtained through physical guidance with trained expert user.}
-    \label{fig:cpg_on_poppy}
+    \label{fig:humanoids2013_cpg_on_poppy}
 \end{figure}
 
 In this experiment we are interested by the dynamic of Poppy especially on the frontal plane and we will compare the effect of the thigh shape on this dynamic. Poppy walks on a treadmill following the walking gait described above. An expert user trained to keep the robot in the correct walking cycle provides guidance to the robot. This is done by keeping the robot in a vertical position and supporting, in a compliant manner, the lateral movement of the robot as illustrated in attached videos. The user is asked to do the best he can to minimize the movement/forces he applies in both morphologies to reduce the bias towards the two design experimented. All proprioceptive sensors are recorded at 50hz while an Optitrack device associated to markers located at the head and lower back measure the absolute displacements of the robot (voir Fig.~\ref{fig:walking_experiment}).
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=8cm]{dispositif_experience_marche.pdf}
+    \includegraphics[width=0.8\linewidth]{dispositif_experience_marche.pdf}
     \caption{Proceeding of the walking experiment.
     Poppy is tracked by an Optitrack trio while it is walking on a treadmill set at 1.8km/h.
     An expert user provides the sagittal balance needed during all the experiment.}
@@ -217,7 +225,7 @@ In this experiment we are interested by the dynamic of Poppy especially on the f
 
 The Poppy dynamic is recorded for around 1800 walking gait cycle for each thigh design (around 90,000 data points for each case). Data are folded over to extract the gait behavior over a gait cycle. Results are presented on Fig.~\ref{fig:walk_result}. As previously, the blue color is assigned to experiments with bended thigh, the red color is assigned to straight thigh. For each case, the light color corresponds to the standard deviation and the dark color to the 95\% confidence interval of the mean value.
 
-\begin{figure}[h]
+\begin{figure}[!h]
     \subfloat[][Lateral head displacement]{\label{fig:head_position}\includegraphics[width=0.49\linewidth]{marche_head_motion.pdf}}
     \hfil
     \subfloat[][Lateral lower back displacement]{\label{fig:low_back_position}\includegraphics[width=0.49\linewidth]{marche_low_back_motion.pdf}}
@@ -242,16 +250,16 @@ We can notice that the lateral motion of the version of Poppy with bended thigh~
 
 \begin{figure}[h]
 \centering
-    \subfloat[][bended thigh]{\label{fig:poppy_walking_bended}\includegraphics[width=0.45\linewidth]{marche_bended.jpg}}
+    \subfloat[][bended thigh]{\label{fig:poppy_walking_bended}\includegraphics[width=0.4\linewidth]{marche_bended.jpg}}
     \hfil
-    \subfloat[][straight thigh]{\label{fig:poppy_walking_straight}\includegraphics[width=0.45\linewidth]{marche_straight.jpg}}
+    \subfloat[][straight thigh]{\label{fig:poppy_walking_straight}\includegraphics[width=0.4\linewidth]{marche_straight.jpg}}
     \caption{Five pictures have been taken while Poppy was walking and were stacked to obtain a qualitative view of the difference in the walking behavior in function of the morphology of the thigh.}
     \label{fig:poppy_walking_compared}
 \end{figure}
 
 
 \subsection{Conclusion on the thigh shape role for biped locomotion} % (fold)
-We have presented the morphological properties of a new humanoid robot platform named Poppy~\cite{lapeyre2013poppy}. In this paper, we focus on the shape of the Poppy thigh and its effect on the robot dynamic. We studied the role of the morphology in the reduction and simplification of the control needed to performs complex task such as biped walking. We have presented the simple theoretical model we used for the design of Poppy thigh based on the inverse pendulum dynamic. We have conducted experiments to evaluate the improvements of the bended thigh on the real robot dynamic and compare it with the model. Thanks to the conception of Poppy allowing easy, cheap and fast morphology modifications, we were able to try another thigh design. We also use a pair of straight thighs which is a more classical approach in humanoid conception. The experimental comparison of the two thighs design confirmed the theoretical results, the bio-inspired thigh design improves Poppy dynamic on two main points useful for biped walking:
+We focus on the shape of the Poppy thigh and its effect on the robot dynamic. We studied the role of the morphology in the reduction and simplification of the control needed to performs complex task such as biped walking. We have presented the simple theoretical model we used for the design of Poppy thigh based on the inverse pendulum dynamic. We have conducted experiments to evaluate the improvements of the bended thigh on the real robot dynamic and compare it with the model. Thanks to the conception of Poppy allowing easy, cheap and fast morphology modifications, we were able to try another thigh design. We also use a pair of straight thighs which is a more classical approach in humanoid conception. The experimental comparison of the two thighs design confirmed the theoretical results, the bio-inspired thigh design improves Poppy dynamic on two main points useful for biped walking:
 \begin{itemize}
     \item It reduces the falling velocity by almost 60\% when the robot is on one foot (single support phase).
     \item It reduces by 30\% the lateral motion needed to transfer the mass of the robot from one foot to the other (double support phase).

@@ -77,8 +77,8 @@
 }
 
 % Other packages
-\usepackage{enumitem}
-\usepackage{enumerate}
+% \usepackage{enumitem}
+% \usepackage{enumerate}
 \usepackage{graphicx} %graphic path
 \usepackage{subfig} % Subfloat
 \usepackage{pdfpages}
@@ -86,10 +86,38 @@
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{grid-system}
-% \usepackage{enumitem}
 \usepackage{tabularx}
 \usepackage{boxedminipage}
 \usepackage{textcomp} % euro sign
+\input{code/pygment.tex} % Add python highlighting
+\usepackage{listings}
+
+
+\newcommand{\codename}{Source code}
+\renewcommand{\lstlistingname}{\codename}% Listing -> Algorithm
+\renewcommand{\lstlistlistingname}{List of \lstlistingname s}% List of Listings -> List of Algorithms
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\usepackage{courier}
+% \usepackage[scaled]{beramono}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    captionpos=b,
+    numberstyle=\tiny\color{codegray},
+    numbers=left,
+    numbersep=5pt,
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    commentstyle=\footnotesize,
+    breakatwhitespace=true,
+}
+
+\lstset{style=mystyle}
+
 
 \newenvironment{NFfigure}{\captionsetup{type=figure}}{}
 
@@ -115,6 +143,8 @@
 
 \newcommand*{\Value}{\frac{1}{2}x^2}%
 
+
+
 % \usepackage{epstopdf} % Convert eps image to pdf
 % \usepackage{epsfig}
 
@@ -126,15 +156,19 @@
                 {../media/thigh_experiment/},
                 {../media/related_work/morphology/},
                 {../media/poppy/},
+                {../media/poppy/community/},
                 {../media/poppy/approach/},
                 {../media/poppy/conception/},
                 {../media/poppy/pypot/},
+                {../media/applications/morphology/},
+                {../media/applications/morphology/results/},
                 {../media/applications/education/},
                 {../media/applications/hackathon/},
                 {../media/applications/art/references/},
                 {../media/applications/art/etres-numerique/},
                 {../media/related_work/robotic_platforms/},
-                {../media/related_work/3D_printing/}
+                {../media/related_work/3D_printing/},
+                {../media/discussion/}
                 }
 
 % **************************************************
@@ -147,6 +181,8 @@
 % --------------------------
 \renewcaptionname{english}{\figurename}{Fig.}
 \renewcaptionname{english}{\tablename}{Tab.}
+\newcommand{\equationname}{Equation}
+
 
 % --------------------------
 % Front matter
@@ -176,55 +212,55 @@
 
 
 % \input{content/chapter/temp.tex}
-\input{content/chapter/introduction.tex}
+% \input{content/chapter/introduction.tex}
 
-\part{Context} % (fold)
-\input{content/chapter/robot_morphology_review.tex}
-\input{content/chapter/experimental_review.tex}
-\input{content/chapter/OP_RP_review.tex}
+% \part{Context} % (fold)
+% \input{content/chapter/robot_morphology_review.tex}
+% \input{content/chapter/experimental_review.tex}
+% \input{content/chapter/OP_RP_review.tex}
 
-\part{The Poppy project} % (fold)
-\begin{quotation}
-    The Poppy project aims at ...
-    % \signed{Matthieu Lapeyre}
-\end{quotation}
-\input{content/chapter/approach.tex}
-\input{content/chapter/poppy.tex}
-\input{content/chapter/community.tex}
+% \part{The Poppy project} % (fold)
+% \begin{quotation}
+%     The Poppy project aims at ...
+%     % \signed{Matthieu Lapeyre}
+% \end{quotation}
+% \input{content/chapter/approach.tex}
+% \input{content/chapter/poppy.tex}
+% \input{content/chapter/community.tex}
 
-\part{Applications} % (fold)
-\begin{quotation}
-    Usage is like oxygen for ideas. You can never fully anticipate how an audience is going to react to something you’ve created until it’s out there. That means every moment you’re working on something without it being in the public it’s actually dying, deprived of the oxyge of the real world.\\
-    \signed{Matt Mullenweg - Wordpress}
-\end{quotation}
+% \part{Applications} % (fold)
+% \begin{quotation}
+%     Usage is like oxygen for ideas. You can never fully anticipate how an audience is going to react to something you’ve created until it’s out there. That means every moment you’re working on something without it being in the public it’s actually dying, deprived of the oxyge of the real world.\\
+%     \signed{Matt Mullenweg - Wordpress}
+% \end{quotation}
 
 \input{content/chapter/morphology.tex}
-\input{content/chapter/education.tex}
-\input{content/chapter/art.tex}
+% \input{content/chapter/education.tex}
+% \input{content/chapter/art.tex}
 
-\part{Discussions} % (fold)
-\input{content/chapter/diffusion.tex}
-\input{content/chapter/discussion.tex}
-\input{content/chapter/conclusion.tex}
-
-
-\cleardoublepage
-
---------------------------
-Back matter
---------------------------
+% \part{Discussions} % (fold)
+% \input{content/chapter/diffusion.tex}
+% \input{content/chapter/discussion.tex}
+% \input{content/chapter/conclusion.tex}
 
 
+% \cleardoublepage
 
-{%
-\setstretch{1.1}
-\renewcommand{\bibfont}{\normalfont\small}
-\setlength{\biblabelsep}{0pt}
-\setlength{\bibitemsep}{0.5\baselineskip plus 0.5\baselineskip}
-% \nocite{*}
-\printbibliography[nottype=online]
-% \printbibliography[heading=subbibliography,title={Webseiten},type=online,prefixnumbers={@}]
-}
+% --------------------------
+% Back matter
+% --------------------------
+
+
+
+% {%
+% \setstretch{1.1}
+% \renewcommand{\bibfont}{\normalfont\small}
+% \setlength{\biblabelsep}{0pt}
+% \setlength{\bibitemsep}{0.5\baselineskip plus 0.5\baselineskip}
+% % \nocite{*}
+% \printbibliography[nottype=online]
+% % \printbibliography[heading=subbibliography,title={Webseiten},type=online,prefixnumbers={@}]
+% }
 % \cleardoublepage
 
 % \listoffigures
