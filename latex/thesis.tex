@@ -141,6 +141,11 @@
 \newcommand*{\Value}{\frac{1}{2}x^2}%
 
 
+% Force even page
+\newcommand*\cleartoleftpage{%
+  \clearpage
+  \ifodd\value{page}\hbox{}\newpage\fi
+}
 
 % \usepackage{epstopdf} % Convert eps image to pdf
 % \usepackage{epsfig}
