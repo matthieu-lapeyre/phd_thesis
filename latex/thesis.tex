@@ -88,7 +88,7 @@
 \usepackage{boxedminipage}
 \usepackage{textcomp} % euro sign
 \usepackage{listings}
-
+\usepackage{color}
 
 \newcommand{\codename}{Source code}
 \renewcommand{\lstlistingname}{\codename}% Listing -> Algorithm
@@ -99,8 +99,9 @@
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
+\definecolor{TODO}{gray}{0.5}
+
 \usepackage{courier}
-% \usepackage[scaled]{beramono}
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolour},
     captionpos=b,
@@ -194,16 +195,16 @@
 \input{content/titlepages}      % INCLUDE: all titlepages
 \cleardoublepage
 
-\pagestyle{plain}               % display just page numbers
+% \pagestyle{plain}               % display just page numbers
 % \input{content/abstract}        % INCLUDE: the abstracts (english and german)
 % \cleardoublepage
 % %
 % \input{content/acknowledgement} % INCLUDE: acknowledgement
 % \cleardoublepage
 % %
-% \setcounter{tocdepth}{2}        % define depth of toc
-% \tableofcontents                % display table of contents
-% \cleardoublepage
+\setcounter{tocdepth}{1}        % define depth of toc
+\tableofcontents                % display table of contents
+\cleardoublepage
 
 % --------------------------
 % Body matter
@@ -213,35 +214,39 @@
 \pagestyle{maincontentstyle}    % fancy header and footer
 
 
+% --------------------------
+% Body matter
+% --------------------------
+
 % \input{content/chapter/introduction.tex}
 
-% \part{Context} % (fold)
-% \input{content/chapter/robot_morphology_review.tex}
+\part{Related Work}
+\input{content/chapter/robot_morphology_review.tex}
 % \input{content/chapter/experimental_review.tex}
-% \input{content/chapter/OP_RP_review.tex}
+\input{content/chapter/OP_RP_review.tex}
 
-% \part{The Poppy project} % (fold)
-% \begin{quotation}
-%     The Poppy project aims at ...
-%     % \signed{Matthieu Lapeyre}
-% \end{quotation}
-% \input{content/chapter/approach.tex}
-% \input{content/chapter/temp.tex}
-% \input{content/chapter/poppy.tex}
+\part{The Poppy project} % (fold)
+The Poppy project aims to ...
+\input{content/chapter/approach.tex}
+\input{content/chapter/poppy.tex}
 % \input{content/chapter/community.tex}
 
-% \part{Applications} % (fold)
-% \begin{quotation}
-%     Usage is like oxygen for ideas. You can never fully anticipate how an audience is going to react to something you’ve created until it’s out there. That means every moment you’re working on something without it being in the public it’s actually dying, deprived of the oxyge of the real world.\\
-%     \signed{Matt Mullenweg - Wordpress}
-% \end{quotation}
 
-% \input{content/chapter/morphology.tex}
-% \input{content/chapter/education.tex}
-% \input{content/chapter/art.tex}
+\part{Applications} % (fold)
+\begin{quotation}
+    Usage is like oxygen for ideas. You can never fully anticipate how an audience is going to react to something you’ve created until it’s out there. That means every moment you’re working on something without it being in the public it’s actually dying, deprived of the oxygen of the real world.\\
+    \signed{Matt Mullenweg - Wordpress}
+\end{quotation}
 
-% \part{Discussions} % (fold)
-% \input{content/chapter/diffusion.tex}
+Exploring applications of Poppy has been ...
+
+
+\input{content/chapter/morphology.tex}
+\input{content/chapter/education.tex}
+\input{content/chapter/art.tex}
+
+\part{Discussions} % (fold)
+\input{content/chapter/diffusion.tex}
 % \input{content/chapter/discussion.tex}
 % \input{content/chapter/conclusion.tex}
 
@@ -254,21 +259,22 @@
 
 
 
-% {%
-% \setstretch{1.1}
-% \renewcommand{\bibfont}{\normalfont\small}
-% \setlength{\biblabelsep}{0pt}
-% \setlength{\bibitemsep}{0.5\baselineskip plus 0.5\baselineskip}
-% % \nocite{*}
-% \printbibliography[nottype=online]
-% % \printbibliography[heading=subbibliography,title={Webseiten},type=online,prefixnumbers={@}]
-% }
-% \cleardoublepage
+{%
+\setstretch{1.1}
+\renewcommand{\bibfont}{\normalfont\small}
+\setlength{\biblabelsep}{0pt}
+\setlength{\bibitemsep}{0.5\baselineskip plus 0.5\baselineskip}
+% \nocite{*}
+\printbibliography[nottype=online]
+% \printbibliography[heading=subbibliography,title={Webseiten},type=online,prefixnumbers={@}]
+}
+\cleardoublepage
 
-% \listoffigures
-% \cleardoublepage
+\listoffigures
+\cleardoublepage
 
-% \listoftables
+\listoftables
+
 
 % \cleardoublepage
 % \input{content/chapter/appendix.tex}
