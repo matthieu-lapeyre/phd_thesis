@@ -130,5 +130,223 @@ Therefore Poppy has been designed based on the experience background we have bui
 
 \end{description}
 
+\section{Poppy's overview} % (fold)
 
+\begin{figure}[tb]
+    \begin{center}
+        \includegraphics[width=0.5\linewidth]{Poppy_logo_black.png}
+    \end{center}
+    \caption{Poppy's logo}
+    \label{fig:poppy_logo}
+\end{figure}
+
+Poppy is the first complete 3D printed open-source and open-hardware humanoid robot (see \figurename~\ref{fig:poppyv0.1_overview}). Its 3D printed skeleton and its Arduino-based electronics are open-hardware (Creative Commons). Its software is open-source (GPL V3), and allows programming beginners as well as advanced roboticists to control the robot in Python thanks to the PyPot library. Its motors are common and widely used off-the-shell Robotis actuators, and allow for compliant control and soft physical human-robot interaction. Poppy presents an original mechanical structure that permits to obtain a light structure with 3.5kg for 84cm height.
+Its current morphology takes insight from the human functional morphology: large number of articulation (25 motors), the limbs respect human proportions, it has five articulation in the trunk and its thigh is bended by a $6\deg$ angle similar to the human.
+
+\begin{figure}[tb]
+    \begin{center}
+        \includegraphics[width=0.95\linewidth]{poppy-overview.pdf}
+    \end{center}
+    \caption{}
+    \label{fig:poppyv0.1_overview}
+\end{figure}
+
+Poppy is designed to conduct robotic experiments and integrates several key abilities in an easy-to-use robotic platform toward creating a friendly research framework:
+\begin{itemize}
+    \item \textbf{Modular morphology}: Poppy is fully modular (mechanic, electronic, software) allowing to freely explore and modify Poppy's body.
+    \item \textbf{Social and physical human-robot interaction:} Poppy was designed to afford full-body physical interaction, as well as to afford social interaction, with a head and gestural apparatus that can be programmed for communicative or affective expression.
+    \item \textbf{Full-body compliance:} Important aspects of adaptation to physical obstacles or to humans require humanoid robots to be full-body compliant. The use of Robotis Dynamixel actuators permits to actively and dynamically control the compliance of motors, which may be either controlled in position with compliance, or directly in torque
+    \item \textbf{A particular design:} Poppy is often complimented for its unique design which draws particular attention.
+    \item \textbf{Large sensori-motor space:} Robotis Dynamixel give access to a large number of internal sensors and control parameter. In addition, Poppy has several basic sensors such as IMU, camera and which can be easily extended with novel sensors thanks to the Arduino eletronic architecture.
+    \item \textbf{Highly hackable:} Its modularity and the use of 3D printing make Poppy higly hackable. It can be easily adapted to particular experimental setups.
+    \item \textbf{Easy to duplicate:} the overall time to assemble all mechanic components of Poppy takes about 2 days. Adding extra sensors is simplified by the use of Arduino electronic architecture.
+    \item \textbf{Robustness:} Poppy is designed to be robust to falls and to allow long experimentations (e.g. several hours). Also, its conception, slightly under-actuated, prevents it from destructing itself if wrong moves occur.
+    \item \textbf{Transportable outside the lab:} Its size (84 cm) and weight (3.5 kg) make Poppy an easily tranportable robot. In addition its robustness avoid the installation of complex security system around the platform allowing the use Poppy anywhere.
+    \item \textbf{Easy to setup:} we try to keep Poppy and its modules as Plug’n'Play as possible.
+    \item \textbf{Affordable:} to make Poppy widely accessible, we keep the cost relatively low. You can afford all components for 7500-8000\texteuro or thanks to its modularity, only use the parts of the robot needed.
+\end{itemize}
+
+
+Also we set up several web tools to support collaboration and sharing among members of the Poppy community: a portal web site (\url{www.poppy-project.org}), GitHub repositories for the hardware and software with associated wikis for documentation (\url{www.github.com/poppy-project/}), and a novel generation forum based on Discourse\footnote{\url{www.discourse.org}} technology (\url{forum.poppy-project.org}).
+
+
+
+\section{Highlight of some Poppy's morphological aspects}
+
+
+\subsection{Bio-inspired body} % (fold)
+Toward the design and the exploration of an adapted mechanical structure for biped locomotion, we interested ourselves in how evolution solved sensorimotor tasks related to locomotion and in particular bipedal locomotion. As human locomotion represents one of the finest example of mastering bipedal walking, we took functional inspiration of some elements that seem relevant to improve the locomotion of humanoid robots also the morphological optimization is mainly expressed on the locomotive system (legs and trunks) in order to increase the robot robustness, agility and stability during the walking.
+
+\subsubsection{Human proportion} % (fold)
+This bio-inspiration is expressed on the whole structure of Poppy. On the anatomical point of view, it reproduces the human proportions as described in the literature~\cite{dufour2005biomecanique}  (see \figurename~\ref{fig:proportion_poppy}) and their sensorimotor space organization: i.e. the main degrees of freedom (actuated and passive), an inertial unit in the head.
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.9\linewidth]{proportion_poppy.jpg}
+    \caption{Human proportion used for the design of Poppy~\cite{dufour2005biomecanique}}
+    \label{fig:proportion_poppy}
+\end{figure}
+
+\subsubsection{A multi-articulated trunk} % (fold)
+
+Poppy uses the bio-inspired trunk system introduced by Acroban~\cite{ly2010}. Involving five articulations, it allows the reproduction of the main DOFs of the human spine. This feature permits the production of more natural and fluid motions while improving the user experience during physical interaction (see \figurename~\ref{fig:poppy_multi_articulated_trunk}). In addition, the spine plays a fundamental role in bipedal walking and postural balance by actively participating in the balancing of the robot.
+
+\begin{figure}[]
+\centering
+    \subfloat[][]{\label{fig:frontal_trunk}\includegraphics[width=0.49\linewidth]{trunk_face.png}}
+    \hfil
+    \subfloat[][]{\label{fig:sagittal_trunk}\includegraphics[width=0.49\linewidth]{trunk_sagittal.png}}
+    \caption{Poppy has an articulated trunk of 5 DoFs which allows more natural and fluid motions while improving the user experience during physical interaction and actively participating to the balance of the robot.}
+    \label{fig:poppy_multi_articulated_trunk}
+\end{figure}
+
+% Contrary to the design of the hips, it was not possible here to fit the 5 motors in the frontal plane due to the limited space in the trunk. So to reduce the shifting of the center of gravity to the back of the robot we gradually shifted the upper body to the front. By doing so, we keep the CoG in the support polygon.
+
+\subsubsection{The bio-inspired thigh} % (fold)
+The shape of the thigh is inspired of the human thigh. It is bended by angle of 6\textsuperscript{o}, increasing the stability of the robot during biped locomotion. In the chapter~\ref{REF} we will compare this design with a more traditional straight thigh. We will describe both the theoretical model and real experiments showing that the bio-inspired thigh allows the reduction of falling speed by almost 60\% (single support phase) and the decrease of the lateral motion needed for the mass transfer from one foot to the other by 30\% (double support phase) while reducing the upper body perturbation by about 45\% indicating a more stable walk.
+
+\subsubsection{Foot design} % (fold)
+
+To allow efficient and human-like walking gait, Poppy's feet design takes some functional inspiration from the actual human foot such as the proportion, compliance and toes which are key features concerning both the human walking and biped robots with a human-like gait. In addition, we wanted to reduce the weight (i.e. reducing inertia) of the feet to increase the robot agility. To keep the foot as light as possible while conserving functional properties we decided to use a single motor for the main motion (sagittal plane) while other DoF are passives.
+
+The lateral motion of the foot is limited: few range of motion, low torque. The need of a 360 deg and high torque motor seems over rated. Technically the addition of a motor lead to a major weight gain. We preferred to design  instead a passive joint using torsion spring.
+
+\textbf{Author's note:} A new feet is currently under development and will be released in the incoming weeks. This part will be updated.
+
+\subsection{Lightweight and compliant structure} % (fold)
+Following ecological principles~\cite{pfeifer2005new} we decided to design a lightweight and compliant robot requiring low actuation power. All our design choices, such as the materials, the motors or the sensors, have been made to have a balanced morphology.
+
+Weight reduction was achieved through the use of trellis structures. These structures, mainly used in civil engineering, are among the best technical solutions to optimize the weight/resistance ratio. All the limbs of Poppy are based on this structure and have been optimized using finite element analysis (FEA) to perform structural simulation and validate parts performance and safety factors.
+
+In the next sections we will detail each part of the robot and how they fit within these designs principles.
+
+% \subsubsection{Actuation} % (fold)
+% \label{ssub:robot_actuation}
+% However these motors are quite heavy (72, 126 and 153g respectively for MX-28, MX-64 and MX-106) in comparison of the Futaba servo-motors\footnote{\url{http://www.futaba-rc.com/servos/brushless.html}}, 20-50g for a comparable output torque. Given these constraints, the challenge consists in minimizing the number of motors and the power needed to reduce the global weight of the robot.
+
+\subsubsection{Material properties} % (fold)
+\label{ssub:material_properties}
+
+All mechanicals parts are made using laser sintering technology. This 3D printing process allows the production of almost any shape without constraint. In addition, the price of the part depends on the total size and not on the complexity of the shape. This permits the production of very optimized shapes without increasing the total price of the robot. Also, this technique is compatible with several materials from polyamide to titanium. Parts manufacturing was subcontracted to an external company\footnote{\url{http://i.materialise.com/}}.
+For Poppy's structure we decided to use the polyamide material because it is lightweight and very flexible while keeping good strength properties (see the table~\ref{tab:materials}).
+
+\begin{table}[h]
+    \centering
+    \begin{tabularx}{0.8\linewidth }{l X X X}
+        Material & Mass Density $\rho$ ($kg/m^3$) &  Yield strength $\sigma$~($MPa$) & Young Modulus $E$($GPa$)\\
+        \hline
+        Polyamide & $930$ & $49$ & $1.65$\\
+
+        Aluminum & $2700$ & $200$ & $70$\\
+
+        Steel & $7500-8000$ & $350$ & $200$\\
+
+        Titanium & $4500$ & $1200$ & $114$\\
+
+    \end{tabularx}
+
+    \caption{Comparison of material properties.
+    The Young modulus represents the stiffness of the material while the yield strength corresponds to the maximal stress tolerable before plastic deformation.}
+    \label{tab:materials}
+\end{table}
+
+
+\subsubsection{Structure design} % (fold)
+\label{ssub:structure_design}
+
+All mechanical parts were designed to optimize their weight and make the platform Poppy as light as possible.
+The obtained mass reduction allows the use of less powerful motors which are therefore lighter.
+We can thus have a lightweight robot, strong and powerful enough to perform tasks such as walking and physical interaction.
+
+Weight reduction was achieved through the use of trellis structures.
+These structures, mainly used in civil engineering, are among the best technical solutions to optimize the weight/resistance ratio.
+All the limbs of Poppy are based on this structure and have been optimized using finite element analysis (FEA) to perform structural simulation and validate parts performance and safety factors.
+
+
+\begin{figure}[!h]
+\centering
+    \subfloat[][Section of the Poppy's leg]{\label{fig:Poppy_leg_section}\includegraphics[height=4cm]{Poppy_leg_section.jpg}}
+    \hfil
+    \subfloat[][Equivalent square section]{\label{fig:basic_leg_section}\includegraphics[height=4cm]{basic_leg_section.jpg}}
+    \caption{}
+    \label{fig:leg_section}
+\end{figure}
+
+
+The main quadratic momentum taken at the middle of the leg given the trellis structure (see \figurename~\ref{fig:leg_section}.a) is:
+
+\begin{center}
+    $I_x = \iint_s y^2 dxdy$ and  $I_y = \iint_s x^2 dxdy$
+
+    with $s = dxdy$
+\end{center}
+\begin{center}
+    $I_x = 54.862 mm^4$
+    ,
+    $I_y = 53.260 mm^4$
+\end{center}
+
+For instance, given a solid bar with rectangular profile (\figurename~\ref{fig:leg_section}.b):
+
+{\centering
+    $I_x = \frac{b \cdot h^3}{12}$
+    ,
+    $I_y = \frac{b^3 \cdot h}{12}$
+}
+It would require a section such as $b=27.72 mm$ and $h=27.59 mm$ to get the same quadratic momentum.
+Considering the length of the leg part (i.e.
+$190 mm$), the total mass would be equal to $142 g$ instead of $47 g$ for the actual leg.
+This corresponds to a reduction of 70\% of the mass.
+
+By using this mesh structure on most of the robot, the total weight of the 3D
+printed parts were reduced of about 1.3kg while still being resistant under shocks and falls.
+
+
+\subsection{Social and emotional skills} % (fold)
+
+In our lab we are especially interested by the role of morphology for dynamic task such as biped locomotion or physical human robot interaction. Yet Poppy is designed to be a multipurpose robot adapted for several kind of scientific exploration.
+An important and challenging research topic is the natural human-robot communication so we have provided Poppy with some basic features allowing to directly explore social human-robot interaction and thus extend the potential research community users.
+
+\subsubsection{Expressive head} % (fold)
+Strong technical constraints was imposed because the head embed most of electronic components of Poppy plus a wide 4.5" screen and cameras for social communication. Therefore lot of effort have been invested in the design and aesthetic of Poppy's head (see \figurename~\ref{fig:poppy_beta_head}), both its identity and main communication apparatus. It takes inspiration in robotics, animals, object design and art (see the associated pinterest board \url{http://www.pinterest.com/matthieulapeyre/robot/}). We tried to make it cute, expressive and simple.
+
+\begin{figure}[]
+\centering
+    \subfloat[][The first assembly]{\includegraphics[height=5cm]{head_beta_assembled.jpg}}
+    \hfil
+    \subfloat[][Screen powered on with basic eyes display]{\includegraphics[height=5cm]{poppy_beta_eyes.jpg}}
+    \caption{}
+    \label{fig:poppy_beta_head}
+\end{figure}
+
+However, in the first version showed here, there is a major design error. Indeed my desire was to have a screen to create and explore freely expressive eyes but the use of two visible cameras changed the way people saw Poppy's head. Of course, people seeing 2 cameras considers they are the eyes of the robot and therefore extrapolate that the screen may be the mouth.
+
+We are working on this issue by replacing the two big camera by a small one with a pinhole lens which can be hidden on the Poppy face.
+
+
+\subsubsection{Compliant and multi-articulated body} % (fold)
+
+Thanks to its multi-articulated structure and its expressive head, Poppy has a particularly high potential for creating and studying emotions and gesture social communication (see \figurename~\ref{fig:TER_cognitic}).
+
+\begin{figure}[]
+\centering
+    \subfloat[][\url{http://youtu.be/StFIMuyz11M}]{\includegraphics[width=0.45\linewidth]{TER_surprise.jpg}}
+    \hfil
+    \subfloat[][\url{http://youtu.be/RwCtNwLk10E}]{\includegraphics[width=0.45\linewidth]{TER_joy.jpg}}\\
+    \subfloat[][\url{http://youtu.be/qrcmLXbpUVo}]{\includegraphics[width=0.45\linewidth]{TER_sad.jpg}}
+    \hfil
+    \subfloat[][\url{http://youtu.be/ms2niFLevv8}]{\includegraphics[width=0.45\linewidth]{TER_fear.jpg}}
+    \caption{}
+    \label{fig:TER_cognitic}
+\end{figure}
+
+
+
+\section{The electronical architecture} % (fold)
+
+\section{Pypot: a versatile and modular python control library}
+
+\section{Discussion}
+
+\section{Conclusion}
 
