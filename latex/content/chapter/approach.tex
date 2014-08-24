@@ -3,13 +3,34 @@
 \chapter{Motivations and Methodology}
 
 
+\section{TODO}
+
+Majeurs:
+2) cependant un points majeur est à argumenter et creuser beaucoup plus en profondeur: le côte open-source. Pour l’instant, le texte fait comme si c’était une évidence que
+   i) tout le monde connait les tenants et les aboutissants de l’open-source (il faut les expliquer)
+  ii) que c’est intéressant que la méthodologie produise des outils open-source et les diffuse
+  ==> ce n’est pas du tout évident et ça doit être argumenté (si c’était évident, pourquoi 99 pourcent des autres travaux en robotique sont pas open source ?)
+  ==> Tu dois discuter des avantages, mais aussi des difficultés potentielles qu’implique un projet open-source
+ Tu peux te baser sur l’analyse de l’impact du côté open-source dans d’autres projets, e.g. ICub/Darwin, Arduino, etc, et en particulier dans la section 1.3.5 qui doit être beaucoup plus détaillée
+
+Ponctuels:
+
+
+p. 2: “while acting robustly in the real world?” —> phrase pas claire, on ne voit pas trop ce que tu veux dire
+p. 2: “how can we make this work … community” —> 1) anglais par correct; 2) explique en quoi c’est un “epistemological problem”; 3) explique en quoi c’est un problème important
+
+1.2.2: “has never been transferred to another lab” —> explique en quoi c’est un problème (ça n’embête presque personne en robotique, donc il faut faire une discussion ici)
+
+
+
+
 \section{Introduction} % (fold)
 
 In chapter REF(related work sur le corps), we discussed the emergence of novel paradigm in the robotics field that appeared in the late 80's. The embodied artificial intelligence rejects the symbolic approach and postulates that it is not possible to have intelligence without an actual robot body associated with its ecological niche~\cite{pfeifer2001understanding}. Following this paradigm, several researchers tried to tackle challenges in which the classical cognitivist approach failed (see REF) e.g. the understanding of natural forms of intelligence that require a direct interaction with the real world.
 
-Thus an interesting evolution of the last decades is the demonstration of the importance of the morphology for sensorimotor control, cognition and development (~\cite{REF}~\cite{REF}~\cite{REF}). Exploring the interaction between body properties and cognition could lead to both a better understanding of animals’ behaviour (human being in particular) and to build robot more adapted and robust to an open environment with unpredictable interactions. In particular we can highlight the acquisition of sensorimotor tasks and the exploration of adapted bodies for natural physical and social interactions with humans.
+Thus an interesting evolution of the last decades is the demonstration of the importance of the morphology for sensorimotor control, cognition and development (\cite{kaplan2008corps} \cite{REF} \cite{REF}). Exploring the interaction between body properties and cognition could lead to both a better understanding of animals’ behaviour (human being in particular) and to build robot more adapted and robust to an open environment with unpredictable interactions. In particular we can highlight the acquisition of sensorimotor tasks and the exploration of adapted bodies for natural physical and social interactions with humans.
 
-In this context, we should not only take care of the robot body design but \textbf{introduce the morphology as an experimental variable and conduct experiments in the real world}. As Rodney Brooks said \emph{the world is its own best model}~\cite{brooks1991intelligence} and simulators cannot handle the complexity of the real physic with multi-point contacts, soft materials and frictions. This is especially the case of complex dynamic tasks such physical interaction or legged locomotion.
+In this context, we should not only take care of the robot body design but \textbf{introduce the morphology as an experimental variable and conduct experiments in the real world}. As Rodney Brooks said \emph{the world is its own best model}~\cite{brooks1991intelligence} and simulators cannot handle the complexity of the real physic with multi-point contacts, soft materials and frictions. This is especially the case of complex dynamic tasks such as physical interaction or legged locomotion.
 
 
 Following the definition of the robotic morphology given by C.Paul:
@@ -37,37 +58,49 @@ In this context, creating a platform reproducible everywhere without special too
 \subsection{Make the morphology variable} % (fold)
 
 Current robotic platform, in particular humanoid ones, have mechanical parts either handcrafted or produced with classic machining technique based on milling or casting various metal alloy or plastic.
-These techniques require specific upfront tooling which make the production of small batch really expensive. Also, to keep the robot cost rather low, scale effect trough mass production is needed. In this context, current robotic platform cannot have their morphology modified because it would require redoing most of the production process. In addition, the design of such mechanical part is constraints because the manufacturing process implies constraints and the complexity of a part greatly increases its cost. The same issues appear with electronics and the robot sensor space which is, in most cases, frozen.
+These techniques require specific upfront tooling which make the production of small batch really expensive. Also, to keep the robot cost rather low, scale effect trough mass production is needed. In this context, current robotic platform cannot have their morphology modified because it would require redoing most of the production process. In addition, the design of such mechanical part is constraints because the manufacturing process implies constraints and the complexity of a part greatly increases its cost. The same issues appear with electronics and the robot sensor space which is, in most cases, frozen. Thus the classic way to design and produce robot is not adapted to the free exploration of the robot morphology, novel design and production paradigm have to be used.
 
-Thus the classic way to design and produce robot is not adapted to the free exploration of the robot morphology, novel design and production paradigm have to be used.
+In addition, exploring the role of morphology requires to actually change the morphology. Therefore the access to the whole source files should be free allowing anyone to modify them accordingly to their needs and then produce novel designs.
 
-\subsection{Create reproducible robot prototype} % (fold)
+\subsection{Create reproducible robot prototypes} % (fold)
 
-Several interesting robotic platforms explore key aspects in the robot morphology, we can cite Kenshiro~\cite{REF} which uses complex and bio-inspired artificial muscles actuator network, or semi-passive walkers such as Denise~\cite{REF} demonstrating impressive walking ability with few control and power actuation. Unfortunately, none of these robots can be and has ever been transferred to another lab. Indeed their production requires specific tooling and hand tuning only few skilled people have.
+Several interesting robotic platforms explore key aspects in the robot morphology, we can cite Kenshiro~\cite{REF} which uses complex and bio-inspired artificial muscles actuator network, or semi-passive walkers such as Denise~\cite{REF} demonstrating impressive walking ability with few control and power actuation. Unfortunately, none of these robots can be and has never been transferred to another lab. Indeed their production requires specific tooling and hand tuning only few skilled people have.
 
-To enhance scientific impact, our work should be reproducible in another lab. This is essential as it permits the validation of scientific results presented in publications, and it enables cumulative science which permits to accelerate the development of new technology. Also we are especially attentive to these criterions:
+
+\begin{figure}[tb]
+    \begin{center}
+        \includegraphics[width=0.8\linewidth]{step2_troll.jpg}
+    \end{center}
+    \caption{Caption here}
+    \label{fig:figure1}
+\end{figure}
+
+ where there’s unfettered access to knowledge and the components associated (articles, data, software, materials, methods), where work can be built upon without asking permission (setting our eyes on reproducibility), and where our modus operandi is more rooted in open collaboration (and we’re rewarded for such behavior).
+
+However one basis of Science is its universality i.e. the fact something can be
+
+To enhance scientific impact, our work should be reproducible in another lab. This is essential as it permits the validation of scientific results presented in publications, and it enables cumulative science which permits to accelerate the development of new technology. Also we are especially attentive to these criterion:
 
 \begin{description}
-    \item[Precision, stationary] Experiments should be repeatable, implying that the robot morphology properties should be stationary. This means the robot performances should not be dependent of the place or the people skills.
+    \item[Precision, stationary] Experiments should be repeatable, implying that the robot morphology properties should be stationary. This means the robot performances should not be dependent of the place where it has been built nor people skills.
     \item[Easy and fast to duplicate:] Such a reuse of the robotic platform requires that it is easy and fast to duplicate and does not rely on specific tooling or exotic components.
     \item[Affordable:] To ensure a wide spread, a key aspect is to keep the cost of platform relatively low. More labs can be involved more the scientific impact is.
 \end{description}
 
-% subsection reproducible_robot (end)
 
 \subsection{Keep robotic platform simple and easy-to-use} % (fold)
 The robotic field is intrinsically multidisciplinary. A robot itself requires technologies coming from mechanics, electronics and computer sciences, but the scientific impact of robotics can be way larger and reach non-engineering fields such as human, social or biological sciences. Thus robotic field is an expert field where nobody can be expert in each required skills.
 We have to take into account the fact the end user is certainly expert in one specific field but beginner in the other fields. This mean that in each field, the designed robot has to be simple enough to be understood and used by beginners while having, at the same time, enough potential to not constrain users in their expertise field.
 
-% subsection keep_it_simple (end)
 
 \section{The chosen approach} % (fold)
 
 To address these challenges, we suggest exploring an alternative design methodology which is driven by the desire to:
 \begin{itemize}
-    \item freely explore morphological properties
-    \item reduce the required amount of time between an idea and its experimentation on an actual robotic platform in the real life
-    \item keep our work global meaning it can be easily reproduced in any other lab.
+    \item freely explore morphological properties,
+    \item reduce the required amount of time between an idea and its experimentation on an actual robotic platform in the real life,
+    \item make our work easily reproducible in any other labs,
+    \item keep our work modular and free-to-use following open source principles so it can be reused and extended for other project.
 \end{itemize}
 
 
@@ -175,11 +208,16 @@ This language is rather slow compare to C or Java, but sensorimotor control is d
 
 \subsection{Open source diffusion} % (fold)
 
+Finally, one of the most important point is the release open source of
+
+Following open source principle, we want to enable open science by sharing all our work
+
+
 \textbf{TODO Figure ?}
 
 Last but not least, one our main challenge is to enable diffusion and reproduction of robotic platform designed with this approach in the scientific community. While the main aspect of such approach is to create variability, reuse and modification of initial design, it is necessary to not only diffuse our work through scientific publications but also distribute sources in the community. For this purpose we use open source license: GPLv3 for software (Control API) and Creative Commons BY-SA License for Hardware (mechanical parts and electronic boards).
 
-In addition, while our work is intended to be reused by external and hopefully numbers of people, the sources have to be clean, robust and well-documented.
+In addition, while our work is intended to be reused by external and hopefully numerous of people, the sources have to be clean, robust and well-documented.
 
 
 \begin{itemize}

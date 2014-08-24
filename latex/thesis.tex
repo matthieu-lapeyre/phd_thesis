@@ -89,6 +89,11 @@
 \usepackage{textcomp} % euro sign
 \usepackage{listings}
 \usepackage{color}
+\usepackage{tabularx}
+% \usepackage{marginnote}
+% \reversemarginpar
+
+\renewcommand{\arraystretch}{1.3}
 
 \newcommand{\codename}{Source code}
 \renewcommand{\lstlistingname}{\codename}% Listing -> Algorithm
@@ -191,10 +196,10 @@
 % --------------------------
 % Front matter
 % --------------------------
-\pagenumbering{roman}           % roman page numbing (invisible for empty page style)
-\pagestyle{empty}               % no header or footers
-\input{content/titlepages}      % INCLUDE: all titlepages
-\cleardoublepage
+% \pagenumbering{roman}           % roman page numbing (invisible for empty page style)
+% \pagestyle{empty}               % no header or footers
+% \input{content/titlepages}      % INCLUDE: all titlepages
+% \cleardoublepage
 
 % \pagestyle{plain}               % display just page numbers
 % \input{content/abstract}        % INCLUDE: the abstracts (english and german)
@@ -203,9 +208,9 @@
 % \input{content/acknowledgement} % INCLUDE: acknowledgement
 % \cleardoublepage
 % %
-\setcounter{tocdepth}{1}        % define depth of toc
-\tableofcontents                % display table of contents
-\cleardoublepage
+% \setcounter{tocdepth}{1}        % define depth of toc
+% \tableofcontents                % display table of contents
+% \cleardoublepage
 
 % --------------------------
 % Body matter
@@ -215,45 +220,42 @@
 \pagestyle{maincontentstyle}    % fancy header and footer
 
 
-% --------------------------
-% Body matter
-% --------------------------
-
 % \input{content/chapter/introduction.tex}
-\cleartoleftpage
-\part{Related Work}
-\input{content/chapter/robot_morphology_review.tex}
+% \input{content/chapter/temp.tex}
+% \cleartoleftpage
+% \part{Related Work}
+% \input{content/chapter/robot_morphology_review.tex}
 % \input{content/chapter/experimental_review.tex}
-\input{content/chapter/OP_RP_review.tex}
+% \input{content/chapter/OP_RP_review.tex}
 
-\cleartoleftpage
-\part{The Poppy project} % (fold)
-The Poppy project aims to ...
+% \cleartoleftpage
+% \part{The Poppy project} % (fold)
+% The Poppy project aims to ...
 \input{content/chapter/approach.tex}
-\input{content/chapter/poppy.tex}
+% \input{content/chapter/poppy.tex}
 % \input{content/chapter/community.tex}
 
-\cleartoleftpage
-\part{Applications} % (fold)
-\begin{quotation}
-    Usage is like oxygen for ideas. You can never fully anticipate how an audience is going to react to something you’ve created until it’s out there. That means every moment you’re working on something without it being in the public it’s actually dying, deprived of the oxygen of the real world.\\
-    \signed{Matt Mullenweg - Wordpress}
-\end{quotation}
+% \cleartoleftpage
+% \part{Applications} % (fold)
+% \begin{quotation}
+%     Usage is like oxygen for ideas. You can never fully anticipate how an audience is going to react to something you’ve created until it’s out there. That means every moment you’re working on something without it being in the public it’s actually dying, deprived of the oxygen of the real world.\\
+%     \signed{Matt Mullenweg - Wordpress}
+% \end{quotation}
 
-Exploring applications of Poppy has been ...
+% Exploring applications of Poppy has been ...
 
-\input{content/chapter/morphology.tex}
-\input{content/chapter/education.tex}
-\input{content/chapter/art.tex}
+% \input{content/chapter/morphology.tex}
+% \input{content/chapter/education.tex}
+% \input{content/chapter/art.tex}
 
-\cleartoleftpage
-\part{Discussions} % (fold)
-\input{content/chapter/diffusion.tex}
+% \cleartoleftpage
+% \part{Discussions} % (fold)
+% \input{content/chapter/diffusion.tex}
 % \input{content/chapter/discussion.tex}
 % \input{content/chapter/conclusion.tex}
 
 
-\cleardoublepage
+% \cleardoublepage
 
 % --------------------------
 % Back matter
@@ -261,21 +263,21 @@ Exploring applications of Poppy has been ...
 
 
 
-{%
-\setstretch{1.1}
-\renewcommand{\bibfont}{\normalfont\small}
-\setlength{\biblabelsep}{0pt}
-\setlength{\bibitemsep}{0.5\baselineskip plus 0.5\baselineskip}
-% \nocite{*}
-\printbibliography[nottype=online]
-% \printbibliography[heading=subbibliography,title={Webseiten},type=online,prefixnumbers={@}]
-}
-\cleardoublepage
+% {%
+% \setstretch{1.1}
+% \renewcommand{\bibfont}{\normalfont\small}
+% \setlength{\biblabelsep}{0pt}
+% \setlength{\bibitemsep}{0.5\baselineskip plus 0.5\baselineskip}
+% % \nocite{*}
+% \printbibliography[nottype=online]
+% % \printbibliography[heading=subbibliography,title={Webseiten},type=online,prefixnumbers={@}]
+% }
+% \cleardoublepage
 
-\listoffigures
-\cleardoublepage
+% \listoffigures
+% \cleardoublepage
 
-\listoftables
+% \listoftables
 
 
 % \cleardoublepage
