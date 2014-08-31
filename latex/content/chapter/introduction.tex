@@ -1,95 +1,56 @@
 % !TEX root = ../../thesis.tex
 
+\cleartoleftpage
+\includepdf{../media/chapter_illustration/poppy_prairie_2.pdf}
+
 \chapter{Introduction} % (fold)
 
 
-\section{Robotics, an expected societal (r)evolution} % (fold)
+In the Inria Flowers team\footnote{\url{flowers.inria.fr}}, we are interested by the study of mechanisms that can allow robots and humans to acquire autonomously and cumulatively repertoires of novel skills over extended periods of time.
 
-For decades, Robotics was predicted to play a major role in our society, yet it turned as a rampant subject often overtaken by unexpected innovations such as the incredible expansion of the Internet in the last twenty years.
-However the current international activity on the robotic market tends to show a potential societal impact in a near future.
+This includes mechanisms for learning by self-exploration, as well as learning through interaction with peers, for the acquisition of both sensorimotor skills (e.g. locomotion, affordance learning, active manipulation) and social skills (e.g. grounded language use and understanding, adaptive interaction protocols, and human-robot collaboration).
 
-\subsection{A growing market} % (fold)
-
-\emph{Stuff about the current activity on the market showing an expansion of robotic applications for large public applications in the 5 incoming years.}
-
-\url{http://www.logisticsmgmt.com/article/robot_report_predicts_significant_growth_in_coming_decade}
-\url{http://www.computerworld.com/s/article/9054701/Personal_robot_market_expected_to_balloon_to_15B_by_2015}
-
-Google bought the most innovative robotics companies such as Boston Dynamics, Shaft, Meka or Deep Mind.
-Drone and stuff ...
-google car, ardrone, shipping with drone by amazon etc ...
-
-The domestic robot, in particular vacuum cleaner are under expansion with millions of units sold from various brand.
-
-\subsection{industrial} % (fold)
-Also while robots have already had a strong impact on the industrial process.
-New applications are arising to allow close collaboration with workers.
-Industrial robots are becoming accessible to small company with robot such as Baxter.
-
-The robotic can permit developed country to re-locate industrial factories while the human cost will be reduced by automatic manufacturing process using robot massively.
+An interesting evolution of the last decades is the demonstration of the importance of the robot morphology for sensorimotor control, cognition and development (\cite{kaplan2008corps} \cite{steels1995artificial} \cite{Pfeifer06}). Indeed, a robot behaviour cannot be preprogramed. The actual behaviour is always emerging from a complex interaction between the control algorithm, the robot morphology and the environment~\cite{Steels1991emergence}. Moreover, it is clear that an adapted robot morphology using specific properties can greatly reduce the complexity of a given task by ensuring implicitly a part -or the integrity- of the control required~\cite{pfeifer2005morphological}.
+Finally, as Rodney Brooks argued, \emph{the world is its own best model}~\cite{brooks1991intelligence} and simulators cannot realistically handle the complexity of the real physic with multi-point contacts, soft materials compliance, frictions or unpredicted multi-modal interactions.
 
 
-\subsection{Assistance} % (fold)
-Currently, a lot of research is done to tackle issues raised by the aging of the population.
-Especially in Japan, elder assistance is becoming a priority.
+Exploring mechanisms of acquisition requires to take into account the robot morphology to be complete.
+Therefore, we \textbf{should consider the robot morphology\footnote{The robot morphology is defines as any characteristic which defines the physical structure of the robot such as link sizes, number of links, joint characteristics, mass distribution, actuator characteristics, material properties, sensor characteristics and sensor placements~\cite{paul2006morphological}} as an experimental variables~\cite{kaplan2008corps} that can be tuned and conduct experiments in the real world}.
+
+Where it is straightforward to explore and experiment variation of several parameters in software (e.g. algorithms, simulator), experimenting variation of the morphology on a real robot is much more challenging:
+
+\begin{enumerate}
+    \item how can we have an experimental robotic platform allowing both to change easily and quickly its morphology while acting robustly in the real world ?
+    \item how can we make this work, mainly hardware, diffusible and reusable in the research community ?
+\end{enumerate}
+
+Unfortunately current robotic platforms are not suitable to address such challenges.
+
+On one hand, commercial robots such as Nao \cite{gouaillier2008nao}, Darwin Op \cite{ha2011development}, Nimbro Op \cite{schwarznimbro} or iCub \cite{metta2008icub} are easily accessible and easy to use. Yet they provide a "traditional" morphology (e.g. limited compliance, rigid torso, big feet, over actuated) and they do not permit the modification of their morphology. Moreover in most case, they are not open source and/or the hardware is to complicated/expensive to be modified.
+
+On the other hand, lab prototypes are mainly handcrafted and specifically tuned which make them almost impossible to be reproduced in another lab.
+
+The main issue of these robots are the chosen approaches and technologies used to design and produce them. Indeed, the classic way to design and produce robot is a complicated, time-consuming and an expensive process involving specific upfront tooling and complex manufacturing processes.
 
 
-\subsection{Education} % (fold)
+Within this context we decided to create a whole new humanoid robot called Poppy. This humanoid robot was designed to easily and quickly conduct scientific experiments on sensorimotor learning, exploring morphological properties, and human-robot interaction. As an experimental robotic platform, Poppy was designed to be \textbf{affordable}, \textbf{lightweight}, \textbf{robust and safe}, \textbf{easy to use}, \textbf{highly-hackable} and \textbf{fast and easy to duplicate or modify} with the goal to be easily reproducible and used by other lab thanks to an open source distribution (hardware and software). This was achieved thanks to 3D printing techniques, affordable off-the-shell components and optimized modular design.
 
 
-\subsection{other stuffs} % (fold)
-\emph{Je ne sais pas où parler du role de la robotique pour faire autre chose que de la robotique: sciences humaines, comprendre l'homme, education, art, ...}
-
-Plus proche de nous, dans les annees 1940, Grey Walter, chercheur en neurophysiologie, reconnu pour son travail sur l’electroencephalogramme et pour les nombreux progres que lui et son equipe y apporterent, etait convaincu que de developper de nouveaux systemes de visualisation et d’analyse etait sans doute necessaire mais non suffisant pour comprendre le cerveau en action. Il construisait des petits robots mobiles pour montrer que, au-dela de l’organisation cerebrale, ce sont aussi les caracteristiques anato- miques et physiques du corps qui determinent le comportement (Walter, 1967; Cordeschi, 2002). Aujourd’hui les experiences « robotiques » s’invitent dans de nombreux domaines, depuis les neurosciences (Edelman, 2007) jusqu’a la psychologie du develop- pement (Revel, Nadel, 2007) ou meme la linguistique (Kaplan, 2001 ; Steels et al., 2002).
-
-\section{Interaction with the next industrial revolution} % (fold)
-Following the Internet emergence, an industrial revolution is in progress~\cite{anderson2012makers}.
+\section*{Proceeding of this thesis} % (fold)
 
 
-\section{Major scientific challenges still have to be addressed} % (fold)
+This thesis will be presented along 4 parts.
 
-Even if economic agitation arises since Google made huge investments, there are still major challenges to be solved before robots may have an actual impact on our daily life.
+In the first part, we will present the related work about the role of morphology.
 
+The related work will be composed of 3 chapters covering important aspect associated with the Poppy project. First, we will discuss important research work on the robot morphology that show how essential the robot morphology is toward
 
-\subsection{General} % (fold)
-\emph{Complicated robotics stuffs we do not care in this thesis such as perception, vision, communication, manipulation, ...}
-
-\subsection{A multidisciplinary science} % (fold)
-An autonomous robot have a mechanic body, an electronic architecture and use computers for the control.
-
-Robotics is intrinsically an association of different sciences coming from a large spectrum of domains.
-It is both what makes robotics so fascinating and so challenging.
-While we can contribute to the robotics from several horizon and have the possibility to create multidisciplinary collaboration, we have also to face technical issues coming from the actual application of all these sciences.
-
-As researcher, we  are often confronted to technical problems not directly link to the problematic we are interested in.
-This is especially the case when we set up real world experiments.
-A lot of time is consumed doing technical debug.
-All these problems tend to increase time to achieve research milestones.
-
-
-\subsection{The real world} % (fold)
-
-The current state of the arts is effective to control with high precision and velocity complex multi-link robotics arms but is not robust under unpredictable events.
-Thus going outside the lab or a factory is still really difficult for robots.
-
-\subsubsection{Walking around in an unknown environment} % (fold)
-While first robotics cars are traveling along some American roads (flying drone also), the legged locomotion, especially the biped one, is not yet enough robust to be efficient on unspecified terrain.
-An example was the first round of the DARPA Challenge which showed how far we were from biped robots actually efficient in the real world.
-
-
-\subsubsection{Interaction with real humans} % (fold)
-In addition to moving in an unknown environment, robots will have to interact with real people.
-Physical and Social ...
-
-
-\subsection{The need of long term experiments} % (fold)
-
-
-\section{The robot morphology: the interface with the real world} % (fold)
-
-A major scientific results in the field in the last decade is the identification of the importance of the body to simplify motor control problems for bipedal locomotion for example, and to create intuitive interactions between people and robot.
+...
 
 
 
 
-In this thesis, we adress these two challenges by proposing a robot design methodology and the conception a whole novel humanoid platform based on these methodology.
+
+
+
+
