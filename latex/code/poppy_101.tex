@@ -1,0 +1,17 @@
+
+\scriptsize
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{pypot.robot}
+
+\PY{k+kn}{import} \PY{n+nn}{poppytools.primitive.basic} \PY{k+kn}{as} \PY{n+nn}{basic}
+\PY{k+kn}{from} \PY{n+nn}{poppytools.configuration.config} \PY{k+kn}{import} \PY{n}{poppy\PYZus{}config}
+
+
+\PY{n}{poppy} \PY{o}{=} \PY{n}{pypot}\PY{o}{.}\PY{n}{robot}\PY{o}{.}\PY{n}{from\PYZus{}config}\PY{p}{(}\PY{n}{poppy\PYZus{}config}\PY{p}{)}
+\PY{n}{poppy}\PY{o}{.}\PY{n}{start\PYZus{}sync}\PY{p}{(}\PY{p}{)}
+
+\PY{n}{poppy}\PY{o}{.}\PY{n}{attach\PYZus{}primitive}\PY{p}{(}\PY{n}{basic}\PY{o}{.}\PY{n}{StandPosition}\PY{p}{(}\PY{n}{poppy}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{stand\PYZus{}position}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+
+\PY{n}{poppy}\PY{o}{.}\PY{n}{stand\PYZus{}position}\PY{o}{.}\PY{n}{start}\PY{p}{(}\PY{p}{)}
+\PY{n}{poppy}\PY{o}{.}\PY{n}{stand\PYZus{}position}\PY{o}{.}\PY{n}{wait\PYZus{}to\PYZus{}stop}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
