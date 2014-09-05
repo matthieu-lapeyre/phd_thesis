@@ -10,24 +10,24 @@
 
 \section{Introduction} % (fold)
 
-With the democratization of personal computers and the development of Internet, computer science and relative applications have know a great expansion. Open source software played a major role, indeed most of the web server are running under Linux operating system and Apache while open source software like WordPress, Qt, Firefox, VLC and so on permitted the realization of a wide variety of daily life applications~\cite{peeling2001analysis}.
+With the democratization of personal computers and the development of the internet, computer science and related applications have seen a great expansion. Open source software played a major role, indeed most of the web servers are running on the Linux operating system and Apache, while open source software like WordPress, Qt, Firefox, VLC and so on have permitted the realization of a wide variety of applications in daily life ~\cite{peeling2001analysis}.
 
-However while copying and sharing bits of a software is virtually free and can often be run on any computer, producing the atoms of a real object both has a potentially high cost and requires expert tooling. Thus the production of mechanic or electronic hardware components is limited to two options: either it is handcrafted or mass produced. Also the step between handcrafted prototype and mass production is so high only big company can reach it. Conventional manufacturing processes requires the production of specific tools, the programming of complex machine, the human intervention to put the part along the different tool and so on, most of the cost are in the up-front tooling, and the more complicated a product is, the more it costs. Thus, most of companies will not accept to run a whole production process just for few units and if they accept the cost will be so high than most prototypes never find a way to reach people outside the workshop they had been created. So until now, production in small or medium series has been extremely difficult to achieve because it was not profitable.
-Only big companies were able to raise enough money to produce new hardware leading the niche products and personalization left aside.
+However, while copying and sharing bits of software is virtually free and can often be run on any computer, producing the atoms of a real object both has a potentially high cost and requires expert tooling. Thus the production of mechanic or electronic hardware components is limited to two options: either it is handcrafted or mass produced. Also the step between the handcrafted prototype and mass production is so large that only big companies can achieve it. Conventional manufacturing processes require the production of specific tools, the programming of complex machines, the human intervention to put the part along the different tool and so on, most of the costs are in the up-front tooling, and the more complicated a product is, the more it costs. Thus, most companies would not accept to run a whole production process just for a few units and if they accept the cost will be so high than most prototypes never find a way of reaching people outside the workshop where they had been created. So until now, production in small or medium series has been extremely difficult to achieve because it has not been profitable.
+Only big companies have been able to raise enough money to produce new hardware meaning niche products and personalization are left aside.
 
-Since few years, a novel evolution is going to completely change the current rules of the production and distribution of goods. This evolution is acting on both technological and political/societal aspects which tends to confirm those who argue it will be the next industrial revolution~\cite{anderson}. Indeed, new rapid prototyping technologies are emerging and make the production cheap, fast and easy to anyone. At the same time the associated machines and tools are diffused under open source hardware licenses acting as a unexpected lever arm toward the diffusion of such technologies to anyone. All these radical changes are contextualized by the phenomenon of \emph{makers} and the exponential growth of associative production places (e.g Fab Lab, Makerspace, Tech Shop or Hackerspace).
+Over the last few years, a novel evolution has begun that is going to completely change the current rules of production and distribution of goods. This evolution is acting on both technological and political/societal front, which tends to confirm the claims of those who argue it will be the next industrial revolution~\cite{anderson}. Indeed, new rapid prototyping technologies are emerging and make production cheap, fast and easy to anyone. At the same time the associated machines and tools are diffused under open source hardware licenses, acting as an unexpected lever arm toward the diffusion of these technologies to anyone. All these radical changes are contextualized by the phenomenon of \emph{makers} and the exponential growth of associative production spaces (e.g Fab Lab, Makerspace, Tech Shop or Hackerspace).
 
-In this chapter, we will first present and discuss the groundbreaking 3D printing technology. Then we will present the open source hardware movement and how its interaction with 3D printing is changing the current production paradigm.
+In this chapter, we will first present and discuss ground-breaking 3D printing technology. Then we will present the open source hardware movement and how its interaction with 3D printing is changing the current production paradigm.
 
 
 \section{The 3D printing revolution} % (fold)
 
-Prototyping is an essential step in a product development and manufacturing cycle. It permits to test the form and the functionalities of a new product before large investment in tooling for mass production. Until the last decade, prototypes were largely handmade by skilled craftsmen, adding weeks or months to the product development time.
+Prototyping is an essential step in a product development and manufacturing cycle. It allows for the form and the functionalities of a new product to be tested before large investment in tooling for mass production. Until the last decade, prototypes were largely handmade by skilled craftsmen, adding weeks or months to the product development time.
 
-The 3D printing is any of various processes of making a three-dimensional object from a digital model primarily through additive processes in which successive layers of material are laid down under computer control.
-It permits to produce accurate parts right from a numeric model in few hours and with minimum handling tasks. Consequently, errors are minimized and product development costs and lead times substantially reduced. It has been claimed that rapid prototyping can cut new product costs by up to 70\% and the time to market by 90\%~\cite{waterman1994rapid}.
+The term 3D printing  encompasses various processes for making a three-dimensional object from a digital model, primarily through additive processes in which successive layers of material are laid down under computer control.
+Accurate parts can be produced right from a digital model in few hours and with minimum handling tasks. Consequently, errors are minimized and product development costs and lead times substantially reduced. It has been claimed that rapid prototyping can cut new product costs by up to 70\% and the time to market them by 90\%~\cite{waterman1994rapid}.
 
-The last progresses in the 3D printing process allow now to not only considering the 3D printing as a way to produce prototype but also as an actual production technique. Indeed the layered method of assembly allows intricate designs - geometries, which are either impossible or too expensive to achieve with conventional metal casting (see \figurename~\ref{fig:3D_printed_objects}).
+Recent progress in the 3D printing process mean 3D printing can be considered not only as a way to produce prototypes but also as an actual production technique. Indeed the layered method of assembly allows intricate designs - geometries, which are either impossible or too expensive to achieve with conventional metal casting (see \figurename~\ref{fig:3D_printed_objects}).
 
 
 \begin{figure}[!b]
@@ -37,19 +37,19 @@ The last progresses in the 3D printing process allow now to not only considering
     \subfloat[][Steel]{\label{fig:3Dprinted_steel}\includegraphics[height=3.5cm]{complex_3Dprint_steel.jpg}}
     \hfil
     \subfloat[][Odd Guitar]{\label{fig:3Dprinted_guitar}\includegraphics[height=3.5cm]{3D_printed_odd_guitar.jpg}}
-    \caption{Some example of 3D printed parts, which were until now impossible to produce. In addition, it can be done large range of material from wax to titanium.}
+    \caption{Some examples of 3Dprinted parts, which were until now impossible to produce. In addition, it can be done with a large range of material from wax to titanium.}
     \label{fig:3D_printed_objects}
 \end{figure}
 
-In this section we details the different 3D printing techniques available with pros and cons, then we will discuss the expected change in the industrial industry.
+In this section we detail the different 3D printing techniques available with pros and cons, then we will discuss the expected changes in the industrial sector.
 
-\subsection{Several techniques} % (fold)
+\subsection{Multiple techniques} % (fold)
 
-The 3D printing name gathers together several different additive processes.
+The term 3D printing encompasses several different additive processes.
 
 \subsubsection{Fused Deposition Modeling (FDM)} % (fold)
 
-The FDM technique relies on melting and selectively depositing a thin filament of thermoplastic polymer (ABS - PLA) in a cross-hatching fashion to form each layer of the part. The material is in the form of a wire supplied in sealed spools, which is mounted on the machine, and the wire is threaded through the FDM head. The head is moved in the horizontal X and Y directions for producing each layer through zigzag movements. The supporting table moves in the vertical direction and is lowered after the completion of each layer.
+The FDM technique relies on melting and selectively depositing a thin filament of thermoplastic polymer (ABS - PLA) in a cross-hatching fashion to form each layer of the part. The material is in the form of a wire supplied in sealed spools, which is mounted on the machine, and the wire is threaded through the FDM head. The head moves in the horizontal X and Y directions  to produce each layer through zigzag movements. The supporting table moves in the vertical direction and is lowered after the completion of each layer.
 
 \begin{figure}[h]
     \centering
@@ -61,12 +61,12 @@ The FDM technique relies on melting and selectively depositing a thin filament o
     \label{fig:FDM_technique}
 \end{figure}
 
-It is a really low-cost and office environment friendly technique but is limited by its slowness on dense part, the need of supports and its lack of precision for details, thin walls and surface finish.
+It is a technique that is really low-cost and friendly to the office environment but is limited by its slowness on dense parts, the need for supports and its lack of precision for detail, thin walls and surface finish.
 
 
 \subsubsection{Stereo-Lithography (SLA)} % (fold)
 
-This technique relies on a photosensitive monomer resin, which forms a polymer and solidifies when exposed to ultraviolet (UV) light. The UV laser beam moves in the horizontal directions and is focused on the top layer to polymerize the photosensitive resin (see \figurename~\ref{fig:SLA_process}). Due to the absorption and scattering of the beam this reaction only takes place near the surface. Then the cured layer of polymer is lowered by the platform (Z axis) so that a fresh layer of liquid resin covers the part.
+This technique relies on a photosensitive monomer resin, which forms a polymer and solidifies when exposed to ultraviolet (UV) light. The UV laser beam moves in a horizontal direction and is focused on the top layer to polymerize the photosensitive resin (see \figurename~\ref{fig:SLA_process}). Due to the absorption and scattering of the beam this reaction only takes place near the surface. Then the cured layer of polymer is lowered by the platform (Z axis) so that a fresh layer of liquid resin covers the part.
 
 \begin{figure}[h]
     \centering
@@ -74,15 +74,15 @@ This technique relies on a photosensitive monomer resin, which forms a polymer a
         \hfil
         \subfloat[][SLA example]{\label{fig:formlab_printer}\includegraphics[height=5cm]{SLA_part.jpg}}
         \hfil
-    \caption{The stereo-lithography technique: an UV laser beam polymerizes the top layer of a photosensitive resin on the horizontal direction (X/Y) while the platform move in the vertical direction.}
+    \caption{The stereo-lithography technique: a UV laser beam polymerizes the top layer of a photosensitive resin in a horizontal direction (X/Y) while the platform moves in a vertical direction.}
     \label{fig:SLA_technique}
 \end{figure}
 
-This technique has several advantages such as a good surface finish and is capable to produce high detailed part with thin walls, but is limited by material (only photo polymers) and support structures are always needed which can be difficult to remove.
+This technique has several advantages, such as a good surface finish, and is capable of producing highly detailed parts with thin walls, but is limited by material (only photo polymers) and support structures are always needed which can be difficult to remove.
 
 \subsubsection{Selective Laser Sintering (SLS)} % (fold)
-The Selective Laser Sintering process uses a high power (25-50W) CO2 laser beam that melts and fuses fine powdered material spread on a layer. Before the powder is sintered, the entire bed is heated to just below the melting point of the material in order to minimize thermal distortion and facilitate fusion to the previous layer.
-While the laser acts in the horizontal plane, the platforms move along the vertical axis -through a distance corresponding to the layer thickness (usually 0.01 mm)- and a counter-rotating roller spreads a precise amount of fresh powder above the sintered layer. The unsintered powder serves as the support for overhanging portions, if any in the subsequent layers.
+The Selective Laser Sintering process uses a high-power (25-50W) CO2 laser beam that melts and fuses finely powdered material spread on a layer. Before the powder is sintered, the entire bed is heated to just below the melting point of the material in order to minimize thermal distortion and facilitate fusion with the previous layer.
+While the laser moves on the horizontal plane, the platforms move along the vertical axis -through a distance corresponding to the layer thickness (usually 0.01 mm) - and a counter-rotating roller spreads a precise amount of fresh powder above the sintered layer. The unsintered powder serves as the support for overhanging portions, if there are any in the subsequent layers.
 
 \begin{figure}[h]
     \centering
@@ -94,12 +94,12 @@ While the laser acts in the horizontal plane, the platforms move along the verti
     \label{fig:SLS_technique}
 \end{figure}
 
-This technique has really interesting advantage: it is compatible with a large number of different materials, it does not require support and mechanical properties of part are homegenous (the same in any direction). However, this technique requires some handling to extract extra powder from the part and SLS 3D printer are very expensive (+50K\$).
+This technique has a really interesting advantage: it is compatible with a large number of different materials, it does not require support and mechanical properties of parts are homogeneous (the same in any direction). However, this technique requires some handling to extract extra powder from the part and SLS 3D printers are very expensive (+\$50K).
 
 
 \subsubsection{Direct Metal Laser Sintering (DMLS)} % (fold)
 
-The Direct Metal Laser Sintering is very similar with the SLS process but use a high-powered 200 watt Yb-fiber optic laser in order to fuse metal powder into a solid part by melting it locally. Parts are built up additively layer-by-layer, typically using layers 20 micrometres thick. This process allows for highly complex geometries to be created directly from the 3D CAD data, fully automatically, in hours and without any tooling. DMLS is a net-shape process, producing parts with high accuracy and detail resolution, good surface quality and excellent mechanical properties. However, this is obviously the most expensive technique.
+Direct Metal Laser Sintering is very similar to the SLS process but uses a high-powered 200 watt Yb-fiber optic laser in order to fuse metal powder into a solid part by melting it locally. Parts are built up additively layer-by-layer, typically using layers 20 micrometres thick. This process allows for highly complex geometries to be created directly from the 3D CAD data, fully automatically, in hours and without any tooling. DMLS is a net-shape process, producing parts with high accuracy and detailed resolution, good surface quality and excellent mechanical properties. However, this is obviously the most expensive technique.
 
 \begin{figure}[h]
     \centering
@@ -112,10 +112,10 @@ The Direct Metal Laser Sintering is very similar with the SLS process but use a 
 \end{figure}
 
 
-\subsection{Expected major impact in the day to come} % (fold)
+\subsection{Major impact expected in days to come} % (fold)
 
-As 3D printers became more accessible to consumers, online social platforms have developed to support the community.[131] This includes websites that allow users to access information such as how to build a 3D printer, as well as social forums that discuss how to improve 3D print quality and discuss 3D printing news, as well as social media websites that are dedicated to share 3D models.[132][133][134]
-RepRap is a wiki based website that was created to hold all information on 3d printing, and has developed into a community that aims to bring 3D printing to everyone. Furthermore, there are other sites such as Thingiverse, which was created initially to allow users to post 3D files for anyone to print, allowing for decreased transaction cost of sharing 3D files. These websites have allowed for greater social interaction between users, creating communities dedicated around 3D printing.
+As 3D printers have become more accessible to consumers, online social platforms have developed to support the community.[131] This includes websites that allow users to access information such as how to build a 3D printer, as well as social forums that discuss how to improve 3D print quality and discuss 3D printing news, as well as social media websites that are dedicated to sharing 3D models.[132][133][134]
+RepRap is a wiki based website that was created to hold all information on 3D printing, and has developed into a community that aims to bring 3D printing to everyone. Furthermore, there are other sites such as Thingiverse, which was created initially to allow users to post 3D files for anyone to print, decreasing the transaction costs of sharing 3D files. These websites have allowed for greater social interaction between users, creating communities dedicated to 3D printing.
 
 At The University of Southern California, Professor Behrokh Khoshnevis has built a colossal 3D printer that can build a house in 24 hours. Khoshnevis's robot comes equipped with a nozzle that spews out concrete and can build a home based on a set computer pattern.
 
@@ -123,14 +123,14 @@ At The University of Southern California, Professor Behrokh Khoshnevis has built
 
 \begin{figure}[h]
 \centering
-    \subfloat[][SuperDraco rocket engine has a combustion chamber 3D printed - SpaceX.]{\label{fig:superdraco}\includegraphics[height=4.5cm]{superdraco.jpg}}
+    \subfloat[][The SuperDraco rocket engine has a combustion chamber: 3D-printed - SpaceX.]{\label{fig:superdraco}\includegraphics[height=4.5cm]{superdraco.jpg}}
     \hfil
     \subfloat[][A conventional hinge is seen in the background and a 3D-printed metal hinge is seen in the foreground - EADS.]{\label{fig:EADS_hinge}\includegraphics[height=4.5cm]{EADS_3D_printed_hinge.jpg}}
-    \caption{Thanks to its particular properties, 3D printing is hitting the industry}
+    \caption{Thanks to its special properties, 3D printing is hitting the industry}
     \label{fig:3D_printed_objects}
 \end{figure}
 
-The SuperDraco (see \figurename~\ref{fig:superdraco}) differs from most rocket engines in that its combustion chamber is 3D printed by direct metal laser sintering (DMLS), where complex metal structures are printed by using a laser to build the object out of metal powders one thin layer at a time. The regeneratively-cooled combustion chamber is made of inconel; a family of nickel-chromium alloy that is notable for its high strength and toughness.
+The SuperDraco (see \figurename~\ref{fig:superdraco}) differs from most rocket engines in that its combustion chamber is 3D-printed by direct metal laser sintering (DMLS), where complex metal structures are printed by using a laser to build the object out of metal powders one thin layer at a time. The regeneratively-cooled combustion chamber is made of inconel; a family of nickel-chromium alloy that is noteworthy for its high strength and toughness.
 
 \begin{quotation}
     Through 3D printing, robust and high-performing engine parts can be created at a fraction of the cost and time of traditional manufacturing methods. SpaceX is pushing the boundaries of what additive manufacturing can do in the 21st century, ultimately making our vehicles more efficient, reliable and robust than ever before.
@@ -153,12 +153,12 @@ The AMAZE project has been able to print airplane wing sections as well as jet e
 
 3D printers open new horizons as they are able to produce parts which were, until now, either not possible or extremely expensive to produce using classical techniques while adding several key abilities:
 \begin{itemize}
-    \item \textbf{Accessible:} 3D printed part can be obtained everywhere, either by personal printing or by using web service\footnote{examples: i.materialise, shapeways or sclupteo}.
-    \item \textbf{Low cost:}  from few dozens of cents if produced on personal printer to few dozens of euros if outsourced through web services. Also the cost is not proportional to the part complexity, meaning designers are free to explore the shape they want with almost no constraints.
-    \item \textbf{Fast:} The production took only few hours from scratch and does not require any specific upfront tooling.
-    \item \textbf{Skill-free:} while the production process is fully numerical, few or no special skills is required.
-    \item \textbf{Multi-material, precise and robust:} the current 3D printers can create precise (up to 0.1mm) part in different materials such as Polyamide, PLA, ABS and even titanium or flexible material. The obtained parts are robust and can often be used as final parts for several years.
-    \item \textbf{Reduces the number of part:} 3D printing permits to print complex part and even assembled parts as complex as bearing or gearbox. This means we can replace multiple parts that have to be assembled by a unique one ready-to-use right after its production.
+    \item \textbf{Accessible:} 3D printed parts can be obtained everywhere, either by personal printing or by using an online service\footnote{examples: i.materialise, shapeways or sclupteo}.
+    \item \textbf{Low cost:}  from tens of cents if produced on personal printer to tens of euros if outsourced through web services. Also the cost is not proportional to the part’s complexity, meaning designers are free to explore the shape they want with almost no constraints.
+    \item \textbf{Fast:} Production takes only a few hours from scratch and does not require any specific upfront tooling.
+    \item \textbf{Skill-free:} while the production process is fully digital, few or no specialist skills are required.
+    \item \textbf{Multi-material, precise and robust:} the current 3D printers can create precise (up to 0.1mm) parts from different materials such as Polyamide, PLA, ABS and even titanium or flexible material. The obtained parts are robust and can often be used as final parts for several years.
+    \item \textbf{Reduces the number of parts:} 3D printing permits the printing of complex parts and even assembled parts as complex as bearings or gearboxes. This means we can replace multiple parts that have to be assembled by a single ready-to-use part right after production.
 \end{itemize}
 
 
@@ -171,28 +171,28 @@ The cost depends on the size and not on the complexity of the part meaning we ca
 
 The concept of "open-source hardware" or "open hardware" is not as well known or widespread as the free software or open-source software concept yet. However, it shares the same principles: anyone should be able to see the source (the design documentation in case of hardware), study it, modify it and share it.
 
-The emergence of new and accessible rapid prototyping techniques changes the way to produce things. Because it is now quick, simple and cheap to make things, it opens the realm of possibility to share hardware because anyone can produce it. Open source hardware is now making sense and is currently exponentially growing.
+The emergence of new and accessible rapid prototyping techniques changes ways of producing things. Because it is now quick, simple and cheap to make things, it opens the realm of possibility of sharing hardware because anyone can produce it. Open source hardware is now making sense and is currently exponentially growing.
 
 In this section, we will ...
 
 \subsection{Open hardware in the industrial history.} % (fold)
 
-In the 18th century, London and Lyon(France) are two majors silk manufacturer town. Because London is on the way to take the leadership, Lyon try an new and original politic for innovation. They decide to freely diffuse the novel technique. Inventors are invited in the city hall to present publicly their innovations. They are then rewarded a first time for the presentation and a second time when the innovation is actually implemented on Lyon machines. Follows this politic, decades of cumulative innovations such as: perforated paper tape (1725 B.Bouchon), punched card program (1728, J-B.Falcon), the Jacquard loom (1801, J-M. Jacquard), sewing machine (1829, B.Thimonnier). Meanwhile, silk production in London is governed by patents, technique are kept secret and monopolized by theirs inventors. \cite{alain1997fate}
+In the 18th century London and Lyon (France) were two majors silk manufacturing towns. Because London was on the way to taking the lead, Lyon tried a new and original policy for innovation. They decided to freely diffuse new techniques. Inventors were invited to the city hall to present their innovations publicly. They were then rewarded a first time for the presentation, and a second time when the innovation was actually implemented on Lyon machines. This policy was followed by decades of cumulative inventions such as: perforated paper tape (1725 B. Bouchon), punched card programming (1728, J-B. Falcon), the Jacquard loom (1801, J-M. Jacquard), and the sewing machine (1829, B.Thimonnier). Meanwhile, silk production in London was governed by patents, techniques were kept secret and monopolized by theirs inventors. \cite{alain1997fate}
 
 \textbf{TODO: Find an illustration}
 
-The impact of this two opposed political choices turn largely in the advantage for Lyon. In 1815, Lyon had 14500 looms and London 12000. But in 1853, Lyon had 60000 looms while London fell to only 5000. London becomes a silk importer.
+The impact of these two opposed political choices turned out largely in Lyon’s favour. In 1815, Lyon had 14500 looms and London 12000. But in 1853, Lyon had 60000 looms while London fell to only 5000. London became a silk importer.
 
-Lyon stimulates inventions and disseminates innovation: looms become programmable, agile order processing and production, standardization of parts, appearance counter-tops parts, services grow, the Lyon looms park is up to date and operational.
-In London, the industry is controlled by investors, customers must order large series, the choice decreases, the period is longer, the artisans become employees, wages fall and Londoner park looms state is deteriorated.
+Lyon stimulated inventions and disseminated innovation: looms became programmable, order processing and production agile, parts were standardized, counter-tops parts (over the counter parts ) appeared, services grew, the Lyon loom park was up to date and operational.
+In London, the industry was controlled by investors, customers had to order large series, the choice available decreased, waiting periods were longer, the artisans became employees, wages fell and the state of the London looms park deteriorated.
 
-The Lyon politic has created a win-win ecosystem creating both jobs opportunity and advanced technology. Thanks to this choice, the city took the leadership over London.
+The Lyon policy created a win-win ecosystem creating both job opportunities and advanced technology. Thanks to this choice, the city took the lead over London.
 
-\subsection{Open Hardware definition} % (fold)
+\subsection{Definition of Open Hardware } % (fold)
 
-The Open Source Hardware Association (OSHWA) aims to be the voice of the open hardware community. It promotes the use and development of open source hardware for education and economic development, collect, compile and publish data on the open source movement and organize the movement around shared and principles.
+The Open Source Hardware Association (OSHWA) aims to be the voice of the open hardware community. It promotes the use and development of open source hardware for education and economic development, to collect, compile and publish data on the open source movement and organize the movement around shared principles.
 
-Also the Open Source Hardware Association defines\footnote{Complete definition available on \url{http://www.oshwa.org/definition/}.} the open source hardware as:
+Also the Open Source Hardware Association defines\footnote{Complete definition available on \url{http://www.oshwa.org/definition/}.} open source hardware as:
 
 \begin{row}{4}{2}
     \begin{cell}{3}
@@ -211,7 +211,7 @@ Also the Open Source Hardware Association defines\footnote{Complete definition a
 
 \subsection{Open source hardware licenses} % (fold)
 
-The Open Source Hardware Association definition is not enough, a legal framework is needed to both protect and promote open hardware project. This is the role of the open source licenses which will be discussed in this section.
+The Open Source Hardware Association definition is not enough, a legal framework is needed to both protect and promote open hardware projects. This is the role of open source licenses which will be discussed in this section.
 
 In general, there are two broad classes of open-source licenses: copyleft and permissive. Copyleft licenses (sometimes referred to as “viral”) are those that require derivative works to be released under the same license as the original; common copyleft licenses include the GNU General Public License (GPL) and the Creative Commons Attribution-ShareAlike license. Other copyleft licenses have been specifically designed for hardware; they include the CERN Open Hardware License (OHL) and the TAPR Open Hardware License (OHL). Permissive licenses are those that allow for proprietary (closed) derivatives; they include the FreeBSD license, the MIT license, and the Creative Commons Attribution license
 
@@ -219,7 +219,7 @@ In general, there are two broad classes of open-source licenses: copyleft and pe
 \subsubsection{Creative Commons licenses} % (fold)
 \begin{row}{4}{2}
     \begin{cell}{3}
-        Founded in 2001, Creative Commons is a non-profit organization that enables the sharing and use of creativity and knowledge through free legal tools. They provide free and understandable licenses standardizing the way to share and use creative work. Thanks to the use of several modules, which can be combined, the Creative Commons licenses permit to the creator to modify his copyright terms to best suit his needs. First intended for artistic and cultural content such as music and writing, the Creative Commons are now used also to share open source hardware files.
+        Founded in 2001, Creative Commons is a non-profit organization that enables the sharing and use of creativity and knowledge through free legal tools. They provide free and understandable licenses standardizing the way to share and use creative work. Thanks to the use of several modules, which can be combined, the Creative Commons licenses permit the creator to modify his copyright terms to best suit his needs. First intended for artistic and cultural content such as music and writing, the Creative Commons are now used also to share open source hardware files.
     \end{cell}
     \begin{cell}{1}
         \begin{NFfigure}
@@ -233,16 +233,16 @@ In general, there are two broad classes of open-source licenses: copyleft and pe
 The Creative Commons licenses are based on four major condition modules:
 \begin{description}
     \item[Attribution (BY)]: requiring attribution to the original author.
-    \item[Non Commercial (NC)]: requiring the work is not used for commercial purposes
+    \item[Non Commercial (NC)]: requiring the work to not be used for commercial purposes.
     \item[No Derivative works (ND)]: allowing only the original work, without derivatives
     \item[Share Alike (SA)]: allowing derivative works under the same or a similar license (later or jurisdiction version).
 \end{description}
 
 
-The combination of these modules leads to six licenses (see \figurename~\ref{fig:all-cc-licenses}) but related to the open only two of them are considered as open source following the OSHW definition:
+The combination of these modules leads to six licenses (see \figurename~\ref{fig:all-cc-licenses}) but related to open hardware, only two of them are considered as open source following the OSHW definition:
 \begin{description}
     \item[Attribution CC BY] People can distribute, remix, tweak and build upon the licensed work, even commercially, as long as they credit the authors of the original creation.
-    \item[Attribution-ShareAlike CC BY-SA] People can distribute, remix, tweak and build upon the licensed work, even commercially, as long as they credit the authors and license their new creations under the identical terms. \textbf{This license is often compared to “copyleft” free and open source software licenses.}
+    \item[Attribution-ShareAlike CC BY-SA] People can distribute, remix, tweak and build upon the licensed work, even commercially, as long as they credit the authors and license their new creations under identical terms. \textbf{This license is often compared to the “copyleft” free and open source software licenses.}
 \end{description}
 
 \begin{figure}[]
@@ -255,32 +255,32 @@ The combination of these modules leads to six licenses (see \figurename~\ref{fig
 
 \subsubsection{CERN OHL} % (fold)
 
-Inspired by the open source software movement, the Open Hardware Repository\footnote{\url{http://www.ohwr.org/}} was created to enable hardware developers to share the results of their R\&D activities. The recently published (mars 2013) CERN Open Hardware Licence offers the legal framework to support this knowledge and technology exchange.
+Inspired by the open source software movement, the Open Hardware Repository\footnote{\url{http://www.ohwr.org/}} was created to enable hardware developers to share the results of their R\&D activities. The recently published (March 2013) CERN Open Hardware Licence offers the legal framework to support this knowledge and technology exchange.
 
 The CERN–OHL is to hardware what the General Public Licence (GPL) is to software. It defines the conditions under which a licensee will be able to use or modify the licensed material and is compliant with the OSHWA definition criteria. In the spirit of knowledge sharing and dissemination, the CERN Open Hardware Licence (CERN OHL) governs the use, copying, modification and distribution of hardware design documentation, and the manufacture and distribution of products\footnote{License details available on \url{http://www.ohwr.org/projects/cernohl/wiki}}.
 
 
 \subsubsection{TAPR Open Hardware License (OHL)}
-Specifically designed for open hardware, and avoids the issues other licenses have with focusing on copyright protecting documentation instead of the right to make, distribute, or use a product based on that documentation. Requires that all derived works use the same license and include before and after documentation if any changes were made.
+Specifically designed for open hardware, and avoids the issues other licenses have with focusing on copyright protection of documentation instead of the right to make, distribute, or use a product based on that documentation. It requires that all derived works use the same license and include before and after documentation if any changes were made.
 
 \textbf{Visit the TAPR website for the full text of the TAPR Open Hardware License (OHL).}
 
 
 \subsection{Some famous open hardware projects} % (fold)
 
-Based on the open source hardware philosophy, several company and project have been created over the past ten years (see \figurename~\ref{fig:oh_evolution}).
+Based on the open source hardware philosophy, several companies and projects have been created over the past ten years (see \figurename~\ref{fig:oh_evolution}).
 
 \begin{figure}[h]
 \centering
-    \subfloat[][Creation of new open hardware project per year between 2005 and 2011.]{\label{fig:oh_project_evolution}\includegraphics[width=0.45\linewidth]{oh_project_evolution.jpg}}
+    \subfloat[][Creation of new open hardware projects per year between 2005 and 2011.]{\label{fig:oh_project_evolution}\includegraphics[width=0.45\linewidth]{oh_project_evolution.jpg}}
     \hfil
     \subfloat[][Start-up creation based on open hardware distribution]{\label{fig:oh_startup_creation}\includegraphics[width=0.45\linewidth]{oh_startup_creation.jpg}}
-    \caption{Evolution of the open source hardware movement in the past decades.Graphic extracted from \emph{HOPE 2010 - How to run an open source hardware company}}
+    \caption{Evolution of the open source hardware movement in the past decades. Graph extracted from \emph{HOPE 2010 - How to run an open source hardware company}}
     \label{fig:oh_evolution}
 \end{figure}
 
 
-Several kind of object begins to have an open source version even the most advanced ones such as laptop (Novena project\footnote{\url{https://www.crowdsupply.com/kosagi/novena-open-laptop}}), reflex camera (OpenReflex\footnote{\url{http://www.instructables.com/id/3D-Printed-Camera-OpenReflex/}}) or even car (LocalMotors\footnote{\url{https://localmotors.com/vehicles/}}, OSVehicle\footnote{\url{http://www.osvehicle.com/}}).
+Several kinds of object have began to have an open source version, even the most advanced ones such as laptops (Novena project\footnote{\url{https://www.crowdsupply.com/kosagi/novena-open-laptop}}), reflex camera (OpenReflex\footnote{\url{http://www.instructables.com/id/3D-Printed-Camera-OpenReflex/}}) or even cars (LocalMotors\footnote{\url{https://localmotors.com/vehicles/}}, OSVehicle\footnote{\url{http://www.osvehicle.com/}}).
 
 
 \subsubsection{Arduino} % (fold)
@@ -289,7 +289,7 @@ Students from the Interaction Design Institute Ivrea in Italy were using \emph{B
 
 \begin{row}{4}{2}
     \begin{cell}{3}
-      Started in 2005 by Banzi and al., the Arduino project aimed to offer an affordable and easy to use electronics board for student-friendly price: \$30. The first wiring design was done during the phd thesis of Hernando Barragan~\cite{barragan2004wiring}. After the wiring platform was complete, researchers worked to make it lighter, less expensive, and available to the open source community.
+      Started in 2005 by Banzi et al., the Arduino project aimed to offer an affordable and easy to use electronics board for a student-friendly price: \$30. The first wiring design was done during the PhD thesis of Hernando Barragan~\cite{barragan2004wiring}. After the wiring platform was complete, researchers worked to make it lighter, less expensive, and available to the open source community.
     \end{cell}
     \begin{cell}{1}
         \begin{NFfigure}
@@ -307,9 +307,9 @@ Students from the Interaction Design Institute Ivrea in Italy were using \emph{B
   \signed{Mellis~\cite{mellis2007arduino}}
 \end{quotation}
 
-The Arduino story was one of the first hardware project with a real desire to promote the innovation trough open source, to make it work they had to find an appropriate licensing solution that could apply to their board. After some investigation, they realized that if they simply looked at their project differently, (i.e. considering the source files as documentation\footnote{\emph{"You could think of hardware as piece of culture you want to share with other people"}, Banzi. }), they could use a license from Creative Commons normally used for cultural works such as music and writing.
+The Arduino story was one of the first hardware projects with a real desire to promote innovation through open source, so to make it work they had to find an appropriate licensing solution that could apply to their board. After some investigation, they realized that if they simply looked at their project differently, (i.e. considering the source files as documentation\footnote{\emph{"You could think of hardware as piece of culture you want to share with other people"}, Banzi. }), they could use a license from Creative Commons normally used for cultural works such as music and writing.
 
-Today, Arduino is a very successful project. The boards and derivatives are used by hundreds of thousands people and a lot of project from all domains would not possible if Arduino have not existed, among them Poppy.
+Today, Arduino is a very successful project. The boards and derivatives are used by hundreds of thousands people and a lot of projects from all types of domains would not possible if Arduino had not existed, among them Poppy.
 
 \subsubsection{Shapeoko}
 
@@ -321,16 +321,16 @@ Today, Arduino is a very successful project. The boards and derivatives are used
     \label{fig:shapeoko}
 \end{figure}
 
-Designed by Edward Ford, Shapeoko (see \figurename~\ref{fig:shapeoko}) is a simple, low cost (\$685) and open source (CC BY-SA)CNC milling machine. It is based on two other open hardware projects: MakerSlide\footnote{Open source linear bearing system under Creative Common BY-SA licenses: \url{http://makerslide.com/}} for linear motion and an Arduino board for the control.
+Designed by Edward Ford, Shapeoko (see \figurename~\ref{fig:shapeoko}) is a simple, low cost (\$685) and open source (CC BY-SA)CNC milling machine. It is based on two other open hardware projects: MakerSlide\footnote{Open a source linear bearing system under Creative Common BY-SA licenses: \url{http://makerslide.com/}} for linear motion and an Arduino board for the control.
 
 
 
 \subsubsection{RepRap} % (fold)
 
-The RepRap project started in 2005 and based on the Fab@Home\footnote{\url{http://www.fabathome.org/}} principles, developed a multi-proposed open source 3D printer using Fused Deposition Modeling\footnote{TODO}(FFD) technique with the particularity to be largely self-replicating:
+The RepRap project started in 2005 and based on the Fab@Home\footnote{\url{http://www.fabathome.org/}} principles, developed a multi-purpose open source 3D printer using Fused Deposition Modeling\footnote{TODO}(FFD), a technique with the particularity of being largely self-replicating:
 
 \begin{quotation}
-    RepRap is an open-source self-replicating rapid prototyping machine. It is a robot that uses fused-filament fabrication1 to make engineering components and other products from a variety of thermoplastic polymers. RepRap has been designed to be able automatically to print out a significant fraction of its own parts. All its remaining parts have been selected to be standard engineering materials and components available cheaply worldwide. As the machine is free and open-source anyone may – without royalty payments – make any number of copies of it ether for themselves or for others, using RepRap machines themselves to reproduce those copies.
+    RepRap is an open-source, self-replicating, rapid prototyping machine. It is a robot that uses fused-filament fabrication1 to make engineering components and other products from a variety of thermoplastic polymers. RepRap has been designed to be able automatically to print out a significant fraction of its own parts. All its remaining parts have been selected to be standard engineering materials and components available cheaply worldwide. As the machine is free and open-source anyone may – without royalty payments – make any number of copies of it ether for themselves or for others, using RepRap machines themselves to reproduce those copies.
 
     \signed{~\cite{jones2011reprap}}
 \end{quotation}
@@ -346,5 +346,5 @@ The RepRap project started in 2005 and based on the Fab@Home\footnote{\url{http:
 \end{figure}
 
 
-Distributed under GNU General Public License, the RepRap (see \figurename~\ref{fig:RepRap_v2}) was one of the first low-cost 3D printer. The fact it is genuinely collaborative, this project generated a so large number of variations and interpretations that is even difficult to count (see \figurename~\ref{fig:RepRap_family_tree}). One of them is the now famous Makerbot Replicator (see \figurename~\ref{fig:makerbot-replicator}). Now Makerbot is one of the major worldwide general public 3D printer distributors.
+Distributed under GNU General Public License, the RepRap (see \figurename~\ref{fig:RepRap_v2}) was one of the first low-cost 3D printers. Thanks to the fhe fact that it is genuinely collaborative, this project generated such a large number of variations and interpretations that is difficult to even count (see \figurename~\ref{fig:RepRap_family_tree}). One of them is the now famous Makerbot Replicator (see \figurename~\ref{fig:makerbot-replicator}). Now Makerbot is one of the major worldwide general public 3D printer distributors.
 
