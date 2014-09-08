@@ -9,13 +9,6 @@ The only control of this robot is obtained through the interaction between the i
 This work has been pursued with the appearance of semi-passive walkers combining both specific passive properties and low power actuation to increase their robustness~\cite{Anderson2005}. We can note the work of Collins~\cite{collins2005bipedal} which explored the case of a semi-passive 3D biped robot. Its morphology is based on a particular mass distribution, knee locking, round feet and springs on the legs to generate an efficient walking gait while keeping its lateral and frontal balance.
 The concept of the 3D semi-passive robot has been pushed even further with the realization of a complete humanoid robot with torso, arms and head: the robot Denise~\cite{wisse2005three} and Flame presented in~\cite{Hobbelen2008}.
 
-The geometry and distribution of mass in the body has complex influences on bipedal locomotion. Several studies have for example, explored the role of the foot and ankle morphology for bipedal walking in both humans~\cite{Adamczyk2006}~\cite{Hughes1990} and robots~\cite{hobbelen2005ankle}~\cite{Davis2010}. However, to our best knowledge no research has focused on the role of the thigh for bipedal locomotion.  A few robots like HRP-4C~\cite{kaneko2009cybernetic} and Kenshiro humanoid~\cite{nakanishi2013design} robots seem to visually have a morphological design close to the thigh shape of Poppy, but no comparative study of the role of this shape was presented so far.
-
-Thanks to the mechanical design of Poppy, allowing easy, cheap and fast morphological modifications, we are able to experiment with various thigh shapes on the robot’s dynamics and find out what impact those have. In particular, in this experiment, we will focus on its bio-inspired thigh shape, bended by an angle of 6\textsuperscript{o}. We will investigate the impact of this thigh design on balance and bipedal locomotion using a comparison with a more traditional straight thigh (see Fig.~\ref{fig:poppy_compared}).
-
-% The results presented in the upcoming sections have been published in the Humanoids 2013 conference proceeding~\cite{lapeyre:hal-00861110}.
-
-
 \begin{figure}[!t]
 \centering
     \subfloat[][bended thighs]{\label{fig:poppy_with_bended_legs}\includegraphics[width=0.35\linewidth]{poppy_bended_tigh_square.pdf}}
@@ -28,94 +21,51 @@ Thanks to the mechanical design of Poppy, allowing easy, cheap and fast morpholo
 \end{figure}
 
 
+The geometry and distribution of mass in the body has complex influences on bipedal locomotion. Several studies have for example, explored the role of the foot and ankle morphology for bipedal walking in both humans~\cite{Adamczyk2006}~\cite{Hughes1990} and robots~\cite{hobbelen2005ankle}~\cite{Davis2010}. However, to our best knowledge no research has focused on the role of the thigh for bipedal locomotion.  A few robots like HRP-4C~\cite{kaneko2009cybernetic} and Kenshiro humanoid~\cite{nakanishi2013design} robots seem to visually have a morphological design close to the thigh shape of Poppy, but no comparative study of the role of this shape was presented so far.
+
+Thanks to the mechanical design of Poppy, allowing easy, cheap and fast morphological modifications, we are able to experiment with various thigh shapes on the robot’s dynamics and find out what impact those have. In particular, in this experiment, we will focus on its bio-inspired thigh shape, bended by an angle of 6\textsuperscript{o}. We will investigate the impact of this thigh design on balance and bipedal locomotion using a comparison with a more traditional straight thigh (see Fig.~\ref{fig:poppy_compared}).
+
+% The results presented in the upcoming sections have been published in the Humanoids 2013 conference proceeding~\cite{lapeyre:hal-00861110}.
+
+
 \subsection{Understanding the role of the thigh shape in humans} % (fold)
 
-If we look closely at the morphology of the human femur, it appears that it is inclined by an angle of 6\textsuperscript{o}. This makes the feet closer to the projection of the center of gravity (CoG) (see Fig.~\ref{fig:human_thigh}) and enhances stability  in  two main ways  during the walking gait:
+If we look closely at the morphology of the human femur, it appears that it is inclined by an angle of 6\textsuperscript{o}. This makes the feet closer to the projection of the center of gravity (CoG) (see Fig.~\ref{fig:human_thigh}) therefore it reduces the distance traveled by the CoG to move from foot to another.
+
+The model presented in appendix~\ref{appendix:thigh_model} has been used during the conception of Poppy to decide the use of bended thigh rather than classic straight one. This simple model, based on an inverted pendulum, shows this particular shape may enhance the stability in two main ways during the walking gait:
 
 \begin{itemize}
     \item As the feet are closer to the center of gravity, the lateral translation of the CoG necessary to transfer the mass of the robot from one foot to another is reduced (see Fig~\ref{fig:human_thigh}). In the case of Poppy's morphology, thanks to the $6$\textsuperscript{o} bended thigh, the lateral motion of the CoG is reduced by about 30\% ($ 5 cm$ instead of $7.1 cm$).
-    \item During the stance phase, the CoG initial conditions are slightly modified. As we will explain with a simple theoretical model in the next section, the bended thigh can reduce the falling rate.
+    \item During the stance phase, the CoG initial conditions are slightly modified. Therefore it reduces the CoG falling speed at the begining. So if we consider the first 700 ms of the system behavior simulation and compare the two systems, the mean of the CoG falling speed is reduced by around 56\% in the bended thigh case.
 \end{itemize}
 
 
-\begin{figure}
+\begin{figure}[tb]
 \centering
     \subfloat[][]{\label{fig:human_thigh}\includegraphics[height=8cm]{human_thigh.jpg}}
     \hfil
-    \subfloat[][]{\label{fig:model_thigh}\includegraphics[height=8cm]{model_thigh.jpg}}
-    \hfil
     \subfloat[][]{\label{fig:thigh_of_poppy}\includegraphics[height=6cm]{thigh_shape_large.jpg}}
     \caption{ a) Effect of bended human femur on human bipedal locomotion.
-    b) Model used for the comparison of the two thighs morphology.
     c) Implementation of the bended thigh on the poppy platform}
     \label{fig:poppy_thigh}
 \end{figure}
 
-\subsubsection{Theoretical model} % (fold)
-\label{sub:exp_theoritical_model}
-
-We can model the situation where the robot is on one foot by an inverted pendulum with a mass point centered on the center of gravity (CoG) of the robot and the axis of rotation located at the foot position (see Fig.~\ref{fig:thigh_of_poppy}). With such a model, the dynamic of the whole structure depends on:
-
-\begin{itemize}
-    \item the length $l$ of the segment extending from the foot to the center of gravity,
-    \item the angle $\theta$ of the segment relative to the vertical axis,
-    \item the force of gravity $g$.
-\end{itemize}
-
-And the system follows this physical law:
-
-\begin{equation}
-    \ddot{\theta}(t) + w_0 \cdot sin(\theta(t)) = 0
-\end{equation}
-with:
-\begin{equation}
-    w_0 = \sqrt{\frac{g}{l}}
-\end{equation}
-
-\subsubsection{Intuitive expectation} % (fold)
-
-To get an initial insight into this behavior, we can linearize the system for small disturbances such as:
-
-\begin{equation}
-    \theta(t) = \theta_0 \cdot cos(w_0\cdot t)
-\end{equation}
-and
-\begin{equation}
-    \dot{\theta}(t) = -\theta_0 \cdot w_0 \cdot sin(w_0\cdot t)
-\end{equation}
-
-One can see that the position and velocity of the pendulum varies linearly with the initial condition i.e $\theta$ angle. Therefore, reducing this initial angle $\theta_0$ involves a direct reduction of the falling speed $\dot{\theta}(t)$ of the robot.
-
-In the case of Poppy's geometry, the thigh bending allows a 40\% reduction of the initial angle $\theta_0$ ($\alpha = 3.8$\textsuperscript{o} against $ \beta = 6.4$\textsuperscript{o} on Fig.~\ref{fig:model_thigh}).
-
-\subsubsection{Simulation} % (fold)
-
-In the case of a fall, it is not possible to assume small perturbations, that is the reason why we have simulated the model in Matlab with a non-linear system and obtain the behavior represented in Fig.~\ref{fig:dynamic_thigh_model}.
-
-\begin{figure}[thpb]
-    \centering
-    \includegraphics[width=0.8\linewidth]{dynamic_thigh_model.pdf}
-    \caption{Comparison of the falling dynamic over time when Poppy is standing on one foot, depending on its thigh morphology: with a bended thigh of 6\textsuperscript{o} (blue) and with a straight thigh (red).}
-    \label{fig:dynamic_thigh_model}
-\end{figure}
-
-If we define the center of gravity altitude as:
-\begin{equation}
-    z_{CoG} = l \cdot cos(\theta(t))
-\end{equation}
-We can express its falling speed over time as:
-\begin{equation}
-    \dot{z}_{CoG} = - \dot{\theta}(t) \cdot l \cdot sin(\theta(t))
-\end{equation}
-
-In this condition, if we consider the first 700 min of the system behavior simulation and compare the two systems, the mean of the CoG falling speed is reduced by around 56\% in the bended thigh case.
-
-
 \subsection{Experimenting with variable thigh properties on Poppy} % (fold)
 
-The simple model described in the previous section showed that a slight inclination (6\textsuperscript{o}) of the thigh can theoretically achieve a significant gain in the lateral stability of the robot during the two main phases of the walking gait (i.e. single stance phase and double stance phase).
+The simple model described in appendix~\ref{appendix:thigh_model} showed that a slight inclination (6\textsuperscript{o}) of the thigh can theoretically achieve a significant gain in the lateral stability of the robot during the two main phases of the walking gait (i.e. single stance phase and double stance phase).
+Yet this model is very simple and Poppy allows to experiments easily the role of morphology in the real world with all its complexity.
 
-In this section, we describe representative experiments which evaluate the actual gain of the thigh shape on the real Poppy platform. To do this, we used both a pair of straight thighs and the bended thighs presented above. We will compare Poppy's reactions with those different legs (see Fig.~\ref{fig:poppy_compared}) on three experiments:
+Therefore we modified the thigh shape and printed it. As shown on the \figurename~\ref{fig:thigh_drawings}, the only modified paramater is the thigh bending angle, two cases: 6\textsuperscript{o} and 0\textsuperscript{o}.
+
+\begin{figure}[p]
+    \begin{center}
+        \includegraphics[height=\linewidth]{thigh_morpho.pdf}
+    \end{center}
+    \caption{Caption here}
+    \label{fig:thigh_drawings}
+\end{figure}
+
+In this section, we describe representative experiments which evaluate the actual gain of the thigh shape on the real Poppy platform. To do this, we used both a pair of straight thighs and the bended thighs presented above. We will compare Poppy's reactions with those different legs (see \figurename~\ref{fig:poppy_compared} and \figurename~\ref{fig:thigh_drawings}) on three experiments:
 \begin{itemize}
     \item Evaluate the falling speed during single support stance.
     \item Measure the lateral translation to move the CoG Form one foot to the other.
@@ -189,7 +139,20 @@ As explained in the introduction and description of the platform, Poppy has been
 
 Here the experiment consists of playing an open-loop walking pattern while the robot is guided through the physical interaction with a human. The user’s role is to provide both balance and control of mass transfer. By producing small lateral motion on the upper-body they can help the robot to move its CoG from one foot to another.
 
-\begin{figure}[h]
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.8\linewidth]{dispositif_experience_marche.pdf}
+    \caption{Proceeding of the walking experiment.
+    Poppy is tracked by an Optitrack trio while it is walking on a treadmill set at 1.8km/h.
+    An expert user provides the sagittal balance needed throughout the experiment.}
+    \label{fig:walking_experiment}
+\end{figure}
+
+
+The gait is based on the actual human sagittal joint kinematic~\cite{Nester2003}: hip, knee, ankle (see Fig.~\ref{fig:CPG}.a). A direct transposition of the human joint kinematic on the Poppy's morphology results in a walking speed which is too fast to be handled by users (see Fig.~\ref{fig:CPG}.b). A simple reduction of a joint’s amplitude leads to an unsuitable leg trajectory where toes bump into the ground during the swing phase (see Fig.~\ref{fig:CPG}.c). So to ensure enough clearance during the swing phase and suitable walking speed for the guidance with a user, we modified the trajectories of the joints by hand to both reduce the length step and increase the foot clearance (see Fig.~\ref{fig:CPG}.d). The actual gait on Poppy is shown in Fig.~\ref{fig:humanoids2013_cpg_on_poppy}.
+
+
+\begin{figure}[tb]
     \centering
     \includegraphics[width=0.95\linewidth]{CPG.pdf}
     \caption{Trajectories of toes generated by the walking pattern a) Kinematics of human walking
@@ -199,11 +162,9 @@ Here the experiment consists of playing an open-loop walking pattern while the r
     \label{fig:CPG}
 \end{figure}
 
-The gait is based on the actual human sagittal joint kinematic~\cite{Nester2003}: hip, knee, ankle (see Fig.~\ref{fig:CPG}.a). A direct transposition of the human joint kinematic on the Poppy's morphology results in a walking speed which is too fast to be handled by users (see Fig.~\ref{fig:CPG}.b). A simple reduction of a joint’s amplitude leads to an unsuitable leg trajectory where toes bump into the ground during the swing phase (see Fig.~\ref{fig:CPG}.c). So to ensure enough clearance during the swing phase and suitable walking speed for the guidance with a user, we modified the trajectories of the joints by hand to both reduce the length step and increase the foot clearance (see Fig.~\ref{fig:CPG}.d). The actual gait on Poppy is shown in Fig.~\ref{fig:humanoids2013_cpg_on_poppy}.
-
-\begin{figure}[h]
+\begin{figure}[tb]
     \centering
-    \includegraphics[width=0.9\linewidth]{walking_poppy.jpg}
+    \includegraphics[width=0.7\linewidth]{walking_poppy.jpg}
     \caption{Walking gait CPG described on Fig.~\ref{fig:CPG}.d applied on the actual Poppy robot.
     The CPG generates a human-like walking gait allowing the robot to walk at 1.8km/h and involves straight legs during the stance phase.
     There is no balance control but stability is obtained through physical guidance with a trained expert user.}
@@ -212,18 +173,11 @@ The gait is based on the actual human sagittal joint kinematic~\cite{Nester2003}
 
 In this experiment we are interested in the dynamic of Poppy especially on the frontal plane and we will compare the effect of the thigh shape on this dynamic. Poppy walks on a treadmill following the walking gait described above. An expert user trained to keep the robot in the correct walking cycle provides guidance to the robot. This is done by keeping the robot in a vertical position and supporting, in a compliant manner, the lateral movement of the robot as illustrated in attached videos. The user is asked to do the best he can to minimize the movement/forces he applies in both morphologies to reduce the bias towards the two designs experimented. All proprioceptive sensors are recorded at 50hz while an Optitrack device associated  with markers located at the head and lower back measure the absolute displacements of the robot (voir Fig.~\ref{fig:walking_experiment}).
 
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.8\linewidth]{dispositif_experience_marche.pdf}
-    \caption{Proceeding of the walking experiment.
-    Poppy is tracked by an Optitrack trio while it is walking on a treadmill set at 1.8km/h.
-    An expert user provides the sagittal balance needed throughout the experiment.}
-    \label{fig:walking_experiment}
-\end{figure}
+
 
 Poppy’s movement is recorded for around 1800 walking gait cycles for each thigh design (around 90,000 data points for each case). Data are folded over to extract the gait behavior over a gait cycle. Results are presented in Fig.~\ref{fig:walk_result}. As previously, the blue color is assigned to experiments with bended thighs, the red color is assigned to straight thighs. For each case, the light color corresponds to the standard deviation and the dark color to the 95\% confidence interval of the mean value.
 
-\begin{figure}[!h]
+\begin{figure}[p]
     \subfloat[][Lateral head displacement]{\label{fig:head_position}\includegraphics[width=0.49\linewidth]{marche_head_motion.pdf}}
     \hfil
     \subfloat[][Lateral lower back displacement]{\label{fig:low_back_position}\includegraphics[width=0.49\linewidth]{marche_low_back_motion.pdf}}
@@ -248,9 +202,9 @@ We notice that the lateral motion of the version of Poppy with bended thighs~\re
 
 \begin{figure}[h]
 \centering
-    \subfloat[][bended thigh]{\label{fig:poppy_walking_bended}\includegraphics[width=0.4\linewidth]{marche_bended.jpg}}
+    \subfloat[][bended thigh]{\label{fig:poppy_walking_bended}\includegraphics[width=0.49\linewidth]{marche_bended.jpg}}
     \hfil
-    \subfloat[][straight thigh]{\label{fig:poppy_walking_straight}\includegraphics[width=0.4\linewidth]{marche_straight.jpg}}
+    \subfloat[][straight thigh]{\label{fig:poppy_walking_straight}\includegraphics[width=0.49\linewidth]{marche_straight.jpg}}
     \caption{Five pictures have been taken while Poppy was walking and were stacked to obtain a qualitative view of the difference in the walking behavior in relation to the morphology of the thigh.}
     \label{fig:poppy_walking_compared}
 \end{figure}

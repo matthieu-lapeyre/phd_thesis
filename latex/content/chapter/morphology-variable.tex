@@ -4,18 +4,24 @@
 \section{Rapid morphological exploration} % (fold)
 \label{sec:morphology-variable}
 
-After showing how mechanics and electronics can be hacked/ modified in the previous section, we conduct an experiment showing how the methodology used with Poppy can actually allow for  robot morphology to be easily and quickly explored in the real world.
+In the previous section we showed how Poppy can be used to explore the actual role of morphology for humanoid behaviours. However, Poppy is a prototyping platform designed to test and experiment quickly several technological solution, especially thanks to modular properties, but until now, we did not actually evaluate it.
 
-While we were working on a new design for Poppy's feet and exploring a design similar to "foot 1" (see \figurename~\ref{fig:pic_foot_1}), we decided to use this as a context to conduct an experiment into multiple variations of the foot morphology as an illustration of the methodology we have initiated with Poppy.
+Therefore while we were working on a new design for Poppy's feet and exploring a design similar to "foot 1" (see \figurename~\ref{fig:pic_foot_1}), we decided to use this as a context to conduct an experiment into multiple variations of the foot morphology as an illustration of the methodology we have initiated with Poppy and presented in section REF.
+
+
+The aim of this experiment is to quickly explore the effect of foot morphology on stability. Here, we are particularly interested in the stability of the head after a stepping impact. These impacts are quite challenging to simulate realistically and the natural compliance of the Poppy platform means it is even more important to test this on the real robot.
+
+For the sake of lightness, the initial design of Poppy's feet only had one degree of freedom (DoF): pitch rotation. This configuration carried the inconvenience of preventing a proper parallel foot/ground contact. Thus, we developed several different feet with two degrees of freedom. Along with a standard motorized 2 DoF flat foot design, we also wanted to explore passive joints with springs. The use of passive joints allows for both lightness and reactive torque for stability.
+
 
 \begin{figure}[!b]
 \centering
-    \subfloat[][]{\label{fig:pic_foot_1}\includegraphics[width=0.48\linewidth]{pic_foot_1.JPG}}
+    \subfloat[][Foot\_1]{\label{fig:pic_foot_1}\includegraphics[width=0.48\linewidth]{pic_foot_1.JPG}}
     \hfil
-    \subfloat[][]{\label{fig:pic_foot_2}\includegraphics[width=0.48\linewidth]{pic_foot_2.JPG}}\\
-    \subfloat[][]{\label{fig:pic_foot_3}\includegraphics[width=0.48\linewidth]{pic_foot_3.JPG}}
+    \subfloat[][Foot\_2]{\label{fig:pic_foot_2}\includegraphics[width=0.48\linewidth]{pic_foot_2.JPG}}\\
+    \subfloat[][Foot\_3]{\label{fig:pic_foot_3}\includegraphics[width=0.48\linewidth]{pic_foot_3.JPG}}
     \hfil
-    \subfloat[][]{\label{fig:pic_foot_4}\includegraphics[width=0.48\linewidth]{pic_foot_4.JPG}}
+    \subfloat[][Foot\_4]{\label{fig:pic_foot_4}\includegraphics[width=0.48\linewidth]{pic_foot_4.JPG}}
     % \subfloat[][]{\label{fig:pic_shoe}\includegraphics[width=0.48\linewidth]{pic_shoe.JPG}}
     \caption{}
     \label{fig:foot_variants}
@@ -38,15 +44,17 @@ While we were working on a new design for Poppy's feet and exploring a design si
         \hline
 
         \end{tabular}
-        \caption{Table summarizing the different types of feet used. \textbf{Passive double-rotation:}  one active rotation (motor: Dynamixel MX 28) for the sagittal plan and a passive rotation for the frontal plan with two springs. \textbf{Active double-rotation:}  A two motorized rotations (sagittal plan and frontal plan). No double-rotation:  one motorized rotation (sagittal plan). \textbf{Human-like foot:} a foot design resembling a human foot of a two year-old child (size: 130.7 mm shoes size: 23 EU). The feet were tested with and without shoes. \textbf{Rotation axis height:} the height between the axis of rotation of the sagittal plan and the floor without shoes. \textbf{Toes:} Indicates that the foot has toes.
+        \caption{Table summarizing the different types of feet used.\\
+        \textbf{Passive double-rotation:}  one active rotation (motor: Dynamixel MX 28) for the sagittal plan and a passive rotation for the frontal plan with two springs.\\
+        \textbf{Active double-rotation:}  A two motorized rotations (sagittal plan and frontal plan). No double-rotation:  one motorized rotation (sagittal plan).\\
+        \textbf{Human-like foot:} a foot design resembling a human foot of a two year-old child (size: 130.7 mm shoes size: 23 EU). The feet were tested with and without shoes.\\
+        \textbf{Rotation axis height:} the height between the axis of rotation of the sagittal plan and the floor without shoes.\\
+        \textbf{Toes:} Indicates that the foot has toes.
         }
         \label{tab:table_feet}
     \end{center}
 \end{table}
 
-The aim of this experiment is to quickly explore the effect of foot morphology on stability. Here, we are particularly interested in the stability of the head after a stepping impact. These impacts are quite challenging to simulate realistically and the natural compliance of the Poppy platform means it is even more important to test this on the real robot.
-
-For the sake of lightness, the initial design of Poppy's feet only had one degree of freedom (DoF): pitch rotation. This configuration carried the inconvenience of preventing a proper parallel foot/ground contact. Thus, we developed several different feet with two degrees of freedom. Along with a standard motorized 2 DoF flat foot design, we also wanted to explore passive joints with springs. The use of passive joints allows for both lightness and reactive torque for stability.
 
 Moreover, it appeared that a proper foot/ground contact with convenient friction was difficult to obtain based only on 3D-printed material. One simple solution to this problem is to use a shoe which can provide a high friction and adapt slightly to imperfections on the ground. Furthermore, this solution also allows keeping the feet close to humans ones. Thus, the feet tested (with the exception of the flat foot) were designed from a moulding of the interior of a shoe. It is to be noted that we also included passive toes (with springs) on some of the feet tested for future work on locomotion. These toes should not have any significant impact on the criterion tested.
 
@@ -69,8 +77,9 @@ Four different feet were tested (cf. Table~\ref{tab:table_feet}). Three out of t
 
 \subsection{Experiments} % (fold)
 
-The feet were tested with a very simple discrete movement, representative of the kind of impacts that occur during walking. The robot performs a single step leftward with the left leg. The left foot is lifted (3cm) and then put back on the ground with a slight lateral displacement towards the exterior (5° at the level of the hip). The duration  of the whole movement is about 0.4 s and repeated 20 times for each configuration.
+The feet were tested with a very simple discrete movement (see figure REF), representative of the kind of impacts that occur during walking. The robot performs a single step leftward with the left leg. The left foot is lifted (3cm) and then put back on the ground with a slight lateral displacement towards the exterior (5° at the level of the hip). The duration  of the whole movement is about 0.4 s and repeated 20 times for each configuration.
 
+TODO Add figure for the discrete movement
 
 \subsection{Results} % (fold)
 
@@ -85,13 +94,12 @@ We can clearly see that foot 3 (standard flat foot) behaves quite differently th
 Regarding the effect of the shoes, results are less clear but most of the time (except for foot 1) differences occur between a given foot with and without shoes. The friction with the ground can explain these differences. Bare feet tend to slip more than those with shoes.
 
 
-
 \begin{figure}[ht]
     \begin{center}
         \includegraphics[width=\linewidth]{head_x.pdf}
     \end{center}
     \caption{Evolution of the position of the head in the $x$ axis for
-    each foot tested.}
+    each foot tested (see \figurename~\ref{fig:foot_variants} for illustration of each foot)}
     \label{fig:head_x}
 \end{figure}
 
@@ -100,7 +108,7 @@ Regarding the effect of the shoes, results are less clear but most of the time (
         \includegraphics[width=\linewidth]{head_y.pdf}
     \end{center}
     \caption{Evolution of the position of the head in the $y$ axis for
-    each foot tested.}
+    each foot tested (see \figurename~\ref{fig:foot_variants} for illustration of each foot).}
     \label{fig:head_y}
 \end{figure}
 
@@ -109,7 +117,7 @@ Regarding the effect of the shoes, results are less clear but most of the time (
         \includegraphics[width=\linewidth]{head_z.pdf}
     \end{center}
     \caption{Evolution of the position of the head in the $z$ axis for
-    each foot tested.}
+    each foot tested (see \figurename~\ref{fig:foot_variants} for illustration of each foot).}
     \label{fig:head_z}
 \end{figure}
 

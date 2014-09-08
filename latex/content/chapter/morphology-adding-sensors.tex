@@ -4,8 +4,10 @@
 \section{Extending the sensor apparatus of Poppy} % (fold)
 \label{sec:morphology-adding-mechanism}
 
+Poppy has been designed following a methodology (presented in section~\ref{REF}) which makes easy the hacking of the platform.
+The last experiments presented mechanical modifications of Poppy's morphology. Indeed thanks to its 3D printed structure, it is quite easy and straightforward to modify its mechanical parts, unfortunately we cannot (yet) print complex electronics circuits and components.
 
-Poppy has been designed following a methodology (presented in section~\ref{REF}) which makes easy the hacking of the platform. With its 3D printed structure, it is quite easy and straightforward to modify its mechanical parts, unfortunately we cannot (yet) print complex electronics circuits and components. We therefore chose to fork the Arduino Due board and design a custom I/O board (detailed in section~\ref{REF}). As its name suggests, this board has for main purpose to ensure the several inputs/outputs of the robot and offers:
+We therefore chose design a custom I/O board based on Arduino (detailed in section~\ref{REF}). As its name suggests, this board has for main purpose to ensure the several inputs/outputs of the robot and offers:
 \begin{itemize}
     \item 2 Dynamixel buses (TTL),
     \item 2 internal USB and 2 external USB ports,
@@ -14,67 +16,21 @@ Poppy has been designed following a methodology (presented in section~\ref{REF})
 Thus there are many more I/Os than required for Poppy. These extra ports has been intended to let Poppy users extend its sensorimotor space and adapt it to their needs.
 
 
-During our first trials to design walking a primitive with Poppy, we have been interested in the measurement of under feet pressures but the simple foot design Poppy has, does not involve such sensors. With a traditional robotic platform, we should have to either use the available sensors, here the load measurement in the ankle Dynamixel motor, or add an external device with its own power supply and communication system.
+During our first trials to design walking a primitive with Poppy, we have been interested in the measurement of under feet pressures but the simple foot design Poppy had, does not involve such sensors. With a traditional robotic platform, we should have to either use the available sensors, here the load measurement in the ankle Dynamixel motor, or add an external device with its own power supply and communication system.
 
 With the Poppy electronic modularity, we can hack the robot and integrate new sensors. Then they can be plugged on the I/O board for communication and power supply needs.
 
 To provide an example of how we can actually hack the Poppy robot, we will explain here what we did to integrate force sensors under the feet and acquire the data with the pypot library.
 
-\subsection{Principles} % (fold)
-To obtain measurement of the pressure variation under our Poppy's feet we used FSR sensors from Interlink Electronics (see \figurename~\ref{fig:FSR_explode_view}). The FSR sensor will vary its resistance depending on how much pressure is being applied to the sensing area. The harder the force, the lower the resistance is. These sensors are low-cost -6\$ each- yet theirs behaviors are very non-linear (see \figurename~\ref{fig:foot_sensor_behavior}) and the calibration is quite variable depending on the production batch and the thermal conditions. So we cannot expect having precise results.
-
-\begin{figure}[h]
-\centering
-    \subfloat[][Exploded view\footnote{Illustration credit: \url{http://www.openmusiclabs.com/learning/sensors/fsr/}} of a FSR sensor]{\label{fig:FSR_explode_view}\includegraphics[height=6.3cm]{FSR_explode_view.jpg}}
-    \hfil
-    \subfloat[][Measured FSR sensor resistance depending on the applied force.]{\label{fig:FSR_behavior}\includegraphics[height=6.3cm]{FSR_behavior.pdf}}
-    \caption{The FSR force sensors are cheap but they have a really non-linear behavior and are not very precise.}
-    \label{fig:}
-\end{figure}
-
-The acquisition of the resistance can be done indirectly by designing a voltage-divider\footnote{A voltage divider is a linear circuit that produces an output voltage $V_{out}$ that is a fraction of its input voltage $V_{in}$. It often consists of 2 resistors in series.} and using the FSR resistance variations to make the voltage output varies (see \equationname~\ref{eq:voltage-divider}). This voltage ($V_{out}$) can be then measured by an analog input of an Arduino board (see \figurename~\ref{fig:foot_sensors_test}).
-
-\begin{equation}
-    V_\mathrm{out} = \frac{R}{R+R_\mathrm{FSR}} \cdot V_\mathrm{in}
-\label{eq:voltage-divider}
-\end{equation}
-
-
-\begin{figure}[!h]
-\centering
-    \subfloat[][A FSR sensor connected with Arduino nano board.]{\label{fig:foot_sensors_test}\includegraphics[height=5cm]{force_sensors_test.jpg}}
-    \hfil
-    \subfloat[][Simple testing assembly with 4 voltage dividers with FSR sensors and potentiometers plugged on an Arduino nano board]{\label{fig:}\includegraphics[height=5cm]{foot_sensors_proto.jpg}}
-    \caption{We can easily measure the resistance variation of a FSR sensor using a voltage divider with the $V_{out}$ connected to an Arduino analog port.}
-    \label{fig:test_sensors}
-\end{figure}
-
-\subsection{Design of the voltage divider to reduce the sensor non-linearity} % (fold)
-
-% subsection design_of_the_voltage_divider_to_reduce_the_non_linearity (end)
-A well tuned voltage-divider can help to reduce the non-linearity of the FSR sensors. Thus we conducted an optimization on the constant resistor choice depending on:
-\begin{itemize}
-    \item the Arduino analog precision: $1024$ values for a $5V$ input range,
-    \item the use of the Dynamixel tension as voltage input i.e. $14V$,
-    \item the standard resistor E12 precision series,
-\end{itemize}
-
-With an objective function sets to minimize the difference between the actual voltage-divider behavior and the perfect linear behavior $V_\mathrm{out}(F) = \alpha \cdot F$ with $V_\mathrm{out}(3.5kg) = 5V$ (see red curve on \figurename~\ref{fig:obtained_FSR_behavior}), we obtained the choice of a $180\Omega$ resistor for the constant resistance of the voltage divider (see \figurename~\ref{fig:FSR_best_resistor}). The best behavior found is plotted in blue on the \figurename~\ref{fig:obtained_FSR_behavior}.
-
-\begin{figure}[h]
-\centering
-    \subfloat[][Optimization of the voltage divider constant resistor: distance between the output behavior with respect to a linear behavior.]{\label{fig:FSR_best_resistor}\includegraphics[width=0.48\linewidth]{criteria_dist.pdf}}
-    \hfil
-    \subfloat[][Theoretical behavior (blue) of the output voltage with respect to the applied force with a $14v$ input and a $180\Omega$ compared with the objective linear behavior.]{\label{fig:obtained_FSR_behavior}\includegraphics[width=0.48\linewidth]{voltage_behavior.pdf}}
-    \caption{The design of the voltage divider for each FSR sensor is done by optimizing the output behavior toward a ideal linear behavior.}
-    \label{fig:foot_sensor_behavior}
-\end{figure}
-
-
 
 \subsection{Integration of foot pressure sensors on Poppy} % (fold)
 
-When we did the integration of foot sensors on the Poppy, its feet were still a really simple and flexible 3D printed part. The actual force transmission was done by the shoes. We therefore had to directly attach the sensors below the shoes. Because Arduino nano board has 8 analog inputs, we have added 8 sensors under each foot (see \figurename~\ref{fig:poppy_foot_sensors}) but actually only used 5 (the big ones) and integrated the arduino nano in the leg. While it was a hack of a real shoe and not just a print of new part, the intervention was quite annoying but still achievable in one day. Here we have chosen to use USB cable to plug each Arduino nano in the Poppy's head but it could also have be done using UART, SPI or I2C communication.
+To obtain measurement of the pressure variation under our Poppy's feet we used FSR sensors from Interlink Electronics (see \figurename~\ref{fig:FSR_explode_view}). The FSR sensor will vary its resistance depending on how much pressure is being applied to the sensing area. The harder the force, the lower the resistance is. The acquisition of the FSR value require to create a simple voltage-divider those the design is explained in appendix \ref{appendix:design_FSR}. These sensors are low-cost -6\$ each- yet theirs behaviors are very non-linear (see \figurename~\ref{fig:foot_sensor_behavior}) and the calibration is quite variable depending on the production batch and the thermal conditions. So we cannot expect having precise results.
+
+When we did the integration of foot sensors on the Poppy, its feet were still a really simple and flexible 3D printed part. The actual force transmission was done by the shoes. We therefore had to directly attach the sensors below the shoes.
+To avoid multiple wires (2 per sensor) going from the head to the feet, we decided to use additional arduino nano boards to acquire sensors values of each foot and stream the data through serial communication up to the IO board.
+
+Because Arduino nano board has 8 analog inputs, we have added 8 sensors under each foot (see \figurename~\ref{fig:poppy_foot_sensors}) but actually only used 5 (the big ones) and integrated the arduino nano in the leg. While it was a hack of a real shoe and not just a print of new part, the intervention was quite annoying but still achievable in one day. Here we have chosen to use USB cable to plug each Arduino nano in the Poppy's head but it could also have be done using UART, SPI or I2C communication.
 
 \begin{figure}[h]
 \centering
@@ -124,8 +80,9 @@ The sensors are not very precise but as we can see on \figurename~\ref{fig:poppy
 
 \begin{figure}[!h]
 \centering
-    \subfloat[][]{\label{fig:}\includegraphics[width=0.6\linewidth]{human_GRF.jpg}}\newline
-    \subfloat[][]{\label{fig:}\includegraphics[width=\linewidth]{human_GRF_variation.jpg}}
+    \subfloat[][]{\label{fig:}\includegraphics[width=0.3\linewidth]{human_GRF.jpg}}
+    \hfil
+    \subfloat[][]{\label{fig:}\includegraphics[width=0.7\linewidth]{human_GRF_variation.jpg}}
     \caption{}
     \label{fig:human_GRF}
 \end{figure}
