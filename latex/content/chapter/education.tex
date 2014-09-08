@@ -55,7 +55,7 @@ To introduce computer concepts to children, MIT Media Lab developed Scratch~\cit
 \textbf{3- Using robots as new pedagogical tools}
 
 Robots have a great potential to become ideal tools for teaching a wide range of engineering disciplines. Indeed, robots are intrinsically multidisciplinary objects embedding technology from diverse fields, among them computer science, mechanics, electronics or signal processing.
-The current low-cost projects emerging from the makers revolution\cite{anderson} such as Arduino\footnote{Open source electronics boards}~\cite{mellis2007arduino}, Raspberry Pi\footnote{Low cost micro Linux computer}, and 3D printing bring the tools needed to create robots at a cost that is compatible with the funding available in education. Now the technology lets students create or modify actual robots, a great motivational tool because they permit instant application in the real world, giving a meaningful context favourable for constructivist teaching~\cite{palincsar1998social} \cite{papert1991situating}.
+The current low-cost projects emerging from the makers revolution\cite{anderson2012makers} such as Arduino\footnote{Open source electronics boards}~\cite{mellis2007arduino}, Raspberry Pi\footnote{Low cost micro Linux computer}, and 3D printing bring the tools needed to create robots at a cost that is compatible with the funding available in education. Now the technology lets students create or modify actual robots, a great motivational tool because they permit instant application in the real world, giving a meaningful context favourable for constructivist teaching~\cite{palincsar1998social} \cite{papert1991situating}.
 There are already several great success stories such as the e-puck robot~\cite{mondada2009puck} which specifically targets engineering education at university level or Thymio II adapted for teaching robotic and computer science in primary education~\cite{riedo2012two}~\cite{riedo2013thymio}.
 
 
@@ -86,7 +86,7 @@ Poppy was initially designed for research purposes and seems to be also adapted 
 The experiment took place in the Saintonge Sainte Famille high school on May 26th \& 27th, and involved near 40~\emph{première STI2D} students (equivalent to UK Year 12) preparing a professional baccalaureate and three teachers (\emph{"Energy and environment"}, \emph{"Architecture and construction"}, and \emph{"Digital information systems"}).
 It was organized as a workshop in three 4-hour sessions. The last two hours were dedicated to oral presentations in the lecture hall allowing students to share their experiences and work (see \figurename~\ref{fig:saintonge_support} and \figurename~\ref{fig:saintonge_demonstration}).
 
-For this first pilot experiment, we decided to reduce the cost by using only a sub-part of the whole Poppy. For me the most relevant part for high-school students was the upper body (thorax, head and the two arms), because it avoids to work on complex sensory-motor behaviours such as balancing and walking while keeping the expressive potential of Poppy. The total cost of Robotis Dynamixel motors, electronics and 3D printing service was \texteuro2500 (20 \% tax included), the BOM list is available in the Annexes (see REF).
+For this first pilot experiment, we decided to reduce the cost by using only a sub-part of the whole Poppy. For me the most relevant part for high-school students was the upper body (thorax, head and the two arms), because it avoids to work on complex sensory-motor behaviours such as balancing and walking while keeping the expressive potential of Poppy. The total cost of Robotis Dynamixel motors, electronics and 3D printing service was \texteuro2500 (20 \% tax included), the BOM list is available in the appendix~\ref{appendix:education_bom}.
 
 
 Students were assigned several sub-tasks that we will describe in the following sections.
@@ -109,13 +109,13 @@ The assembly of Poppy was divided in three groups: one was doing the assembly of
     \label{fig:saintonge_assembly}
 \end{figure}
 
-However, as I will discuss in more detail in the upcoming section REF, we experienced some difficulties with the high school internet connection and all documentation is online\dots So it was unfortunately rather difficult to evaluate if our documentation was clear enough for high school students. Yet, from that I experienced explaining the "how-to" guide and it appears we need highly detailed documentation for the very first steps. General guidelines seem to be enough to achieve a well-assembled Poppy robot.
+However, as we will discuss in more detail in the upcoming section~\ref{sec:education-lessons}, we experienced some difficulties with the high school internet connection and all documentation is online\dots So it was unfortunately rather difficult to evaluate if our documentation was clear enough for high school students. Yet, from that we experienced explaining the "how-to" guide and it appears we need highly detailed documentation for the very first steps. General guidelines seem to be enough to achieve a well-assembled Poppy robot.
 
 \subsection{Python programming with pypot}
 
 Two working groups were dedicated to learning basic Python programming with pypot (see \figurename~\ref{fig:saintonge_software}). The teacher had selected these students because of their enthusiasm for computer science. Indeed when they heard about the Poppy project several weeks earlier, they became interested in Python and began to look for further information on the internet.
 
-The first hours of the software workshop were complicated. The school computers were not outdated but were running on Windows and used by a lot of different people, so configurations were not consistent between machines and sometimes rather exotic. The installation of the necessary tools (Python + packages + text editor) was particularly long and painful. I will come back to this point in the section REF.
+The first hours of the software workshop were complicated. The school computers were not outdated but were running on Windows and used by a lot of different people, so configurations were not consistent between machines and sometimes rather exotic. The installation of the necessary tools (Python + packages + text editor) was particularly long and painful. We will come back to this point in the section~\ref{sec:education-lessons}.
 
 \begin{figure}[tb]
 \centering
@@ -134,7 +134,7 @@ Once the desktops were set up, students took a look at the basic pypot tutorials
 
 The hardware groups then assembled Poppy, the software group modified Poppy's configuration file and adapted it to their own Poppy. At the end of the first day, the two groups were able to make their Poppy move.
 
-The software team continued their work the next day, trying to create more complex behaviour. One participant (see \figurename~\ref{fig:saintonge_motivated_software_guy}), managed to create on his own (I did not write a single line of code) the copy-arm behaviour we showed in the Poppy overview video\footnote{http://vimeo.com/poppyproject/poppyoverview}. Then he explained how he did it to his classmates (see \figurename~\ref{fig:saintonge_knowledge_transmission}).
+The software team continued their work the next day, trying to create more complex behaviour. One participant (see \figurename~\ref{fig:saintonge_motivated_software_guy}), managed to create on his own (we did not write a single line of code) the copy-arm behaviour we showed in the Poppy overview video\footnote{http://vimeo.com/poppyproject/poppyoverview}. Then he explained how he did it to his classmates (see \figurename~\ref{fig:saintonge_knowledge_transmission}).
 
 After learning how this behaviour was achieved, another group decided to make Poppy clap its hands. By trial and error they managed to make the basic movement by using sinus. This self-exploration required an understanding of what a variable is and how a sinus acts and they experimented on their own with the different sinus properties such as frequency, amplitude and even offset. As Mitchel Resnick explained in~\cite{resnick2009scratch}, here the meaningful context of making a robot move arouses the students’ curiosity in mathematics and computer science concepts.
 
@@ -173,20 +173,20 @@ The student team managed to assemble a fully functional Poppy. Groups working on
 
 \begin{figure}[tb]
 \centering
-    \subfloat[][]{\includegraphics[height=4.3cm]{saintonge_poppy_first_moves.jpg}}
+    \subfloat[][First Poppy's moves drew particular attention.]{\includegraphics[height=4.3cm]{saintonge_poppy_first_moves.jpg}}
     \hfil
-    \subfloat[][]{\includegraphics[height=4.3cm]{saintonge_demo1.jpg}}
+    \subfloat[][Live demonstration of the robot behavior students created]{\includegraphics[height=4.3cm]{saintonge_demo1.jpg}}
     \caption{After finishing the hardware assembly, students began to make Poppy move using the pypot library. They manage in just few hours to create impressive movement and behaviour despite no previous development experience with Python.}
     \label{fig:saintonge_demonstration}
 \end{figure}
 
-This experience was very instructive and will be largely discussed in the conclusion.
+This experience was very instructive on several aspects relative to the usage of Poppy for education purpose. In particular, it raises some problems we would have never thought about without a "real world" experimentation in a school environement. All these points will be largely discussed in the section~\ref{sec:education-lessons}.
 
-
+\newpage
 \section{Fablab workshop} % (fold)
 \label{sec:poppy_universience}
 
-On March 22nd \& 23rd 2014, UniverSciences\footnote{Paris museum of sciences and technologies} organized a hackathon for the general public on the assembly of a Poppy robot (see \figurename~\ref{fig:universience_hackathon_orga}).
+On March 22nd \& 23rd 2014, UniverSciences\footnote{Paris museum of sciences and technologies} organized a hackathon for the general public on the assembly of a Poppy robot (see \figurename~\ref{fig:universience_workshop}).
 It involved 21 robotic enthusiasts (aged from 23 to 46) with various backgrounds (informatics, electronics, physics, sociology, mechanics, architecture).
 
 Participants were divided into several working groups during the two days. While a group was dedicated to the actual assembly of Poppy, others were exploring how to program the robot in Python or working on designing and 3D printing hardware improvements. During the weekend, nearly 100 visitors came to visit the workshop and some of them participated in the hackathon.
@@ -229,7 +229,7 @@ The support was needed to help the team and showed us some points on which we ha
 Despite these minor difficulties, this group of new users, self-trained using only online community tools were able to build the whole robot from scratch and make it move using the pypot library. Eventually, two young students  had an idea: 3D printing an ankle that could give some articulated movement to Poppy's feet. They designed a new original semi-passive solution for the ankle joint as well as a robot helmet that was 3D-printed and assembled within the time of the workshop (see \figurename~\ref{fig:universience_workshop}). Also the feedback we received from the mediation team was really good and they are enthusiastic to repeat this kind of event.
 
 
-\begin{figure}[!ht]
+\begin{figure}[tb]
 \centering
     \subfloat[][]{\includegraphics[height=6cm]{art-robotique_universcience.jpg}}
     \hfil
@@ -238,23 +238,24 @@ Despite these minor difficulties, this group of new users, self-trained using on
     \label{fig:universcience_art}
 \end{figure}
 
-Since this hackathon, Poppy has been used by the UniverSciences Fablab, but also for activities and animation aside from the "Robotic Art" exhibition (08/04/2014 to 04/01/2015) \figurename~\ref{fig:universcience_art}. It formed part of the opening of the exhibition on April 8th, and is part of the science show "l'ère des Robots" (The Robots Era) see \url{http://www.cite-sciences.fr/fr/au-programme/expos-temporaires/art-robotique/activites-associees/}.
+Since this hackathon, Poppy has been used by the UniverSciences Fablab, but also for activities and animation aside from the "Robotic Art" exhibition (08/04/2014 to 04/01/2015) \figurename~\ref{fig:universcience_art}. It formed part of the opening of the exhibition on April 8th, and is part of the science show "l'ère des Robots" (The Robots Era)\footnote{\url{http://www.cite-sciences.fr/fr/au-programme/expos-temporaires/art-robotique/activites-associees/}}.
 
 
 % \cleardoublepage
 
 \section{Lessons learn} % (fold)
+\label{sec:education-lessons}
 
-These experiments were really instructive as we had the chance to do a real crash-test in ecological conditions: a group of people left alone to build a complex robot in a Fablab style environment and real students in their high school and with their own equipment. As I personally took part in the workshop in the high school, this section resuming the educational interest will be more focused on this experiment.
+These experiments were really instructive as we had the chance to do a real crash-test in ecological conditions: a group of people left alone to build a complex robot in a Fablab style environment and real students in their high school and with their own equipment. As we personally took part in the workshop in the high school, this section resuming the educational interest will be more focused on this experiment.
 
-For example, in ~\cite{resnick2008sowing}, Mitchel Resnick cited the experience a teacher had while using Scratch for a school project:
+For example, Mitchel Resnick cited the experience a teacher had while using Scratch for a school project~\cite{resnick2008sowing}:
 \begin{quotation}
     There is a buzz in the room when the kids get going on Scratch projects. Students set design goals for their projects and problem-solve to fix program bugs. They collaborate, cooperate, and co-teach. They appreciate the power that Scratch gives them to create their own versions of games and animations.
 
     \signed{Karen Randall, teacher at the Expo Elementary School in~\cite{resnick2008sowing}}
 \end{quotation}
 
-This description closely resembles my experience with the high school students. I was really surprised and pleased at how the students were able to switch from a pyramidal way of learning, where they are passive and expect the teacher to transmit knowledge, to a horizontal one or even a bottom-up one, where students are proactive and ask the teacher for explanations, use these to understand novel concepts then transmit them to their classmates.
+This description closely resembles my experience with the high school students. We were really surprised and pleased at how the students were able to switch from a pyramidal way of learning, where they are passive and expect the teacher to transmit knowledge, to a horizontal one or even a bottom-up one, where students are proactive and ask the teacher for explanations, use these to understand novel concepts then transmit them to their classmates.
 
 This experiment turns out to be much more instructive than expected and taught us several lessons:
 
@@ -265,7 +266,7 @@ This experiment turns out to be much more instructive than expected and taught u
 Problems that crop up when making and controlling a robot require the use of math and students see in this the tools needed to reach their goal. They are learning math because it is on the way to achieving a “cooler” and more rewarding goal. In this pilot experiment, the students were from a professional baccalaureate, typically the kind of students saying they are not "born mathematicians" and so will never succeed in doing it. However, while trying to control Poppy, especially making it clap, they were confronted with mathematical problems and used sinusoidal signal to resolve them. Using Poppy they were able to see, immediately and in real life, the usefulness of sinus and eventually began to explore on their own the role of each parameter (amplitude, frequency, phase, offset).
 
 The same effect can be observed in teaching computer science and programming. Indeed, having to deal with strange syntax rules, complex commands and austere interfaces is discouraging. Using robots makes the programming experience much different. You are not studying computer science to print characters on a black system console, but you are using programming to make a robot move!
-During the experience with the high school students I saw two main advantages. Firstly, the motivation of making a robot move helps students to overcome the syntax tricks problems. Secondly, teaching Object-oriented programming (OOP) using actual object is far easier. Indeed, understanding that a motor is an object with properties and functions is really meaningful.
+During the experience with the high school students we saw two main advantages. Firstly, the motivation of making a robot move helps students to overcome the syntax tricks problems. Secondly, teaching Object-oriented programming (OOP) using actual object is far easier. Indeed, understanding that a motor is an object with properties and functions is really meaningful.
 
 
 \textbf{3- Poppy is open source, it can be hacked and adapted to specific needs:}
@@ -284,7 +285,7 @@ The previous point showed us that the current way of working with Poppy was not 
 
 Thus eventually, high-school students managed to develop complex behaviour with Poppy but the teacher had pre-selected them on the basis of their enthusiasm about computer science. Students without prior excitement would probably give up when faced with so many system setup difficulties.
 
-This problem led us to look for improvements and we eventually found an interesting way to overcome these setup issues. The week after, we submitted a project proposal to the Aquitaine Region funding call on the design of a development environment adapted to the use of Poppy in educational context. We will describe this project more in future work (see REF).
+This problem led us to look for improvements and we eventually found an interesting way to overcome these setup issues. The week after, we submitted a project proposal to the Aquitaine Region funding call on the design of a development environment adapted to the use of Poppy in educational context. We will describe this project more in future work (see section~\ref{sec:education-future-work}).
 
 
 \textbf{7- Content should be translated into the native language:}
@@ -325,6 +326,7 @@ Confronted with these three points, we found promising technical solutions and w
 
 
 \section{Future work} % (fold)
+\label{sec:education-future-work}
 
 As we explained previously, experiments involving Poppy have shown potential for educational application. However, given the cost of Poppy, the complex setup to run pypot and the lack of educational content, the relevance of Poppy in high schools and first years of universities is still questionable.
 
