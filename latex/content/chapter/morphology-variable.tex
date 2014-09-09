@@ -14,7 +14,7 @@ The aim of this experiment is to quickly explore the effect of foot morphology o
 For the sake of lightness, the initial design of Poppy's feet only had one degree of freedom (DoF): pitch rotation. This configuration carried the inconvenience of preventing a proper parallel foot/ground contact. Thus, we developed several different feet with two degrees of freedom. Along with a standard motorized 2 DoF flat foot design, we also wanted to explore passive joints with springs. The use of passive joints allows for both lightness and reactive torque for stability.
 
 
-\begin{figure}[!b]
+\begin{figure}[p]
 \centering
     \subfloat[][Foot\_1]{\label{fig:pic_foot_1}\includegraphics[width=0.48\linewidth]{pic_foot_1.JPG}}
     \hfil
@@ -22,6 +22,9 @@ For the sake of lightness, the initial design of Poppy's feet only had one degre
     \subfloat[][Foot\_3]{\label{fig:pic_foot_3}\includegraphics[width=0.48\linewidth]{pic_foot_3.JPG}}
     \hfil
     \subfloat[][Foot\_4]{\label{fig:pic_foot_4}\includegraphics[width=0.48\linewidth]{pic_foot_4.JPG}}
+
+
+    \subfloat[][Foot\_4]{\label{fig:pic_foot_4}\includegraphics[width=\linewidth]{foot_experience.pdf}}
     % \subfloat[][]{\label{fig:pic_shoe}\includegraphics[width=0.48\linewidth]{pic_shoe.JPG}}
     \caption{}
     \label{fig:foot_variants}
@@ -77,9 +80,15 @@ Four different feet were tested (cf. Table~\ref{tab:table_feet}). Three out of t
 
 \subsection{Experiments} % (fold)
 
-The feet were tested with a very simple discrete movement (see figure REF), representative of the kind of impacts that occur during walking. The robot performs a single step leftward with the left leg. The left foot is lifted (3cm) and then put back on the ground with a slight lateral displacement towards the exterior (5° at the level of the hip). The duration  of the whole movement is about 0.4 s and repeated 20 times for each configuration.
+The feet were tested with a very simple discrete movement (see \codename~\ref{code:foot_mouvement}), representative of the kind of impacts that occur during walking. The robot performs a single step leftward with the left leg. The left foot is lifted (3cm) and then put back on the ground with a slight lateral displacement towards the exterior (5° at the level of the hip). The duration  of the whole movement is about 0.4 s and repeated 20 times for each configuration.
 
-TODO Add figure for the discrete movement
+\lstinputlisting[
+    language = Python,
+    caption = {Discrete mouvement executed on Poppy},
+    label = {code:foot_mouvement},
+    float = p]
+    {code/foot_mouvement.py}
+
 
 \subsection{Results} % (fold)
 
