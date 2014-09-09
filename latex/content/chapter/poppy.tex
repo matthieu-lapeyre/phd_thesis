@@ -7,8 +7,72 @@
 
 \section{Introduction} % (fold)
 
-Poppy is the first complete 3D printed open-source and open-hardware humanoid robot (see \figurename~\ref{fig:poppyv0.1_overview}). Its 3D printed skeleton and its Arduino-based electronics are open-hardware (Creative Commons). Its software is open-source (GPL V3), and allows programming beginners as well as advanced roboticists to control the robot in Python thanks to the PyPot library. Its motors are common and widely used off-the-shell Robotis actuators, and allow for compliant control and soft physical human-robot interaction. Poppy presents an original mechanical structure that permits to obtain a light structure with 3.5kg for 84cm height.
+\begin{figure}[tb]
+\centering
+    \subfloat[][Nao]{\label{fig:nao_platform}\includegraphics[height=5cm]{nao_face.png}}
+    \hfil
+    \subfloat[][Darwin-Op]{\label{fig:darwin_platform}\includegraphics[height=5cm]{darwin_op_face.jpg}}
+    \hfil
+    \subfloat[][Acroban]{\label{fig:acroban_platform}\includegraphics[height=5cm]{acroban_wout_background.jpg}}
+    \caption{None of the existing platforms in 2012 were suitable for exploring the role of morphology. Nao was impossible to modify. Darwin Op and Acroban used aluminium parts that are really difficult and expensive to produce.}
+    \label{fig:2012_Humanoids}
+\end{figure}
+
+In 2012, when we started this project, none of the existing humanoid platforms were suitable for exploring the role of morphology. There were two kinds of platform. On one hand commercial robots that are rather easy to use and accessible but with a static and frozen morphology. On the other hand, prototype robots produced in labs to address specific experimentation needs, studying interesting morphologies but complicated to use and impossible to reproduce outside the lab. In both cases, only a few are open source, limiting hacks, extensions or modifications of their morphologies even further.
+
+
+
+
+In the Flowers Lab, we had both kinds of robot. We used Nao (see \figurename~\ref{fig:nao_platform}) to study human robot interaction (REF PIERRE cadeau). It was really convenient for use by researchers who are not interested in hardware issue since they are addressing more high-level research challenges. Yet such a platform is limited as it is not possible to modify the robot if it is not strictly adapted to our experiment. For example, back at this time the Nao camera was not efficient, with a closed field of view and a slow framerate. We have difficultly achieved 5 frames/seconds. Although we had the necessary skills to hack Nao and change the camera to fit our needs, its hardware is not designed to be changed. Improving the vision performance would only be possible with the addition of an external camera on the Nao head which would ruin the user experience. In addition, it would have been interesting to explore how the camera parameters (FOV, framerate, resolution...) can change the user experience but again, it is not possible with this robot.
+
+
+
+We also used Acroban (see \figurename~\ref{fig:acroban_platform}) designed by Olivier Ly~\cite{Ly2010}. It is a handcrafted humanoid platform created to explore certain morphological properties, especially compliance, with the aim of achieving dynamic locomotion and playful physical human robot interaction.
+While it actually allows modification of its is morphology, it is manufactured from aluminium mechanical parts, Robotis Dynamixel motors, scotch, and rubber bands cobbled together, and changing it requires lot of effort . The manufacture of aluminium parts required is especially complicated and requires either very good handiwork or a 3-axis CNC.
+
+In addition, its use was quite complicated and while several researchers could have been interested by Acroban to study human robot interaction and social acceptance, it was not possible to use it without getting our hands dirty.
+Finally, the material and manufacturing process make the platform non-stationary. Even if a lab manages to reproduce it, there is a high probability that the physical properties will not be the same. Therefore, the diffusion and the reproducibility of results are limited.
+
+
+A last alternative would be the use of Darwin Op robot (see \figurename~\ref{fig:darwin_platform}) which is both open source and easily accessible (Robotis sells it already assembled for \$10K), yet as Acroban its hardware consists of manufactured metal parts making its morphology very difficult and expensive to modify (see section REF for more details). Moreover, , even if Darwin is open source and very popular, to our knowledge its morphology has never be modified by the research community.
+
+Thus one of the main goals was to successfully design a humanoid robot which can merge the advantages of both kind of robot, i.e. simple, accessible, reproducible and allowing to easily change and hack its morphology for scientific experiments that can be both customized and shared.
+
+
+\subsection{An experiments-proof robot} % (fold)
+
+Most researchers can attest to the difficulty and frustration faced while conducting robotic experimentation in the real world. We are challenged daily by bugs, technical issues, unpredicted events and side effects. While a bug in software can be fixed, an error with a hardware platform can cause damage to the robot and postpone the results of an experiment by several weeks.
+
+Therefore many researchers in robotics avoid technical issues associated with the real world experimentation by using simple models and physical simulation. But the real world is extremely more complex and richer than the virtual one.
+Some high-level behaviour experiments are conducted in simulators based on the hypothesis that real-world constraints are not relevant, yet it is really certain?
+Indeed, while the real world constitutes a lot of constraints, it is also rich in complex physical effects (gravity, friction, inertia), which should be taken into consideration and could be very useful if interacting with the agent.
+
+As we saw in the related work (chapter~\ref{REF}), the emergence of complex behaviours appears thanks to the interaction between the real world and simple robotic systems. We cannot program behaviour because behaviour is the result of interaction  between the program and the real world. Thus we cannot design behaviour without the ecological niche of the robot~\cite{Steels1991emergence}.
+
+While using simulators can be helpful as a first step to design robots, it appears incomplete when showing results on the role of morphology without real world experimentation.
+Therefore, when one wants to study the role of morphology on robot behavior, being able to explore it in the real world is of paramount importance. Unfortunately, current tools make the experimental step really hard to achieve for researchers.
+
+Throughout our work on building cognitive and developmental learning algorithms, we have experienced these issues, especially while building and using Acroban~\cite{Ly2010} and during the Ergo robot experience (see section~\ref{REF}). Much time has been spent debugging non-robust technologies but it has been very instructive for understanding those that are efficient and those that should be avoided.
+Therefore Poppy has been designed based on the background experience we have acquired building using robots acting in the real world.
+
+\begin{description}
+    \item[Robustness and Safety:] Demanding and lengthy real-world experimentation necessitates that the robot be robust and safe. It should be able to sustain experiments and fall down without easily breaking. At the same time, one should ensure that physical interaction with the robot is safe for humans.
+    \item [Precision, stationary:]Experiments should be repeatable, implying that the robot properties should be stationary.
+    \item [Breakable, repairable:] Breaking should not be costly and the robot should be easily repairable.
+    \item [Transportable:] To allow for experiments in natural environments, possibly involving interaction with non-technical humans, the robot should be transportable outside the laboratory.
+    \item [Easy and fast to duplicate:]If the robotic platform is to be reused  in this way, it must be easy and fast to duplicate.
+    \item [Affordable:] To ensure widespread use, a key factor is to keep the cost of the platform relatively low. The more labs can be involved, the greater the scientific impact.
+\end{description}
+
+
+\subsection{Overview} % (fold)
+
+To respond to this need we created Poppy,  the first complete 3D printed open-source and open-hardware humanoid robot (see \figurename~\ref{fig:poppyv0.1_overview}). Its 3D printed skeleton and its Arduino-based electronics are open-hardware (Creative Commons). Its software is open-source (GPL V3), and allows programming beginners as well as advanced roboticists to control the robot in Python thanks to the PyPot library. Its motors are common and widely used off-the-shell Robotis actuators, and allow for compliant control and soft physical human-robot interaction. Poppy presents an original mechanical structure that permits to obtain a light structure with 3.5kg for 84cm height.
 Its current morphology takes insight from the human functional morphology: large number of articulation (25 motors), the limbs respect human proportions, it has five articulation in the trunk and its thigh is bended by a $6\deg$ angle similar to the human.
+
+Underactuated
+
+Discuss the size of the robot
 
 \begin{figure}[tb]
     \begin{center}
@@ -17,101 +81,6 @@ Its current morphology takes insight from the human functional morphology: large
     \caption{}
     \label{fig:poppyv0.1_overview}
 \end{figure}
-
-\subsection{An experiments-proof robot} % (fold)
-
-Most researchers can attest of the difficulty and frustration raised while conducting robotic experimentation in the real world. We are daily challenged by bugs, technical issues, unpredicted events and side effects. While a bug in a software can be fixed, an error with a hardware platform can cause damages to the robot and postpone the results of an experiment by several weeks.
-
-Therefore many robotic researchers avoid technical issues linked with the real world experimentation by using simple model and physical simulation. But the real world is extremely more complex and rich than the virtual one.
-Some high-level behavior experiments are conducted in simulator based on the hypothesis that the real world constraints are not relevant, yet it is really sure ?
-Indeed, while the real world constitute a lot of constraints, it is also rich of complex physical effects (gravity, friction, inertia) which should be taken into consideration and could be very useful if interacting with the agent.
-
-As we saw in the related work (chapter~\ref{REF}), the emergence of complex behaviors appear thanks to the interaction between the real world and simple robotic systems. We cannot program behavior because the behavior is the interaction resultant between the program and the real world. Thus we cannot design behavior without the ecological niche of the robot~\cite{Steels1991emergence}.
-
-While using simulator can be helpful as a first step to design robot, it appears incomplete to show results on the role of morphology without real world experimentations.
-Therefore, when ones want to study the role of morphology on the robot behavior, being able to explore it in the real world is of paramount importance but unfortunately, current tools make the experimental step really hard to achieve for researchers.
-
-Along our work on building cognitive and developmental learning algorithms, we had experienced these issues, especially while building and using Acroban~\cite{Ly2010} and during the Ergo robot experience (see section~\ref{REF}). Many time has been spent debugging non-robust technologies but it has been very instructive to understand whose are efficient and whose should be avoided. Therefore Poppy has been designed based on the background experience we have acquired building and using robots acting in the real world.
-
-\textbf{Large sensori-motor space:} Robotis Dynamixel give access to a large number of internal sensors and control parameter. In addition, Poppy has several basic sensors such as IMU, camera and which can be easily extended with novel sensors thanks to the Arduino eletronic architecture.
-\textbf{Robustness:} Poppy is designed to be robust to falls and to allow long experimentations (e.g. several hours). Also, its conception, slightly under-actuated, prevents it from destructing itself if wrong moves occur.
-\textbf{Transportable outside the lab:} Its size (84 cm) and weight (3.5 kg) make Poppy an easily tranportable robot. In addition its robustness avoid the installation of complex security system around the platform allowing the use Poppy anywhere.
-\textbf{Easy to setup:} we try to keep Poppy and its modules as Plug’n'Play as possible.
-\textbf{Affordable:} to make Poppy widely accessible, we keep the cost relatively low. You can afford all components for 7500-8000\texteuro or thanks to its modularity, only use the parts of the robot needed.
-
-
-\section{Lightweight} % (fold)
-
-Many humanoid robots use powerful motors often associated with highly accurate sensors. This has a cost, both in terms of weight and computation resources. Moreover, to ensure the accuracy of the sensory-motor space it is necessary to design very rigid mechanical parts. The whole structure obtained is powerful but very heavy and due to inertia not very agile.
-In the Poppy platform, the lightness is very important both for dynamical properties and safety:
-\begin{itemize}
-    \item for a given actuation power, reducing the link mass reduce its inertia and permits to increase the agility and the responsiveness,
-    \item make Poppy a platform easier to manipulate and transport outside the lab,
-    \item make the robot safer for people as well as for itself when it fall (and it will definitely fall a number of times).
-\end{itemize}
-
-The lightness was achieved by combining low-power actuation and optimized structure. Indeed when combined, it creates a kind of virtuous circle where the reduction of the maximum torque reduces the strength on mechanical parts. Because less force intensity is applied, we can remove material from parts. Because we have a lighter mechanical structure we can reduce the actuation power required and so on.
-
-Also using low-power actuation has several interesting points:
-
-\begin{itemize}
-    \item The actuation being the main cost of the robot (>60\%), using the least powerful motors significantly reduces the total cost of the robot.
-    \item Low-power actuators allows a safer robot. Indeed, in case of programing error, the robot is not enough powerful to hurt someone or itself.
-    \item on a research challenge aspect, it constraints the possible motions to the one requiring few strength so certainly more human-like.
-\end{itemize}
-
-Therefore Poppy was designed using the weaker and lightest motors i.e. MX-28\footnote{Robotis motors are quite heavy (72, 126 and 153g respectively for MX-28, MX-64 and MX-106) in comparison of the Futaba servo-motors, 20-50g for a comparable output torque see \url{http://www.futaba-rc.com/servos/brushless.html}}, excepted on few particular joints (such as hip) while the mass reduction of the mechanical parts were achieved by using truss design.
-
-Truss are a well-known design technique from structural mechanics to create lightweight yet very robust structures. It is mainly used in civil engineering (see \figurename~\ref{fig:truss_bridges}) but can also be used in plane, which require lightness and strength resistance.
-
-\begin{figure}[tb]
-    \begin{center}
-        \includegraphics[width=0.6\linewidth]{truss_bridges.jpg}
-    \end{center}
-    \caption{Caption here}
-    \label{fig:truss_bridges}
-\end{figure}
-
-The principle is based on beam theory and permit to increase the second moment of area a beam cross-section (see \figurename~\ref{fig:leg_section}), which is an important property in the calculation of deflection, main weakness of a long beam.
-
-The second moment of area is computed as follow:
-
-\begin{center}
-    $I_x = \iint_s y^2 dxdy$
-
-    $I_y = \iint_s x^2 dxdy$
-\end{center}
-
-where $s = dxdy$ is the surface integrated along the two axis of the cross-section surface. We can notice the  on each dimension varies with a quadratic factor meaning the variation is not linear. Therefore matter placed far away from the origin is much more effective to increase the second moment of area.
-Thus the main idea is to remove -the no effective- matter at the center and place it on the rim. In truss structure, matter is assembled by linkage avoiding local deformation.
-
-The \figurename~\ref{fig:leg_section} shows the comparative cross section of two beam with the same second moment of area value. More precisely, the \figurename~\ref{fig:Poppy_leg_section} is a cross section of Poppy's leg while the figure \figurename~\ref{fig:basic_leg_section} is a basic beam with a rectangular profile.
-
-\begin{figure}[!h]
-\centering
-    \subfloat[][Section of the Poppy's leg]{\label{fig:Poppy_leg_section}\includegraphics[height=4cm]{Poppy_leg_section.jpg}}
-    \hfil
-    \subfloat[][Equivalent rectangular section]{\label{fig:basic_leg_section}\includegraphics[height=4cm]{basic_leg_section.jpg}}
-    \caption{}
-    \label{fig:leg_section}
-\end{figure}
-
-It would require a section such as $b=27.72 mm$ and $h=27.59 mm$ for the rectangular to get the same quadratic momentum as the truss design (i.e. $I_x = 54.862 mm^4$ and $I_y = 53.260 mm^4$ measured with Solidworks).
-Considering the length of the leg part (i.e. $190 mm$), the total mass would be equal to $142 g$ instead of $47 g$ for the actual leg. This corresponds to a reduction of 70\% of the mass.
-
-\begin{figure}[!h]
-\centering
-    \subfloat[][]{\label{fig:poppy_arm_truss}\includegraphics[width=0.8\linewidth]{arm_truss.jpg}}
-
-
-    \subfloat[][]{\label{fig:poppy_leg_truss}\includegraphics[width=0.8\linewidth]{leg_truss.jpg}}
-    \caption{}
-    \label{fig:poppy_truss_structure}
-\end{figure}
-
-All the limbs of Poppy are based on this structure and have been optimized using finite element analysis (FEA) to perform structural simulation and validate parts performance and safety factors.
-Thanks to the use of this design on all Poppy's limbs (see \figurename~\ref{fig:poppy_truss_structure}), we managed to have -certainly- the most lightweight humanoid robot with 3.5kg relatively to its 83 cm height.
-
 
 
 \section{Explore morphological variants} % (fold)
@@ -206,11 +175,85 @@ Being able to change easily change the morphology is a paramount importance in t
 
 
 
+\section{Lightweight} % (fold)
 
-\section{Highlight of some Poppy's morphological aspects}
+Many humanoid robots use powerful motors often associated with highly accurate sensors. This has a cost, both in terms of weight and computation resources. Moreover, to ensure the accuracy of the sensory-motor space it is necessary to design very rigid mechanical parts. The whole structure obtained is powerful but very heavy and due to inertia not very agile.
+In the Poppy platform, the lightness is very important both for dynamical properties and safety:
+\begin{itemize}
+    \item for a given actuation power, reducing the link mass reduce its inertia and permits to increase the agility and the responsiveness,
+    \item make Poppy a platform easier to manipulate and transport outside the lab,
+    \item make the robot safer for people as well as for itself when it fall (and it will definitely fall a number of times).
+\end{itemize}
 
-\tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{Poppy_dimensions}};
-\clearpage
+The lightness was achieved by combining low-power actuation and optimized structure. Indeed when combined, it creates a kind of virtuous circle where the reduction of the maximum torque reduces the strength on mechanical parts. Because less force intensity is applied, we can remove material from parts. Because we have a lighter mechanical structure we can reduce the actuation power required and so on.
+
+Also using low-power actuation has several interesting points:
+
+\begin{itemize}
+    \item The actuation being the main cost of the robot (>60\%), using the least powerful motors significantly reduces the total cost of the robot.
+    \item Low-power actuators allows a safer robot. Indeed, in case of programing error, the robot is not enough powerful to hurt someone or itself.
+    \item on a research challenge aspect, it constraints the possible motions to the one requiring few strength so certainly more human-like.
+\end{itemize}
+
+Therefore Poppy was designed using the weaker and lightest motors i.e. MX-28\footnote{Robotis motors are quite heavy (72, 126 and 153g respectively for MX-28, MX-64 and MX-106) in comparison of the Futaba servo-motors, 20-50g for a comparable output torque see \url{http://www.futaba-rc.com/servos/brushless.html}}, excepted on few particular joints (such as hip) while the mass reduction of the mechanical parts were achieved by using truss design.
+
+Truss are a well-known design technique from structural mechanics to create lightweight yet very robust structures. It is mainly used in civil engineering (see \figurename~\ref{fig:truss_bridges}) but can also be used in plane, which require lightness and strength resistance.
+
+\begin{figure}[tb]
+    \begin{center}
+        \includegraphics[width=0.6\linewidth]{truss_bridges.jpg}
+    \end{center}
+    \caption{Caption here}
+    \label{fig:truss_bridges}
+\end{figure}
+
+The principle is based on beam theory and permit to increase the second moment of area a beam cross-section (see \figurename~\ref{fig:leg_section}), which is an important property in the calculation of deflection, main weakness of a long beam.
+
+The second moment of area is computed as follow:
+
+\begin{center}
+    $I_x = \iint_s y^2 dxdy$
+
+    $I_y = \iint_s x^2 dxdy$
+\end{center}
+
+where $s = dxdy$ is the surface integrated along the two axis of the cross-section surface. We can notice the  on each dimension varies with a quadratic factor meaning the variation is not linear. Therefore matter placed far away from the origin is much more effective to increase the second moment of area.
+Thus the main idea is to remove -the no effective- matter at the center and place it on the rim. In truss structure, matter is assembled by linkage avoiding local deformation.
+
+The \figurename~\ref{fig:leg_section} shows the comparative cross section of two beam with the same second moment of area value. More precisely, the \figurename~\ref{fig:Poppy_leg_section} is a cross section of Poppy's leg while the figure \figurename~\ref{fig:basic_leg_section} is a basic beam with a rectangular profile.
+
+\begin{figure}[!h]
+\centering
+    \subfloat[][Section of the Poppy's leg]{\label{fig:Poppy_leg_section}\includegraphics[height=4cm]{Poppy_leg_section.jpg}}
+    \hfil
+    \subfloat[][Equivalent rectangular section]{\label{fig:basic_leg_section}\includegraphics[height=4cm]{basic_leg_section.jpg}}
+    \caption{}
+    \label{fig:leg_section}
+\end{figure}
+
+It would require a section such as $b=27.72 mm$ and $h=27.59 mm$ for the rectangular to get the same quadratic momentum as the truss design (i.e. $I_x = 54.862 mm^4$ and $I_y = 53.260 mm^4$ measured with Solidworks).
+Considering the length of the leg part (i.e. $190 mm$), the total mass would be equal to $142 g$ instead of $47 g$ for the actual leg. This corresponds to a reduction of 70\% of the mass.
+
+\begin{figure}[!h]
+\centering
+    \subfloat[][]{\label{fig:poppy_arm_truss}\includegraphics[width=0.8\linewidth]{arm_truss.jpg}}
+
+
+    \subfloat[][]{\label{fig:poppy_leg_truss}\includegraphics[width=0.8\linewidth]{leg_truss.jpg}}
+    \caption{}
+    \label{fig:poppy_truss_structure}
+\end{figure}
+
+All the limbs of Poppy are based on this structure and have been optimized using finite element analysis (FEA) to perform structural simulation and validate parts performance and safety factors.
+Thanks to the use of this design on all Poppy's limbs (see \figurename~\ref{fig:poppy_truss_structure}), we managed to have -certainly- the most lightweight humanoid robot with 3.5kg relatively to its 83 cm height.
+
+
+
+
+
+
+% \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{Poppy_dimensions}};
+% \clearpage
 % \includepdf{../media/poppy/conception/Poppy_dimensions}
 
 
@@ -226,10 +269,21 @@ Being able to change easily change the morphology is a paramount importance in t
 
 
 
+\section{Electronic architecture} % (fold)
+
+TODO
+
+\begin{figure}[tb]
+    \begin{center}
+        \includegraphics[width=\linewidth]{poppy_electro_archi_overview.pdf}
+    \end{center}
+    \caption{Caption here}
+    \label{fig:figure1}
+\end{figure}
 
 
 
-\section{Poppy IO Board} % (fold)
+\subsection{Poppy IO Board} % (fold)
 
 To keep the spirit of the project described by its guidelines (see previous section REF), the electronic architecture has to be simple, easily reproducible, relatively low-cost and modular. Of course the performance of each components is very important and should be correctly dimensioned.
 
@@ -271,25 +325,19 @@ For the use in Poppy, these devices has several main advantages:
     \label{fig:usb2ax}
 \end{figure}
 
+\begin{figure}[tb]
+    \begin{center}
+        \includegraphics[width=0.7\linewidth]{motor-bench.pdf}
+    \end{center}
+    \caption{Caption here}
+    \label{fig:figure1}
+\end{figure}
+
 This project has always been used on Poppy and greatly help us to both have a effective robot while keeping the room for electronic low.
 Because the project is open hardware, we could have reuse it to embed it directly on a custom board so we can avoid having usb connectors.
 
 \subsubsection{Arduino integration} % (fold)
 As we explain in the section REF, the modularity of the Poppy electronics is achieved thanks to the use of Arduino environment. For the Arduino integration we decided to use the new Arduino Due based on the Atmel SAM3X8E ARM Cortex-M3 CPU. These board embeds both a powerful microcontroller (84 MHz 32-bit ARM core) and a large number of inputs/ouputs: 54 digital input/output pins (of which 12 can be used as PWM outputs), 12 analog inputs, 4 UARTs (hardware serial ports).
-
-
-
-\section{Electronic architecture} % (fold)
-
-TODO
-
-\begin{figure}[tb]
-    \begin{center}
-        \includegraphics[width=\linewidth]{poppy_electro_archi_overview.pdf}
-    \end{center}
-    \caption{Caption here}
-    \label{fig:figure1}
-\end{figure}
 
 
 
@@ -373,7 +421,7 @@ Another issue associated with the batteries is the mass. A 3.6V battery cell wei
 
 Finally the overall size of such cell is rather big with 18mm x 65mm (see \figurename~\ref{fig:battery_size})
 
-\begin{figure}[]
+\begin{figure}[tb]
 \centering
     \subfloat[][]{\label{fig:battery_size}\includegraphics[height=3.5cm]{tyva_battery_pack.jpg}}
     \hfil
@@ -381,8 +429,6 @@ Finally the overall size of such cell is rather big with 18mm x 65mm (see \figur
     \caption{}
     \label{fig:tyva_batteries}
 \end{figure}
-
-
 
 
 
@@ -416,8 +462,8 @@ This components strongly constraints the design of the robot. Especially the scr
     \newline
     \subfloat[][Poppy beta]{\includegraphics[height=5.5cm]{head_beta.jpg}}
     \hfil
-    \subfloat[][The first assembly]{\includegraphics[height=5.5cm]{head_beta_assembled.jpg}}
-    \hfil
+    % \subfloat[][The first assembly]{\includegraphics[height=5.5cm]{head_beta_assembled.jpg}}
+    % \hfil
     \subfloat[][Screen powered on with basic eyes display]{\includegraphics[height=5.5cm]{poppy_beta_eyes.jpg}}
     \caption{Evolution of Poppy head from the first sketches to the Poppy beta version.}
     \label{fig:head_sketch}
@@ -428,7 +474,7 @@ However, in the first beta version showed here, there is a major design error. I
 
 We are working on this issue by replacing the two big camera by a small one with a pinhole lens, which can be hidden on the Poppy face see \figurename~\ref{fig:poppy_head_v1}.
 
-\begin{figure}[]
+\begin{figure}[tb]
 \centering
     % \subfloat[][Mix between Poppy beta 3D printed head and clay sculpture]{\includegraphics[height=5cm]{second_poppy_clay.jpg}}
     % \newline

@@ -1,16 +1,9 @@
 % !TEX root = ../../thesis.tex
-
-% \cleardoublepage
-% \newpage
-% \thispagestyle{plain}
-% \mbox{}
-
-% \includepdf{../media/chapter_illustration/poppy_artist.pdf}
-
 \chapter{Open diffusion} % (fold)
 
 
 \section{Introduction} % (fold)
+
 
 
 We will discuss several aspect concerning towards open science and diffusion.
@@ -30,9 +23,65 @@ For sure, we cannot just let the project by its own, maybe the best way to make 
 
 
 
+\section{Improving our impact in the open hardware community: Modularity} % (fold)
+
+As we discussed longly in this thesis, Poppy has a modular morphology. This modularity is expressed with all technologies involved. For the mechanics, we use 3D printing techniques allowing to produce quick and low-cost parts. For the electronics, we designed a electronics board based on Arduino allowing to easily plug new sensors. Finally for the software, we built a library using an modular architecture both for the low-level thanks to I/O controllers and for the high-level with primitives paradigms.
+
+As we saw in the chapter REF, this modularity allows for quick experimentation over morphological variants while the technology used are robust and easy-to-use.
+
+
+\subsection{Modularity in the open source software} % (fold)
+
+Open source software is very successful and widespread among the community of developers. Yet the first initiative
+
+The Modularity refers to the manner in which a design is decomposed into different "modules". It is based on the notion of interdependence within modules and independence between modules~\cite{baldwin2000design}. This concept encompasses two related ideas: the need to allow work on a given module to be carried out without affecting other modules in the design, a concept known as "loose-coupling", and the need for well-designed "interfaces" between these modules~\cite{maccormack2006exploring}.
+
+The concept of modularity appears as a fundamental property in the the open source software collaboration. Indeed, code modularity allows the overall project to be divided into much smaller and well-defined tasks that individuals can tackle independently from other tasks and without affecting other aspects of the program.
+
+Thus Linus Torvalds, emphasized modularity as a design criterion early in the development of Linux~\cite{dibona1999open}. Indeed without modularity, it would be improbalbe that contributors could understand the whole design architecture to have a relevant contribution. It would be difficult to add new features or fix bug without affecting other part of the design. Linux needed to be modular to attract and facilitate a developer community. Code modularity allows partitioning of work among a global pool of developers and facilitates the recruitment of new contributors, as it reduces their learning curve to a subset of modules rather than the entire project~\cite{fitzgerald2004critical}.
+
+\cite{lerner2002some}
+A particular area of revision was the Application Program Interface (API), which allowed the development of Apache features to be very 'modular'. This step enabled programmers to make contributions to particular areas without affecting other aspects of the program
+
+
+
+Moreover some insights show that the architecture of a product developed by a highly distributed team of developers is more modular than another product of similar size developed by a co-located team of developers~\cite{maccormack2006exploring}.
+
+
+
+
+Thus, within a modular architecture, new module designs may be substituted for older ones easily and at low cost
+
+
+
+Modularity is comming to the hardware (project Google)
+
+\cite{narduzzo2008modularity} in GNU/Linux
+
+\cite{lerner2002some}
+A particular area of revision was the Application Program Interface (API), which allowed the development of Apache features to be very 'modular'. This step enabled programmers to make contributions to particular areas without affecting other aspects of the program
+
+Various efforts by corporations selling proprietary software products to develop additional products through an open source approach have been undertaken.One of the most visible of these efforts was Netscape's 1998 decision to make 'Mozilla', a portion of its browser source code, freely available.This effort encountered severe difficulties in its first year, only receiving approximately two dozen postings by outside developers. Much of the problems appeared to stem from the insufficiently modular nature of the software: reflecting its origins as a proprietary commercial product,the different portions of the program were highly interdependent and interwoven
+
+An interesting question is why corporations do not replicate the modular structure of open source software in commercial products more generally.One possibility may be that modular code,whatever its  virtues for a team of programmer working independently is not better for a team of and working together.
+
+
+
+
+Another layer of modularity can be expressed at the technological level. Indeed, open source collaboration is much more effective and useful when technology are contain into module combined together rather than one big
+The technological modularity allows a better impact in the open source community because people can extract one of the module to include it in their project.
+
+If the stuff to hand isn't modular, you can't really share, because your stuff isn't compatible with other people's stuff. If it isn't modular, you can't share out tasks and scale. If you can't share out tasks, you can't have people working independently, at their own pace and in their own way, which means the project isn't really open. If it isn't modular, you can't swap in some new elements while leaving everything else untouched, which means no "release early, release often", no experimentation, no rapid evolution. Modularity is indispensable.
+
+
+\section{Tools for hardware} % (fold)
+\label{sec:tools_for_hardware}
+
+Solidworks Eagle
+
+% section tools_for_hardware (end)
 
 \section{Production/Distribution: an alternative approach} % (fold)
-
 
 \subsection{A research lab is not a Start-Up} % (fold)
 Poppy includes three main parts: its mechatronic structure (skeleton and motors); its electronics; its software.

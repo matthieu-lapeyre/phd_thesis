@@ -166,12 +166,11 @@ The AMAZE project has been able to print airplane wing sections as well as jet e
 The cost depends on the size and not on the complexity of the part meaning we can freely optimize the shape.
 
 
-\newpage
 \section{The open hardware movement} % (fold)
 
-The concept of "open-source hardware" or "open hardware" is not as well known or widespread as the free software or open-source software concept yet. However, it shares the same principles: anyone should be able to see the source (the design documentation in case of hardware), study it, modify it and share it.
+The concept of "open-source hardware" or "open hardware" is not as well known or widespread as the free software or open-source software concepts yet. However, it shares the same principles: anyone should be able to see the source (the design documentation in case of hardware), study it, modify it and share it.
 
-The emergence of new and accessible rapid prototyping techniques changes ways of producing things. Because it is now quick, simple and cheap to make things, it opens the realm of possibility of sharing hardware because anyone can produce it. Open source hardware is now making sense and is currently exponentially growing.
+
 
 In this section, we will ...
 
@@ -285,11 +284,12 @@ Several kinds of object have began to have an open source version, even the most
 
 \subsubsection{Arduino} % (fold)
 
-Students from the Interaction Design Institute Ivrea in Italy were using \emph{BASIC Stamp}\footnote{A BASIC Stamp module is a single-board computer that runs the Parallax PBASIC language interpreter in its microcontroller.} for a cost of \$100.
+Massimo Banzi was a teacher from the Interaction Design Institute Ivrea in Italy. His students were using \emph{BASIC Stamp}\footnote{A BASIC Stamp module is a single-board computer that runs the Parallax PBASIC language interpreter in its microcontroller.} for a cost of \$100 and often complained they couldn't find an inexpensive, powerful microcontroller to drive their arty robotic projects.
 
 \begin{row}{4}{2}
     \begin{cell}{3}
-      Started in 2005 by Banzi et al., the Arduino project aimed to offer an affordable and easy to use electronics board for a student-friendly price: \$30. The first wiring design was done during the PhD thesis of Hernando Barragan~\cite{barragan2004wiring}. After the wiring platform was complete, researchers worked to make it lighter, less expensive, and available to the open source community.
+      In 2005 Banzi and David Cuartielles, a Spanish microchip engineer, decided to design their own board. The Arduino project aimed to offer an affordable and easy to use electronics board for a student-friendly price: \$30. The first wiring design was done during the PhD thesis of Hernando Barragan~\cite{barragan2004wiring} and the software by another student: David Cuartielles.
+      After the wiring platform was complete, researchers worked to make it lighter, less expensive, and available to the open source community.
     \end{cell}
     \begin{cell}{1}
         \begin{NFfigure}
@@ -301,15 +301,20 @@ Students from the Interaction Design Institute Ivrea in Italy were using \emph{B
     \end{cell}
 \end{row}
 
+The Arduino story was one of the first hardware projects with a real desire to promote innovation through open source, so to make it work they had to find an appropriate licensing solution that could apply to their board. After some investigation, they realized that if they simply looked at their project differently, (i.e. considering the source files as documentation\footnote{\emph{"You could think of hardware as piece of culture you want to share with other people"}, Banzi. }), they could use a license from Creative Commons normally used for cultural works such as music and writing.
+
+They define their work as:
+
 \begin{quotation}
   Arduino is a platform for prototyping interactive objects using electronics. It consists of both hardware and software: a circuit board that can be purchased at low cost or assembled from freely-available plans; and an open-source development environment and library for writing code to control the board. Arduino comes from a philosophy of learning by doing and strives to make it easy to work directly with the medium of interactivity. It extends the principles of open source to the realm of hardware, supporting a community of people working with and extending the platform. It has been used in universities around the world and in numerous works of interactive art.
 
   \signed{Mellis~\cite{mellis2007arduino}}
 \end{quotation}
 
-The Arduino story was one of the first hardware projects with a real desire to promote innovation through open source, so to make it work they had to find an appropriate licensing solution that could apply to their board. After some investigation, they realized that if they simply looked at their project differently, (i.e. considering the source files as documentation\footnote{\emph{"You could think of hardware as piece of culture you want to share with other people"}, Banzi. }), they could use a license from Creative Commons normally used for cultural works such as music and writing.
 
-Today, Arduino is a very successful project. The boards and derivatives are used by hundreds of thousands people and a lot of projects from all types of domains would not possible if Arduino had not existed, among them Poppy.
+By 2006, Arduino has sold 5,000 boards, the next year 30,000. Following the idea of open source collaboration the community enventually grows until 100,000 people and thousand of side projects and derivatives emerged. In 2013 Arduino has registered over 700,000 official boards, but has estimated that there is at least one derivative or clone board per every official one.
+
+Today, Arduino is a very successful project with more than 1,000,000 boards sold and a wide range of low cost electronics boards\footnote{http://arduino.cc/en/Main/Products}. Moreover, there are now dozens of open-hardware orientied companies building new products on top of Arduino environement, the most famous ones being Sparkfun\footnote{} and Adafruit\footnote{http://www.adafruit.com/}.
 
 \subsubsection{Shapeoko}
 
@@ -348,3 +353,26 @@ The RepRap project started in 2005 and based on the Fab@Home\footnote{\url{http:
 
 Distributed under GNU General Public License, the RepRap (see \figurename~\ref{fig:RepRap_v2}) was one of the first low-cost 3D printers. Thanks to the fhe fact that it is genuinely collaborative, this project generated such a large number of variations and interpretations that is difficult to even count (see \figurename~\ref{fig:RepRap_family_tree}). One of them is the now famous Makerbot Replicator (see \figurename~\ref{fig:makerbot-replicator}). Now Makerbot is one of the major worldwide general public 3D printer distributors.
 
+
+
+\section{Discussion}
+
+
+
+% Discuter plus en détail d'Arduino, des forks et de l'écosysteme qui s'est créé.
+
+% We have now all the tools needed for real open science and open innovation.
+
+% Tesla's Open Source Cars Could Expedite the Growth of the EV Market
+
+% These problems occuring in the inventor/entrepreneur world are also the case in research.
+
+% The same problem occurs in the research community.
+% We produce prototype, we need to explore design we do not know how it will works because it is under research.
+% Acroban was a perfect example, some very good idea such as a multi-articulated column but a realisation handcrafted leading to an impossibility to share our research.
+
+% maintenant il manque les logiciel et des moyens de versionner
+
+% A probable reason limiting the development of open hardware projects is the cost associated with manufacturing hardware complexity while users who download software code can compile and use it without any cost.
+
+% The emergence of new and accessible rapid prototyping techniques changes ways of producing things. Because it is now quick, simple and cheap to make things, it opens the realm of possibility of sharing hardware because anyone can produce it. Open source hardware is now making sense and is currently exponentially growing.
