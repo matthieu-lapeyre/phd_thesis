@@ -1,7 +1,7 @@
 % !TEX root = ../../thesis.tex
 
-\cleartoleftpage
-\includepdf{../media/chapter_illustration/papaver_rhoeas}
+% \cleartoleftpage
+% \includepdf{../media/chapter_illustration/papaver_rhoeas}
 \chapter{The Poppy development} % (fold)
 
 
@@ -18,33 +18,30 @@
     \label{fig:2012_Humanoids}
 \end{figure}
 
-In 2012, when we started this project, none of the existing humanoid platforms were suitable for exploring the role of morphology. There were two kinds of platform. On one hand commercial robots that are rather easy to use and accessible but with a static and frozen morphology. On the other hand, prototype robots produced in labs to address specific experimentation needs, studying interesting morphologies but complicated to use and impossible to reproduce outside the lab. In both cases, only a few are open source, limiting hacks, extensions or modifications of their morphologies even further.
+In 2012, when we started this project, none of the existing humanoid platforms were suitable for exploring the role of morphology. There were two kinds of platform. On one hand commercial robots that are rather easy to use and accessible but with a static and frozen morphology. On the other hand, prototype robots produced in labs to address specific experimentation needs, exploring interesting morphologies but complicated to use and impossible to reproduce outside the lab. In both cases, only a few were open source, limiting hacks, extensions or modifications of their morphologies even further.
 
 
-
-
-In the Flowers Lab, we had both kinds of robot. We used Nao (see \figurename~\ref{fig:nao_platform}) to study human robot interaction (REF PIERRE cadeau). It was really convenient for use by researchers who are not interested in hardware issue since they are addressing more high-level research challenges. Yet such a platform is limited as it is not possible to modify the robot if it is not strictly adapted to our experiment. For example, back at this time the Nao camera was not efficient, with a closed field of view and a slow framerate. We have difficultly achieved 5 frames/seconds. Although we had the necessary skills to hack Nao and change the camera to fit our needs, its hardware is not designed to be changed. Improving the vision performance would only be possible with the addition of an external camera on the Nao head which would ruin the user experience. In addition, it would have been interesting to explore how the camera parameters (FOV, framerate, resolution...) can change the user experience but again, it is not possible with this robot.
-
+In the Flowers Lab, we had both kinds of robot. We used Nao (see \figurename~\ref{fig:nao_platform}) to study human robot interaction (REF PIERRE cadeau). It was really convenient for use by researchers who are not interested in hardware issue since they are addressing more high-level research challenges. Yet such a platform is limited as it is not possible to modify the robot if it is not well adapted to our experiment. For example, back at this time the Nao camera was not efficient, with a closed field of view and a slow framerate. We have difficultly achieved 5 frames/seconds. Although we had the necessary skills to hack Nao and change the camera to fit our needs, its hardware was not designed to be changed. Improving the vision performance would only be possible with the addition of an external camera on the Nao head which would ruin the user experience. In addition, it would have been interesting to explore how the camera parameters (FOV, framerate, resolution...) can change the user experience but again, it is not possible with this robot (cite Pierre thesis).
 
 
 We also used Acroban (see \figurename~\ref{fig:acroban_platform}) designed by Olivier Ly~\cite{Ly2010}. It is a handcrafted humanoid platform created to explore certain morphological properties, especially compliance, with the aim of achieving dynamic locomotion and playful physical human robot interaction.
-While it actually allows modification of its is morphology, it is manufactured from aluminium mechanical parts, Robotis Dynamixel motors, scotch, and rubber bands cobbled together, and changing it requires lot of effort . The manufacture of aluminium parts required is especially complicated and requires either very good handiwork or a 3-axis CNC.
+It actually allows modification of its is morphology but it is manufactured from aluminium mechanical parts, Robotis Dynamixel motors, scotch, and rubber bands cobbled together. Testing morphological variants requires lot of effort, in particular the manufacture of aluminium parts is complicated and requires either very good handiwork or a 3-axis CNC.
 
-In addition, its use was quite complicated and while several researchers could have been interested by Acroban to study human robot interaction and social acceptance, it was not possible to use it without getting our hands dirty.
+In addition, its use was quite complicated and while several researchers could have been interested by Acroban to study human robot interaction and social acceptance, it was not possible to use it without getting our hands dirty (à remplacer par une expression plus propre).
 Finally, the material and manufacturing process make the platform non-stationary. Even if a lab manages to reproduce it, there is a high probability that the physical properties will not be the same. Therefore, the diffusion and the reproducibility of results are limited.
 
 
-A last alternative would be the use of Darwin Op robot (see \figurename~\ref{fig:darwin_platform}) which is both open source and easily accessible (Robotis sells it already assembled for \$10K), yet as Acroban its hardware consists of manufactured metal parts making its morphology very difficult and expensive to modify (see section REF for more details). Moreover, , even if Darwin is open source and very popular, to our knowledge its morphology has never be modified by the research community.
+A last alternative would be the use of Darwin Op robot (see \figurename~\ref{fig:darwin_platform}) which is both open source and easily accessible (Robotis sells it already assembled for \$10K), yet as Acroban its hardware consists of manufactured metal parts making its morphology very difficult and expensive to modify (see section REF for more details). Moreover, even if Darwin is open source and very popular, to our knowledge its morphology has never been modified by the research community.
 
 Thus one of the main goals was to successfully design a humanoid robot which can merge the advantages of both kind of robot, i.e. simple, accessible, reproducible and allowing to easily change and hack its morphology for scientific experiments that can be both customized and shared.
 
 
 \subsection{An experiments-proof robot} % (fold)
 
-Most researchers can attest to the difficulty and frustration faced while conducting robotic experimentation in the real world. We are challenged daily by bugs, technical issues, unpredicted events and side effects. While a bug in software can be fixed, an error with a hardware platform can cause damage to the robot and postpone the results of an experiment by several weeks.
+Most researchers can attest to the difficulty and frustration faced while conducting robotic experimentation in the real world. We are daly challenged by bugs, technical issues, unpredicted events and side effects. While a bug in software can be fixed, an error with a hardware platform can cause damage to the robot and postpone the results of an experiment by several weeks.
 
 Therefore many researchers in robotics avoid technical issues associated with the real world experimentation by using simple models and physical simulation. But the real world is extremely more complex and richer than the virtual one.
-Some high-level behaviour experiments are conducted in simulators based on the hypothesis that real-world constraints are not relevant, yet it is really certain?
+Some high-level behaviour experiments are conducted in simulators based on the hypothesis that real-world constraints are not relevant, yet it is really the case ?
 Indeed, while the real world constitutes a lot of constraints, it is also rich in complex physical effects (gravity, friction, inertia), which should be taken into consideration and could be very useful if interacting with the agent.
 
 As we saw in the related work (chapter~\ref{REF}), the emergence of complex behaviours appears thanks to the interaction between the real world and simple robotic systems. We cannot program behaviour because behaviour is the result of interaction  between the program and the real world. Thus we cannot design behaviour without the ecological niche of the robot~\cite{Steels1991emergence}.
@@ -53,41 +50,46 @@ While using simulators can be helpful as a first step to design robots, it appea
 Therefore, when one wants to study the role of morphology on robot behavior, being able to explore it in the real world is of paramount importance. Unfortunately, current tools make the experimental step really hard to achieve for researchers.
 
 Throughout our work on building cognitive and developmental learning algorithms, we have experienced these issues, especially while building and using Acroban~\cite{Ly2010} and during the Ergo robot experience (see section~\ref{REF}). Much time has been spent debugging non-robust technologies but it has been very instructive for understanding those that are efficient and those that should be avoided.
-Therefore Poppy has been designed based on the background experience we have acquired building using robots acting in the real world.
+Therefore Poppy has been designed based on the background experience we have acquired building using robots acting in the real world. Also particular attention has been given to these key-aspects:
 
 \begin{description}
     \item[Robustness and Safety:] Demanding and lengthy real-world experimentation necessitates that the robot be robust and safe. It should be able to sustain experiments and fall down without easily breaking. At the same time, one should ensure that physical interaction with the robot is safe for humans.
+    \item [Allow fast hacking:] Modifyinf the rovot should be quick and simple, therefore the robot has to be modular and allows the modification of any of its morphological properties.
     \item [Precision, stationary:]Experiments should be repeatable, implying that the robot properties should be stationary.
     \item [Breakable, repairable:] Breaking should not be costly and the robot should be easily repairable.
     \item [Transportable:] To allow for experiments in natural environments, possibly involving interaction with non-technical humans, the robot should be transportable outside the laboratory.
-    \item [Easy and fast to duplicate:]If the robotic platform is to be reused  in this way, it must be easy and fast to duplicate.
+    \item [Easy and fast to duplicate:] If the robotic platform is to be reused in this way, it must be easy and fast to duplicate.
     \item [Affordable:] To ensure widespread use, a key factor is to keep the cost of the platform relatively low. The more labs can be involved, the greater the scientific impact.
 \end{description}
 
 
+To respond to these needs we created Poppy (see \figurename~\ref{fig:poppyv0.1_overview}).
+
 \subsection{Overview} % (fold)
 
-To respond to this need we created Poppy,  the first complete 3D printed open-source and open-hardware humanoid robot (see \figurename~\ref{fig:poppyv0.1_overview}). Its 3D printed skeleton and its Arduino-based electronics are open-hardware (Creative Commons). Its software is open-source (GPL V3), and allows programming beginners as well as advanced roboticists to control the robot in Python thanks to the PyPot library. Its motors are common and widely used off-the-shell Robotis actuators, and allow for compliant control and soft physical human-robot interaction. Poppy presents an original mechanical structure that permits to obtain a light structure with 3.5kg for 84cm height.
-Its current morphology takes insight from the human functional morphology: large number of articulation (25 motors), the limbs respect human proportions, it has five articulation in the trunk and its thigh is bended by a $6\deg$ angle similar to the human.
-
-Underactuated
-
-Discuss the size of the robot
+Poppy is a small and lightweight 25-DoF humanoid robot (see section REF), which morphological design allows for quick and simple modification by non-expert people. This is achieved thanks to the use of 3D printing technique for the mechanical structure, Arduino based electronical architecture (see section). Its motors are common and widely used off-the-shell Robotis actuators, and allow for compliant control and soft physical human-robot interaction. The pypot library (see chapter REF) allows programming beginners as well as advanced roboticists to control the robot and is adapted to the modularity of the Poppy hardware.
 
 \begin{figure}[tb]
     \begin{center}
         \includegraphics[width=0.95\linewidth]{poppy-overview.pdf}
     \end{center}
-    \caption{}
+    \caption{Overview of Poppy beta with the main specs and features. This figure will be updated when the final release of Poppy will be ready.}
     \label{fig:poppyv0.1_overview}
 \end{figure}
+
+Its current morphology takes insight from the human functional morphology: large number of articulation (25 motors), the limbs respect human proportions, it has five articulation in the trunk and its thigh is bended by a $6\deg$ angle similar to the human (see section REF).
+
+All the work and material to build, create and use Poppy is distributed under open source and open hardware licenses. The 3D printed skeleton and the electronics boards are under Creative Commons licenses (see section REF) while the pypot library is distributed under GPLv3 licenses.
+
+Poppy is the first fully-open source and 3D printed humanoid robot, the design of such novel platform will be discussed in the next sections.
+
 
 
 \section{Explore morphological variants} % (fold)
 
 The whole structure must be easily reconfigurable both for repairing or hacking purposes. This mean the process to replace a Poppy's parts must be simple, low-cost and not require time or special tooling. Also, in order to have a real impact in the open hardware community, special attention is given to the modularity and the reusability of our technological bricks.
 Poppy is fully modular (mechanic, electronic, software) allowing to freely explore and modify Poppy's body.
-Its modularity and the use of 3D printing make Poppy highly hackable. It can be easily adapted to particular experimental setups.
+Its modularity and the use of 3D printing make Poppy highly hackable. Therefore it can be easily adapted to particular experimental setups and allows various exploration over its morphology.
 
 
 \subsection{3D printed parts} % (fold)
@@ -127,29 +129,27 @@ The table~\ref{tab:materials} compares mechanical properties of polyamide with c
 A SLS printer is much too costly for a labs, yet sourcing the production to external company\footnote{\url{http://i.materialise.com/}} is really easy\footnote{In most cases, the company offers automatic scalable orders through on-line platform} and relatively low cost\footnote{Printing all the parts to build a Poppy costs about 1200\texteuro HT.}
 
 \subsection{Exploring morphological variants} % (fold)
-The 3D printing is a central aspect in Poppy to permit the exploration of morphological variant. Because it is now cheap and easy to produce custom part, we can quickly change the morphology of Poppy.
-
-To do so, it is only needed to change the desired parameter in the source file and reprint the part. And because Poppy is open source, anyone has access to the source files and can freely change the parameters he wants.
+The 3D printing is a central aspect in Poppy to permit the exploration of morphological variant. Indeed it is now cheap and easy to produce custom part, and because Poppy is open source, anyone has access to the source files and can freely change the parameters he wants. Therefore it is possible to easily change the mechanical structure and properties just by tuning associated parameters in the source file and re-printing the part (see \figurename~\ref{fig:exploring-morpho-poppy}).
 
 \begin{figure}[h]
     \begin{center}
         \includegraphics[width=\linewidth]{morpho_variation.pdf}
     \end{center}
     \caption{Caption here}
-    \label{fig:figure1}
+    \label{fig:exploring-morpho-poppy}
 \end{figure}
 
 
-Moreover, 3D printing does not only permit to change the shape of a part, it can actually produce it with different material. In particular, Direct Metal Laser Sintering (DMLS) - very similar with the SLS process - permits to produce the same parts using steel\footnote{http://i.materialise.com/materials/stainless-steel} and titanium\footnote{\url{http://i.materialise.com/materials/titanium}}. It is therefore possible to explore at the same time mechanical properties (e.g. flexibility, density) and shapes.
+Moreover, 3D printing does not only permit to change the shape of a part, it can actually produce it with different material. In particular, Direct Metal Laser Sintering (DMLS) - very similar with the SLS process - permits to produce the same parts using materials such as steel\footnote{http://i.materialise.com/materials/stainless-steel} or titanium\footnote{\url{http://i.materialise.com/materials/titanium}}. It is therefore possible to extend the exploration to material mechanical properties (e.g. flexibility, density).
 
 
 \subsection{Scalable actuation} % (fold)
 
-As explained in the chapter REF, the chose methodology relies on the all-in-one Robotis actuator. They are really convenient to use as they directly embed drivers, encoders and communication bus. They are also quite powerful, robust and rather precise. This is done by the combination of Maxon motors, metal gearbox and precise magnetic rotation sensor (resolution: 0.1\textsuperscript{o}).
+As explained in the chapter REF, the chosen methodology relies on the all-in-one Robotis actuator. They are really convenient to use as they directly embed drivers, encoders and communication bus. They are also quite powerful, robust and rather precise. This is done by the combination of Maxon motors, metal gearbox and precise magnetic rotation sensor (resolution: 0.1\textsuperscript{o}).
 
-Also Robotis offers a range of motors with different actuation power (see \figurename~\ref{fig:dynamixel_powa}). They are different in size and power but their API remains the same and we can easily switch from one to another without neither changing the code nor the electronic integration. Yet, even if the size change, the foot-print keep the same pattern (see \figurename~\ref{fig:dynamixel_dimension}).
+Also Robotis offers a range of motors with different actuation power (see \figurename~\ref{fig:dynamixel_powa}). They are different in size and power but their API remains the same and we can easily switch from one to another without neither changing the code nor the electronic integration. Yet, even if the size change, the foot-print keeps the same pattern (see \figurename~\ref{fig:dynamixel_dimension}).
 
-Poppy is designed with Solidworks, a parametric modeler which offers features like configurations\footnote{Configurations allow to create multiple variations of a part or assembly model within a single document. Configurations provide a convenient way to develop and manage families of models with different dimensions, components, or other parameters.}, which define set of parameters. Is it therefore possible to create for each part the configuration compatible with each motors, by setting the suitable parameter. The figure \figurename~\ref{fig:leg_configuration} shows an example with Poppy's leg. It just takes a couple of minute to transform a part designed for Dynamixel MX-28 to one compatible with Dynamixel MX-64. Then it is possible to switch from one to another with one click.
+Poppy is designed with Solidworks, a parametric modeler which offers features like configurations\footnote{Configurations allow to create multiple variations of a part or assembly model within a single document. Configurations provide a convenient way to develop and manage families of models with different dimensions, components, or other parameters.}, which define set of parameters. It is therefore possible to create for each part the configuration compatible with each motors just by setting the suitable parameters. The figure \figurename~\ref{fig:leg_configuration} shows an example with Poppy's leg. It just takes a couple of minute to transform a part designed for Dynamixel MX-28 to one compatible with Dynamixel MX-64. Then it is possible to switch from one to another with one click.
 
 \begin{figure}[h]
     \begin{center}
@@ -174,18 +174,25 @@ In addition, Arduino has an growing community -already pretty big- which creates
 Being able to change easily change the morphology is a paramount importance in the Poppy project. Using Arduino-compatible architecture permits an electronic modularity, which allow to consider the sensory-motor space as an experimental variable (see chapter REF).
 
 
-
 \section{Lightweight} % (fold)
 
 Many humanoid robots use powerful motors often associated with highly accurate sensors. This has a cost, both in terms of weight and computation resources. Moreover, to ensure the accuracy of the sensory-motor space it is necessary to design very rigid mechanical parts. The whole structure obtained is powerful but very heavy and due to inertia not very agile.
 In the Poppy platform, the lightness is very important both for dynamical properties and safety:
 \begin{itemize}
-    \item for a given actuation power, reducing the link mass reduce its inertia and permits to increase the agility and the responsiveness,
+    \item for a given actuation power, reducing the link mass reduces its inertia and permits to increase the agility and the responsiveness,
     \item make Poppy a platform easier to manipulate and transport outside the lab,
     \item make the robot safer for people as well as for itself when it fall (and it will definitely fall a number of times).
 \end{itemize}
 
 The lightness was achieved by combining low-power actuation and optimized structure. Indeed when combined, it creates a kind of virtuous circle where the reduction of the maximum torque reduces the strength on mechanical parts. Because less force intensity is applied, we can remove material from parts. Because we have a lighter mechanical structure we can reduce the actuation power required and so on.
+
+\begin{figure}[tb]
+    \begin{center}
+        \includegraphics[width=0.8\linewidth]{virtuous_circle.png}
+    \end{center}
+    \caption{Caption here}
+    \label{fig:figure1}
+\end{figure}
 
 Also using low-power actuation has several interesting points:
 
@@ -250,12 +257,12 @@ Thanks to the use of this design on all Poppy's limbs (see \figurename~\ref{fig:
 
 
 
+\input{content/chapter/poppy-design-details.tex}
+\input{content/chapter/poppy-electronic.tex}
+\input{content/chapter/poppy-head-design.tex}
 
 
-% \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{Poppy_dimensions}};
-% \clearpage
 % \includepdf{../media/poppy/conception/Poppy_dimensions}
-
 
 % \begin{figure}[p]
 %     \begin{center}
@@ -269,219 +276,6 @@ Thanks to the use of this design on all Poppy's limbs (see \figurename~\ref{fig:
 
 
 
-\section{Electronic architecture} % (fold)
-
-TODO
-
-\begin{figure}[tb]
-    \begin{center}
-        \includegraphics[width=\linewidth]{poppy_electro_archi_overview.pdf}
-    \end{center}
-    \caption{Caption here}
-    \label{fig:figure1}
-\end{figure}
-
-
-
-\subsection{Poppy IO Board} % (fold)
-
-To keep the spirit of the project described by its guidelines (see previous section REF), the electronic architecture has to be simple, easily reproducible, relatively low-cost and modular. Of course the performance of each components is very important and should be correctly dimensioned.
-
-The first version of Poppy (beta) had a handmade electronics architecture, which required hacking several components before soldering them together. This design was not compliant with the design guidelines of Poppy (i.e. easy to use and to reproduce) and was actually the main reason Poppy was considered as a beta version. Recent work has been done toward the simplification and the reproducibility of the electronics part.
-
-Yet the electronic integration is challenging. Indeed, because Poppy has 5 degrees of freedom in the torso, there is not enough room for all electronic components needed. Therefore we had to embed most of them in the head which raise a room problem but also a mass problem.
-
-With the aim to offer easy-to-use modular electronics architecture and to make it fit in the head of Poppy, we decided to create a custom board. We could argue it makes more complex the diffusion of the platform while a custom board is too complex to be handmade and should therefore follows the industrialization process we are trying to avoid since the early age of the project. Nevertheless the makers revolution brings novel solutions to produce electronics. Indeed, there are now companies (such as CircuitHub\footnote{\url{https://circuithub.com}}), which offer scalable solution tools from 1 sample to a 10,000 batch. It is possible to upload our design and anyone can ask to make it produced. Of course ordering one part is more expansive but stay relatively low compare to the robot cost.
-
-The board we design included the basic element needed both for the control of the robot and for its extensibility.
-
-
-\begin{figure}[tb]
-    \begin{center}
-        \includegraphics[width=0.8\linewidth]{IO_Board.pdf}
-    \end{center}
-    \caption{Caption here}
-    \label{fig:figure1}
-\end{figure}
-
-
-\subsubsection{Motor control} % (fold)
-Robotis Dynamixel are normally controlled by the \emph{USB2Dynamixel} but we decided to replace it by USB2AX devices (see \figurename~\ref{fig:usb2ax}). The USB2AX is a small interface to control Dynamixel servomotors from a computer and designed by Nicolas Saugnier. It plugs into a USB port and has a 3-pin molex connector compatible with the robotis ones.
-
-For the use in Poppy, these devices has several main advantages:
-\begin{enumerate}
-    \item They are a lot smaller than the standard USB2Dynamixel module (16x36mm instead of 35x90mm) (see \figurename~\ref{fig:USB2AX_vs_USB2Dxl}).
-    \item They can endure a short-circuit between the DATA and power-supply wire.
-    \item They have the sync\_read instruction to read a lot of information very fast, which is not a standard Dynamixel instruction. The USB2AX converts SYNC\_READ into multiple separate READ commands to get data from each servo, then sends back to the computer a single big packet containing all the data. This significantly decreases the effect of USB latency. A SYNC\_READ command reads the same registers in each servo.
-    \item It is open source so we can extend or adapt this solution to our needs.
-\end{enumerate}
-
-\begin{figure}[tb]
-\centering
-    \subfloat[][]{\label{fig:usb2ax_dongle}\includegraphics[height=5.5cm]{usb2ax.jpg}}
-    \hfil
-    \subfloat[][]{\label{fig:USB2AX_vs_USB2Dxl}\includegraphics[height=5.5cm]{USB2AX_vs_USB2Dxl.jpg}}\\
-    \caption{}
-    \label{fig:usb2ax}
-\end{figure}
-
-\begin{figure}[tb]
-    \begin{center}
-        \includegraphics[width=0.7\linewidth]{motor-bench.pdf}
-    \end{center}
-    \caption{Caption here}
-    \label{fig:figure1}
-\end{figure}
-
-This project has always been used on Poppy and greatly help us to both have a effective robot while keeping the room for electronic low.
-Because the project is open hardware, we could have reuse it to embed it directly on a custom board so we can avoid having usb connectors.
-
-\subsubsection{Arduino integration} % (fold)
-As we explain in the section REF, the modularity of the Poppy electronics is achieved thanks to the use of Arduino environment. For the Arduino integration we decided to use the new Arduino Due based on the Atmel SAM3X8E ARM Cortex-M3 CPU. These board embeds both a powerful microcontroller (84 MHz 32-bit ARM core) and a large number of inputs/ouputs: 54 digital input/output pins (of which 12 can be used as PWM outputs), 12 analog inputs, 4 UARTs (hardware serial ports).
-
-
-
-\subsection{Embedded computing module} % (fold)
-
-The integration of a computing module is rather complex and not fundamental if the robot cannot walk for more than 5m, therefore the Poppy beta version was controlled using an external computer connected by USB.
-However Poppy aims to become a shared research platform with people adressing challenge in which the embeded control can be necessary. Also as all user have a different computer configuration (Windows, MacOS and the plenty of Linux distribution), it is easier to maintain the control software if only one OS is used. Embedding a linux allows to have the control and ensure same performance for every Poppy.
-
-Yet as I said previously, embedding control is complex. Indeed, the computer has to be small enough to fit inside the robot. With such size, where are mostly ARM based computer. Most of work are developed on x86 or 64 architecture and the switch to ARM architecture is not direct. Some software module used does not exist or are not optimized leading to big performance problems.
-
-It is the case with one of the most famous micro-computer, the raspberry pi. The first trials we made using Pypot was really disappointing on the performance aspect. As we can see on the Figure Ref, it takes about 10-12 ms just to read and write a motor position (mostly computing) while it is only 2ms on a normal computer (mostly serial communication). Therefore we oriented our choice toward the Hardkernel Odroid U3 board (8\~12 times faster than the Raspberry Pi).
-
-\begin{figure}[!h]
-    \begin{center}
-        \includegraphics[width=\linewidth]{Odroid_U3.jpg}
-    \end{center}
-    \caption{Hardkernel Odroid U3 computer board}
-    \label{fig:odroid_U3}
-\end{figure}
-
-The Hardkernel Odroid U3 (see \figurename~\ref{fig:odroid_U3}) is a low-cost (\$65) and powerful Linux computer embedding a 1.7GHz Quad-Core processor and 2GByte RAM while being very small (83 x 48 mm) and lightweight (48 grams) (see Tab.~\ref{tab:table_feet} for the detail of all specifications).
-
-\begin{table}[!t]
-    \begin{center}
-        \begin{tabularx}{\linewidth}{r X}
-        % \hline
-        \textbf{Processor} & Samsung Exynos4412 Prime Cortex-A9 Quad Core 1.7Ghz with 1MB L2 cache\\
-        \textbf{Memory} & 2048MB(2GB) LP-DDR2 880Mega data rate\\
-        \textbf{3D Accelerator} & Mali-400 Quad Core 440MHz\\
-        \textbf{Video} & supports 1080p via HDMI cable(H.264+AAC based MP4 container format)\\
-        \textbf{Video Out} & micro HDMI connector\\
-        \textbf{Audio} & Standard 3.5mm headphone jack HDMI Digital\\
-        \textbf{LAN} & 10/100Mbps Ethernet with RJ-45 Jack ( Auto-MDIX support)\\
-        \textbf{USB2.0 Host} & High speed standard A type connector x 3 ports\\
-        \textbf{USB2.0 Device} & ADB/Mass storage(Micro USB), Host mode is possible if the PCB Rev is 0.5 or higher.\\
-        \textbf{Display} & HDMI monitor\\
-        \textbf{IO Port} & GPIO, UART, I2C, SPI(Board Revision 0.5 or higher)\\
-        \textbf{Storage (Option)} & MicroSD Card Slot eMMC module socket\\
-        \textbf{Power (Option)} & 5V 2A Power\\
-        \textbf{System Software} & Linux : Xubuntu 13.10 or latest version Android : u-boot 2010.12, Kernel 3.0.x, Android 4.x  Full source code is available now.\\
-        \textbf{PCB Size} & 83 x 48 mm\\
-        \textbf{Weight} & 48g including the heat sink\\
-         & \\
-        % \hline
-        \end{tabularx}
-        \caption{Odroid U3 Linux computer detailed specifications}
-        \label{tab:table_feet}
-    \end{center}
-\end{table}
-
-Among the plug-n-play small computers, the Odroid U3 is currently the most suitable board for our application according to the size, the computing power and the I/O positions.
-Yet as we will explain in the limitations (see section REF), this solution is still not perfectly satisfying and the use of plug'n'play computer raises a lot of integration problem.
-
-\subsection{Display} % (fold)
-
-The video out port on all new mini computer boards such as Raspberry Pi, Beagle board or Odroid boards is HDMI port. Finding small screen (< 7inch) compatible with HDMI input is really hard and currently only one project exists.The manga-screen (see \figurename~\ref{fig:manga-screen}) is a open source (CC-BY-SA\footnote{see REF}) multi purpose, HDMI compatible LCD screen. This board is developed by Elias Bakken and works with a 4.3 inch screen (480x800px) made by Sharp\footnote{Sharp LQ043Y1DX07}.
-
-\begin{figure}[h]
-\centering
-    \subfloat[][]{\includegraphics[height=4.9cm]{manga-screen.png}}
-    \hfil
-    \subfloat[][]{\includegraphics[height=4.9cm]{poppy_screen.jpg}}
-    \caption{}
-    \label{fig:manga-screen}
-\end{figure}
-
-The integration of a led matrix panel would be easier but it would require to create driver for the display.
-Using a HDMI display connected to a Linux computer allows user to easily display information or animation on the screen like if it was on their monitor. Therefore they are free to use any tools they like such as Processing, OpenGL, VLC or whatever. This flexibility would not be possible with a matrix led panel which could basically only be used by Arduino.
-
-\subsubsection{Alimentation} % (fold)
-\label{ssub:alimentation}
-
-Work in progress.
-
-% subsubsection alimentation (end)
-
-\subsubsection{The battery issue} % (fold)
-In the current design electronic architecture we did not include a battery. The main reason is the fact Poppy is not yet able to walk by itself so being energetically autonomous is not a high-priority.
-
-Another issue associated with the batteries is the mass. A 3.6V battery cell weights around 45 grams and we need at least 4 cells to supply the 12V needed for Poppy, a 14,4V pack weights almost 200 grams (see \figurename~\ref{fig:battery_specs}). For comparison a MX-28 Dynamixels weights 72grams so with a battery weigths approximately the same mass as 3 motors.
-
-Finally the overall size of such cell is rather big with 18mm x 65mm (see \figurename~\ref{fig:battery_size})
-
-\begin{figure}[tb]
-\centering
-    \subfloat[][]{\label{fig:battery_size}\includegraphics[height=3.5cm]{tyva_battery_pack.jpg}}
-    \hfil
-    \subfloat[][]{\label{fig:battery_specs}\includegraphics[height=4cm]{tyva_batteries.png}}\\
-    \caption{}
-    \label{fig:tyva_batteries}
-\end{figure}
-
-
-
-\section{Head aesthetic design} % (fold)
-
-Lot of effort have been put in the design and aesthetic of Poppy's head (see \figurename~\ref{fig:poppy_beta_head}), both its identity and main communication apparatus.
-On an aesthetic point of view, its design was inspired of course by existant robots, but also by animals, objects and arts. The main inspiration insight are displayed as a board on the \figurename~\ref{fig:head_inspiration}. We tried to make to achieve a design cute, expressive and among all simple.
-
-\begin{figure}[p]
-    \begin{center}
-        \includegraphics[width=\linewidth]{head_inspiration.jpg}
-    \end{center}
-    \caption{Complete board available on pinterest \url{http://www.pinterest.com/matthieulapeyre/robot/}}
-    \label{fig:head_inspiration}
-\end{figure}
-
-Yet because of the multi-articulated vertebral column, Poppy has only free room in the head to embed all electronics components needed. Therefore strong technical constraints were imposed because the head has to embed all electronic architecture plus the communication sensorimotor apparatus composed by a wide 4.3" screen, cameras, audio.
-This components strongly constraints the design of the robot. Especially the screen, which requires a large flat part on the face. Obtaining a nice and rounded head shape with such constraints were rather difficult and require several iterations before obtaining a first correct finish (see \figurename~\ref{fig:poppy_beta_head}).
-
-% This process involved first few sketches that gave the main idea of the desired design. Yet the transfer to CAD modeling was quite complex, this kind of shape are rather difficult to design using parametric tools.
-
-\begin{figure}[p]
-\centering
-    \subfloat[][]{\includegraphics[height=4.5cm]{first_sketch.jpg}}
-    \hfil
-    \subfloat[][]{\includegraphics[height=4.5cm]{poppy_head_sketch.jpg}}
-    \newline
-    \subfloat[][First clay sculpture]{\includegraphics[height=5.5cm]{first_poppy_clay.jpg}}
-    \hfil
-    \subfloat[][First CAO model]{\includegraphics[height=5.5cm]{head_first_trial.jpg}}
-    \newline
-    \subfloat[][Poppy beta]{\includegraphics[height=5.5cm]{head_beta.jpg}}
-    \hfil
-    % \subfloat[][The first assembly]{\includegraphics[height=5.5cm]{head_beta_assembled.jpg}}
-    % \hfil
-    \subfloat[][Screen powered on with basic eyes display]{\includegraphics[height=5.5cm]{poppy_beta_eyes.jpg}}
-    \caption{Evolution of Poppy head from the first sketches to the Poppy beta version.}
-    \label{fig:head_sketch}
-\end{figure}
-
-
-However, in the first beta version showed here, there is a major design error. Indeed my desire was to have a screen to create and explore freely expressive eyes but the use of two visible cameras changed the way people saw Poppy's head. Of course, people seeing 2 cameras considers they are the eyes of the robot and therefore extrapolate that the screen may be the mouth.
-
-We are working on this issue by replacing the two big camera by a small one with a pinhole lens, which can be hidden on the Poppy face see \figurename~\ref{fig:poppy_head_v1}.
-
-\begin{figure}[tb]
-\centering
-    % \subfloat[][Mix between Poppy beta 3D printed head and clay sculpture]{\includegraphics[height=5cm]{second_poppy_clay.jpg}}
-    % \newline
-    \subfloat[][Poppy 1.0]{\includegraphics[width=0.5\linewidth]{poppy_v1_head.jpg}}
-    \caption{}
-    \label{fig:poppy_head_v1}
-\end{figure}
 
 
 
@@ -504,4 +298,18 @@ In particular, even if we tried to remove most of the necessary cables, we saw i
 
 Actually, I spent more time looking for the fitting cable on the web than thinking about the electronical architecture. The wire-problem is often under-estimated and therefore begin one the biggest problem for robotic. We experienced the same issue during the ergo-robot experiment and during the use of Poppy with artists (see chapter REF). SO basically, the wire problem is one of the most underrated issue.
 
+
+
+
+% \begin{figure}[tb]
+% \centering
+%     \subfloat[][\url{http://youtu.be/StFIMuyz11M}]{\includegraphics[width=0.45\linewidth]{TER_surprise.jpg}}
+%     \hfil
+%     \subfloat[][\url{http://youtu.be/RwCtNwLk10E}]{\includegraphics[width=0.45\linewidth]{TER_joy.jpg}}\\
+%     \subfloat[][\url{http://youtu.be/qrcmLXbpUVo}]{\includegraphics[width=0.45\linewidth]{TER_sad.jpg}}
+%     \hfil
+%     \subfloat[][\url{http://youtu.be/ms2niFLevv8}]{\includ<egraphics[width=0.45\linewidth]{TER_fear.jpg}}
+%     \caption{}
+%     \label{fig:TER_cognitic}
+% \end{figure}
 
