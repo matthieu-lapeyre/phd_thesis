@@ -33,9 +33,9 @@ This bio-inspiration is expressed on the whole structure of Poppy and as a centr
 
 \subsection{Morphological proportions} % (fold)
 
-On the anatomical point of view, Poppy reproduces the human proportions as described in the literature~\cite{dufour2005biomecanique} (see Fig. 3) and the sensorimotor space organization: i.e. the main degrees of freedom (actuated and passive).
+On the anatomical point of view, Poppy reproduces the human proportions as described in the literature~\parencite{dufour2005biomecanique} (see Fig. 3) and the sensorimotor space organization: i.e. the main degrees of freedom (actuated and passive).
 
-While the human grows from child to adult, his body proportions change~\cite{REF}. An hypothesis we made is that the human proportions converge toward an optimal link ratio. Based on this hypothesis we decided to respect the human body proportion of an adult thus the size of the robot describes previously (see section REF) has defined all\footnote{An exception was made for the head, which is bigger to make it more cute and will be discussed in the section REF.} Poppy's links dimensions following the proportions presented on \figurename~\ref{fig:poppy-human-proportion}.
+While the human grows from child to adult, his body proportions change~\parencite{REF}. An hypothesis we made is that the human proportions converge toward an optimal link ratio. Based on this hypothesis we decided to respect the human body proportion of an adult thus the size of the robot describes previously (see section REF) has defined all\footnote{An exception was made for the head, which is bigger to make it more cute and will be discussed in the section REF.} Poppy's links dimensions following the proportions presented on \figurename~\ref{fig:poppy-human-proportion}.
 
 \begin{figure}[tb]
     \begin{center}
@@ -54,10 +54,10 @@ Toward the achievement of biped locomotion, most humanoid robots have big, flat 
 First, increasing the foot size increases the lever arm applied to the ankle. It can be useful as it extends the impact of the ankle control over the whole body. Yet given the potential high-torque applied to the ankle, achieving such control requires very powerful actuator.
 Powerful actuators are heavier and therefore the whole actuation design of the robot needs to be powerful in order to be able to lift and move the feet.
 
-Secondly, some interesting dynamic controllers for biped locomotion seems require mass-less legs~\cite{REF}. Indeed, in this case there is no inertia moment due to the legs motions, therefore controlling the whole body is simplified. While this case is a theoretical trick, it can still be transfered in the real world by having a strong trunk/legs mass ratio. Therefore, either the global mass of the robot should increases in order to make the mass of leg negligible or we should design more lightweight legs.
+Secondly, some interesting dynamic controllers for biped locomotion seems require mass-less legs~\parencite{REF}. Indeed, in this case there is no inertia moment due to the legs motions, therefore controlling the whole body is simplified. While this case is a theoretical trick, it can still be transfered in the real world by having a strong trunk/legs mass ratio. Therefore, either the global mass of the robot should increases in order to make the mass of leg negligible or we should design more lightweight legs.
 Because they are the most éloigné element from the trunk, the mass of the feet has a strong impact on the leg inertia.
 
-Finally, while current state of the art, shows that it stills more simple to have big and heavy foot\cite{REF} to achieve biped locomotion, some works show impressive results thanks to the use of small feet or flexible feet~\cite{bruneau2001dynamic}. We can cite in particular Petman (see figure REF) those demonstrates breaking-edge skills for biped locomotion over very complex terrain\footnote{Link youtube}.
+Finally, while current state of the art, shows that it stills more simple to have big and heavy foot\parencite{REF} to achieve biped locomotion, some works show impressive results thanks to the use of small feet or flexible feet~\parencite{bruneau2001dynamic}. We can cite in particular Petman (see figure REF) those demonstrates breaking-edge skills for biped locomotion over very complex terrain\footnote{Link youtube}.
 Moreover this aspect seems to be coherent with the multi-legged animals kingdom, indeed most of animals have really thin legs and very small feet (see fig REF).
 
 So even if common humanoid robots still use big and powerful feet, for the above mentioned reason, we decided to explore bio-inspired, small, and lightweight feet.
@@ -196,11 +196,11 @@ It seems therefore interesting to enable a humanoid robot trying to explore the 
 
 
 
-Interestingly, Ceccato~\cite{ceccatoPlos09} studied the role of trunk during walking and highlighted that there are some places in the spine where the displacements are the most important, i.e. that the apparent high dimensionality of the trunk could be factorized down to a few essential components/dimensions.
+Interestingly, Ceccato~\parencite{ceccatoPlos09} studied the role of trunk during walking and highlighted that there are some places in the spine where the displacements are the most important, i.e. that the apparent high dimensionality of the trunk could be factorized down to a few essential components/dimensions.
 
 Accordingly, it appears we can replicate the essential degrees of freedom of human trunk with two DoFs in the sagittal plane, two in the coronal plane, placed in the pelvis and shoulder /thoracic and one in the horizontal plane placed in the middle of his trunk.
 
-These main degrees of freedom have been first introduced on Acroban~\cite{Ly2011bio} and continued on Poppy (see \figurename~\ref{fig:poppy_torso}).
+These main degrees of freedom have been first introduced on Acroban~\parencite{Ly2011bio} and continued on Poppy (see \figurename~\ref{fig:poppy_torso}).
 Thus Poppy's trunk involves five degree of freedom, we use two Dynamixel MX-64 for the abs as they have to support and move the whole upper body mass, the 3 others joints being less soumis to high constraints are powered by MX-28 (see \figurename~\ref{fig:torso_blueprint}). This multi-articulated trunk allows a wide range of motion that can be useful to explore the role of the torso motion on complex dynamics behavior (balance, walking), grasping and reaching task, or for human-robot interaction, extending the expressive and emotional abilities.
 
 \begin{figure}[p]
@@ -211,7 +211,7 @@ Thus Poppy's trunk involves five degree of freedom, we use two Dynamixel MX-64 f
     \subfloat[][]{\label{fig:frontal_trunk}\includegraphics[width=0.5\linewidth]{trunk_face.png}}
     \hfil
     \subfloat[][]{\label{fig:sagittal_trunk}\includegraphics[width=0.5\linewidth]{trunk_sagittal.png}}
-    \caption{These figures illustrate some morphological features of the Poppy humanoid Robot:\newline a) The Poppy's limbs follow the human being proportion as described in~\cite{dufour2005biomecanique}.\newline b) and c) Poppy has an articulated trunk of 5 DoFs which allows more natural and fluid motions while improving the user experience during physical interaction and actively participating to the balance of the robot.}
+    \caption{These figures illustrate some morphological features of the Poppy humanoid Robot:\newline a) The Poppy's limbs follow the human being proportion as described in~\parencite{dufour2005biomecanique}.\newline b) and c) Poppy has an articulated trunk of 5 DoFs which allows more natural and fluid motions while improving the user experience during physical interaction and actively participating to the balance of the robot.}
     \label{fig:poppy_torso}
 \end{figure}
 

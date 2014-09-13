@@ -5,17 +5,17 @@
 
 \section{Introduction} % (fold)
 
-In chapter~\ref{cha:morphology-review}, we discussed the emergence of a novel paradigm in the field of robotics that appeared in the late eighties.  Embodied artificial intelligence rejects the symbolic approach and postulates that it is not possible to have intelligence without an actual robot body associated with its ecological niche~\cite{pfeifer2001understanding}. Following this paradigm, several researchers have tried to tackle challenges in which the classical cognitivist approach failed (see \cite{brooks1986achieving}) e.g. the understanding of natural forms of intelligence that require direct interaction with the real world.
+In chapter~\ref{cha:morphology-review}, we discussed the emergence of a novel paradigm in the field of robotics that appeared in the late eighties.  Embodied artificial intelligence rejects the symbolic approach and postulates that it is not possible to have intelligence without an actual robot body associated with its ecological niche~\parencite{pfeifer2001understanding}. Following this paradigm, several researchers have tried to tackle challenges in which the classical cognitivist approach failed (see \parencite{brooks1986achieving}) e.g. the understanding of natural forms of intelligence that require direct interaction with the real world.
 
-Thus, an interesting evolution over recent decades is the demonstration of the importance of the morphology for sensorimotor control, cognition and development (\cite{kaplan2008corps} \cite{steels1995artificial} \cite{Pfeifer06}), which can be defined as follows:
+Thus, an interesting evolution over recent decades is the demonstration of the importance of the morphology for sensorimotor control, cognition and development (\parencite{kaplan2008corps} \parencite{steels1995artificial} \parencite{Pfeifer06}), which can be defined as follows:
 \begin{quotation}
     The morphology of a robot thus refers to the physical structure and form of a robot. Specifically, the focus is on characteristics such as link sizes, number of links, joint characteristics, mass distribution, actuator characteristics, material properties, sensor characteristics and sensor placements. In short, any characteristic that defines the physical structure of the robot is included in the term morphology.
-    \signed{Chandana Paul~\cite{paul2006morphological}}
+    \signed{Chandana Paul~\parencite{paul2006morphological}}
 \end{quotation}
 
 Exploring the interaction between body properties and cognition could lead both to a better understanding of animals’ behaviour (human beings in particular) and to build robots that are more adapted and robust to an open environment with unpredictable interactions. In particular, we can highlight the acquisition of sensorimotor tasks and the exploration of adapted bodies for natural, physical and social interactions with humans.
 
-In this context, we should not only pay attention to the robot body design but \textbf{introduce morphology as an experimental variable and conduct experiments in the real world}. As Rodney Brooks said \emph{the world is its own best model}~\cite{brooks1991intelligence} and simulators cannot handle the complexity of real physics with multi-point contacts, soft materials and frictions. This is especially true for complex dynamic tasks such as physical interaction or legged locomotion.
+In this context, we should not only pay attention to the robot body design but \textbf{introduce morphology as an experimental variable and conduct experiments in the real world}. As Rodney Brooks said \emph{the world is its own best model}~\parencite{brooks1991intelligence} and simulators cannot handle the complexity of real physics with multi-point contacts, soft materials and frictions. This is especially true for complex dynamic tasks such as physical interaction or legged locomotion.
 
 Following the definition of robotic morphology given by C. Paul, we need to find a framework allowing easy and quick tuning of morphological parameters on an actual robot in order to explore and hopefully find new ways of improving robot behaviour in the real world. However considering morphology as an experimental variable raised two major problems:
 \begin{itemize}
@@ -54,7 +54,7 @@ These techniques require specific upfront tooling which make the production of a
 
 Most labs must reinvent the wheel by developing whole new robotic platforms even though functional setups have already been developeded by other laboratories and could be reused.
 
-For example, several interesting robotic platforms explore key aspects of robot morphology. We can cite Kenshiro~\cite{REF} which has a complex and bio-inspired artificial muscles actuator network, or semi-passive walkers such as Denise~\cite{REF}, demonstrating impressive walking ability with little control and power actuation. Unfortunately, none of these robots can be and have ever been transferred to another lab. Indeed even if they were open source theirs productions require specific tooling and hand tuning that only few skilled people have.
+For example, several interesting robotic platforms explore key aspects of robot morphology. We can cite Kenshiro~\parencite{REF} which has a complex and bio-inspired artificial muscles actuator network, or semi-passive walkers such as Denise~\parencite{REF}, demonstrating impressive walking ability with little control and power actuation. Unfortunately, none of these robots can be and have ever been transferred to another lab. Indeed even if they were open source theirs productions require specific tooling and hand tuning that only few skilled people have.
 
 Therefore some constraints have to be applied on hardware platforms to make them reproducible:
 \begin{description}
@@ -149,7 +149,7 @@ While some actuator technologies such as Series Elastic Actuator (SEA), cable-dr
 
 To permit the diffusion, we need off-the-shelf and stationary solutions, easy to assemble, easy-to-use and available anywhere. Also, to allow the exploration of morphology, actuators have to be modular and allow the tuning of several parameters.
 
-We therefore chose to use Robotis Dynamixel servo-motors\footnote{\url{http://www.robotis.com/xe/dynamixel_en}} for robot actuation (see \figurename~\ref{fig:dynamixel_models}). Dynamixel motors are easily accessible, as they are mass produced and shipped worldwide. Also they are the most commonly used actuators in the robotic field and many robots are powered by them, including Darwin-OP~\cite{REF}, Myon~\cite{REF} , Acroban~\cite{REF} or Nimbro~\cite{REF}.
+We therefore chose to use Robotis Dynamixel servo-motors\footnote{\url{http://www.robotis.com/xe/dynamixel_en}} for robot actuation (see \figurename~\ref{fig:dynamixel_models}). Dynamixel motors are easily accessible, as they are mass produced and shipped worldwide. Also they are the most commonly used actuators in the robotic field and many robots are powered by them, including Darwin-OP~\parencite{REF}, Myon~\parencite{REF} , Acroban~\parencite{REF} or Nimbro~\parencite{REF}.
 
 The Dynamixel motors are not simple servomotors, they are all-in-one-modules that contain drivers, encoders and communication buses. They are also quite powerful, robust and rather precise. This is achieved by the combination of Maxon motors, metal gearbox and precise magnetic rotation sensor (resolution: 0.1\textsuperscript{o}). They embed a 32bits micro-controller dedicated to communication (serial port TTL or RS232), the control of the joint (position, speed or torque) and the measurement of internal data such as the real position, speed, load or temperature. They also allow tuning the internal PID or limitation of the maximal torque. This enables rich behaviour, useful both for physical interaction and locomotion.
 
@@ -230,7 +230,7 @@ In this thesis, we aim to enable both the free exploration of morphological vari
 
 This design process permits the creation of low-cost and highly hackable experimental robotic platforms thanks to a fully modular and open source approach.
 
-The tools used form part of the makers revolution and the emergence of the new rapid prototyping tools, sometimes called the novel industrial revolution~\cite{anderson}. Therefore we can rely on the hundreds of Fablabs around the world as a lever arm to increase the dissemination and reproducibility of robotic platforms designed with such methods.
+The tools used form part of the makers revolution and the emergence of the new rapid prototyping tools, sometimes called the novel industrial revolution~\parencite{anderson}. Therefore we can rely on the hundreds of Fablabs around the world as a lever arm to increase the dissemination and reproducibility of robotic platforms designed with such methods.
 
 Yet the chosen approach raised some limitations. Indeed, since we want to keep our work reproducible, we have to reduce the complexity of the assembly as well as the use of our robotic platforms. This means we need to spend more time developing and testing our design to make it as easy to use as possible. Also we are limited in the components we can use, they have to be easily accessible i.e. easily available and in large quantities in online stores.
 

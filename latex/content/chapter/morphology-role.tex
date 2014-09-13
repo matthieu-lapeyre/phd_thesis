@@ -4,10 +4,10 @@
 \section{Experimental evaluation of the role of the morphology: the thigh shape} % (fold)
 \label{sec:morphology-role}
 
-The role of morphology in robot bipedal locomotion has been particularly explored through the research on passive dynamic walkers~\cite{wisse2007passive}. The most famous example concerns Tad MacGeer's work~\cite{mcgeer1990passive}. Thanks to the understanding of the intrinsic dynamics of its structure, McGeer has managed to create a 2D biped robot capable of producing several steps without any controller or motor.
+The role of morphology in robot bipedal locomotion has been particularly explored through the research on passive dynamic walkers~\parencite{wisse2007passive}. The most famous example concerns Tad MacGeer's work~\parencite{mcgeer1990passive}. Thanks to the understanding of the intrinsic dynamics of its structure, McGeer has managed to create a 2D biped robot capable of producing several steps without any controller or motor.
 The only control of this robot is obtained through the interaction between the intrinsic inertia of the structure and gravity.
-This work has been pursued with the appearance of semi-passive walkers combining both specific passive properties and low power actuation to increase their robustness~\cite{Anderson2005}. We can note the work of Collins~\cite{collins2005bipedal} which explored the case of a semi-passive 3D biped robot. Its morphology is based on a particular mass distribution, knee locking, round feet and springs on the legs to generate an efficient walking gait while keeping its lateral and frontal balance.
-The concept of the 3D semi-passive robot has been pushed even further with the realization of a complete humanoid robot with torso, arms and head: the robot Denise~\cite{wisse2005three} and Flame presented in~\cite{Hobbelen2008}.
+This work has been pursued with the appearance of semi-passive walkers combining both specific passive properties and low power actuation to increase their robustness~\parencite{Anderson2005}. We can note the work of Collins~\parencite{collins2005bipedal} which explored the case of a semi-passive 3D biped robot. Its morphology is based on a particular mass distribution, knee locking, round feet and springs on the legs to generate an efficient walking gait while keeping its lateral and frontal balance.
+The concept of the 3D semi-passive robot has been pushed even further with the realization of a complete humanoid robot with torso, arms and head: the robot Denise~\parencite{wisse2005three} and Flame presented in~\parencite{Hobbelen2008}.
 
 \begin{figure}[!t]
 \centering
@@ -21,11 +21,11 @@ The concept of the 3D semi-passive robot has been pushed even further with the r
 \end{figure}
 
 
-The geometry and distribution of mass in the body has complex influences on bipedal locomotion. Several studies have for example, explored the role of the foot and ankle morphology for bipedal walking in both humans~\cite{Adamczyk2006}~\cite{Hughes1990} and robots~\cite{hobbelen2005ankle}~\cite{Davis2010}. However, to our best knowledge no research has focused on the role of the thigh for bipedal locomotion.  A few robots like HRP-4C~\cite{kaneko2009cybernetic} and Kenshiro humanoid~\cite{nakanishi2013design} robots seem to visually have a morphological design close to the thigh shape of Poppy, but no comparative study of the role of this shape was presented so far.
+The geometry and distribution of mass in the body has complex influences on bipedal locomotion. Several studies have for example, explored the role of the foot and ankle morphology for bipedal walking in both humans~\parencite{Adamczyk2006}~\parencite{Hughes1990} and robots~\parencite{hobbelen2005ankle}~\parencite{Davis2010}. However, to our best knowledge no research has focused on the role of the thigh for bipedal locomotion.  A few robots like HRP-4C~\parencite{kaneko2009cybernetic} and Kenshiro humanoid~\parencite{nakanishi2013design} robots seem to visually have a morphological design close to the thigh shape of Poppy, but no comparative study of the role of this shape was presented so far.
 
 Thanks to the mechanical design of Poppy, allowing easy, cheap and fast morphological modifications, we are able to experiment with various thigh shapes on the robot’s dynamics and find out what impact those have. In particular, in this experiment, we will focus on its bio-inspired thigh shape, bended by an angle of 6\textsuperscript{o}. We will investigate the impact of this thigh design on balance and bipedal locomotion using a comparison with a more traditional straight thigh (see Fig.~\ref{fig:poppy_compared}).
 
-% The results presented in the upcoming sections have been published in the Humanoids 2013 conference proceeding~\cite{lapeyre:hal-00861110}.
+% The results presented in the upcoming sections have been published in the Humanoids 2013 conference proceeding~\parencite{lapeyre:hal-00861110}.
 
 
 \subsection{Understanding the role of the thigh shape in humans} % (fold)
@@ -103,7 +103,7 @@ Experimenta results are shown in Fig.~\ref{fig:falling_results}. The blue color 
 \end{figure}
 
 These figures show a clear improvement for the version of Poppy with bended thighs (blue curves) with a 200 min time shift compared to the straight thighs (as illustrated on the attached video\footnote{\url{http://flowers.inria.fr/Humanoid2013/}\label{video}}).
-Thanks to this delay, the falling speed is reduced by about 56\% during the first 700ms. Thus the robot remains almost stationary for 600 min (400 min in the case of straight thigh).  Poppy’s typical walking gait  takes a period of one second so the mono-pedal stance phase lasts around 420 min~\cite{lapeyre2013poppy}. Considering that the robot remains stationary during more time than the single stance phase, we can imagine that the lateral balance control will be reduced during the walking gait.
+Thanks to this delay, the falling speed is reduced by about 56\% during the first 700ms. Thus the robot remains almost stationary for 600 min (400 min in the case of straight thigh).  Poppy’s typical walking gait  takes a period of one second so the mono-pedal stance phase lasts around 420 min~\parencite{lapeyre2013poppy}. Considering that the robot remains stationary during more time than the single stance phase, we can imagine that the lateral balance control will be reduced during the walking gait.
 
 
 
@@ -149,7 +149,7 @@ Here the experiment consists of playing an open-loop walking pattern while the r
 \end{figure}
 
 
-The gait is based on the actual human sagittal joint kinematic~\cite{Nester2003}: hip, knee, ankle (see Fig.~\ref{fig:CPG}.a). A direct transposition of the human joint kinematic on the Poppy's morphology results in a walking speed which is too fast to be handled by users (see Fig.~\ref{fig:CPG}.b). A simple reduction of a joint’s amplitude leads to an unsuitable leg trajectory where toes bump into the ground during the swing phase (see Fig.~\ref{fig:CPG}.c). So to ensure enough clearance during the swing phase and suitable walking speed for the guidance with a user, we modified the trajectories of the joints by hand to both reduce the length step and increase the foot clearance (see Fig.~\ref{fig:CPG}.d). The actual gait on Poppy is shown in Fig.~\ref{fig:humanoids2013_cpg_on_poppy}.
+The gait is based on the actual human sagittal joint kinematic~\parencite{Nester2003}: hip, knee, ankle (see Fig.~\ref{fig:CPG}.a). A direct transposition of the human joint kinematic on the Poppy's morphology results in a walking speed which is too fast to be handled by users (see Fig.~\ref{fig:CPG}.b). A simple reduction of a joint’s amplitude leads to an unsuitable leg trajectory where toes bump into the ground during the swing phase (see Fig.~\ref{fig:CPG}.c). So to ensure enough clearance during the swing phase and suitable walking speed for the guidance with a user, we modified the trajectories of the joints by hand to both reduce the length step and increase the foot clearance (see Fig.~\ref{fig:CPG}.d). The actual gait on Poppy is shown in Fig.~\ref{fig:humanoids2013_cpg_on_poppy}.
 
 
 \begin{figure}[tb]
