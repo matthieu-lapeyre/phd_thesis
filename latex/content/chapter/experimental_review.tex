@@ -1,8 +1,8 @@
 % !TEX root = ../../thesis.tex
 
 % Photo Yves Gellie
-\cleartoleftpage
-\includepdf{../media/chapter_illustration/robot_setup.pdf}
+% \cleartoleftpage
+% \includepdf{../media/chapter_illustration/robot_setup.pdf}
 \chapter{Review of experimental methods} % (fold)
 \label{cha:experimental-methods}
 \cleanchapterquote{The world is its own best model}{Rodney Brooks}
@@ -10,218 +10,147 @@
 
 \section{Introduction} % (fold)
 
+%Context
 As we saw it in the previous chapter REF, an interesting evolution of the last decades is the demonstration of the importance of the morphology for sensorimotor control, cognition and development. The role of the morphology appears as a fascinating open field. Exploring the interaction between body properties and cognition could lead to both a better understanding of animals’ behaviour (human being in particular) and to build robot more adapted and robust to an open environment with unpredictable interaction.
 
-However as Rodney Brooks explained, exploring interaction between morphology, cognition and environnement requires real world experimentations. Indeed embodiement artificial intelligence REF needs to act in the real world to permit the emergence of complex behavior. The real world includes a large amount of constraints such as inertia, multi-point physical contacts, unpredictable environnement or friction which are, at this time, too complicated to be modeled in physical simulator. Actually "The world is its own best model" and if we can use simulation for exploring basic concepts, the exploration of emergent complex behavior based on interaction between robot self-dynamics and the environnement can only be done through experimentation with real robot in real world.
 
+%Needs
+However as Rodney Brooks explained, exploring interaction between morphology, cognition and environnement requires real world experimentations. Indeed embodiement artificial intelligence REF needs to act in the real world to permit the emergence of complex behavior. The real world includes a large amount of constraints such as inertia, multi-point physical contacts, unpredictable environnement or friction which are, at this time, too complicated to be modeled in physical simulator. Actually "The world is its own best model" and if we can use simulation for exploring basic concepts, the exploration of emergent complex behavior based on interaction between robot self-dynamics and the environment can only be done through experimentation with real robot in real world.
 
-A great example of achieving complex behavior using robot dynamics is the passive walking (see REF). One of the best sate of the art in this domain is the work done by Delft with the different passive and semi passive walkers they built.
+Moreover, as Luc Steels explained (REF), the actual behavior of a robot cannot be programmed. Indeed, its behavior is emerging from the interaction between the controller, the morphology and the environment. Some could argue that adding actual morphology and ecological niche add unnecessary complexity to a problem we already have difficulty to solve by just taking care of the control. Yet it appears some behaviors cannot be achieved without the real physic complexity. A brilliant example are the passive/semi-passive walking robots (presented in sec REF). These robots are technically rather simple, just composed by a mechanical structure with proper link size and foot shape, the establishment of a model should be rather easy but their real dynamic is very difficult to simulate on a physical simulator. Indeed, all complex physic effects (e.g. shocks, friction, inertia) contribute to the achievement of a passive walking.
 
-Desiring to explore biped locomotion with Poppy, I had a discussion with Martijn Wisse on simulation strategy to add semi-passive abilities to Poppy. Here is his answer:
-
-\begin{quotation}
-First of all, we never actually produced a high-fidelity simulation. We made very simple simulations only. From them, we learned how to tune parameters. Then, we designed the real robots, without running full-blown optimizations. Rather, we used our intuition for a large number of decisions on design trade-offs, using lessons from the simple simulations combined with other limitations such as available motors etcetera. Then, we (again) used our intuition and large amount of experience to tune the robot’s controllers, and make design improvements, until it walked.
-
-\signed{Martijn Wisse - Associate professor at Delft University of Technology}
-\end{quotation}
-
-But maybe the most interesting part concerns the work they did to try to make their robot walk in simulation:
+One of the best state of the art in this domain is the work done by Delft with the different passive and semi passive walkers they built (REF). Desiring to explore biped locomotion with Poppy, we had a discussion with Martijn Wisse on simulation strategy to add semi-passive abilities to Poppy. Here is his his testimony when they try to make their robot walk in simulation after managing to create the real one:
 
 \begin{quotation}
 
-Even after obtaining a successful walking motion, we did not manage to create a simulation that walked successfully using the same controller parameters. We tried very hard with some of the best people, but we didn’t succeed. The reason was, I think, that our type of control (using the emergent behavior of a set of simple reflex-like controllers) was highly sensitive to hardware effects like friction. Normally, one uses a local joint controller to make the joint follow a desired trajectory independent of the exact amount of friction. The local controller “abstracts these hardware effects away”, if you know what I mean. This makes the behavior of the whole system quite predictable. However, in our robots, we did not have this kind of abstraction as we were not following trajectories, and thus a little bit of extra friction has an effect on the entire motion.
+Even after obtaining a successful walking motion, we did not manage to create a simulation that walked successfully using the same controller parameters. We tried very hard with some of the best people, but we didn’t succeed. The reason was, I think, that our type of control (using the emergent behavior of a set of simple reflex-like controllers) was highly sensitive to hardware effects like friction. Normally, one uses a local joint controller to make the joint follow a desired trajectory independent of the exact amount of friction. The local controller "abstracts these hardware effects away", if you know what I mean. This makes the behavior of the whole system quite predictable. However, in our robots, we did not have this kind of abstraction as we were not following trajectories, and thus a little bit of extra friction has an effect on the entire motion.
 
 We did spend a long time making a high-fidelity model in Adams, and also using other methods, but eventually we gave up without success.
 
 \signed{Martijn Wisse - Associate professor at Delft University of Technology}
 \end{quotation}
 
+Thus the results we can find in simulator are very limited and experiments in the real world are needed to
 
+We could say the simulator is indeed a bad idea for low-level control but is suitable for exploring high-level, yet there is no reason the real world does not act the same way on high level control. And it is probable the constraints of the real world can somehow guide the path.
+
+Thus it appears essential to have real robotic platforms to explore role of morphology on control but also highly probable it can have a strong impact when ones are interested by exploring more high-level process (e.g. A.I) ~\parencite{lakoff2000mathematics}.
+
+
+%objet
 In this chapter, we will review the current state of the art in experimental robotic platforms (see REF). Then we will see how current researcher create robot to explore morphological properties.
 
-\section{Experimental platform} % (fold)
-
-To explore cognition robot need a physical body and to interact with the real world.
+There are plenty of robotics platforms, from robot arm (Jako, LWR, Kuka) to wheeled platform (Pioneer 3-AT, P3-DX) or even submarine (AQUA2). However, in this Phd thesis we are particulary interested by the locomotion so we will restraint the review to bipedal platform.
 
 
-There is plenty of robotics platform, from robot arm (Jako, LWR, Kuka) to wheeled platform(Pioneer 3-AT, P3-DX) or even submarine(AQUA2). However, we in this Phd thesis we are particulary interested by the locomotion so we will restraint the review to bipedal platform.
+\section{section name} % (fold)
+\label{sec:section_name}
 
-\subsection{Ready-to-use humanoid robot solutions} % (fold)
-
-
-DarwinOP c'est comme Poppy mais pas forcement pensé pour explorer le role du corps.
-
-\subsubsection{Prototype} % (fold)
-
-\subsection{Commercial} % (fold)
-
-Aside the robot prototype,
-
-Darwin \parencite{ha2011development}
-
-Other current research platforms are easily accessible and easy to use such as Nao \parencite{gouaillier2008nao}, Darwin Op \parencite{ha2011development}, Nimbro Op \parencite{schwarznimbro} or iCub \parencite{metta2008icub}.
-Yet, they provide a "traditional" morphology (e.g.
-limited compliance, rigid torso, big feet, over actuated) which can not be easily modified.
-It makes them unadapted to study the impact of the morphology on biped locomotion and human physical interaction.
-
-Each of these platforms provides key features for robotics but none of them regroups all the ones needed to explore both biped locomotion and physical interaction.
-
-\section{methods for building robots} % (fold)
-icub~\parencite{tsagarakis2007icub}
-
-\subsection{Actuation} % (fold)
+% section section_name (end)
 
 
-\subsubsection{wire-driven} % (fold)
+\section{Affordable humanoid platform} % (fold)
+\label{sec:affordable_humanoid_platform}
 
-\subsubsection{Serie Elastic Actuator} % (fold)
+Other current research platforms are easily accessible and easy to use such as Nao \cite{gouaillier2008nao}, Darwin Op \cite{ha2011development}, Nimbro Op \cite{schwarznimbro} or iCub \cite{metta2008icub}.
 
-\subsubsection{Pneumatic artificial muscle} % (fold)
-
-\subsubsection{Hydraulic linear actuator} % (fold)
-
-
-\section{Small humanoid robot} % (fold)
-Research on humanoid robot is triving and had lead to a lot of humanoid robot.
-
-We can cite Asimo has one of the first most advanced humanoid robot.
-
-Despite this large number of humanoid platform only few reached a commercial distribution.
-Among them there is only one adult sized robot, HRP2 while other are kid-size humanoid robot.
-
-Darwin-OP was one of the first affordable and open source humanoid robot.
-Based on the need in lab to have small  humanoid robot for research application.
-
-For some reason, A 3D clone http://www.thingiverse.com/thing:9793
-http://www.instructables.com/id/Robot-Cloning-by-DIY-3d-printers/
-http://www.instructables.com/id/3D-Printed-Humanoid-Robot-for-under-100000-USD/
-
-Darwin OP has not been really hacked.
-Maybe it is due to the tools used.
-SVN sucks, sourceforge is outdated.
-The open community is more github centered
+\begin{figure}[tb]
+\centering
+    \subfloat[][Darmin Op]{\label{fig:darwin-op}\includegraphics[height=6.5cm]{darwin_op_face.jpg}}
+    \hfil
+    \subfloat[][Nao]{\label{fig:Nao}\includegraphics[height=6.5cm]{nao_face.png}}
+    \hfil
+    \subfloat[][Nimbro OP]{\label{fig:nimbro-op}\includegraphics[height=6.5cm]{nimbro-op_1.jpg}}
+    \caption{Three humanoid robots made by KumoTek (USA).}
+    \label{fig:kumotek_robots}
+\end{figure}
 
 
-\section{Current limitations}
+\begin{description}
+    \item[DARwIn Op] is an open source humanoid research platform created by the Romela lab at Virginia tech~\parencite{ha2011development} and distributed by Robotis for about \$12,000 (see \figurename~\ref{fig:darwin-op}). It measures 45cm height, weights 2.9kg, and has 20 Dynamixel MX-28 actuators (6 for each leg, 3 for each arm, and 2 for the neck). Its mechanical structure is composed by aluminum parts.
+    \item[Nao] is 55cm height, 5.2kg and 25DoFs humanoid robot with a plastic mechanical structure (ABS,PA,XCF) (see \figurename~\ref{fig:Nao}). It is a very famous robot sold by few thousands units to labs and universities. Its cost was around \texteuro12,000, but recently it was reduced by half.
+    \item[Nimbro-OP] is a tall humanoid with 95cm and 6.6 kg, it has 20 powerful MX-106 and MX-64 actuators (6 per leg, 3 per arm and 2 in the neck). It costs \$20,000 and its structure is based on aluminum and carbon composite (see \figurename~\ref{fig:nimbro-op}).
+\end{description}
 
-In the previous chapter, we presented several works showing the importance of the robot morphology and the need to continu the research in this domain.
+Yet, they provide a "traditional" morphology (e.g. limited compliance, rigid torso, big feet, over actuated) which can not be easily modified. It makes them unadapted to study the impact of the morphology on biped locomotion and human physical interaction.
+
+
+
+\section{Modular robotics} % (fold)
+
+Despite all robotic platform developed, there are only few allowing a complete reconfiguration of their hardware design.
+
+We can find some modular robots examples such as Molecubes~\parencite{zykov2007molecubes}, M-Tran~\parencite{murata2002m}, Superbot~\parencite{salemi2006superbot}, ATRON~\parencite{jorgensen2004modular} or Roombots~\parencite{sproewitz2009roombots}. They are independent robot modules, which can be assembled together to create various robot form and applications (see \figurename~\ref{fig:modular-robots}). However, this kind of robot are not suitable to explore morphological properties and to create humanoid robots.
+
+\begin{figure}[tb]
+\centering
+    \subfloat[][ATRON]{\includegraphics[width=0.45\linewidth]{ATRON.jpg}}
+    \hfil
+    \subfloat[][Roombots]{\includegraphics[width=0.45\linewidth]{roombots.jpg}}
+    \caption{Modular robots}
+    \label{fig:modular-robots}
+\end{figure}
+
+Actually, to our best knowledge there is only one example of modular kit allowing to really explore the role of morphology. The Locomorph project~\parencite{locomorph} offers a multi-purpose hardware kit called LocoKit~\parencite{larsen2012locokit}). This kit uses carbon-fiber rods assembled with Locokit parts (see \figurename~\ref{fig:locokit-parts}). It allows quickly creating robot and studying the impact of several morphological properties such as link length, joint stiffness or mass distribution (see \figurename~\ref{fig:locokit}). Also it permits to add spring over rods to create linear damping system and therefore add compliance to robots.
+The kit is distributed for \texteuro2500 and include the needed components to create a quadruped robot (see \figurename~\ref{fig:locokit-example}).
+
+\begin{figure}[tb]
+\centering
+    \subfloat[][]{\label{fig:locokit-parts}\includegraphics[height=5cm]{locokit-parts.jpg}}
+    \hfil
+    \subfloat[][]{\label{fig:locokit-example}\includegraphics[height=5cm]{locokit-example.png}}
+    \caption{}
+    \label{fig:locokit}
+\end{figure}
+
+It appears as the only existing solution allowing to both explore the role of morphology and transfer results between laboratory. While being very interesting, it is also limited as it implies to create rods-based robot and multi-body articulation such as ones we can find in a human leg or trunk seem complicated to produce.
+
+
+\section{Conclusion}
+
+In the previous chapter, we presented several work showing the importance of the robot morphology and the need to continue the research in this domain. As we explained in the introduction see REF, this research requires to have real robotic platform to be explored.
+
+
+On one hand, some robotic platforms such as Denise or Athlete robot were designed for this purpose and actually shown great results about the role of passive dynamic or compliance on biped walking. However, these platform are prototypes produced specifically for a lab and are nearly impossible to reproduce on another lab.
+In addition, while they use classical production technique with metal casting, they are quite complex and expensive to modify.
+
+On the other hand, commercial robots are easily accessible so the results should be reproducible from one lab to another. Yet their design method involved also classical production techniques, therefore modifying their morphology would require a lot of
+
+
+
+In the next chapter, we will present novel production techniques and diffusion ways, which can solve both problem considering exploring the role of morphology and reproducibility between research labs.
+
+
 However, we saw that none of the available commercial robot platform permits such scientific exploration.
 
 Also, the current research practices in the Robotics field limit the diffusion and the impact of contributions.
 Indeed, in most cases, there is no material associated with a published paper.
 Meaning, only the theory is shared with the community but not the actual framework allowing to reproduce the results.
 
-\begin{itemize}
-    \item Lost of time, design a whole new robot.
-    \item Morphology as an experimental variable
-    \item Current robotic platforms do not permit to explore the morphology as a variable.
-    \item IA haut niveau qui peut se faire en simulation avec certaines reserves.
-    \item Currently, robot platform are not satisfying if we want to explore the role of morphology.
-    They are not hackable and proto or not both easy to use and accessible.
-    \item Problem with simulator VS real world
-    \item Exploring control with real robot raise challenge due to error
-    \item Morphologie as variable experimental
-    \item Engineering on the platform not research
-    \item There is two categories, commercial platform and research lab prototype.
-    \item No distribution of the code
-    \item no benchmark platform
-    \item no hackable platform
-\end{itemize}
+% \begin{itemize}
+%     \item Lost of time, design a whole new robot.
+%     \item Morphology as an experimental variable
+%     \item Current robotic platforms do not permit to explore the morphology as a variable.
+%     \item IA haut niveau qui peut se faire en simulation avec certaines reserves.
+%     \item Currently, robot platform are not satisfying if we want to explore the role of morphology.
+%     They are not hackable and proto or not both easy to use and accessible.
+%     \item Problem with simulator VS real world
+%     \item Exploring control with real robot raise challenge due to error
+%     \item Morphologie as variable experimental
+%     \item Engineering on the platform not research
+%     \item There is two categories, commercial platform and research lab prototype.
+%     \item No distribution of the code
+%     \item no benchmark platform
+%     \item no hackable platform
+% \end{itemize}
 
-This raises limitations for:
-\begin{itemize}
-    \item verifying the quality of the results presented in the paper,
-    \item the reuse of the contribution as there is, in most case, a gap between the theory and the actual implementation,
-    \item the collaborative work with other laboratory
-\end{itemize}
-
-However in the context of exploring control algorithm or studying the role of morphology, the actual robot is needed.
-Also in this context, it raises major issue concerning the way to share material associated to a scientific contribution.
-
-In this chapter, we present a design methodology allowing to:
-\begin{itemize}
-    \item consider the morphology as an experimental variable.
-    \item easily share our results with the scientific community
-\end{itemize}
+% This raises limitations for:
+% \begin{itemize}
+%     \item verifying the quality of the results presented in the paper,
+%     \item the reuse of the contribution as there is, in most case, a gap between the theory and the actual implementation,
+%     \item the collaborative work with other laboratory
+% \end{itemize}
 
 
-Similarly to the Locomorph project~\parencite{locomorph} which offer a multi-purpose hardware kit allowing to quickly create robot and study the impact of several morphological properties such as link length, joint stiffness or mass distribution, we explored how we could build novel kind of robotic platform allowing to quickly tune morphological parameters.
 
-\section{methods for dissemination and reproducibility} % (fold)
-
-The most common way to  research
-
-Share science
-
-Currently most of the research dessiminatino is done through paper publications.
-While papers are a high quality way to distribute the
-
-Papers are good to present theoritical idea and results of experiment in high quality formated and writing way.
-Yet, it is the descendent of the old way to share science coming from a time were Internet did not exist.
-
-The scientific impact could be even more efficient with the use of web modern tools.
-
-It is the intrinsic purpose of Internet to share between people.
-The first purpose was even specific to the sharing of paper.
-Twenty years later, the use of internet for scientific purpose does not really change while community driven project as shown amazing innovative works.
-
-However, the research ranking is still only based on paper impact factor while using the modern tools can lead to a demultiplicaiton of this impact by dozens ...
-
-Any obscure youtube video is more seen than the paper is read.
-
-Optional works such has publishing code or videos is not encouraged by the current way to rank research.
-
-However, a paper is a nice way to present theory but is not enough.
-Most of our works are based on experiment results and only few paper actual share the experimental setup to reproduce the results.
-
-While this can be counterproductive for the diffusion of the scientific works, it raise also probelm concerning the validation of experimental result and posibility to change parameter to evaluate the stability of a given algorithm.
-
-Applying theoritical model presented in a paper on an actual experimental setup is really time consumming.
-
-In case you didn’t know, academic publishing is undergoing a major upheaval.
-Again.
-It used to be that original discoveries could only be disseminated on paper, published in books and journals, which were mostly found in university libraries because their cost was so high.
-Then the internet was invented and things began to change, but surprisingly slowly.
-The big journals still ruled the roost—and even now they still really do, though future of this is uncertain—but paper and libraries eventually started to become less popular among readers.
-Readers wanted their science to be indexed on the Web and they wanted instant PDF downloads.
-Journals obliged and competed to add these features at no extra cost.
-But you still needed a subscription to the journal—or your university library did—to get access to the article for less than \$30/article at the major journals.
-This is still the typical state of affairs with most journals that predate the internet.
-
-But then something new started happening: first online journals (never on paper) and then so-called open-access journals (online journals that were accessible to readers for free) started to pop up.
-You may be surprised to learn that these journals are not much cheaper to produce than hardcopy magazines and books—despite the lack of paper—because most of the cost producing a journal is in the editorial services (copy editing, peer review, formatting, layout, marketing, etc).
-Whereas online journals having the traditional subscription-for-access model charged the reader, open access models charged the authors.
-Either way, a huge portion of the governmental science budget went towards paying for science publication, though funding agencies tended to prefer open access because the public could access the materials for free.
-
-Novel journal are rising such as https://peerj.com/ which offer free reading and public review + the ability to ask question.
-
-Non informal exchange between scientific.
-Everyone is working in his lab and wait for the next conf to discuss with other people.
-Forum man !
-
-The scientific impact and dessimination could be way more efficient if modern tools was used.
-
-Current research
-publish paper ...
-
-Some info on a website ...
-
-le gars du LAAS qui donne une VM
-
-emails
-
-open source (soft)
-
-Matlab Exchange
-
-Science community
-
-Hack your PhD
-
-
-\textbf{object}: Review of the robot, in particular biped.
-
-
-\textbf{Conclusion}: There is no adapted or replicable platform.
-We need to create one.
 
