@@ -30,24 +30,24 @@ Thanks to the mechanical design of Poppy, allowing easy, cheap and fast morpholo
 
 \subsection{Understanding the role of the thigh shape in humans} % (fold)
 
-If we look closely at the morphology of the human femur, it appears that it is inclined by an angle of 6\textsuperscript{o}. This makes the feet closer to the projection of the center of gravity (CoG) (see Fig.~\ref{fig:human_thigh}) therefore it reduces the distance traveled by the CoG to move from foot to another.
+If we look closely at the morphology of the human femur, it appears that it is inclined by an angle of 6\textsuperscript{o}. This makes the feet closer to the projection of the center of gravity (CoG) (see Fig.~\ref{fig:human_thigh_experiments}) therefore it reduces the distance traveled by the CoG to move from foot to another.
 
 The model presented in appendix~\ref{appendix:thigh_model} has been used during the conception of Poppy to decide the use of bended thigh rather than classic straight one. This simple model, based on an inverted pendulum, shows this particular shape may enhance the stability in two main ways during the walking gait:
 
 \begin{itemize}
-    \item As the feet are closer to the center of gravity, the lateral translation of the CoG necessary to transfer the mass of the robot from one foot to another is reduced (see Fig~\ref{fig:human_thigh}). In the case of Poppy's morphology, thanks to the $6$\textsuperscript{o} bended thigh, the lateral motion of the CoG is reduced by about 30\% ($ 5 cm$ instead of $7.1 cm$).
+    \item As the feet are closer to the center of gravity, the lateral translation of the CoG necessary to transfer the mass of the robot from one foot to another is reduced (see Fig~\ref{fig:human_thigh_experiments}). In the case of Poppy's morphology, thanks to the $6$\textsuperscript{o} bended thigh, the lateral motion of the CoG is reduced by about 30\% ($ 5 cm$ instead of $7.1 cm$).
     \item During the stance phase, the CoG initial conditions are slightly modified. Therefore it reduces the CoG falling speed at the begining. So if we consider the first 700 ms of the system behavior simulation and compare the two systems, the mean of the CoG falling speed is reduced by around 56\% in the bended thigh case.
 \end{itemize}
 
 
 \begin{figure}[tb]
 \centering
-    \subfloat[][]{\label{fig:human_thigh}\includegraphics[height=8cm]{human_thigh.jpg}}
+    \subfloat[][]{\label{fig:human_thigh_experiments}\includegraphics[height=8cm]{human_thigh.jpg}}
     \hfil
     \subfloat[][]{\label{fig:thigh_of_poppy}\includegraphics[height=6cm]{thigh_shape_large.jpg}}
     \caption{ a) Effect of bended human femur on human bipedal locomotion.
     c) Implementation of the bended thigh on the poppy platform}
-    \label{fig:poppy_thigh}
+    \label{fig:poppy_thigh_experiment}
 \end{figure}
 
 \subsection{Experimenting with variable thigh properties on Poppy} % (fold)
@@ -61,7 +61,7 @@ Therefore we modified the thigh shape and printed it. As shown on the \figurenam
     \begin{center}
         \includegraphics[height=\linewidth]{thigh_morpho.pdf}
     \end{center}
-    \caption{Caption here}
+    \caption{}
     \label{fig:thigh_drawings}
 \end{figure}
 
@@ -76,7 +76,7 @@ In this section, we describe representative experiments which evaluate the actua
 \label{ssub:falling_velocity}
 The experiment evaluates the velocity of fall  when Poppy  is supported on only one foot and compare it with the theoretical results obtained in~\ref{sub:exp_theoritical_model}. To do so, the robot's head is tracked by an Optitrack\footnote{\url{http://www.naturalpoint.com/optitrack/products/v120-trio/}} device and markers are placed on the head. In postural balance on two feet, a motor order triggers the raise of a foot which unbalances the robot (see Fig.~\ref{fig:falling_experiment_dispositif}) and causes its lateral fall (see Fig.~\ref{fig:fall_of_poppy}). This experiment was repeated about fifteen times for the two cases studied, i.e. with bended legs (Fig.~\ref{fig:poppy_with_bended_legs}) and with straight legs (Fig.~\ref{fig:poppy_with_classical_legs}).
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
     \subfloat[][]{\label{fig:falling_experiment_dispositif}\includegraphics[height=6cm]{experience_fall_illu.jpg}}
     \hfil
@@ -89,7 +89,7 @@ The experiment evaluates the velocity of fall  when Poppy  is supported on only 
 
 Experimenta results are shown in Fig.~\ref{fig:falling_results}. The blue color is assigned to experiments with bended thighs while the red color is assigned to straight thighs. For each case, the light color corresponds to the standard deviation and the dark color to the 95\% confidence interval of the mean value. The first figure~(\ref{fig:fall_result_position}) refers to the head altitude position over time and the second~(\ref{fig:fall_result_velocity}) to the falling velocity of the head. Dashed lines represent theoretical results obtained with the model presented in section~\ref{fig:model_thigh}. We notice the strong similarity both on the shape and on the difference between the two morphologies studied. Yet, there is a slight time shift between theoretical and experimental results. This can be explained by the inertia of the real robot which was not taken into account during the simulation.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
     \subfloat[][Vertical head position]{\label{fig:fall_result_position}\includegraphics[width=0.50\linewidth]{falling_compare.pdf}}
     \hfil
@@ -200,7 +200,7 @@ The two first figures (i.e. ~\ref{fig:head_position} and ~\ref{fig:low_back_posi
 We notice that the lateral motion of the version of Poppy with bended thighs~\ref{fig:poppy_walking_bended} is small compared to the version with straight thighs~\ref{fig:poppy_walking_straight}.
 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
     \subfloat[][bended thigh]{\label{fig:poppy_walking_bended}\includegraphics[width=0.49\linewidth]{marche_bended.jpg}}
     \hfil

@@ -15,7 +15,7 @@ With the democratization of personal computers and the development of the intern
 However, while copying and sharing bits of software is virtually free and can often be run on any computer, producing the atoms of a real object both has a potentially high cost and requires expert tooling. Thus the production of mechanic or electronic hardware components is limited to two options: either it is handcrafted or mass produced. Also the step between the handcrafted prototype and mass production is so large that only big companies can achieve it. Conventional manufacturing processes require the production of specific tools, the programming of complex machines, the human intervention to put the part along the different tool and so on, most of the costs are in the up-front tooling, and the more complicated a product is, the more it costs. Thus, most companies would not accept to run a whole production process just for a few units and if they accept the cost will be so high than most prototypes never find a way of reaching people outside the workshop where they had been created. So until now, production in small or medium series has been extremely difficult to achieve because it has not been profitable.
 Only big companies have been able to raise enough money to produce new hardware meaning niche products and personalization are left aside.
 
-Over the last few years, a novel evolution has begun that is going to completely change the current rules of production and distribution of goods. This evolution is acting on both technological and political/societal front, which tends to confirm the claims of those who argue it will be the next industrial revolution~\parencite{anderson}. Indeed, new rapid prototyping technologies are emerging and make production cheap, fast and easy to anyone. At the same time the associated machines and tools are diffused under open source hardware licenses, acting as an unexpected lever arm toward the diffusion of these technologies to anyone. All these radical changes are contextualized by the phenomenon of \emph{makers} and the exponential growth of associative production spaces (e.g Fab Lab, Makerspace, Tech Shop or Hackerspace).
+Over the last few years, a novel evolution has begun that is going to completely change the current rules of production and distribution of goods. This evolution is acting on both technological and political/societal front, which tends to confirm the claims of those who argue it will be the next industrial revolution~\parencite{anderson2012makers}. Indeed, new rapid prototyping technologies are emerging and make production cheap, fast and easy to anyone. At the same time the associated machines and tools are diffused under open source hardware licenses, acting as an unexpected lever arm toward the diffusion of these technologies to anyone. All these radical changes are contextualized by the phenomenon of \emph{makers} and the exponential growth of associative production spaces (e.g Fab Lab, Makerspace, Tech Shop or Hackerspace).
 
 In this chapter, we will first present and discuss ground-breaking 3D printing technology. Then we will present the open source hardware movement and how its interaction with 3D printing is changing the current production paradigm.
 
@@ -51,7 +51,7 @@ The term 3D printing encompasses several different additive processes.
 
 The FDM technique relies on melting and selectively depositing a thin filament of thermoplastic polymer (ABS - PLA) in a cross-hatching fashion to form each layer of the part. The material is in the form of a wire supplied in sealed spools, which is mounted on the machine, and the wire is threaded through the FDM head. The head moves in the horizontal X and Y directions  to produce each layer through zigzag movements. The supporting table moves in the vertical direction and is lowered after the completion of each layer.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
         \subfloat[][FDM process]{\label{fig:FDM_process}\includegraphics[height=4.5cm]{FDM_technique.jpg}}
         \hfil
@@ -68,7 +68,7 @@ It is a technique that is really low-cost and friendly to the office environment
 
 This technique relies on a photosensitive monomer resin, which forms a polymer and solidifies when exposed to ultraviolet (UV) light. The UV laser beam moves in a horizontal direction and is focused on the top layer to polymerize the photosensitive resin (see \figurename~\ref{fig:SLA_process}). Due to the absorption and scattering of the beam this reaction only takes place near the surface. Then the cured layer of polymer is lowered by the platform (Z axis) so that a fresh layer of liquid resin covers the part.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
         \subfloat[][SLA process]{\label{fig:SLA_process}\includegraphics[height=5cm]{SLA_technique.jpg}}
         \hfil
@@ -84,11 +84,11 @@ This technique has several advantages, such as a good surface finish, and is cap
 The Selective Laser Sintering process uses a high-power (25-50W) CO2 laser beam that melts and fuses finely powdered material spread on a layer. Before the powder is sintered, the entire bed is heated to just below the melting point of the material in order to minimize thermal distortion and facilitate fusion with the previous layer.
 While the laser moves on the horizontal plane, the platforms move along the vertical axis -through a distance corresponding to the layer thickness (usually 0.01 mm) - and a counter-rotating roller spreads a precise amount of fresh powder above the sintered layer. The unsintered powder serves as the support for overhanging portions, if there are any in the subsequent layers.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
-        \subfloat[][SLS process]{\label{fig:SLA_process}\includegraphics[height=5cm]{SLS_technique.jpg}}
+        \subfloat[][SLS process]{\label{fig:SLS_process}\includegraphics[height=5cm]{SLS_technique.jpg}}
         \hfil
-        \subfloat[][]{\label{fig:formlab_printer}\includegraphics[height=5cm]{SLS_part.jpg}}
+        \subfloat[][]{\label{fig:SLS_part}\includegraphics[height=5cm]{SLS_part.jpg}}
         \hfil
     \caption{}
     \label{fig:SLS_technique}
@@ -101,11 +101,11 @@ This technique has a really interesting advantage: it is compatible with a large
 
 Direct Metal Laser Sintering is very similar to the SLS process but uses a high-powered 200 watt Yb-fiber optic laser in order to fuse metal powder into a solid part by melting it locally. Parts are built up additively layer-by-layer, typically using layers 20 micrometres thick. This process allows for highly complex geometries to be created directly from the 3D CAD data, fully automatically, in hours and without any tooling. DMLS is a net-shape process, producing parts with high accuracy and detailed resolution, good surface quality and excellent mechanical properties. However, this is obviously the most expensive technique.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
-        \subfloat[][DMLS part]{\label{fig:SLA_process}\includegraphics[height=4.5cm]{DMLS_technique.jpg}}
+        \subfloat[][DMLS part]{\label{fig:DMLS_Process}\includegraphics[height=4.5cm]{DMLS_technique.jpg}}
         \hfil
-        \subfloat[][DMLS part]{\label{fig:SLA_process}\includegraphics[height=4.5cm]{DMLS_part.jpg}}
+        \subfloat[][DMLS part]{\label{fig:DMLS_part}\includegraphics[height=4.5cm]{DMLS_part.jpg}}
         \hfil
     \caption{}
     \label{fig:DMLS_technique}
@@ -121,13 +121,13 @@ At The University of Southern California, Professor Behrokh Khoshnevis has built
 
 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
     \subfloat[][The SuperDraco rocket engine has a combustion chamber: 3D-printed - SpaceX.]{\label{fig:superdraco}\includegraphics[height=4.5cm]{superdraco.jpg}}
     \hfil
     \subfloat[][A conventional hinge is seen in the background and a 3D-printed metal hinge is seen in the foreground - EADS.]{\label{fig:EADS_hinge}\includegraphics[height=4.5cm]{EADS_3D_printed_hinge.jpg}}
     \caption{Thanks to its special properties, 3D printing is hitting the industry}
-    \label{fig:3D_printed_objects}
+    \label{fig:industrie_printing}
 \end{figure}
 
 The SuperDraco (see \figurename~\ref{fig:superdraco}) differs from most rocket engines in that its combustion chamber is 3D-printed by direct metal laser sintering (DMLS), where complex metal structures are printed by using a laser to build the object out of metal powders one thin layer at a time. The regeneratively-cooled combustion chamber is made of inconel; a family of nickel-chromium alloy that is noteworthy for its high strength and toughness.
@@ -171,14 +171,9 @@ The cost depends on the size and not on the complexity of the part meaning we ca
 The concept of "open-source hardware" or "open hardware" is not as well known or widespread as the free software or open-source software concepts yet. However, it shares the same principles: anyone should be able to see the source (the design documentation in case of hardware), study it, modify it and share it.
 
 
-
-In this section, we will ...
-
 \subsection{Open hardware in the industrial history.} % (fold)
 
 In the 18th century London and Lyon (France) were two majors silk manufacturing towns. Because London was on the way to taking the lead, Lyon tried a new and original policy for innovation. They decided to freely diffuse new techniques. Inventors were invited to the city hall to present their innovations publicly. They were then rewarded a first time for the presentation, and a second time when the innovation was actually implemented on Lyon machines. This policy was followed by decades of cumulative inventions such as: perforated paper tape (1725 B. Bouchon), punched card programming (1728, J-B. Falcon), the Jacquard loom (1801, J-M. Jacquard), and the sewing machine (1829, B.Thimonnier). Meanwhile, silk production in London was governed by patents, techniques were kept secret and monopolized by theirs inventors. \parencite{alain1997fate}
-
-\textbf{TODO: Find an illustration}
 
 The impact of these two opposed political choices turned out largely in Lyon’s favour. In 1815, Lyon had 14500 looms and London 12000. But in 1853, Lyon had 60000 looms while London fell to only 5000. London became a silk importer.
 
@@ -244,7 +239,7 @@ The combination of these modules leads to six licenses (see \figurename~\ref{fig
     \item[Attribution-ShareAlike CC BY-SA] People can distribute, remix, tweak and build upon the licensed work, even commercially, as long as they credit the authors and license their new creations under identical terms. \textbf{This license is often compared to the “copyleft” free and open source software licenses.}
 \end{description}
 
-\begin{figure}[]
+\begin{figure}[tb]
     \begin{center}
         \includegraphics[width=0.8\linewidth]{all-cc-licenses.jpg}
     \end{center}
@@ -269,7 +264,7 @@ Specifically designed for open hardware, and avoids the issues other licenses ha
 
 Based on the open source hardware philosophy, several companies and projects have been created over the past ten years (see \figurename~\ref{fig:oh_evolution}).
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
     \subfloat[][Creation of new open hardware projects per year between 2005 and 2011.]{\label{fig:oh_project_evolution}\includegraphics[width=0.45\linewidth]{oh_project_evolution.jpg}}
     \hfil
@@ -318,7 +313,7 @@ Today, Arduino is a very successful project with more than 1,000,000 boards sold
 
 \subsubsection{Shapeoko}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \begin{center}
         \includegraphics[width=0.8\linewidth]{shapeoko_v2.jpg}
     \end{center}
@@ -341,7 +336,7 @@ The RepRap project started in 2005 and based on the Fab@Home\footnote{\url{http:
 \end{quotation}
 
 
-\begin{figure}[]
+\begin{figure}[tb]
 \centering
     \subfloat[][RepRap v2]{\label{fig:RepRap_v2}\includegraphics[width=0.45\linewidth]{RepRap_v2.jpg}}
     \hfil
@@ -351,7 +346,7 @@ The RepRap project started in 2005 and based on the Fab@Home\footnote{\url{http:
 \end{figure}
 
 
-Distributed under GNU General Public License, the RepRap (see \figurename~\ref{fig:RepRap_v2}) was one of the first low-cost 3D printers. Thanks to the fhe fact that it is genuinely collaborative, this project generated such a large number of variations and interpretations that is difficult to even count (see \figurename~\ref{fig:RepRap_family_tree}). One of them is the now famous Makerbot Replicator (see \figurename~\ref{fig:makerbot-replicator}). Now Makerbot is one of the major worldwide general public 3D printer distributors.
+Distributed under GNU General Public License, the RepRap (see \figurename~\ref{fig:RepRap_v2}) was one of the first low-cost 3D printers. Thanks to the fhe fact that it is genuinely collaborative, this project generated such a large number of variations and interpretations that is difficult to even count. One of them is the now famous Makerbot Replicator (see \figurename~\ref{fig:makerbot-replicator}). Now Makerbot is one of the major worldwide general public 3D printer distributors.
 
 
 

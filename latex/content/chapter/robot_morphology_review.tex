@@ -34,7 +34,7 @@ In addition, the robot body became a handicap, which often ruined the efficiency
 To overcome these issues of real world applications, the other side of the robotics community, still interested in the hardware challenges strove to design more reliable and powerful robots which can react as fast and as closely as possible to the model used for its control. To do that far more precise sensors and actuators powerful enough to overcome inertia and mechanical friction are needed. Thanks to this work on hardware, industrial robots have become increasingly fast and precise, enough so to outclass any human on certain assembly tasks.
 
 However, even with really efficient robots, artificial intelligence failed to show results comparable with the expectations researchers and society had. Robots are able to solve incredibly complex task such as chess games or able to achieve highly precise tasks in manufacturing but require a perfectly controlled and predictable environment. Going beyond this known environment seems impossible to program and none of them are able to act fluently in the real world.
-Unlike virtual worlds, the real world is challenging in various ways. It is not possible to enable omniscience: we do not access the knowledge of all world states and parameters, the measures a robot can take are limited, take time and are noisy while the action taken is always different. Finally real world states are never clearly defined as precise discrete states: "the weather is never simply good or bad"~\parencite{piefer06}.
+Unlike virtual worlds, the real world is challenging in various ways. It is not possible to enable omniscience: we do not access the knowledge of all world states and parameters, the measures a robot can take are limited, take time and are noisy while the action taken is always different. Finally real world states are never clearly defined as precise discrete states: "the weather is never simply good or bad"~\parencite{Pfeifer06}.
 
 While the classical approach has known great successes  in solving abstract problems such as chess games, search engines and text processing, it has failed in the understanding of natural forms of intelligence which requires a direct interaction with the real world. This is especially the case when we consider the current state of the art for interaction with humans (natural language) or objects (grasping) and locomotion in an open environment (walking, running, riding a bicycle).
 
@@ -92,9 +92,9 @@ The dynamics of the system are formalized by an equation of motion linearized cl
 
 \begin{figure}[tb]
 \centering
-    \subfloat[][]{\label{fig:}\includegraphics[width=0.4\linewidth]{simple_leg_wheel.jpg}}
+    \subfloat[][]{\includegraphics[width=0.4\linewidth]{simple_leg_wheel.jpg}}
     \hfil
-    \subfloat[][]{\label{fig:}\includegraphics[width=0.4\linewidth]{simple_leg_wheel_trajectories.jpg}}
+    \subfloat[][]{\includegraphics[width=0.4\linewidth]{simple_leg_wheel_trajectories.jpg}}
     \caption{The simplest of walking models is the synthetic wheel, a biped with straight legs and semi-circular feet (a). The stance leg rolls forward steadily like a spoke in a wheel, while the free leg swings ahead like a pendulum. Support is transferred between legs when their speeds and angles match (b). The cycle is naturally stable and will repeat continuously, thus synthesizing the motion of an ordinary wheel~\parencite{mcgeer1992principles}.}
     \label{fig:synthetic-wheel}
 \end{figure}
@@ -125,8 +125,8 @@ Passive robots are limited to walking on inclined ground, they cannot have a pas
     \begin{center}
         \includegraphics[width=0.99\linewidth]{cornell_biped_series.jpg}
     \end{center}
-    \caption{Caption here}
-    \label{fig:figure1}
+    \caption{}
+    \label{fig:cornell-biped}
 \end{figure}
 
 Thus this work has been pursued with the appearance of semi-passive walkers combining both specific passive properties and low power actuation to increase their robustness~\parencite{Anderson2005}. We can note the work of Collins~\parencite{collins2005bipedal} which explored the case of a semi-passive 3D biped robot. Its morphology is based on a particular mass distribution, knee locking, round feet and springs on the legs to generate an efficient walking gait while keeping its lateral and frontal balance. The concept of a 3D semi-passive robot has been pushed even further with the realization of a complete humanoid robot with torso, arms and head: the robot Denise~\parencite{wisse2005three} and Flame presented in~\parencite{Hobbelen2008}.
@@ -135,8 +135,8 @@ Thus this work has been pursued with the appearance of semi-passive walkers comb
 %     \begin{center}
 %         \includegraphics[width=0.6\linewidth]{comparison_cost_transport.jpg}
 %     \end{center}
-%     \caption{Caption here}
-%     \label{fig:figure1}
+%     \caption{}
+%
 % \end{figure}
 
 
@@ -149,11 +149,11 @@ It is precisely in the artistic field that we find one of the most fascinating e
 \begin{figure}[tb]
 \centering
     \subfloat[][]{\label{fig:theo_jansen_beast}\includegraphics[width=0.99\linewidth]{theo_jansen_beast.jpg}}\newline
-    \subfloat[][]{\label{}\includegraphics[width=0.32\linewidth]{strandbeest_theory.jpg}}
+    \subfloat[][]{\includegraphics[width=0.32\linewidth]{strandbeest_theory.jpg}}
     \hfil
-    \subfloat[][]{\label{}\includegraphics[width=0.32\linewidth]{strandbeest_motion.jpg}}
+    \subfloat[][]{\includegraphics[width=0.32\linewidth]{strandbeest_motion.jpg}}
     \hfil
-    \subfloat[][]{\label{}\includegraphics[width=0.32\linewidth]{strandbeest_leg_element.jpg}}
+    \subfloat[][]{\includegraphics[width=0.32\linewidth]{strandbeest_leg_element.jpg}}
     \caption{}
     \label{fig:beast_mechanism}
 \end{figure}
@@ -185,14 +185,14 @@ Several projects have already shown the importance of an adequately compliant mo
 
 \begin{figure}[tb]
 \centering
-    \subfloat[][]{\label{}\includegraphics[height=5cm]{rhex.jpg}}
+    \subfloat[][]{\includegraphics[height=5cm]{rhex.jpg}}
     \hfil
-    \subfloat[][]{\label{}\includegraphics[height=5cm]{raptor-robot.jpg}}
+    \subfloat[][]{\includegraphics[height=5cm]{raptor-robot.jpg}}
     \caption{}
     \label{fig:compliant_robot}
 \end{figure}
 
-Also certain humanoid robots have shown the importance of a compliant structure for human robot interaction. For example,  , the compliant structure of the vertebral column and legs of Acroban~\parencite{Ly2011bio} \parencite{Oudeyer2011} was shown to permit a self-organized physical human-robot interface allowing non-expert users to lead the robot by the hand.
+Also certain humanoid robots have shown the importance of a compliant structure for human robot interaction. For example,  , the compliant structure of the vertebral column and legs of Acroban~\parencite{ly2011bio} \parencite{Oudeyer2011} was shown to permit a self-organized physical human-robot interface allowing non-expert users to lead the robot by the hand.
 
 Furthermore, it has been shown that the compliance of the body explains the dynamics of walking and running~\parencite{Geyer2006} \parencite{iida2007bipedal}, and appears to be a key-feature toward the achievement of the fastest current robots both for quadrupedal (DARPA Cheetah robot\footnote{\url{http://youtu.be/d2D71CveQwo}}) and bipedal running (see raptor robot\footnote{\url{http://youtu.be/lPEg83vF_Tw}}).
 
@@ -200,7 +200,7 @@ Furthermore, it has been shown that the compliance of the body explains the dyna
 
 \section{Conclusion} % (fold)
 
-Researchers have shown the interest of having a well-adapted morphology, by exploring several aspects such as morphological computation, passive dynamics or compliance with this goal in mind. In addition, we could complete this review about the role of morphology with the ecological balance principle~\parencite{pfeifer2005new}, bio-inspiration~\parencite{scarfogliero2009use} \parencite{pfeifer2007self} or the coupling of adequate morphologies with central-pattern generators that has been shown to generate robust locomotor behaviour~\parencite{ijspeert2007swimming} \parencite{steingrube2010self}.
+Researchers have shown the interest of having a well-adapted morphology, by exploring several aspects such as morphological computation, passive dynamics or compliance with this goal in mind. In addition, we could complete this review about the role of morphology with the ecological balance principle~\parencite{pfeifer2005new}, bio-inspiration~\parencite{scarfogliero2009use} \parencite{Pfeifer07} or the coupling of adequate morphologies with central-pattern generators that has been shown to generate robust locomotor behaviour~\parencite{ijspeert2007swimming} \parencite{steingrube2010self}.
 
 The work presented in this chapter shows the recent awareness in the robotics field of the importance of morphology. It appears increasingly clear that the achievement of robust robotic requires an understanding of the interaction between robot morphology, control and environment. Yet as the
 

@@ -32,9 +32,9 @@ To avoid multiple wires (2 per sensor) going from the head to the feet, we decid
 
 Because Arduino nano board has 8 analog inputs, we have added 8 sensors under each foot (see \figurename~\ref{fig:poppy_foot_sensors}) but actually only used 5 (the big ones) and integrated the arduino nano in the leg. While it was a hack of a real shoe and not just a print of new part, the intervention was quite annoying but still achievable in one day. Here we have chosen to use USB cable to plug each Arduino nano in the Poppy's head but it could also have be done using UART, SPI or I2C communication.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
-    \subfloat[][]{\label{fig:poppy_foot_sensors}\includegraphics[height=7cm]{foot_sensors.jpg}}
+    \subfloat[][]{\label{fig:poppy_foot_sensors_zoom}\includegraphics[height=7cm]{foot_sensors.jpg}}
     \hfil
     \subfloat[][]{\label{fig:poppy_nano_integration}\includegraphics[height=7cm]{poppy_leg_arduino_nano.jpg}}
     \caption{}
@@ -68,7 +68,7 @@ With our novel sensors, we conducted similar walking experiment as the one expla
 
 The sensors are not very precise but as we can see on \figurename~\ref{fig:poppy_GRF}, the variation of the ground reaction force (mean of the 5 force sensors) over the gait cycle has a similar M-shape as the one we can find in human gait (see \figurename~\ref{fig:human_GRF}). Also we can notice than the reaction is slightly different between the two foot (\figurename~\ref{fig:right_GRF} Vs \figurename~\ref{fig:left_GRF}).
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \centering
     \subfloat[][]{\label{fig:right_GRF}\includegraphics[width=0.48\linewidth]{right_GRF.pdf}}
     \hfil
@@ -78,11 +78,11 @@ The sensors are not very precise but as we can see on \figurename~\ref{fig:poppy
 \end{figure}
 
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \centering
-    \subfloat[][]{\label{fig:}\includegraphics[width=0.3\linewidth]{human_GRF.jpg}}
+    \subfloat[][]{\includegraphics[width=0.3\linewidth]{human_GRF.jpg}}
     \hfil
-    \subfloat[][]{\label{fig:}\includegraphics[width=0.7\linewidth]{human_GRF_variation.jpg}}
+    \subfloat[][]{\includegraphics[width=0.7\linewidth]{human_GRF_variation.jpg}}
     \caption{}
     \label{fig:human_GRF}
 \end{figure}

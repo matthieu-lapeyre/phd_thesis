@@ -54,7 +54,7 @@ These techniques require specific upfront tooling which make the production of a
 
 Most labs must reinvent the wheel by developing whole new robotic platforms even though functional setups have already been developeded by other laboratories and could be reused.
 
-For example, several interesting robotic platforms explore key aspects of robot morphology. We can cite Kenshiro~\parencite{REF} which has a complex and bio-inspired artificial muscles actuator network, or semi-passive walkers such as Denise~\parencite{REF}, demonstrating impressive walking ability with little control and power actuation. Unfortunately, none of these robots can be and have ever been transferred to another lab. Indeed even if they were open source theirs productions require specific tooling and hand tuning that only few skilled people have.
+For example, several interesting robotic platforms explore key aspects of robot morphology. We can cite Kenshiro~\parencite{nakanishi2013design} which has a complex and bio-inspired artificial muscles actuator network, or semi-passive walkers such as Denise~\parencite{wisse2005three}, demonstrating impressive walking ability with little control and power actuation. Unfortunately, none of these robots can be and have ever been transferred to another lab. Indeed even if they were open source theirs productions require specific tooling and hand tuning that only few skilled people have.
 
 Therefore some constraints have to be applied on hardware platforms to make them reproducible:
 \begin{description}
@@ -149,7 +149,7 @@ While some actuator technologies such as Series Elastic Actuator (SEA), cable-dr
 
 To permit the diffusion, we need off-the-shelf and stationary solutions, easy to assemble, easy-to-use and available anywhere. Also, to allow the exploration of morphology, actuators have to be modular and allow the tuning of several parameters.
 
-We therefore chose to use Robotis Dynamixel servo-motors\footnote{\url{http://www.robotis.com/xe/dynamixel_en}} for robot actuation (see \figurename~\ref{fig:dynamixel_models}). Dynamixel motors are easily accessible, as they are mass produced and shipped worldwide. Also they are the most commonly used actuators in the robotic field and many robots are powered by them, including Darwin-OP~\parencite{REF}, Myon~\parencite{REF} , Acroban~\parencite{REF} or Nimbro~\parencite{REF}.
+We therefore chose to use Robotis Dynamixel servo-motors\footnote{\url{http://www.robotis.com/xe/dynamixel_en}} for robot actuation (see \figurename~\ref{fig:dynamixel_models}). Dynamixel motors are easily accessible, as they are mass produced and shipped worldwide. Also they are the most commonly used actuators in the robotic field and many robots are powered by them, including Darwin-OP~\parencite{ha2011development}, Myon~\parencite{hild2012myon} , Acroban~\parencite{ly2011bio} or Nimbro~\parencite{schwarznimbro}.
 
 The Dynamixel motors are not simple servomotors, they are all-in-one-modules that contain drivers, encoders and communication buses. They are also quite powerful, robust and rather precise. This is achieved by the combination of Maxon motors, metal gearbox and precise magnetic rotation sensor (resolution: 0.1\textsuperscript{o}). They embed a 32bits micro-controller dedicated to communication (serial port TTL or RS232), the control of the joint (position, speed or torque) and the measurement of internal data such as the real position, speed, load or temperature. They also allow tuning the internal PID or limitation of the maximal torque. This enables rich behaviour, useful both for physical interaction and locomotion.
 
@@ -230,7 +230,7 @@ In this thesis, we aim to enable both the free exploration of morphological vari
 
 This design process permits the creation of low-cost and highly hackable experimental robotic platforms thanks to a fully modular and open source approach.
 
-The tools used form part of the makers revolution and the emergence of the new rapid prototyping tools, sometimes called the novel industrial revolution~\parencite{anderson}. Therefore we can rely on the hundreds of Fablabs around the world as a lever arm to increase the dissemination and reproducibility of robotic platforms designed with such methods.
+The tools used form part of the makers revolution and the emergence of the new rapid prototyping tools, sometimes called the novel industrial revolution~\parencite{anderson2012makers}. Therefore we can rely on the hundreds of Fablabs around the world as a lever arm to increase the dissemination and reproducibility of robotic platforms designed with such methods.
 
 Yet the chosen approach raised some limitations. Indeed, since we want to keep our work reproducible, we have to reduce the complexity of the assembly as well as the use of our robotic platforms. This means we need to spend more time developing and testing our design to make it as easy to use as possible. Also we are limited in the components we can use, they have to be easily accessible i.e. easily available and in large quantities in online stores.
 

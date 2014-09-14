@@ -12,7 +12,7 @@ We performed a parametric optimization both on the position of the spring ties (
     \item $ max(\abs{C(\theta)}) < \frac{C_{MX-28}}{2}$: The actuator $MX-28$ should always be powerful enough to control the joint motion.
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\linewidth]{knee_spring.jpg}
     \caption{Spring parameters to optimize}
@@ -90,7 +90,7 @@ By considering Poppy's parameters and a coefficient of safety $C_s = 5$, we have
 
 Considering the desired spring behavior and geometrical conditions, an automatic selection out of 720 different springs\footnote{pre-selection of springs in the vanel.com catalogue} was performed. Only 5 springs satisfied all criteria. For the Poppy platform we chose a spring with the following characteristics: $\{ D_i=9.6mm$, $L_0=42mm$, $K=1620N.m^{-1}$, $F_{max}=81.7 N$, $L_{max}=72.8 mm \}$ inducing a resultant behavior shown in Fig.~\ref{fig:knee_feature}. As we can see, even if the torque applied by the spring is quite low ($C_{max} = 0.74 N.m$), the force subjected to spring ties is up to $40N$. The shape of the ties has been optimized using FEA (Finite Element Analysis) in order to handle the stress.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.95\linewidth]{torque_knee.png}
     \caption{Theoretical semi-passive mechanism behavior. The blue line corresponds to the torque applied by the springs on the leg according to the flexion angle of the knee. The red line corresponds to the force that the springs applied on ties.}

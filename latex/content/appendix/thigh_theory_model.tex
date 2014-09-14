@@ -3,31 +3,31 @@
 
 
 
-If we look closely at the morphology of the human femur, it appears that it is inclined by an angle of 6\textsuperscript{o}. This makes the feet closer to the projection of the center of gravity (CoG) (see Fig.~\ref{fig:human_thigh}) and enhances stability  in  two main ways  during the walking gait:
+If we look closely at the morphology of the human femur, it appears that it is inclined by an angle of 6\textsuperscript{o}. This makes the feet closer to the projection of the center of gravity (CoG) (see Fig.~\ref{fig:human_thigh_appendix}) and enhances stability  in  two main ways  during the walking gait:
 
 \begin{itemize}
-    \item As the feet are closer to the center of gravity, the lateral translation of the CoG necessary to transfer the mass of the robot from one foot to another is reduced (see Fig~\ref{fig:human_thigh}). In the case of Poppy's morphology, thanks to the $6$\textsuperscript{o} bended thigh, the lateral motion of the CoG is reduced by about 30\% ($ 5 cm$ instead of $7.1 cm$).
+    \item As the feet are closer to the center of gravity, the lateral translation of the CoG necessary to transfer the mass of the robot from one foot to another is reduced (see Fig~\ref{fig:human_thigh_appendix}). In the case of Poppy's morphology, thanks to the $6$\textsuperscript{o} bended thigh, the lateral motion of the CoG is reduced by about 30\% ($ 5 cm$ instead of $7.1 cm$).
     \item During the stance phase, the CoG initial conditions are slightly modified. As we will explain with a simple theoretical model in the next section, the bended thigh can reduce the falling rate.
 \end{itemize}
 
 
 \begin{figure}[tb]
 \centering
-    \subfloat[][]{\label{fig:human_thigh}\includegraphics[height=8cm]{human_thigh.jpg}}
+    \subfloat[][]{\label{fig:human_thigh_appendix}\includegraphics[height=8cm]{human_thigh.jpg}}
     \hfil
-    \subfloat[][]{\label{fig:model_thigh}\includegraphics[height=8cm]{model_thigh.jpg}}
+    \subfloat[][]{\label{fig:model_thigh_appendix}\includegraphics[height=8cm]{model_thigh.jpg}}
     \hfil
-    \subfloat[][]{\label{fig:thigh_of_poppy}\includegraphics[height=6cm]{thigh_shape_large.jpg}}
+    \subfloat[][]{\label{fig:thigh_of_poppy_appendix}\includegraphics[height=6cm]{thigh_shape_large.jpg}}
     \caption{ a) Effect of bended human femur on human bipedal locomotion.
     b) Model used for the comparison of the two thighs morphology.
     c) Implementation of the bended thigh on the poppy platform}
-    \label{fig:poppy_thigh}
+    \label{fig:poppy_thigh_appendix}
 \end{figure}
 
 \section{Theoretical model} % (fold)
 \label{sub:exp_theoritical_model}
 
-We can model the situation where the robot is on one foot by an inverted pendulum with a mass point centered on the center of gravity (CoG) of the robot and the axis of rotation located at the foot position (see Fig.~\ref{fig:thigh_of_poppy}). With such a model, the dynamic of the whole structure depends on:
+We can model the situation where the robot is on one foot by an inverted pendulum with a mass point centered on the center of gravity (CoG) of the robot and the axis of rotation located at the foot position (see Fig.~\ref{fig:thigh_of_poppy_appendix}). With such a model, the dynamic of the whole structure depends on:
 
 \begin{itemize}
     \item the length $l$ of the segment extending from the foot to the center of gravity,
@@ -59,7 +59,7 @@ and
 
 One can see that the position and velocity of the pendulum varies linearly with the initial condition i.e $\theta$ angle. Therefore, reducing this initial angle $\theta_0$ involves a direct reduction of the falling speed $\dot{\theta}(t)$ of the robot.
 
-In the case of Poppy's geometry, the thigh bending allows a 40\% reduction of the initial angle $\theta_0$ ($\alpha = 3.8$\textsuperscript{o} against $ \beta = 6.4$\textsuperscript{o} on Fig.~\ref{fig:model_thigh}).
+In the case of Poppy's geometry, the thigh bending allows a 40\% reduction of the initial angle $\theta_0$ ($\alpha = 3.8$\textsuperscript{o} against $ \beta = 6.4$\textsuperscript{o} on Fig.~\ref{fig:model_thigh_appendix}).
 
 \section{Simulation} % (fold)
 

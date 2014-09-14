@@ -13,8 +13,8 @@ We decided to develop a new robotic library control. Called pypot (see \figurena
 \begin{NFfigure}
     \centering
         \includegraphics[height=5cm]{PyPot_logo_black_transparentbg.png}
-    \caption{Caption here}
-    \label{fig:figure1}
+    \caption{}
+    \label{fig:pypot_logo}
 \end{NFfigure}
 
 Toward these goals, pypot is a library written in Python and developed to make it easy and fast to control custom and modular robots. In particular, pypot has been designed with a simple and easy to use API, a fully modular and customizable architecture, and key-features adapted to the robotic experimentation issues.
@@ -187,7 +187,7 @@ This modularity is expressed through the I/O controllers and the primitive parad
     \begin{center}
         \includegraphics[width=\linewidth]{pypot.pdf}
     \end{center}
-    \caption{Caption here}
+    \caption{}
     \label{fig:pypot-modular-architecture}
 \end{figure}
 
@@ -206,7 +206,7 @@ As it is often easier to work in simulation rather than with the real robot, Pyp
     \begin{center}
         \includegraphics[width=\linewidth]{pypot_vrep.jpg}
     \end{center}
-    \caption{Caption here}
+    \caption{}
     \label{fig:pypot-vrep}
 \end{figure}
 
@@ -220,7 +220,7 @@ The switch between the simulation and the real robot is possible with a single l
     language = Python,
     caption = {Creating a robot},
     label = {code:vrep_pypot_switch},
-    float = h]
+    float = ht]
     {code/vrep_pypot_switch.py}
 
 In addition, it provides some extended feature relative to the need we have in a robot simulator, among them:
@@ -380,15 +380,15 @@ The performance could be improved by splitting pypot with the low-level executed
     \begin{center}
         \includegraphics[width=0.8\linewidth]{board-cmp.pdf}
     \end{center}
-    \caption{Caption here}
+    \caption{}
     \label{fig:pypot-board-comparaison}
 \end{figure}
 
 \begin{figure}[tb]
 \centering
-    \subfloat[][]{\label{fig:poppy_arm_truss}\includegraphics[width=0.5\linewidth]{cpu-load.pdf}}
+    \subfloat[][]{\label{fig:cpu-load}\includegraphics[width=0.5\linewidth]{cpu-load.pdf}}
     \hfil
-    \subfloat[][]{\label{fig:poppy_leg_truss}\includegraphics[width=0.5\linewidth]{pypy-opti.pdf}}
+    \subfloat[][]{\label{fig:pypy-opti}\includegraphics[width=0.5\linewidth]{pypy-opti.pdf}}
     \caption{}
     \label{fig:pypot-run}
 \end{figure}
