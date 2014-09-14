@@ -2,7 +2,20 @@
 
 \section{Electronic architecture} % (fold)
 
-TODO
+To keep the spirit of the project described by its guidelines (see previous section REF), the electronic architecture has to be simple, easily reproducible, relatively low-cost and modular. Of course the performance of each components is very important and should be correctly dimensioned.
+
+The first version of Poppy (beta) had a handmade electronics architecture, which required hacking several components before soldering them together. This design was not compliant with the design guidelines of Poppy (i.e. easy to use and to reproduce) and was actually the main reason Poppy was considered as a beta version. Recent work has been done toward the simplification and the reproducibility of the electronics part.
+
+Yet the electronic integration is challenging. Indeed, because Poppy has 5 degrees of freedom in the torso, there is not enough room for all electronic components needed. Therefore we had to embed most of them in the head which raise a room problem but also a mass problem.
+
+
+Poppy's electronic architecture is based on several key-components communicating with each other (see Figure Ref):
+\begin{itemize}
+    \item an IO board controlling all the sensorimotor space,
+    \item an embedded computing module to permit wireless communication,
+    \item a head screen to display emotions or information,
+    \item an alimentation board to provide the 12V needed for the motors and 5V needed for electronic systems,
+\end{itemize}
 
 \begin{figure}[tb]
     \begin{center}
@@ -12,15 +25,9 @@ TODO
     \label{fig:figure1}
 \end{figure}
 
-
+We will discribe in this section, the design choices we made for this several components.
 
 \subsection{Poppy IO Board} % (fold)
-
-To keep the spirit of the project described by its guidelines (see previous section REF), the electronic architecture has to be simple, easily reproducible, relatively low-cost and modular. Of course the performance of each components is very important and should be correctly dimensioned.
-
-The first version of Poppy (beta) had a handmade electronics architecture, which required hacking several components before soldering them together. This design was not compliant with the design guidelines of Poppy (i.e. easy to use and to reproduce) and was actually the main reason Poppy was considered as a beta version. Recent work has been done toward the simplification and the reproducibility of the electronics part.
-
-Yet the electronic integration is challenging. Indeed, because Poppy has 5 degrees of freedom in the torso, there is not enough room for all electronic components needed. Therefore we had to embed most of them in the head which raise a room problem but also a mass problem.
 
 With the aim to offer easy-to-use modular electronics architecture and to make it fit in the head of Poppy, we decided to create a custom board. We could argue it makes more complex the diffusion of the platform while a custom board is too complex to be handmade and should therefore follows the industrialization process we are trying to avoid since the early age of the project. Nevertheless the makers revolution brings novel solutions to produce electronics. Indeed, there are now companies (such as CircuitHub\footnote{\url{https://circuithub.com}}), which offer scalable solution tools from 1 sample to a 10,000 batch. It is possible to upload our design and anyone can ask to make it produced. Of course ordering one part is more expansive but stay relatively low compare to the robot cost.
 
@@ -40,39 +47,53 @@ For the use in Poppy, these devices has several main advantages:
 
 \begin{figure}[tb]
 \centering
-    \subfloat[][]{\label{fig:usb2ax_dongle}\includegraphics[height=5.5cm]{usb2ax.jpg}}
+    \subfloat[][]{\label{fig:usb2ax_dongle}\includegraphics[height=4.5cm]{usb2ax.jpg}}
     \hfil
-    \subfloat[][]{\label{fig:USB2AX_vs_USB2Dxl}\includegraphics[height=5.5cm]{USB2AX_vs_USB2Dxl.jpg}}\\
+    \subfloat[][]{\label{fig:USB2AX_vs_USB2Dxl}\includegraphics[height=4.5cm]{USB2AX_vs_USB2Dxl.jpg}}\\
+
+    \subfloat[][]{\label{ig:usb2ax-perf}\includegraphics[height=5.5cm]{motor-bench.pdf}}
     \caption{}
     \label{fig:usb2ax}
 \end{figure}
 
-\begin{figure}[tb]
-    \begin{center}
-        \includegraphics[width=0.7\linewidth]{motor-bench.pdf}
-    \end{center}
-    \caption{Caption here}
-    \label{fig:usb2ax-perf}
-\end{figure}
-
 This project has always been used on Poppy and greatly help us to both have a effective robot while keeping the room for electronic low.
-Because the project is open hardware, we could have reuse it to embed it directly on a custom board so we can avoid having usb connectors.
+Because the project is open hardware, we could have reuse it to embed it directly on a custom board so we can make it even smaller by avoid usb connectors.
 
 \subsubsection{Arduino integration} % (fold)
-As we explain in the section REF, the modularity of the Poppy electronics is achieved thanks to the use of Arduino environment. For the Arduino integration we decided to use the new Arduino Due based on the Atmel SAM3X8E ARM Cortex-M3 CPU. These board embeds both a powerful microcontroller (84 MHz 32-bit ARM core) and a large number of inputs/ouputs: 54 digital input/output pins (of which 12 can be used as PWM outputs), 12 analog inputs, 4 UARTs (hardware serial ports).
+As we explain in the section REF, the modularity of the Poppy electronics is achieved thanks to the use of the Arduino environment. For the Arduino integration we decided to use the new Arduino Due based on the Atmel SAM3X8E ARM Cortex-M3 CPU. These board embeds both a powerful microcontroller (84 MHz 32-bit ARM core) and a large number of inputs/ouputs: 54 digital input/output pins (of which 12 can be used as PWM outputs), 12 analog inputs, 4 UARTs (hardware serial ports).
 
 
 \subsubsection{Actual design of the IO Board} % (fold)
 The IO board is an open hardware project aiming to simplify the use of Poppy for non-electronic-expert users. Therfore it integrates into one board all components it would be necessary to plug or solder.
 
-This board is based on the other open hardware projects previously presented and contains two usb2ax for communication with Robotis actuators, 1 arduino Due to permit the extension of the sensors space and convenient ports
 
-\begin{figure}[tb]
-    \begin{center}
-        \includegraphics[width=0.8\linewidth]{IO_Board.pdf}
-    \end{center}
-    \caption{Caption here}
-    \label{fig:figure1}
+This board is based on the other open hardware projects previously presented and contains two usb2ax for communication with Robotis actuators, an Arduino Due to permit the extension of the sensors space plus convenient  ports to easily plug external devices. See \figurename~\ref{tab:io-board-specs} for a complete details of all the available IO ports.
+
+In addition, it integrates two sensors: a ADXL345 accelerometer, which has four measurement range (2g/4g/8g/16g) with up to 13-bits resolution and a data rate up to 3200Hz; and a ITG-3200 gyroscope, which has a full scale range of +/- 2000\textsuperscript{o}/s with 16-bits resolution and data rate up to 36kHz.
+
+
+The board has been designed using KiCad\footnote{Open source EDA software}, the source are distributed under open source license\footnote{Creative Commons CC-BY-SA} and aivailble on our GitHub project\footnote{\url{https://github.com/poppy-project/poppy-electronics/tree/master/CarteIo}}. The production of the board can be done using CircuitHub\footnote{\url{https://circuithub.com/projects/Poppy_project/CarteIo}} and costs \$250 for one board or \$90 for ten\footnote{The cost descrease with quantity up to \$50.}.
+
+\begin{figure}[p]
+\centering
+    \subfloat[][]{\includegraphics[width=\linewidth]{IO_Board.pdf}}
+
+
+    \subfloat[][]{\label{tab:io-board-specs}
+        \begin{tabularx}{0.8\linewidth}{r X}
+        \textbf{2x} & high-speed motors buses\\
+        \textbf{2x} & UART ports\\
+        \textbf{1x} & I2C bus\\
+        \textbf{2x} & external USB Ports\\
+        \textbf{1x} & accelerometer\\
+        \textbf{1x} & gyroscope\\
+        \textbf{12x} & anlog pins\\
+        \textbf{12x} & digital pins allowing PWM control\\
+        \textbf{4x} & 5v ports to supply power to external devices\\
+        \end{tabularx}
+        }
+    \caption{}
+    \label{fig:IO-board}
 \end{figure}
 
 
@@ -85,19 +106,12 @@ Yet as I said previously, embedding control is complex. Indeed, the computer has
 
 It is the case with one of the most famous micro-computer, the raspberry pi. The first trials we made using Pypot was really disappointing on the performance aspect. As we can see in section REF, it takes about 10-12 ms just to read and write a motor position (mostly computing) while it is only 2ms on a normal computer (mostly serial communication). Therefore we oriented our choice toward the Hardkernel Odroid U3 board (8\~12 times faster than the Raspberry Pi).
 
-\begin{figure}[!h]
-    \begin{center}
-        \includegraphics[width=\linewidth]{Odroid_U3.jpg}
-    \end{center}
-    \caption{Hardkernel Odroid U3 computer board}
-    \label{fig:odroid_U3}
-\end{figure}
+\begin{figure}[p]
+    \centering
+    \subfloat[][]{\includegraphics[width=\linewidth]{Odroid_U3.jpg}}
 
-The Hardkernel Odroid U3 (see \figurename~\ref{fig:odroid_U3}) is a low-cost (\$65) and powerful Linux computer embedding a 1.7GHz Quad-Core processor and 2GByte RAM while being very small (83 x 48 mm) and lightweight (48 grams) (see Tab.~\ref{tab:table_feet} for the detail of all specifications).
 
-\begin{table}[!t]
-    \begin{center}
-        \begin{tabularx}{\linewidth}{r X}
+    \subfloat[][]{\begin{tabularx}{\linewidth}{r X}
         % \hline
         \textbf{Processor} & Samsung Exynos4412 Prime Cortex-A9 Quad Core 1.7Ghz with 1MB L2 cache\\
         \textbf{Memory} & 2048MB(2GB) LP-DDR2 880Mega data rate\\
@@ -118,10 +132,13 @@ The Hardkernel Odroid U3 (see \figurename~\ref{fig:odroid_U3}) is a low-cost (\$
          & \\
         % \hline
         \end{tabularx}
-        \caption{Odroid U3 Linux computer detailed specifications}
-        \label{tab:table_feet}
-    \end{center}
-\end{table}
+        }
+    \caption{Hardkernel Odroid U3 computer board}
+    \label{fig:odroid_U3}
+\end{figure}
+
+The Hardkernel Odroid U3 (see \figurename~\ref{fig:odroid_U3}) is a low-cost (\$65) and powerful Linux computer embedding a 1.7GHz Quad-Core processor and 2GByte RAM while being very small (83 x 48 mm) and lightweight (48 grams) (see Tab.~\ref{tab:table_feet} for the detail of all specifications).
+
 
 Among the plug-n-play small computers, the Odroid U3 is currently the most suitable board for our application according to the size, the computing power and the I/O positions.
 Yet as we will explain in the limitations (see section REF), this solution is still not perfectly satisfying and the use of plug'n'play computer raises a lot of integration problem.
@@ -142,12 +159,13 @@ The video out port on all new mini computer boards such as Raspberry Pi, Beagle 
 The integration of a led matrix panel would be easier but it would require to create driver for the display.
 Using a HDMI display connected to a Linux computer allows user to easily display information or animation on the screen like if it was on their monitor. Therefore users are free to use any tools they like such as Processing, OpenGL, VLC or whatever. This flexibility would not be possible with a matrix led panel which would have required to control the information displayed with Arduino programming.
 
-\subsubsection{Alimentation} % (fold)
+\subsection{Alimentation} % (fold)
 \label{ssub:alimentation}
 
+\subsubsection{Power board} % (fold)
 The current Poppy's alimentation is ensured by Robotis power supply. This solution is really low-cost with a dozens of euros but it is limited. Indeed, the Robotis power supply provides directly 12V@5A dans is plugged directly on the robot. Yet the wire is short and not really convenient. It would be a better solution to have on board active components allowing to convert a wide range of power supply to the one needed for Poppy. In particular, we could be compatible with standard laptop power supply (18-22V).
 
-This work is still in progress but no solution
+This work is still in progress and the chosen solution will be presented in the final version of this thesis.
 
 
 \subsubsection{The battery issue} % (fold)
@@ -166,7 +184,7 @@ Poppy is not yet able to walk by itself, being energtically autonomous does not 
     \label{fig:tyva_batteries}
 \end{figure}
 
-However, using Poppy away from any power source is still possible. Is it indeed rather simple to connect external 12V battery. Such battery can be easily found over Internet and has already been tested with Poppy for an artistic project where Poppy had to be in the pleinne nature\footnote{see associated project on our forum}.
+However, using Poppy away from any power source is still possible. Is it indeed rather simple to connect external 12V battery. Such battery can be easily found over Internet and has already been tested with Poppy for an artistic project where Poppy had to be surrounded by nature\footnote{see associated project on our forum}.
 
 
 
