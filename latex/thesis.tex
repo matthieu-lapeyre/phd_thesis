@@ -97,11 +97,34 @@
 % \reversemarginpar
 \usepackage{csquotes}
 
-\usepackage{xcolor}
+% \usepackage{xcolor}
 % \usepackage{hyperref}
 % \hypersetup{%
 %     colorlinks=true,
 %     citecolor=blue}
+
+\usepackage[strict]{changepage}
+\usepackage{framed}
+
+% environment derived from framed.sty: see leftbar environment definition
+\definecolor{formalshade}{rgb}{0.98,0.98, 0.98}
+\definecolor{bluetheme}{cmyk}{1, .50, .10, .01}
+
+\newenvironment{formal}{%
+  \def\FrameCommand{%
+    \hspace{15pt}%
+    {\color{bluetheme}\vrule width 1.5pt}%
+    {\color{formalshade}\vrule width 4pt}%
+    \colorbox{formalshade}%
+  }%
+  \MakeFramed{\advance\hsize-\width\FrameRestore}%
+  \noindent\hspace{-4.55pt}% disable indenting first paragraph
+  \begin{adjustwidth}{}{7pt}%
+  \vspace{-10pt}\vspace{2pt}%
+}
+{%
+  \vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}
 
 
 \renewcommand{\arraystretch}{1.3}

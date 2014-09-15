@@ -21,14 +21,14 @@ Moreover, as Luc Steels explained (REF), the actual behavior of a robot cannot b
 
 One of the best state of the art in this domain is the work done by Delft with the different passive and semi passive walkers they built (REF). Desiring to explore biped locomotion with Poppy, we had a discussion with Martijn Wisse on simulation strategy to add semi-passive abilities to Poppy. Here is his his testimony when they try to make their robot walk in simulation after managing to create the real one:
 
-\begin{quotation}
+\begin{formal}
 
 Even after obtaining a successful walking motion, we did not manage to create a simulation that walked successfully using the same controller parameters. We tried very hard with some of the best people, but we didn’t succeed. The reason was, I think, that our type of control (using the emergent behavior of a set of simple reflex-like controllers) was highly sensitive to hardware effects like friction. Normally, one uses a local joint controller to make the joint follow a desired trajectory independent of the exact amount of friction. The local controller "abstracts these hardware effects away", if you know what I mean. This makes the behavior of the whole system quite predictable. However, in our robots, we did not have this kind of abstraction as we were not following trajectories, and thus a little bit of extra friction has an effect on the entire motion.
 
 We did spend a long time making a high-fidelity model in Adams, and also using other methods, but eventually we gave up without success.
 
 \signed{Martijn Wisse - Associate professor at Delft University of Technology}
-\end{quotation}
+\end{formal}
 
 Thus the results we can find in simulator are very limited and experiments in the real world are needed to
 
