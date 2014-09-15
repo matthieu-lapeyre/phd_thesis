@@ -6,8 +6,8 @@
 
 \section{Introduction} % (fold)
 
-Poppy was designed to be a research platform for freely exploring morphological variations. Although Poppy meets "hardware" needs, control of the platform is of course crucial. Where more conventional robots have a fixed mechanical and sensorimotor morphology, having a platform that can be fully modified changes the low-level control architecture issues.
-We decided to develop a new robotic library control. Called pypot (see \figurename~\ref{fig:pypot_logo}), this library mostly developed by Pierre Rouanet, is adapted to the challenges of morphological exploration and experimentation. Moreover, development begun early in the design of Poppy, and shares the same guidelines and objectives i.e. being robust, modular, versatile and easy to use.
+Poppy was designed to be a research platform for freely exploring morphological variations. Although Poppy meets "hardware" needs, control of the platform is of course crucial. Whereas more conventional robots have a fixed mechanical and sensorimotor morphology, having a platform that can be fully modified changes the low-level control architecture issues.
+We decided to develop a new robotic control library. Called pypot (see \figurename~\ref{fig:pypot_logo}), this library mostly developed by Pierre Rouanet, is adapted to the challenges of morphological exploration and experimentation. Moreover, development begun early in the design of Poppy, and shares the same guidelines and objectives i.e. being robust, modular, versatile and easy to use.
 
 
 \begin{NFfigure}
@@ -17,27 +17,27 @@ We decided to develop a new robotic library control. Called pypot (see \figurena
     \label{fig:pypot_logo}
 \end{NFfigure}
 
-Toward these goals, pypot is a library written in Python and developed to make it easy and fast to control custom and modular robots. In particular, pypot has been designed with a simple and easy to use API, a fully modular and customizable architecture, and key-features adapted to the robotic experimentation issues.
+To reach these goals, pypot is a library written in Python and developed to make it easy and fast to control custom and modular robots. In particular, pypot has been designed with a simple and easy to use API, a fully modular and customizable architecture, and key-features adapted to robot experimentation issues.
 
-It shares also the open collaboration philosophy and is therefore distributed under an open source GPLv3 license. All sources are available on the associated GitHub repository: \url{https://github.com/poppy-project/pypot}.
+It also shares the open collaboration philosophy and is therefore distributed under an open source GPLv3 license. All sources are available on the associated GitHub repository: \url{https://github.com/poppy-project/pypot}.
 
-Even if pypot has been developed within the context of the Poppy project, in the following sections, most of code examples will involve an ergo-robot rather than Poppy to emphasize that pypot is a control library for any modular robots.
+Even if pypot has been developed within the context of the Poppy project, in the following sections, most of the code examples will involve an ergo-robot rather than Poppy to emphasize that pypot is a control library for any modular robot.
 
 
 
-\section{Control of custom robot made simple with pypot} % (fold)
+\section{Control of custom robots made simple with pypot} % (fold)
 
-A main preoccupation during the development of pypot is the achievement of a very easy-to-use library for the end user. For this purpose, pypot has been entirely written in Python to allow for fast development, easy deployment (cross-platform) and quick scripting by non-necessary expert developers. In particular, the API is simple and permits to write complex behaviours with just few-line of code.
+One main preoccupation during the development of pypot was the achievement of a very easy-to-use library for the end user. For this purpose, pypot has been entirely written in Python to allow for fast development, easy deployment (cross-platform) and quick scripting by expert developers that are not necessarily expert developers. In particular, API is simple and permits to write complex behaviours with just a few lines of code.
 
 This is made possible with a layered architecture based on:
 
 \begin{itemize}
     \item Fast and robust low-level API that directly encapsulates the communication protocol for setting and accessing hardware data.
-    \item A controller that automatically ensures the update of sensorimotor data (get/set) at a predefined frequency. This method encapsulates the low-level API to prevent the writing of repetitive request and optimize latency.
-    \item Finally, a robot layer can generate automatically a whole robot API giving access of the whole sensorimotor space with just a few lines of code.
+    \item A controller that automatically ensures the update of sensorimotor data (get/set) at a predefined frequency. This method encapsulates the low-level API to prevent the writing of repetitive requests and optimize latency.
+    \item Finally, a robot layer can generate automatically a whole robot API giving access to the whole sensorimotor space with just a few lines of code.
 \end{itemize}
 
-While low-level layers allow for modularity and customization, the high-level abstracts all the complexity into simple end user API. We will describe more in details how this architecture works in the next sections.
+While low-level layers allow for modularity and customization, the high-level abstracts all the complexity into simple end user API. We will describe more in detail how this architecture works in the next sections.
 
 % Also, it benefits from the Python community with numpy/scipy and machine learning libraries such as scikit-learn.
 
@@ -46,11 +46,11 @@ While low-level layers allow for modularity and customization, the high-level ab
 Pypot handles the low-level communication with Dynamixel motors from Robotis. Using a USB communication device such as USB2Dynamixel or USB2AX, it opens serial communication with Robotis motors (MX, RX, AX) using communication protocols TTL or RS485. More specifically, it allows easy access (both reading and writing) to the different registers of any Dynamixel motors\footnote{The whole list of registers can directly be found on the Robotis website: \url{http://support.robotis.com/en/product/dynamixel/mx_series/mx-28.htm\#Control_Table}}. Those registers include values such as position, speed or torque.
 
 
-While the Dynamixel Low-level IO provides access to all functionalities of the Dynamixel motors, it forces to have synchronous calls, which can take a non-negligible amount of time. In particular, most programs will need to have a really fast read/write synchronization loop, where we typically read all motor positions, speeds, loads and set new values, while in parallel we would like to have higher level code that computes those new values.
+While the Dynamixel Low-level IO provides access to all functionalities of the Dynamixel motors, it forces us to have synchronous calls, which can take a non-negligible amount of time. In particular, most programs will need to have a really fast read/write synchronization loop, where we typically read all motor positions, speeds, loads and set new values, while we would like to have higher level code that also computes those new values.
 
-On top of the low-level, a Dynamixel controller can be added which defines synchronization loops that will read/write\footnote{Whenever one of the values is accessed, it is actually the most recent versions that have been read at the frequency of the loop.} the registers of Dynamixel motors at a predefined frequency automatically run in background. Thus there is no need to wait the answer of a read command to access data (this can take some time) so that algorithms with heavy computation do not encounter a bottleneck when values from motors must be known. The attributes of those "software" motors are automatically synchronized with the real "hardware" motors.
+On top of the low-level, a Dynamixel controller can be added which defines synchronization loops that will read/write\footnote{Whenever one of the values is accessed, it is actually the most recent versions that have been read at the frequency of the loop.} the registers of Dynamixel motors at a predefined frequency automatically run in the background. Thus there is no need to wait for the answer of a read command to access data (this can take some time) so that algorithms with heavy computation do not encounter a bottleneck when values from motors must be known. The attributes of those "software" motors are automatically synchronized with the real "hardware" motors.
 
-The controller is actually a module (see section REF) and can be changed as the user needs. Yet by default pypot has a base controller, which already defines synchronization loops, more exactly:
+The controller is actually a module (see section REF) and can be changed according to the user’s needs. Yet by default pypot has a base controller, which already defines synchronization loops, more exactly it:
 
 \begin{itemize}
     \item reads the present position, speed, load at 50Hz,
@@ -59,19 +59,19 @@ The controller is actually a module (see section REF) and can be changed as the 
     \item reads the present temperature and voltage at 1Hz.
 \end{itemize}
 
-This controller embeds the very useful synchronization loops, which should be enough for most of users.
+This controller embeds very useful synchronization loops, which should be enough for most users.
 
 
 
 \subsection{Robot abstraction} % (fold)you
 
-The robot abstraction allows, from a configuration, to generate automatically both all low-level controllers and high-level accessors needed to control a whole robot. More precisely, through the use of the class Robot it is possible to:
+The robot abstraction allows, from a configuration, to automatically generate both all low-level controllers and high-level accessors needed to control a whole robot. More precisely, through the use of the class Robot it is possible to:
 
 \begin{itemize}
-    \item automatically initialize all connections (make transparent the use of multiple USB2serial connections),
+    \item automatically initialize all connections (making the use of multiple USB2 serial connections transparent),
     \item define offset and direct attributes for motors,
     \item automatically define accessors for motors and their most frequently used registers (such as \emph{goal\_position, present\_speed, present\_load, PID, compliant}),
-    \item define read/write synchronization loop that will run in background.
+    \item define a read/write synchronization loop that will run in background.
 \end{itemize}
 
 The configuration, described as a Python dictionary\footnote{The configuration can be written in the Python script or can be loaded from any file that can be loaded as a dictionary (e.g. a JSON file).}, contains several important features that help build both the robot and the software to manage the robot. The important fields are listed below:
@@ -79,10 +79,10 @@ The configuration, described as a Python dictionary\footnote{The configuration c
 \begin{itemize}
     \item controllers - This key holds the information pertaining to a controller and all the items connected to its bus.
     \item motors - This is a description of all the custom setup values for each motor. Meta information, such as the motor access name or orientation, is also included here. It is also there that we can set the angle limits of the motor.
-    \item motorgroups - This is used to define alias of a group of motors (e.g. \emph{left\_leg}).
+    \item motorgroups - This is used to define the alias of a group of motors (e.g. \emph{left\_leg}).
 \end{itemize}
 
-To give a complete overview of what a config can look like, the \codename~\ref{code:robot_config_file} is an example of the config dictionary of a simple 6-DoF ergo-robot\footnote{Ergo-robot is a 6 DoF serial robot with a stem shape which was developed in the Flowers Lab in particular for the Fondation Cartier exposition (see chapter REF)}.
+To give a complete overview of what a config can look like, the \codename~\ref{code:robot_config_file} is an example of the config dictionary of a simple 6-DoF ergo-robot\footnote{Ergo-robot is a 6 DoF serial robot with a stem shape which was developed in the Flowers Lab in particular for the Fondation Cartier exhibition (see chapter REF)}.
 
 \lstinputlisting[
     language = XML,
@@ -92,7 +92,7 @@ To give a complete overview of what a config can look like, the \codename~\ref{c
     {code/robot_configuration.json}
 
 
-The robot abstraction encapsulates multiple Dynamixel controller to read/write all the registers of a robot at a predefined frequency. The user only has to specify the configuration dictionary of his robot using the \emph{from\_config()} function. The robot configuration can also loaded/saved as a JSON format.
+The robot abstraction encapsulates multiple Dynamixel controllers to read/write all the registers of a robot at a predefined frequency. The user only has to specify the configuration dictionary of his robot using the \emph{from\_config()} function. The robot configuration can also be loaded/saved as a JSON format.
 
 Here is an example of how to create a robot:
 \begin{lstlisting}[language = Python]
@@ -113,13 +113,13 @@ my_robot.base_tilt_lower.goal_position = 120
 
 In this example, the motor \emph{base\_tilt\_lower} will not reach the 120 degree position, but actually 90 degree because its config file (\codename~\ref{code:robot_config_file}) set the angle limit to \emph{[-90, 90]}.
 
-Therefore the user can set up its robot with just few lines of code and then use it safely just scripting the behaviour he wants to achieve.
+Therefore the user can set up their robot with just few lines of code and then use it safely just scripting the behaviour they want to achieve.
 
 
 \subsection{Move recording} % (fold)
 \label{sub:move_recording}
 
-Pypot involves a really convenient, yet simple, recording moves features. Indeed, when a robot's motor is compliant (Dynamixel property), a user can demonstrate a desired motion by physically moving the motor position. Those Move is simply defined as a sequence of positions.
+Pypot involves a really convenient, yet simple, feature for recording movementss. Indeed, when a robot's motor is compliant (Dynamixel property), a user can demonstrate a desired gesture by physically moving the motor position. Those Moves are simply defined as a sequence of positions.
 
 The move module can be used to:
 
@@ -129,7 +129,7 @@ The move module can be used to:
     \item save/load them on the disk.
 \end{itemize}
 
-Giving the same ergo-robot configuration, the recording of a move at 50Hz framerate move on all motors during 5 seconds can simply use the following code:
+Given the same ergo-robot configuration, the recording of a gesture at a 50Hz framerate moving on all motors for 5 seconds can be simply done using the following code:
 
 \begin{lstlisting}[language = Python]
 import time
@@ -166,7 +166,7 @@ move_player = MovePlayer(ergo, m)
 move_player.start()
 \end{lstlisting}
 
-This feature seems very simple and anecdotal but is actually one of the most useful pypot features for non-expert users. Indeed it allows to physically "program" the robot and is very intuitive for artists. We will show demonstration of such use with Poppy in the chapter REF.
+This feature seems very simple and anecdotal but is actually one of the most useful pypot features for non-expert users. Indeed it allows to physically "program" the robot and is very intuitive for artists. We will show a demonstration of such a use with Poppy in the chapter REF.
 
 % subsection move_recording (end)
 
@@ -176,11 +176,11 @@ This feature seems very simple and anecdotal but is actually one of the most use
 Figure \figurename~\ref{fig:pypot-modular-architecture} shows the pypot 2.x architecture and especially its modularity. Indeed pypot has a modular architecture both for the low-level communication with the robot and for the high-level behaviour control. This modularity allows pypot to be adapted to:
 
 \begin{itemize}
-    \item the morphological exploration because it permits to switch between several low-level controller with respect to the hardware properties of the robot (i.e. sensors, motors),
-    \item the scientific experimentation because its high-level modularity allows to easily run behaviour and extend the control to other libraries.
+    \item morphological exploration because it permits to switch between several low-level controllers with respect to the hardware properties of the robot (i.e. sensors, motors),
+    \item scientific experimentation because its high-level modularity allows to easily run behaviour and extend the control to other libraries.
 \end{itemize}
 
-This modularity is expressed through the I/O controllers and the primitive paradigms, which will be, discuss in details in the next sections:
+This modularity is expressed through the I/O controllers and the primitive paradigms, which will be, discussed in detail in the next sections:
 
 
 \begin{figure}[p]
@@ -194,13 +194,13 @@ This modularity is expressed through the I/O controllers and the primitive parad
 
 \subsection{I/O controllers} % (fold)
 
-The low-level Dynamixel controller presented previously (see section REF) is actually an instance of an I/O controller. The I/O controllers are the interface between the real world data acquisition and the pypot core. They constitute the low-level modular part of pypot and allows for anyone to create a custom controller adapted to particular robot properties.
+The low-level Dynamixel controller presented previously (see section REF) is actually an instance of an I/O controller. The I/O controllers are the interface between real world data acquisition and the pypot core. They constitute the low-level modular part of pypot and allow for anyone to create a custom controller adapted to particular robot properties.
 
-A brilliant example of this modular I/O controller architecture is the control of robot either simulator or real world just by switching between to I/O controllers:
+A brilliant example of this modular I/O controller architecture is the control of the robot either in the simulator or the real world just by switching between I/O controllers:
 
-\subsubsection{Switch between simulator and real world} % (fold)
+\subsubsection{Switching between the simulator and the real world} % (fold)
 
-As it is often easier to work in simulation rather than with the real robot, Pypot has been linked with the V-REP simulator\footnote{\url{http://www.coppeliarobotics.com/features.html}}. It is described as the “Swiss army knife among robot simulators” and is indeed a very powerful tool to quickly (re)create robotics setup. Moreover, we chose to integrate this particular simulator first because it shares distinctive features with the Poppy project, i.e. being cross-platform, easy-to-use, extensible and open source\footnote{Actually V-REP has a double license Commercial/GPL so either one pay and can keep his customizations or have to release all modification under GPL.}
+As it is often easier to work in simulation rather than with the real robot, Pypot has been linked with the V-REP simulator\footnote{\url{http://www.coppeliarobotics.com/features.html}}. It is described as the “Swiss army knife among robot simulators” and is indeed a very powerful tool to quickly (re)create robotics setup. Moreover, we chose to integrate this particular simulator first because it shares distinctive features with the Poppy project, i.e. being cross-platform, easy-to-use, extensible and open source\footnote{Actually V-REP has a double license Commercial/GPL so either one pays and can keep his customizations or has to release all modification under GPL.}
 
 \begin{figure}[tb]
     \begin{center}
@@ -212,9 +212,9 @@ As it is often easier to work in simulation rather than with the real robot, Pyp
 
 
 The connection with V-REP was created using the I/O controllers presented previously and the V-REP’s remote API.
-Thanks to the low-level modularity of pypot, it permits to seamlessly switch from your real robot to the simulated one because it only require to switch the low-level I/O controller from the Dynamixel (\emph{DxlController} class) one to the V-REP one (\emph{VrepController} class).
+Thanks to the low-level modularity of pypot, it permits to seamlessly switch from your real robot to the simulated one because it only requires switching the low-level I/O controller from the Dynamixel (\emph{DxlController} class) one to the V-REP one (\emph{VrepController} class).
 
-The switch between the simulation and the real robot is possible with a single line of code, and in most case, only requires to change the way the robot is instantiated see \codename~\ref{code:vrep_pypot_switch}.
+The switch between the simulation and the real robot is possible with a single line of code, and in most case, only requires changing the way the robot is instantiated see \codename~\ref{code:vrep_pypot_switch}.
 
 \lstinputlisting[
     language = Python,
@@ -223,9 +223,9 @@ The switch between the simulation and the real robot is possible with a single l
     float = ht]
     {code/vrep_pypot_switch.py}
 
-In addition, it provides some extended feature relative to the need we have in a robot simulator, among them:
+In addition, it provides some extended features relative to the needs we have in a robot simulator, among them:
 load a scene, start/stop/restart a simulation, pause/resume the simulation, get an object position/orientation.
-Yet not all Dynamixel registers have their V-REP equivalent. For the moment, only the control of the position is used but it will be completed in the future. Also more advanced features can be easily added thanks to the controller abstraction.
+Yet not all Dynamixel registers have their V-REP equivalent. For the moment, only the control of the position is used but it will be extended in the future. Also more advanced features can be easily added thanks to the controller abstraction.
 
 
 \subsubsection{Custom I/O controllers} % (fold)
@@ -237,23 +237,23 @@ The I/O controller is actually defined by two classes:
     \item the controller class defining all object properties the robot can access and control.
 \end{itemize}
 
-It is therefore possible to extend the number of controller to any connected object. For example it could be use to change the type of motors used and replace Robotis motors by more low-cost ones, or to control a robot into another simulator than V-REP and the switch should be as straightforward.
+It is therefore possible to extend the number of controllers to any connected object. For example, it could be used to change the type of motors used and replace the Robotis motors with more low-cost ones, or to control a robot with a simulator other than V-REP, and the switch should be as straightforward.
 
 
 \textbf{TODO put code ?}
 
 
 \subsubsection{Automatic generation of the robot} % (fold)
-The same way the pypot robot class can automatically create a robot based on Dynamixel motors and generate an easy-to-use API, it can handle the variability of the I/O controllers. Indeed the desired I/O controllers can be indicated in the robot configuration then the robot will be generated in accordance to the specified controllers. The v-rep simulator is an example of such use (\codename~\ref{code:vrep_pypot_switch}).
+In the same way that the pypot robot class can automatically create a robot based on Dynamixel motors and generate an easy-to-use API, it can handle the variability of the I/O controllers. Indeed the desired I/O controllers can be indicated during the robot configuration then the robot will be generated in accordance with the specified controllers. The v-rep simulator is an example of such use (\codename~\ref{code:vrep_pypot_switch}).
 
 Thus the pypot robot can handle multiple controllers both for motor control and for the sensors acquisition (e.g. IMU, tactile, camera).
 
 
 \subsection{Primitive paradigms} % (fold)
 
-The high-level modularity of pypot is expressed by the primitive paradigms. We call Primitive any simple or complex behaviour applied to a Robot. A primitive can access all sensors and effectors in the robot. A primitive is supposed to be independent\footnote{The independence of primitives is really important when one create complex behaviours - such as balance - where many primitives are needed. Adding another primitive - such as walking - should be direct and not force the rewrite of everything. Furthermore, the balance primitive could also be combined with another behaviour - such as shoot a ball - without modifying it.} of other primitives. In particular, a primitive is not aware of the other primitives running on the robot at the same time. We imagine those primitives as elementary blocks that can be combined to create more complex blocks in a hierarchical manner.
+The high-level modularity of pypot is expressed by the primitive paradigms. We call a Primitive any simple or complex behaviour applied to a Robot. A primitive can access all sensors and effectors in the robot. A primitive is supposed to be independent\footnote{The independence of primitives is really important when one creates complex behaviours - such as balance - where many primitives are needed. Adding another primitive - such as walking - should be direct and not force the rewriting of everything. Furthermore, the balance primitive could also be combined with another behaviour - such as shooting a ball - without modifying it.} from other primitives. In particular, a primitive is not aware of the other primitives running on the robot at the same time. We imagine those primitives as elementary blocks that can be combined to create more complex blocks in a hierarchical manner.
 
-To ensure this independence, the primitive is running in a sort of sandbox. More precisely, this means that the primitive has not direct access to the robot. It can only request commands (e.g. set a new goal position of a motor) to a Primitive Manager, which transmits them to the “real” robot. As multiple primitives can run on the robot at the same time, their request orders are combined by the manager\footnote{The primitives all share the same manager. In further versions, we would like to move from this linear combination of all primitives to a hierarchical structure and have different layer of managers.}.
+To ensure this independence, the primitive is running in a sort of sandbox. More precisely, this means that the primitive does not have direct access to the robot. It can only request commands (e.g. set a new goal position of a motor) to a Primitive Manager, which transmits them to the “real” robot. As multiple primitives can run on the robot at the same time, their request orders are combined by the manager\footnote{The primitives all share the same manager. In further versions, we would like to move from this linear combination of all primitives toward a hierarchical structure and have different layer of managers.}.
 
 The manager uses a filter function to combine all orders sent by primitives. By default, this filter function is a simple mean but you can choose your own specific filter (e.g. add function).
 
@@ -278,9 +278,9 @@ Currently there are two kinds of primitives.
     floatplacement = h]
     {code/loop_primitive.py}
 
-The primitive can be start(), stop(), pause() and resume(). Unlike regular python thread, primitive can be restart by calling again the start() method.
+The primitive can be start(), stop(), pause() and resume(). Unlike a regular python thread, a primitive can be restarted by calling the start() method again.
 
-When overriding the Primitive, you are responsible for correctly handling those events. For instance, the stop method will only trigger the \emph{should\_stop} event that you should watch in your run loop and break it when the event is set. In particular, you should check the should\_stop() and should\_pause() in your run loop. You can also use the wait\_to\_stop() and wait\_to\_resume() to wait until the commands have really been executed.
+When overriding the Primitive, you are responsible for correctly handling those events. For instance, the stop method will only trigger the \emph{should\_stop} event that you should watch in your run loop and break when the event is set. In particular, you should check the should\_stop() and should\_pause() in your run loop. You can also use the wait\_to\_stop() and wait\_to\_resume() to wait until the commands have actually been executed.
 
 
 \lstinputlisting[
@@ -299,13 +299,13 @@ When overriding the Primitive, you are responsible for correctly handling those 
     floatplacement = h]
     {code/attach_primitive.py}
 
-The move feature describes in section REF is actually based on the pypot primitive paradigm. More precisely, the \emph{MoveRecorder} and \emph{MovePlayer} are defined as subclass of \emph{LoopPrimitive}.
+The move feature described in section REF is actually based on the pypot primitive paradigm. More precisely, the \emph{MoveRecorder} and \emph{MovePlayer} are defined as a subclass of \emph{LoopPrimitive}.
 
 \subsection{Extensible API} % (fold)
 
-We added the possibility to remotely access and control your robot through TCP network. This can be useful both to work with client/server architecture (e.g. to separate the low-level control running on an embedded computer and higher-level computation on a more powerful computer) and to allow you to plug your existing code written in another language to the pypot’s API.
+We added the possibility to remotely access and control your robot through the TCP network. This can be useful both to work with client/server architecture (e.g. to separate the low-level control running on an embedded computer and higher-level computation on a more powerful computer) and to allow you to plug your existing code, written in another language, into the pypot’s API.
 
-We defined a protocol that permits the access of all the robot variables and method (including motors and primitives) via a JSON request. The protocol is entirely described in the section Protocol below. Two transport methods have been developed so far:
+We defined a protocol that allows all the robot variables and methods (including motors and primitives) to be accessed via a JSON request. The protocol is entirely described in the section Protocol below. Two transport methods have been developed so far:
 
 \subsubsection{HTTP server} % (fold)
 
@@ -335,7 +335,7 @@ The \emph{HTTPServer }is based on the bottle python framework (http://bottlepy.o
 
 The Zmq Server used a Zmq socket to send (resp. receive) JSON request (JSON answer). It is based on the REQ/REP pattern. So you should always alternate sending and receiving. It will probably be switched to PUB/SUB soon.
 
-Zmq has been chosen as it has been binded to most language\footnote{\url{http://zeromq.org/bindings:_start}} and can thus be used to connect code from other language to pypot. For instance, we used it to connect RLPark\footnote{RLPark is a Java reinforcement learning library developed by Thomas Degris to experiment with online learning algorithms on robots and benchmarks, see \url{http://rlpark.github.io/}} to pypot.
+Zmq has been chosen as it has been bound to most languages\footnote{\url{http://zeromq.org/bindings:_start}} and can thus be used to connect code in other languages to pypot. For instance, we used it to connect RLPark\footnote{RLPark is a Java reinforcement learning library developed by Thomas Degris to experiment with online learning algorithms on robots and benchmarks, see \url{http://rlpark.github.io/}} to pypot.
 
 The Zmq server is faster than the HTTP version and should be preferred when working with high frequency control loops.
 
@@ -348,7 +348,7 @@ The Zmq server is faster than the HTTP version and should be preferred when work
     {code/zmq_server.py}
 
 
-In particular, whose extension could be use to create a monitor interface using web technology.
+In particular, those for which the  extension could be used to create a monitor interface using web technology.
 
 
 
@@ -356,24 +356,24 @@ In particular, whose extension could be use to create a monitor interface using 
 
 \subsection{Why not using ROS instead ?} % (fold)
 
-A famous robotics software is the Robot Operating System\footnote{The Robot Operating System (ROS) is a flexible framework for writing robot software. It is a collection of tools, libraries, and conventions that aim to simplify the task of creating complex and robust robot behaviour across a wide variety of robotic platforms.}. ROS is very widespread in the research community and one could quite rightly question the choice we made to create a whole new architecture rather than using well-known and efficient one.
+One famous robotics software is the Robot Operating System\footnote{The Robot Operating System (ROS) is a flexible framework for writing robot software. It is a collection of tools, libraries, and conventions that aim to simplify the task of creating complex and robust robot behaviour across a wide variety of robotic platforms.}. ROS is very widespread in the research community and one could quite rightly question the choice we made in creating a whole new architecture rather than using a well-known and efficient one.
 
-Actually ROS has several aspects not fitting with the objectives we have. Indeed, using ROS is not a simple task. The installation is only recommended on one precise Ubuntu distribution\footnote{ROS Hydro only supports Precise, Quantal, and Raring for debian packages \url{http://wiki.ros.org/indigo/Installation}}, and the whole architecture is of course powerful but difficult to set and maintain. Also changing the low-level is complex and requires hacks, sometimes not really elegant. Finally, ROS require high computational power, which make it difficult to embed on small computer.
+Actually ROS has several aspects that do not fit in with the objectives we have. Indeed, using ROS is not a simple task. The installation is only recommended on one precise Ubuntu distribution\footnote{ROS Hydro only supports Precise, Quantal, and Raring for debian packages \url{http://wiki.ros.org/indigo/Installation}}, and the whole architecture is of course powerful but difficult to set and maintain. Also changing the low-level is complex and requires hacks, sometimes not very elegant ones. Finally, ROS require high computational power, which make it difficult to embed on small computers.
 
-In the Poppy project, we are trying to create a multidisciplinary robotic community, involving as a result, non-robotics experts. Thus, we endeavour to pull down the complexity of using Poppy. Toward this goal, we need a simple user interface/API and a lightweight library easy to setup whichever system used. Finally, ROS is very modular for high-level but we desire to have a modular low-level control.
+In the Poppy project, we are trying to create a multidisciplinary robotic community, involving as a result, non-robotics experts. Thus, we endeavour to bring down the complexity of using Poppy. To reach this goal, we need a simple user interface/API and a lightweight library, easy to setup whichever system used. Finally, ROS is very modular for high-level but we desire to have modular low-level control.
 
-For all the above mentioned reasons we considered it should be more simple and effective to create a novel lightweight robot control library than adapting ROS to our needs.
+For all the reasons mentioned above, we considered it to be more simple and effective to create a novel lightweight robot control library rather than adapting ROS to our needs.
 
 
 \subsection{Limitations} % (fold)
 
-The pypot library is currently rather mature and robust, yet it subsists some limitations more or less challenging.
+The pypot library is currently rather mature and robust, yet there remain some limitations that are challenging to a variable degree.
 
 \subsubsection{Performances}
 
-Pypot is written in python because it allows fast development and simple API for non-expert users. Also the main goal of pypot is to be an easy-to-use prototyping environment so users can run complete experiments with a custom robot in couple of minutes to few hours. These choices imply a number of layers and the multiple calls of functions slowing the general execution of the code.
+Pypot is written in python because it allows fast development and simple API for non-expert users. Also the main goal of pypot is to be an easy-to-use prototyping environment so users can run complete experiments with a custom robot in a couple of minutes to few hours. These choices imply a number of layers and multiple calls of functions, slowing the general execution of the code.
 
-While it is not a problem on modern personal computer, it is more limiting on very light configuration (see \figurename~\ref{fig:pypot-board-comparaison}). For example the run of pypot on a Raspberry Pi take all CPU resources and does not achieve the sensorimotor acquisition of Poppy at $50Hz$ (i.e. $<20ms$).
+While it is not a problem on modern personal computers, it is more limiting on very light configurations (see \figurename~\ref{fig:pypot-board-comparaison}). For example, running pypot on a Raspberry Pi takes all CPU resources and the sensorimotor acquisition of Poppy at $50Hz$ (i.e. $<20ms$) is not achieved.
 The performance could be improved by splitting pypot with the low-level executed on
 
 \begin{figure}[tb]
@@ -397,24 +397,25 @@ The performance could be improved by splitting pypot with the low-level executed
 
 \subsubsection{The primitive paradigms: The Good, the Bad and the Ugly}
 
-The use of primitives (see section REF) raises some complicated limitations. Indeed it is really convenient to run complex behaviour by splitting them into in more simple behaviours but the interaction between primitives is really complex to manage and can lead to undesired behaviours. Indeed, while multiple primitives can request to change the same value, the final value is the result of the combination (e.g. mean, sum ) of the several primitives.
+The use of primitives (see section REF) raises some complicated limitations. Indeed it is really convenient to run complex behaviours by splitting them into more simple ones but the interaction between primitives is really complex to manage and can lead to undesired behaviours. Indeed, while multiple primitives can request to change the same value, the final value is the result of the combination (e.g. mean, sum) of several primitives.
 
-It is a case of emergent behaviour problem as explained in chapter Ref\footnote{Finding the rules that can lead to a desired behaviour is more difficult than explaining a real complex behaviour we can observe when an agent is interacting with its environment. Since the behaviour itself cannot be preprogramed but is always the result of an agent-environment interaction, we must design for emergence rather than directly for a specific behaviour~\parencite{Pfeifer06}.}, but at the control software level. It is really interesting because it constraints to use the design of emergence as explain by Steels~\parencite{Steels1991emergence}, yet it is still challenging to explain to the end user and in particular to the non-experts ones.
+
+It is a case of emergent behaviour problem as explained in chapter Ref\footnote{Finding the rules that can lead to a desired behaviour is more difficult than explaining the real, observable complex behaviour of an agent interacting with its environment. Since the behaviour itself cannot be preprogramed but is always the result of an agent-environment interaction, we must design for emergence rather than directly for a specific behaviour~\parencite{Pfeifer06}.}, but at the control software level. It is really interesting because it forces us to design  for emergence as explained by Steels~\parencite{Steels1991emergence}, yet it is still challenging to explain to the end user and in particular to non-expert ones.
 
 
 \section{Conclusion} % (fold)
 
-As explained in this chapter, Pypot is a modular robot control library, simple to use and to extend to the user needs. Moreover its very modular low-level permits to easily manage morphological variability while its high-level primitive paradigm permits to quickly run more or less complex behaviour on the robot.
+As explained in this chapter, Pypot is a modular robot control library, simple to use and extendable to the needs of users. Moreover its very modular low-level permits to easily manage morphological variability while its high-level primitive paradigm permits to quickly run more or less complex behaviour on the robot.
 
 Pypot is open source and distributed under GPLv3 license. All sources are available on the GitHub repository of the project: \url{https://github.com/poppy-project/pypot}. Also the complete documentation can be accessed here: \url{https://poppy-project.github.io/pypot/}.
 
 
 % subsection _ (end)
 
-% The high level design allows the use of primitives.
+% The high-level design allows the use of primitives.
 % Primitives are ...
-% This features is really powerful has it allows to create complex behaviour as a sum of simple behaviour.
-% However the interaction between them is tricky and can lead to undesired behaviour.
+% This features is really powerful as it allows the creation of complex behaviour as a sum of simple behaviour.
+% However, the interaction between them is tricky and can lead to undesired behaviour.
 
 
 % \lstinputlisting[
@@ -424,5 +425,6 @@ Pypot is open source and distributed under GPLv3 license. All sources are availa
 %     float,
 %     floatplacement = h]
 %     {code/mockup.py}
+
 
 
