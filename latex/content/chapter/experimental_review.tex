@@ -1,25 +1,24 @@
 % !TEX root = ../../thesis.tex
 
 % Photo Yves Gellie
-\cleartoleftpage
-\includepdf{../media/chapter_illustration/robot_setup.pdf}
+% \cleartoleftpage
+% \includepdf{../media/chapter_illustration/robot_setup.pdf}
 \chapter{Review of experimental methods} % (fold)
 \label{cha:experimental-methods}
-\cleanchapterquote{The world is its own best model}{Rodney Brooks}
+
+\cleanchapterquote{The world is its own best model.}{Rodney Brooks}
 
 
 \section{Introduction} % (fold)
 
-%Context
-As we saw it in the previous chapter REF, an interesting evolution of the last decades is the demonstration of the importance of the morphology for sensorimotor control, cognition and development. The role of the morphology appears as a fascinating open field. Exploring the interaction between body properties and cognition could lead to both a better understanding of animals’ behaviour (human being in particular) and to build robot more adapted and robust to an open environment with unpredictable interaction.
+As we showed it in the previous chapter, an interesting evolution of the last decades in the robotics field is the demonstration of the importance of the robot morphology and its impact on the cognition and control while opening new horizons to achieve more adapted and robust behavior in open-ended environment with unpredictable interaction.
 
+However as Rodney Brooks explained, exploring interaction between morphology, cognition and environment requires real world experimentations. Indeed embodiment artificial intelligence~\parencite{Pfeifer07} needs to act in the real world to permit the emergence of complex behavior. The real world includes a large amount of constraints such as inertia, multi-point physical contacts, friction, multi-body dynamic and impacts which are complicated to realistically model without involving considerable engineering resources. Moreover, if ones are interested by exploring robotics behavior in an open-ended environment with human interaction, the handle the unpredictability will be limited to a small subset of cases.
 
-%Needs
-However as Rodney Brooks explained, exploring interaction between morphology, cognition and environnement requires real world experimentations. Indeed embodiement artificial intelligence REF needs to act in the real world to permit the emergence of complex behavior. The real world includes a large amount of constraints such as inertia, multi-point physical contacts, unpredictable environnement or friction which are, at this time, too complicated to be modeled in physical simulator. Actually "The world is its own best model" and if we can use simulation for exploring basic concepts, the exploration of emergent complex behavior based on interaction between robot self-dynamics and the environment can only be done through experimentation with real robot in real world.
+From another angle, "The world is its own best model" and if we can use simulation for exploring well defined concepts, the exploration of emergent complex behaviours based on interaction between robot self-dynamics and the environment appears easier and less expensive if conducted directly in the real world.
+Moreover, as Luc Steels explained~\parencite{Steels1991emergence}, the actual behavior is emerging from the interaction between the controller, the morphology and the environment. Some could argue that adding actual morphology and ecological niche add unnecessary complexities to a problem we already have difficulty to solve by just taking care of the control. Yet it appears some behaviors cannot be achieved without the real physic complexity. A brilliant example are the passive/semi-passive walking robots (presented in section~\ref{sub:passive_principle}). These robots are technically rather simple, just composed by a mechanical structure with proper link size and foot shape, the establishment of a model should be rather easy but their real dynamic is very difficult to simulate on a classic physical simulator. Indeed, all complex physic effects (e.g. shocks, friction, inertia) contribute to the achievement of the passive walking.
 
-Moreover, as Luc Steels explained (REF), the actual behavior of a robot cannot be programmed. Indeed, its behavior is emerging from the interaction between the controller, the morphology and the environment. Some could argue that adding actual morphology and ecological niche add unnecessary complexity to a problem we already have difficulty to solve by just taking care of the control. Yet it appears some behaviors cannot be achieved without the real physic complexity. A brilliant example are the passive/semi-passive walking robots (presented in sec REF). These robots are technically rather simple, just composed by a mechanical structure with proper link size and foot shape, the establishment of a model should be rather easy but their real dynamic is very difficult to simulate on a physical simulator. Indeed, all complex physic effects (e.g. shocks, friction, inertia) contribute to the achievement of a passive walking.
-
-One of the best state of the art in this domain is the work done by Delft with the different passive and semi passive walkers they built (REF). Desiring to explore biped locomotion with Poppy, we had a discussion with Martijn Wisse on simulation strategy to add semi-passive abilities to Poppy. Here is his his testimony when they try to make their robot walk in simulation after managing to create the real one:
+One of the best state of the art work in this domain is done by the Delft university with the different passive and semi passive walkers they built (REF). Desiring to explore biped locomotion, we had a discussion with Martijn Wisse on simulation strategy to add semi-passive abilities to Poppy. Here is his his testimony when they tried to make their robot walk in simulation after managing to create the real one:
 
 \begin{formal}
 
@@ -30,53 +29,59 @@ We did spend a long time making a high-fidelity model in Adams, and also using o
 \signed{Martijn Wisse - Associate professor at Delft University of Technology}
 \end{formal}
 
-Thus the results we can find in simulator are very limited and experiments in the real world are needed to
+Thus results obtained in simulator are difficultly transposable in a real platform and vice-versa. One of the main reason seems to be the complexity to realistically handle non-perfect components e.g. non-linear friction in joints, feet/ground reactions and so on. Yet the interesting contributions of the robot morphology on its behaviour is precisely in the aspect we have currently difficulties to model correctly.
 
-We could say the simulator is indeed a bad idea for low-level control but is suitable for exploring high-level, yet there is no reason the real world does not act the same way on high level control. And it is probable the constraints of the real world can somehow guide the path.
+This raised a major limitation for the results reproducibility ine the scientific community. While it is rather simple to transfer experiments conducted in a simulator by sharing the software material, sharing real world experiment is way more challenging.
 
-Thus it appears essential to have real robotic platforms to explore role of morphology on control but also highly probable it can have a strong impact when ones are interested by exploring more high-level process (e.g. A.I) ~\parencite{lakoff2000mathematics}.
-
-
-%objet
-In this chapter, we will review the current state of the art in experimental robotic platforms (see REF). Then we will see how current researcher create robot to explore morphological properties.
-
-There are plenty of robotics platforms, from robot arm (Jako, LWR, Kuka) to wheeled platform (Pioneer 3-AT, P3-DX) or even submarine (AQUA2). However, in this Phd thesis we are particulary interested by the locomotion so we will restraint the review to bipedal platform.
+In this chapter, we will review the current state of the art of robotic platforms, in particular how they are made and how can the results they demonstrate can be transfered in the scientific community. Yet there are plenty of robotics platforms, from robot arms (Jako, LWR, Kuka) to wheeled platforms (Pioneer 3-AT, P3-DX) or even submarine (AQUA2). In this thesis we are particularly interested by the exploration of morphology for locomotion and interaction so we will restraint the platform review to the ones actually exploring exploring particular morphologies and  humanoid platforms.
 
 
-\section{section name} % (fold)
-\label{sec:section_name}
+\section{Platform exploring the role of morphology} % (fold)
 
-% section section_name (end)
-
-
-\section{Affordable humanoid platform} % (fold)
-\label{sec:affordable_humanoid_platform}
-
-Other current research platforms are easily accessible and easy to use such as Nao \cite{gouaillier2008nao}, Darwin Op \cite{ha2011development}, Nimbro Op \cite{schwarznimbro} or iCub \cite{metta2008icub}.
-
-\begin{figure}[tb]
-\centering
-    \subfloat[][Darmin Op]{\label{fig:darwin-op}\includegraphics[height=6.5cm]{darwin_op_face.jpg}}
-    \hfil
-    \subfloat[][Nao]{\label{fig:Nao}\includegraphics[height=6.5cm]{nao_face.png}}
-    \hfil
-    \subfloat[][Nimbro OP]{\label{fig:nimbro-op}\includegraphics[height=6.5cm]{nimbro-op_1.jpg}}
-    \caption{Three humanoid robots made by KumoTek (USA).}
-    \label{fig:kumotek_robots}
-\end{figure}
+As we discussed in the previous chapter, several robots were made to explore the role of morphology. Each exploring particular aspects of this challenge.
 
 
-\begin{description}
-    \item[DARwIn Op] is an open source humanoid research platform created by the Romela lab at Virginia tech~\parencite{ha2011development} and distributed by Robotis for about \$12,000 (see \figurename~\ref{fig:darwin-op}). It measures 45cm height, weights 2.9kg, and has 20 Dynamixel MX-28 actuators (6 for each leg, 3 for each arm, and 2 for the neck). Its mechanical structure is composed by aluminum parts.
-    \item[Nao] is 55cm height, 5.2kg and 25DoFs humanoid robot with a plastic mechanical structure (ABS,PA,XCF) (see \figurename~\ref{fig:Nao}). It is a very famous robot sold by few thousands units to labs and universities. Its cost was around \texteuro12,000, but recently it was reduced by half.
-    \item[Nimbro-OP] is a tall humanoid with 95cm and 6.6 kg, it has 20 powerful MX-106 and MX-64 actuators (6 per leg, 3 per arm and 2 in the neck). It costs \$20,000 and its structure is based on aluminum and carbon composite (see \figurename~\ref{fig:nimbro-op}).
-\end{description}
+\subsection{Passive dynamics walkers} % (fold)
 
-Yet, they provide a "traditional" morphology (e.g. limited compliance, rigid torso, big feet, over actuated) which can not be easily modified. It makes them unadapted to study the impact of the morphology on biped locomotion and human physical interaction.
+There are numerous passive and semi-passive dynamic walkers. We can indeed cite the one from Tad McGeer~\parencite{mcgeer1990passive}, the work of Steve Collins~\parencite{collins2001three} and Russ Tedrake~\parencite{tedrake2005learning}, the robots made in the Delft University Denise(REF) and Flame~\parencite{Hobbelen2008}, and also the recent work from the REF lab, which managed to create a fully-passive robot able to walk robustly for 30 minutes. All these robots demonstrate impressive results and show the interest of using clever morphologies toward the achievement of task as complex as the biped walking.
+
+However these robots are really difficult to transfer and reproduce in the robotics community.
+
+Firstly, their mechanical structure have mechanical parts either handcrafted or produced with classic machining techniques based on milling or casting metal alloys. These techniques require specific upfront tooling which make the production of a small batch really expensive.
+
+Secondly, while the control of this robot is rather simple, the mechanical conception is way more subtle and require expertise few people in the robotics community has. Unfortunately, the description we can find in the associated papers are limited to theoretical models. It is necessary but not sufficient. Again the talk we had with Matijn Wisse is really representative of the way passive and semi-passive robot are created:
+
+\begin{formal}
+We never actually produced a high-fidelity simulation. We made very simple simulations only. From them, we learned how to tune parameters. Then, we designed the real robots, without running full-blown optimizations. Rather, we used our intuition for a large number of decisions on design trade-offs, using lessons from the simple simulations combined with other limitations such as available motors etcetera. Then, we (again) used our intuition and large amount of experience to tune the robot’s controllers, and make design improvements, until it walked.
+
+\signed{Martijn Wisse - Associate professor at Delft University of Technology}
+\end{formal}
+
+Thus there is a big step between the model and the actual robot
+
+Indeed, as we saw with the citation of Martijn Wisse about the simulation of passive dynamic walkers, the engineering design of such platform has a strong impact on the achievement of passive dynamics walker
+
+It is a problem for the diffusion of such idea as the laboratory desiring to explore passive principle has to take the risk to spend time developping a passive robot without any guarantee it will succeed.
+
+
+Yet we can notice that none of these robots share the same mechanical platform, they all have been re-designed from scratch based on the principles presented ancestor papers. But the design of such platform is really subtle and require skills that only few people in the research community has. Therefore the diffusion of such principles is limited to the
+
+Indeed, the blueprint and source files are rarely distribute along the paper describing the platform
 
 
 
-\section{Modular robotics} % (fold)
+
+Kenshiro
+
+Biobiped1
+
+semi passive walker
+
+Athlete
+
+Acroban
+
+\subsection{Modular robotics} % (fold)
 
 Despite all robotic platform developed, there are only few allowing a complete reconfiguration of their hardware design.
 
@@ -106,16 +111,45 @@ The kit is distributed for \texteuro2500 and include the needed components to cr
 It appears as the only existing solution allowing to both explore the role of morphology and transfer results between laboratory. While being very interesting, it is also limited as it implies to create rods-based robot and multi-body articulation such as ones we can find in a human leg or trunk seem complicated to produce.
 
 
+\section{Affordable humanoid platform} % (fold)
+\label{sec:affordable_humanoid_platform}
+
+Other current research platforms are easily accessible and easy to use such as Nao \cite{gouaillier2008nao}, Darwin Op \cite{ha2011development}, Nimbro Op \cite{schwarznimbro} or iCub \cite{metta2008icub}.
+
+\begin{figure}[tb]
+\centering
+    \subfloat[][Darmin Op]{\label{fig:darwin-op}\includegraphics[height=6.5cm]{darwin_op_face.jpg}}
+    \hfil
+    \subfloat[][Nao]{\label{fig:Nao}\includegraphics[height=6.5cm]{nao_face.png}}
+    \hfil
+    \subfloat[][Nimbro OP]{\label{fig:nimbro-op}\includegraphics[height=6.5cm]{nimbro-op_1.jpg}}
+    \caption{Three humanoid robots made by KumoTek (USA).}
+    \label{fig:kumotek_robots}
+\end{figure}
+
+
+\begin{description}
+    \item[DARwIn Op] is an open source humanoid research platform created by the Romela lab at Virginia tech~\parencite{ha2011development} and distributed by Robotis for about \$12,000 (see \figurename~\ref{fig:darwin-op}). It measures 45cm height, weights 2.9kg, and has 20 Dynamixel MX-28 actuators (6 for each leg, 3 for each arm, and 2 for the neck). Its mechanical structure is composed by aluminum parts.
+    \item[Nao] is 55cm height, 5.2kg and 25DoFs humanoid robot with a plastic mechanical structure (ABS,PA,XCF) (see \figurename~\ref{fig:Nao}). It is a very famous robot sold by few thousands units to labs and universities. Its cost was around \texteuro12,000, but recently it was reduced by half.
+    \item[Nimbro-OP] is a tall humanoid with 95cm and 6.6 kg, it has 20 powerful MX-106 and MX-64 actuators (6 per leg, 3 per arm and 2 in the neck). It costs \$20,000 and its structure is based on aluminum and carbon composite (see \figurename~\ref{fig:nimbro-op}).
+\end{description}
+
+Yet, they provide a "traditional" morphology (e.g. limited compliance, rigid torso, big feet, over actuated) which can not be easily modified. It makes them unadapted to study the impact of the morphology on biped locomotion and human physical interaction.
+
+\section{Limit for diffusion} % (fold)
+
+
 \section{Conclusion}
 
 In the previous chapter, we presented several work showing the importance of the robot morphology and the need to continue the research in this domain. As we explained in the introduction see REF, this research requires to have real robotic platform to be explored.
 
-
-On one hand, some robotic platforms such as Denise or Athlete robot were designed for this purpose and actually shown great results about the role of passive dynamic or compliance on biped walking. However, these platform are prototypes produced specifically for a lab and are nearly impossible to reproduce on another lab.
+They are many robotic platform, we could have go deeper into the description, yet the main objective of this review is two show an overview of the landscape. In particular that we have on one hand, some robotic platforms such as Denise or Athlete robot were designed for this purpose and actually have shown great results about the role of passive dynamic or compliance on biped walking. However, these platform are prototypes produced specifically for a lab and are nearly impossible to reproduce on another lab.
 In addition, while they use classical production technique with metal casting, they are quite complex and expensive to modify.
+And on the other hand, commercial robots are easily accessible so the results should be reproducible from one lab to another. Yet their design method involved also classical production techniques, therefore modifying their morphology would require a lot of
 
-On the other hand, commercial robots are easily accessible so the results should be reproducible from one lab to another. Yet their design method involved also classical production techniques, therefore modifying their morphology would require a lot of
+Also that robot are developed only for one application and not
 
+Finally they are not open source ...
 
 
 In the next chapter, we will present novel production techniques and diffusion ways, which can solve both problem considering exploring the role of morphology and reproducibility between research labs.
