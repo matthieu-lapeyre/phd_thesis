@@ -7,7 +7,7 @@
 
 In chapter~\ref{cha:morphology-review}, we discussed the emergence of a novel paradigm in the field of robotics that appeared in the late eighties.  Embodied artificial intelligence rejects the symbolic approach and postulates that it is not possible to have intelligence without an actual robot body associated with its ecological niche~\parencite{pfeifer2001understanding}. Following this paradigm, several researchers have tried to tackle challenges in which the classical cognitivist approach failed (see \parencite{brooks1986achieving}) e.g. the understanding of natural forms of intelligence that require direct interaction with the real world.
 
-Thus, an interesting evolution over recent decades is the demonstration of the importance of the morphology for sensorimotor control, cognition and development (\parencite{kaplan2008corps} \parencite{steels1995artificial} \parencite{Pfeifer06}), which can be defined as follows:
+Thus, an interesting evolution over recent decades is the demonstration of the importance of the morphology for sensorimotor control, cognition and development (\cite{kaplan2008corps}, \cite{steels1995artificial}, \cite{Pfeifer06}), which can be defined as follows:
 \begin{formal}
     The morphology of a robot thus refers to the physical structure and form of a robot. Specifically, the focus is on characteristics such as link sizes, number of links, joint characteristics, mass distribution, actuator characteristics, material properties, sensor characteristics and sensor placements. In short, any characteristic that defines the physical structure of the robot is included in the term morphology.
     \signed{Chandana Paul~\parencite{paul2006morphological}}
@@ -20,11 +20,11 @@ In this context, we should not only pay attention to the robot body design but \
 Following the definition of robotic morphology given by C. Paul, we need to find a framework allowing easy and quick tuning of morphological parameters on an actual robot in order to explore and hopefully find new ways of improving robot behaviour in the real world. However considering morphology as an experimental variable raised two major problems:
 \begin{itemize}
     \item \textbf{how can we obtain an experimental robotic platform with both a morphology that can be changed easily and quickly and the capacity to act robustly in the real world? }
-    \item \textbf{how can we make sure this platform, particularly the hardware,  can be diffused and reused in the research community?}
+    \item \textbf{how can we make sure this platform, particularly the hardware, can be diffused and reused in the research community?}
 \end{itemize}
 
-In the next sections of this chapter, we will \textbf{suggest novel approaches and design processes to create and produce robotic platforms,  the control and morphology of which can be freely explored through experimentation in the real world,  that are easy to  diffuse and reproduce in the research community.}
-We will detail the methodological and design challenges involved in creating robots with variable and modular hardware. Then we will present the design methods we chose to address these challenges and those we have used to create Poppy (see chapter REF). And finally, we will discuss the importance of open source distribution for creating open and cumulative science.
+In the next sections of this chapter, we will \textbf{suggest novel approaches and design processes to create and produce robotic platforms, the control and morphology of which can be freely explored through experimentation in the real world,  that are easy to  diffuse and reproduce in the research community.}
+We will detail the methodological and design challenges involved in creating robots with variable and modular hardware. Then we will present the design methods we chose to address these challenges and those we have used to create Poppy (see chapter~\ref{cha:poppy-dev}). And finally, we will discuss the importance of open source distribution for creating open and cumulative science.
 
 
 \section{Challenges} % (fold)
@@ -35,9 +35,9 @@ We presented in chapter~\ref{cha:experimental-methods}, a review of robotic plat
 Firstly, for most the electronic and mechanical structures are produced using classic manufacturing techniques,  which makes them too complicated and expensive to modify. Indeed, the classical way of designing and producing robots is a complicated, time-consuming and expensive process. The development of current robotic platforms requires dozens of engineers working for many years and significant fund-raising for production. Such techniques make creating variant parts impossible, mainly because of the approach and technologies chosen to design and produce them.
 
 
-Secondly, beyond the restriction on exploring morphological variants, one of the fundamental aspects of the scientific research is to demonstrate facts, which should therefore be reproducible. Unfortunately in the robotics field, the amount of material resources and the techniques involved makes it difficult to transfer robot platforms from one lab to another. While commercial robots can be easily accessible (subject to appropriate funding) because they are relatively mass-produced, lab prototypes are mainly handcrafted and specifically tuned, which makes their  reproduction in another lab impossible. Therefore, scientific validation is limited and researchers cannot build novel work upon that of their peers.
+Secondly, beyond the restriction on exploring morphological variants, one of the fundamental aspects of the scientific research is to demonstrate facts, which should therefore be reproducible. Unfortunately in the robotics field, the amount of material resources and the techniques involved makes it difficult to transfer robot platforms from one lab to another. While commercial robots can be easily accessible (subject to appropriate funding) because they are relatively mass-produced, lab prototypes are mainly handcrafted and specifically tuned, which makes their  reproduction in another lab impossible. Therefore, scientific validation is limited and researchers cannot build novel work upon the one of their peers.
 
-Finally, robot hardware of both types is very rarely open source, which simply prohibits any modification and reuse of the work (we will discuss more in detail the importance of this point in section REF).
+Finally, robot hardware of both types is very rarely open source, which simply prohibits any modification and reuse of the work (we will discuss more in detail the importance of this point in section~\ref{sec:allow-cumulative-science}).
 
 Therefore, allowing  experimental platforms to be transferred and shared is a way of ensuring the scientific validity of experiments, and also of promoting and accelerating scientific research by reducing time lost in development, instead concentrating research resources on the exploration of novel ideas.
 
@@ -52,7 +52,7 @@ These techniques require specific upfront tooling which make the production of a
 
 \subsection{Create reproducible robot prototypes} % (fold)
 
-Most labs must reinvent the wheel by developing whole new robotic platforms even though functional setups have already been developeded by other laboratories and could be reused.
+Most labs must reinvent the wheel by developing whole new robotic platforms even though functional setups have already been developeded by other laboratories and should/could be reused.
 
 For example, several interesting robotic platforms explore key aspects of robot morphology. We can cite Kenshiro~\parencite{nakanishi2013design} which has a complex and bio-inspired artificial muscles actuator network, or semi-passive walkers such as Denise~\parencite{wisse2005three}, demonstrating impressive walking ability with little control and power actuation. Unfortunately, none of these robots can be and have ever been transferred to another lab. Indeed even if they were open source theirs productions require specific tooling and hand tuning that only few skilled people have.
 
@@ -66,7 +66,7 @@ Therefore some constraints have to be applied on hardware platforms to make them
 
 \subsection{Keep robotic platform simple and easy-to-use} % (fold)
 
-The field of robotics is intrinsically multidisciplinary. A robot itself requires technology from mechanics, electronics and computer science, but the scientific impact of robotics can be far larger and reach non-engineering fields such as human, social or biological sciences. Thus, robotics is a specialised field  in which nobody can be an expert in all required skills.
+The field of robotics is intrinsically multidisciplinary. A robot itself requires technology from mechanics, electronics and computer science, but the scientific impact of robotics can be far larger and reach non-engineering fields such as humanities, social or biological sciences. Thus, robotics is a specialised field  in which nobody can be an expert in all required skills.
 We have to take into account the fact that the end user can certainly be expert in one specific subfield but a beginner in others. This mean that for each subfield, the designed robot has to be simple enough to be understood and used by beginners while having, at the same time, enough potential to not constrain users in their domain of expertise.
 
 
@@ -81,31 +81,30 @@ To address these challenges, we suggest exploring an alternative design methodol
     \item keep our work modular and free to use in accordance with open source principles, so it can be reused and extended for other projects.
 \end{itemize}
 
-
 To reach these goals, we decided to follow some design methods for both design and production, for all technological aspects of the robot (i.e. mechanics, actuation, electronics, software, distribution).
 
 \subsection{3D-printed mechanical parts} % (fold)
 We could envisage simply having classical mechanical parts that are reconfigurable and adjustable, allowing for example, the exploration of different lengths of a link or different centre of mass positions. However, this limits the morphological exploration to only a few dimensions with a limited range.
 
-As we discussed in chapter REF, over the last few years, novel techniques, especially 3D printing have been revolutionizing the way we can produce objects. 3D printers not only open new horizons for the production of mechanical part, they are able to produce parts that were either not possible or extremely expensive with classical techniques (see \figurename~\ref{fig:complex_3D_printed_part}) but also completely change the paradigm associated with production. Indeed the cost does not change with the quantity or the complexity, meaning designers are free to explore the shape they want with almost no constraints.
+As we discussed in chapter REF, over the last few years, novel techniques, especially 3D printing have been revolutionizing the way we can produce objects. 3D printers not only open new horizons for the production of mechanical part, they are able to produce parts that were either not possible or extremely expensive with classical techniques (see \figurename~\ref{fig:complex_3D_printed_part}).It completely changes the paradigm associated with production. Indeed the cost does not change with the quantity or the complexity, meaning designers are free to explore the shape they want with almost no constraints.
 
 \begin{figure}[tb]
 \centering
-    \subfloat[][]{\includegraphics[width=0.4\linewidth]{complex_3Dprinted_part.jpeg}}
+    \subfloat[][Example of object those shape would be impossible to produce without additive manufacturing]{\includegraphics[width=0.4\linewidth]{complex_3Dprinted_part.jpeg}}
     \hfil
     \subfloat[][3D printed metal heat exchanger]{\includegraphics[width=0.55\linewidth]{complex_heat_exchanger.jpg}}
-    \caption{}
+    \caption{Example of complex parts those production has been made possible by 3D printing techniques.}
     \label{fig:complex_3D_printed_part}
 \end{figure}
 
 
-Also, these novel techniques come with the open hardware and makers revolution, which has brought low cost 3D printers into the home. The production of mechanical parts can be now done in few hours directly on site with limited human handling.
+Also, these novel techniques come with the open hardware and makers revolution, which has brought low cost 3D printers into the home. The production of mechanical parts can be now done in few hours directly on site with limited human handling (see \figurename~\ref{fig:conception_loop}).
 
 \begin{figure}[tb]
     \begin{center}
         \includegraphics[width=\linewidth]{conception_iterative.pdf}
     \end{center}
-    \caption{Fast conception loop}
+    \caption{The 3D printing technique allows for fast iterative conception loop while it permits to directly and automaticcaly produce a prototype on site for a fraction of the cost of classical manufacturing techniques.}
     \label{fig:conception_loop}
 \end{figure}
 
@@ -119,14 +118,14 @@ Also, these novel techniques come with the open hardware and makers revolution, 
     \item[Reduce the number of part:] 3D printing  can be used to print complex parts and even assembled parts as complex as bearings or gearboxes. This means we can replace multiple parts that have to be assembled into ready-to-use ones.
 \end{description}
 
-These properties of the 3D printing process allow for the first time to really explore morphological variants of mechanical parts. Indeed, it is now fast and low-cost to create alternative designs. Associated with modular architecture, we can easily and quickly change robot parts and conduct experiments. Also this process is compatible with our diffusion goals since it is simple and accessible anywhere with an internet connection and a mailing address.
+These properties of the 3D printing process allow for the first time to really explore morphological variants of mechanical parts. Indeed, it is now fast and low-cost to create alternative designs. Associated with modular architecture, we can easily and quickly change robot parts and conduct experiments. Also this process is compatible with our diffusion goals since it is simple, and accessible anywhere with an internet connection and a mailing address. Also parts can be produced directly in the lab if it is equiped with a 3D printer.
 
 
 \subsection{Electronic architecture based on Arduino} % (fold)
 
 Thanks to 3D printing, exploring morphological variants of mechanical parts is now easier than ever before but unfortunately, the printing of electronic components and boards is not yet available. However, exploring the role of morphology does not only concern the mechanical properties but also the sensors apparatus i.e. \textbf{which sensor is used and where is it placed on the body}. The Swiss bot (see REF) is a great example of the impact of the sensors’ positioning on robot behaviour.
 
-To permit the exploration of sensor-system variants, we suggest basing the electronic architecture on Arduino. Arduino is an open-source electronics platform based on easy-to-use hardware and software. It is intended for anyone doing interactive projects. The Arduino board can sense the environment by receiving inputs from a wide variety of sensors, and affects its surroundings by controlling lights, motors, and other actuators. Low-level embedded programing skills are not required, since Arduino boards can be programmed using the Arduino programming language\footnote{\url{http://arduino.cc/en/Main/Software}} which abstracts all the complexity.
+To permit the exploration of sensor-system variants, we suggest basing the electronic architecture on Arduino. As presented in section~\ref{sec:arduino-review}, Arduino is an open-source electronics platform based on easy-to-use hardware and software. It is intended for anyone doing interactive projects. The Arduino board can sense the environment by receiving inputs from a wide variety of sensors, and affects its surroundings by controlling lights, motors, and other actuators. Low-level embedded programing skills are not required, since Arduino boards can be programmed using the Arduino programming language\footnote{\url{http://arduino.cc/en/Main/Software}} which abstracts all the complexity.
 
 \begin{figure}[tb]
     \begin{center}
@@ -142,14 +141,15 @@ The Arduino community is very active and expanding, more and more sensors are de
 
 \subsection{All-in-one actuators} % (fold)
 
-As we explained briefly in REF, several techniques are available to make robots move from classic and cheap servomotors to the highly powerful and dynamic hydraulic actuators powering the Atlas humanoid robot.
+% As we discussed in chapter~\ref{cha:experimental-methods},
+Robots are actuated using various techniques from classic and cheap servomotors to the highly powerful and dynamic hydraulic actuators powering the Atlas humanoid robot.
 While some actuator technologies such as Series Elastic Actuator (SEA), cable-driven or artificial muscles are really promising to create more robust and efficient robots, they are still work-in-progress solutions and require advanced skills both to assemble and use. These technologies are not yet compatible with the creation of diffusible and reproducible robotic platforms in a multidisciplinary research community.
 
 % \textbf{TODO: Image de system mecanique avec cable ou air }
 
 To permit the diffusion, we need off-the-shelf and stationary solutions, easy to assemble, easy-to-use and available anywhere. Also, to allow the exploration of morphology, actuators have to be modular and allow the tuning of several parameters.
 
-We therefore chose to use Robotis Dynamixel servo-motors\footnote{\url{http://www.robotis.com/xe/dynamixel_en}} for robot actuation (see \figurename~\ref{fig:dynamixel_models}). Dynamixel motors are easily accessible, as they are mass produced and shipped worldwide. Also they are the most commonly used actuators in the robotic field and many robots are powered by them, including Darwin-OP~\parencite{ha2011development}, Myon~\parencite{hild2012myon} , Acroban~\parencite{ly2011bio} or Nimbro~\parencite{schwarznimbro}.
+We therefore chose to use Robotis Dynamixel servo-motors\footnote{\url{http://www.robotis.com/xe/dynamixel_en}} for robot actuation (see \figurename~\ref{fig:dynamixel_models}). Dynamixel motors are easily accessible, as they are mass produced and shipped worldwide. Also they are commonly used actuators in the robotic field and many robots are powered by them, including Darwin-OP~\parencite{ha2011development}, Myon~\parencite{hild2012myon} , Acroban~\parencite{ly2011bio} or Nimbro~\parencite{schwarznimbro}.
 
 The Dynamixel motors are not simple servomotors, they are all-in-one-modules that contain drivers, encoders and communication buses. They are also quite powerful, robust and rather precise. This is achieved by the combination of Maxon motors, metal gearbox and precise magnetic rotation sensor (resolution: 0.1\textsuperscript{o}). They embed a 32bits micro-controller dedicated to communication (serial port TTL or RS232), the control of the joint (position, speed or torque) and the measurement of internal data such as the real position, speed, load or temperature. They also allow tuning the internal PID or limitation of the maximal torque. This enables rich behaviour, useful both for physical interaction and locomotion.
 
@@ -170,14 +170,14 @@ Different models are available and permit the adjustment of the actuation to the
     \begin{center}
         \includegraphics[width=\linewidth]{dynamixel_dimension.pdf}
     \end{center}
-    \caption{The footprint of Dynamixel motors keeps the same pattern, only the dimensions are increased following the power of the motor. Thus, switching from one model to another only requires changing the dimension and not the design of a part. With parametric software such as as Solidworks, it takes a couple of minutes to modify a mechanical part to be compatible with another Dynamixel motor.}
+    \caption{The footprint of Dynamixel motors keeps the same pattern, only the dimensions are increased following the power of the motor. Thus, switching from one model to another only requires changing the dimension and not the design of a part. With parametric CAD software such as as Solidworks, it takes a couple of minutes to modify a mechanical part to be compatible with another Dynamixel motor.}
     \label{fig:dynamixel_dimension}
 \end{figure}
 
 
 \subsection{Accessible and extensible software} % (fold)
 
-Having variability in software is more classical. Here the choice has been made in favour of ease-of-use and modularity. We design sensory-motor control API adapted to the hardware variability we have. We choose to use Python as the main programming language as it allows fast development, easy deployment on all operating systems and quick scripting by non-necessary expert developers. It also offers a large variety of scientific and machine-learning libraries used in robotics (e.g. Numpy, Scipy, Scikit-learn).
+Having variables in software is more classical, yet using a non-stationary robot hardware (i.e. those link length or sensorimotor space can change) requires to have control library adapted to this low-level modularity. Here the choice has been made in favour of ease-of-use and modularity. We designed sensory-motor control API adapted to the hardware variability we have. We choose to use Python as the main programming language as it allows fast development, easy deployment on all operating systems and quick scripting by non-necessary expert developers. It also offers a large variety of scientific and machine-learning libraries used in robotics (e.g. Numpy, Scipy, Scikit-learn).
 This language is rather slow compared to C or Java, but sensorimotor control is done using serial bus communication and as the serial communication is handled through the standard library we can still achieve rather high performance.
 
 \subsection{Open source distribution} % (fold)
@@ -188,12 +188,12 @@ This is an essential step toward building new research tools that facilitate bot
 
 
 \section{Allowing cumulative and Open science} % (fold)
-
+\label{sec:allow-cumulative-science}
 As we explained previously, new design approaches and methods should be used to create robots with morphology that can be explored by the user. In addition, by choosing the relevant technologies, we can permit both  the easy exploration of morphological variants, and the transfer and exchange between research laboratories.
 
 To head in this direction, an unfettered access to knowledge and the components associated (articles, data, software, materials, methods) is needed. Also, it is preferable that work can be built upon without asking permission and where the methodology is increasingly based on open collaboration.
 
-A very well adapted tool is the open-source license, which allows the source code, blueprint or design to be used, modified and/or shared under defined terms and conditions. The terms and conditions are defined by several different licenses and the author can choose among them the one that best suits the level of freedom  with which he wants to distribute his work. These licenses are famous and widespread in software development and have started to be used for hardware over the last  few years (see chapter REF).
+A very well adapted tool is the open-source license, which allows the source code, blueprint or design to be used, modified and/or shared under defined terms and conditions. The terms and conditions are defined by several different licenses and the author can choose among them the one that best suits the level of freedom  with which he wants to distribute his work. These licenses are famous and widespread in software development and have started to be used for hardware over the last few years (see chapter REF).
 
 Nevertheless, in Science the preferred distribution channel is still primarily based on paper publishing and only a few researchers distribute their work under open source license. It is surprising as the use of open source collaboration seems very desirable for scientific research, especially in the robotic field:
 
@@ -204,7 +204,7 @@ Nevertheless, in Science the preferred distribution channel is still primarily b
     \item[Open Science:] We often use only one part of the data collected in an experiment. The open distribution of all material allows the reuse of experiments by other researchers, who can use the same data to extract alternatives or extend the initial results.
     It also permits access to all details and especially to the constant parameter tuning, very sensible for a number of algorithms.
 
-    \item[Cumulative Science] Most of the time, only a scientific paper is published. If this paper presents an algorithm or a mechanism, interested researchers have to reverse-engineer the entire development process. Either the researcher will have to waste time o doing this or he will not use this work at all.
+    \item[Cumulative Science] Most of the time, only a scientific paper is published. If this paper presents an algorithm or a mechanism, interested researchers have to reverse-engineer the entire development process. Either the researcher will have to waste time on doing this or he will not use this work at all.
     Finally, it permits mutual aid between researchers, which helps to debug or improve performance.
 
 \end{description}
@@ -221,7 +221,7 @@ Therefore, there is a considerable amount of extra work required to permit fluen
 This work can increase the overall development time by a factor of 3 but participates both in building cumulative science in the research community and increasing the actual impact of our work.
 
 In the Poppy project we decided to distribute all the hardware under "copyleft" licenses, which let users freely use the sources as they want on the condition that they share the derivative work with the same license.
-The open source distribution and community management will be discussed with more details in the chapter REF.
+The open source distribution and community management will be discussed with more details in the chapter~\ref{cha:diffusion}.
 
 
 \section{Conclusion} % (fold)
@@ -236,7 +236,7 @@ Yet the chosen approach raised some limitations. Indeed, since we want to keep o
 
 Also, for the open source distribution, essential in creating a research community platform, a lot of effort is required to create an efficient and pleasant workflow.
 
-In the next chapter, we will explain how we applied the methodology presented to the design of a whole new humanoid robot called Poppy. Then, in the chapter REF, we will discuss the open source distribution and how we manage the community.
+In the next chapter, we will explain how we applied the methodology presented to the design of a whole new humanoid robot called Poppy. Then, the design of an easy-to-use modular Python library will be describe in chapter~\ref{cha:pypot}.
 
 
 

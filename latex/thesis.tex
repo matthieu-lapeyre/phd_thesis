@@ -27,8 +27,8 @@
 \newcommand{\thesisTitle}{Title}
 \newcommand{\thesisName}{Matthieu Lapeyre}
 \newcommand{\thesisSubject}{Submitted in fulfillment of requirements for the degree of Doctor of Philosophy Specialized in Computer Science }
-\newcommand{\thesisDate}{September 15, 2014}
-\newcommand{\thesisVersion}{0.8}
+\newcommand{\thesisDate}{September 20, 2014}
+\newcommand{\thesisVersion}{0.9}
 
 \newcommand{\thesisFirstReviewer}{Fethi Ben Ouezdou}
 \newcommand{\thesisFirstReviewerUniversity}{\protect{Université de Versailles Saint-Quentin-en-Yvelines}}
@@ -105,6 +105,12 @@
 
 \usepackage[strict]{changepage}
 \usepackage{framed}
+
+% \newcommand{\doConvert}[2]{\immediate\write18{convert #1 -resample %
+%   300x300 -resize #2 #1.rs}}
+% \newcommand{\imgRs}[4]{\doConvert{#1.#2}{#3x#4}%
+%   \includegraphics[width=#3, height=#4, type=#2, ext=.#2.rs, read=.#2.rs]{#1}%
+% }
 
 % environment derived from framed.sty: see leftbar environment definition
 \definecolor{formalshade}{rgb}{0.98,0.98, 0.98}
@@ -359,10 +365,10 @@ backrefpages={cited on pp\adddot}
 % --------------------------
 % Front matter
 % --------------------------
-\pagenumbering{roman}           % roman page numbing (invisible for empty page style)
-\pagestyle{empty}               % no header or footers
-\input{content/titlepages}      % INCLUDE: all titlepages
-\cleardoublepage
+% \pagenumbering{roman}           % roman page numbing (invisible for empty page style)
+% \pagestyle{empty}               % no header or footers
+% \input{content/titlepages}      % INCLUDE: all titlepages
+% \cleardoublepage
 
 % \pagestyle{plain}               % display just page numbers
 % \input{content/abstract}        % INCLUDE: the abstracts (english and german)
@@ -371,9 +377,9 @@ backrefpages={cited on pp\adddot}
 % \input{content/acknowledgement} % INCLUDE: acknowledgement
 % \cleardoublepage
 
-\setcounter{tocdepth}{1}        % define depth of toc
-\tableofcontents                % display table of contents
-\cleardoublepage
+% \setcounter{tocdepth}{1}        % define depth of toc
+% \tableofcontents                % display table of contents
+% \cleardoublepage
 
 % --------------------------
 % Body matter
@@ -392,7 +398,7 @@ backrefpages={cited on pp\adddot}
 
 \cleartoleftpage
 \part{The Poppy project} % (fold)
-% The Poppy project aims to ...
+The Poppy project aims to ...
 \input{content/chapter/approach.tex} %OK
 \input{content/chapter/poppy.tex}
 \input{content/chapter/pypot.tex} %OK
@@ -400,12 +406,12 @@ backrefpages={cited on pp\adddot}
 
 \cleartoleftpage
 \part{Applications} % (fold)
-% \begin{quotation}
-%     Usage is like oxygen for ideas. You can never fully anticipate how an audience is going to react to something you’ve created until it’s out there. That means every moment you’re working on something without it being in the public it’s actually dying, deprived of the oxygen of the real world.\\
-%     \signed{Matt Mullenweg - Wordpress}
-% \end{quotation}
+\begin{quotation}
+    Usage is like oxygen for ideas. You can never fully anticipate how an audience is going to react to something you’ve created until it’s out there. That means every moment you’re working on something without it being in the public it’s actually dying, deprived of the oxygen of the real world.\\
+    \signed{Matt Mullenweg - Wordpress}
+\end{quotation}
 
-% Exploring applications of Poppy has been ...
+Exploring applications of Poppy has been ...
 
 \input{content/chapter/morphology.tex} %OK
 \input{content/chapter/education.tex} %OK
@@ -440,16 +446,16 @@ backrefpages={cited on pp\adddot}
 % \listoftables
 
 
-\cleardoublepage
-\begin{appendices}
-% \part*{Appendix}
-\input{content/appendix/thigh_theory_model.tex}
-\input{content/appendix/knee_optimization.tex}
-\input{content/appendix/foot_fsr_optimization.tex}
-% \input{content/appendix/education_material.tex}
-% \input{content/appendix/blueprint.tex}
-% \input{content/appendix/electronics.tex}
-\end{appendices}
+% \cleardoublepage
+% \begin{appendices}
+% % \part*{Appendix}
+% \input{content/appendix/thigh_theory_model.tex}
+% \input{content/appendix/knee_optimization.tex}
+% \input{content/appendix/foot_fsr_optimization.tex}
+% % \input{content/appendix/education_material.tex}
+% % \input{content/appendix/blueprint.tex}
+% % \input{content/appendix/electronics.tex}
+% \end{appendices}
 
 
 

@@ -1,89 +1,135 @@
 % !TEX root = ../../thesis.tex
 
-\cleartoleftpage
-\includepdf{../media/chapter_illustration/poppy_prairie_2.pdf}
+% \cleartoleftpage
+% \includepdf{../media/chapter_illustration/poppy_prairie_2.pdf}
 
-\chapter{Open diffusion} % (fold)
-
-
-\section{Introduction} % (fold)
+\chapter{Open diffusion of Poppy} % (fold)
 
 
+\section{Creating an interdisciplinary community} % (fold)
 
-We will discuss several aspect concerning towards open science and diffusion.
+The Poppy Project develops an open-source 3D printed humanoid platform based on robust, flexible, easy-to-use and reproduce hardware and software.
 
+Poppy targets three domains of use: science, education and art.
 
+Poppy was initially designed with a scientific objective, aiming to be a new experimental platform opening the possibility to systematically study the role of morphology in sensorimotor control, in human-robot interaction and in cognitive development.
+Indeed, a suitable design of a robot morphology can greatly simplify control problems, increase robustness, and open new modes of interaction with the physical and social world. Thus, being able to study the body as an experimental variable, something which can be systematically changed and experimented, is of paramount importance.
 
+Yet, until recently it was complicated because building a robot relied on heavy and costly manufacturing techniques.
+3D printing has changed the landscape of what is possible: Poppy Project transposed it to humanoid robotics, and it is now possible to explore new body shapes in just a few days.
+It enables and simplifies the experimentation, the reproduction and the modification of the morphology in research laboratories. It also allows collaborative working, sharing and replication of the results on these issues between laboratories.
+The ambition is to become a reference platform for benchmarking and dissemination of scientific results.
 
-\section{Poppy: an open science project}
-
-For the moment, the Poppy project is actually an Inria project, led by the Flowers team. Yet the project potential is more universal and the fact it is owned by an entity reduces the scope of its applications and users, and therefore its societal impact.
-
-
-Also, if we really want to transform the Poppy project into a real open science project, I think we should let go the project, I mean what the Poppy project should not anymore an Inria project, or a Flowers Team project nor a Matthieu Lapeyre's project. It should not be own by anyone because people will not be interested by participate in the success of someone project, it should be an anonymous project based on open science and education values.
-
-
-For sure, we cannot just let the project by its own, maybe the best way to make this project independant would be to transfert it to an association with general assembly composed by members from several countries and universities
-
-
-
-\section{Improving our impact in the open hardware community: Modularity} % (fold)
-
-As we discussed longly in this thesis, Poppy has a modular morphology. This modularity is expressed with all technologies involved. For the mechanics, we use 3D printing techniques allowing to produce quick and low-cost parts. For the electronics, we designed a electronics board based on Arduino allowing to easily plug new sensors. Finally for the software, we built a library using an modular architecture both for the low-level thanks to I/O controllers and for the high-level with primitives paradigms.
-
-As we saw in the chapter REF, this modularity allows for quick experimentation over morphological variants while the technology used are robust and easy-to-use.
-
-
-\subsection{Modularity in the open source software} % (fold)
-
-Open source software is very successful and widespread among the community of developers. Yet the first initiative
-
-The Modularity refers to the manner in which a design is decomposed into different "modules". It is based on the notion of interdependence within modules and independence between modules~\parencite{baldwin2000design}. This concept encompasses two related ideas: the need to allow work on a given module to be carried out without affecting other modules in the design, a concept known as "loose-coupling", and the need for well-designed "interfaces" between these modules~\parencite{maccormack2006exploring}.
-
-The concept of modularity appears as a fundamental property in the the open source software collaboration. Indeed, code modularity allows the overall project to be divided into much smaller and well-defined tasks that individuals can tackle independently from other tasks and without affecting other aspects of the program.
-
-Thus Linus Torvalds, emphasized modularity as a design criterion early in the development of Linux~\parencite{dibona1999open}. Indeed without modularity, it would be improbalbe that contributors could understand the whole design architecture to have a relevant contribution. It would be difficult to add new features or fix bug without affecting other part of the design. Linux needed to be modular to attract and facilitate a developer community. Code modularity allows partitioning of work among a global pool of developers and facilitates the recruitment of new contributors, as it reduces their learning curve to a subset of modules rather than the entire project~\parencite{fitzgerald2004critical}.
-
-\parencite{lerner2002some}
-A particular area of revision was the Application Program Interface (API), which allowed the development of Apache features to be very 'modular'. This step enabled programmers to make contributions to particular areas without affecting other aspects of the program
+\begin{figure}[tb]
+\centering
+    \subfloat[][]{\includegraphics[height=4.5cm]{world_map.jpg}}
+    \hfil
+    \subfloat[][]{\includegraphics[height=4.5cm]{user_country.pdf}}
+    \caption{Activity tracked during October 2013 to February 2014}
+    \label{fig:poppy_community}
+\end{figure}
 
 
+Thanks to the fact that it integrates advanced and yet easily accessible techniques in an embodiment that motivates students and the wider public, this platform also meets a growing societal need: education and training in technologies combining computer science, electronics and mechanics, as well as a training tool to the emergent revolutionary 3D printing process. With its openness, its design and its rather low-cost, Poppy provides a unique context for experimentation and learning of these technologies in a Do-It-Yourself (DIY) approach.
+Finally, the possibility to easily modify both the hardware and the software also makes Poppy a useful tool for artistic projects working with interactive computerized installations.
 
-Moreover some insights show that the architecture of a product developed by a highly distributed team of developers is more modular than another product of similar size developed by a co-located team of developers~\parencite{maccormack2006exploring}.
+Poppy is an open source/open science project, even if the technology developed have high potential to be relevant in Art, Education and of course Science, the user community is a paramount of importance. Because the robot and tools own to the community, it is crucial to have a place to exchange idea and works.
+
+Yet this task require well designed tools, high communication ability and we are not really competent
+
+Yet the potential impact of Poppy and associated tools cannot be expressed without
+
+
+\begin{figure}[tb]
+\centering
+    \subfloat[][Old BBpress forum]{\includegraphics[height=5.2cm]{poppy_forum_bbpress.jpg}}
+    \hfil
+    \subfloat[][Current Discourse forum]{\includegraphics[height=5.2cm]{poppy_forum_discourse.jpg}}
+    \caption{Evolution of the forum for the Poppy project}
+    \label{fig:poppy_forum}
+\end{figure}
 
 
 
-
-Thus, within a modular architecture, new module designs may be substituted for older ones easily and at low cost
-
+The communication is no-more vertical and one directionnal,
 
 
-Modularity is comming to the hardware (project Google)
+\subsection{Multilingual} % (fold)
 
-\parencite{narduzzo2008modularity} in GNU/Linux
-
-\parencite{lerner2002some}
-A particular area of revision was the Application Program Interface (API), which allowed the development of Apache features to be very 'modular'. This step enabled programmers to make contributions to particular areas without affecting other aspects of the program
-
-Various efforts by corporations selling proprietary software products to develop additional products through an open source approach have been undertaken.One of the most visible of these efforts was Netscape's 1998 decision to make 'Mozilla', a portion of its browser source code, freely available.This effort encountered severe difficulties in its first year, only receiving approximately two dozen postings by outside developers. Much of the problems appeared to stem from the insufficiently modular nature of the software: reflecting its origins as a proprietary commercial product,the different portions of the program were highly interdependent and interwoven
-
-An interesting question is why corporations do not replicate the modular structure of open source software in commercial products more generally.One possibility may be that modular code,whatever its  virtues for a team of programmer working independently is not better for a team of and working together.
+As a science project, we naturally decided to use the English as main language for all communication associated with the project. This implies the main website for presenting the project, as well as support and documentation on the forum and the wiki.
 
 
 
+\section{Improve accessibility} % (fold)
 
-Another layer of modularity can be expressed at the technological level. Indeed, open source collaboration is much more effective and useful when technology are contain into module combined together rather than one big
-The technological modularity allows a better impact in the open source community because people can extract one of the module to include it in their project.
+For artists and students
 
-If the stuff to hand isn't modular, you can't really share, because your stuff isn't compatible with other people's stuff. If it isn't modular, you can't share out tasks and scale. If you can't share out tasks, you can't have people working independently, at their own pace and in their own way, which means the project isn't really open. If it isn't modular, you can't swap in some new elements while leaving everything else untouched, which means no "release early, release often", no experimentation, no rapid evolution. Modularity is indispensable.
+Heidi referenced the Paradox of the Active User (pdf), which has been around as a concept since 1987. I highly recommend reading the original paper, but if you don't have time, Jakob Nielsen summarizes:
+
+\begin{formal}
+Users never read manuals but start using the software immediately. They are motivated to get started and to get their immediate task done: they don't care about the system as such and don't want to spend time up front on getting established, set up, or going through learning packages.
+The "paradox of the active user" is a paradox because users would save time in the long term by learning more about the system. But that's not how people behave in the real world, so we cannot allow engineers to build products for an idealized rational user when real humans are irrational. We must design for the way users actually behave.
+\end{formal}
+
+The assembly of Poppy has several point what indicates to the user how they should mount a part.
 
 
-\section{Tools for hardware} % (fold)
-\label{sec:tools_for_hardware}
+\section{Improving the hardware modularity} % (fold)
 
-Solidworks Eagle
+As we discussed in details in this thesis, Poppy has a modular morphology. This modularity is expressed with all technologies involved. For the mechanics, we use 3D printing techniques allowing to produce quick and low-cost parts. For the electronics, we designed an electronics board based on Arduino allowing to easily plug new sensors. Finally for the software, we built a library using an modular architecture both for the low-level thanks to I/O controllers and for the high-level with primitives paradigms.
 
-% section tools_for_hardware (end)
+As we saw in the chapter REF, this modularity allows for quick experimentation over morphological variants. This functional modularity seems to be enough to allow a wide range of scientific experiments with Poppy and hopefully have real a scientific impact. However, to have an actual impact in the open source community, the technological modularity is essential.
+
+In the software, modularity refers to the manner in which a design is decomposed into different "modules". It is based on the notion of interdependence within modules and independence between modules~\parencite{baldwin2000design}. This concept involves two related ideas: the need to allow work on a given module to be carried out without affecting other modules in the design, a concept known as "loose-coupling", and the need for well-designed "interfaces" between these modules~\parencite{maccormack2006exploring}.
+
+The concept of modularity appears as a fundamental property in the the open source software collaboration. Indeed, code modularity allows the overall project to be divided into much smaller and well-defined tasks that individuals can tackle independently from other tasks and without affecting other aspects of the program~\parencite{narduzzo2008modularity}.
+
+Thus Linus Torvalds, emphasized modularity as a design criterion early in the development of Linux~\parencite{dibona1999open}. Indeed without modularity, it would be improbable that contributors could understand the whole design architecture to have a relevant contribution. It would be difficult to add new features or fix bug without affecting other part of the design. Linux needed to be modular to attract and facilitate a developer community. Code modularity allows partitioning of work among a global pool of developers and facilitates the recruitment of new contributors, as it reduces their learning curve to a subset of modules rather than the entire project~\parencite{fitzgerald2004critical}.
+
+Various efforts by corporations selling proprietary software products to develop additional products through an open source approach have been undertaken.One of the most visible of these efforts was Netscape's 1998 decision to make 'Mozilla', a portion of its browser source code, freely available.This effort encountered severe difficulties in its first year, only receiving approximately two dozen postings by outside developers. Much of the problems appeared to stem from the insufficiently modular nature of the software: reflecting its origins as a proprietary commercial product,the different portions of the program were highly interdependent and interwoven.
+
+For twenty years, the open source software development managed to find efficient workflow. There are now tools, rules and guidelines allowing people to develop together new software fluently.
+
+The hardware modularity is not as developed as the software one because it is not possible to abstract the interface. Hardware components have a global shape, connector type and position, and so on, which make difficult to design efficient interface.
+
+\begin{figure}[tb]
+\centering
+    \subfloat[][Arduino form factor]{\includegraphics[height=3.5cm]{arduino-shield.png}}
+    \hfil
+     \subfloat[][Google Ara project]{\includegraphics[height=3.5cm]{project-ara.jpg}}\\
+    \caption{}
+    \label{fig:hardware-modularity}
+\end{figure}
+
+Yet some projects have already addressed these challenges. For example, the Arduino boards (Uno, Leonardo, Yun, Mega, Due) share a same footprint (i.e. where are placed the main I/O pins), in this way any shield developed for one of these Arduino board can also be used on other one. This modularity is a lever arm for the community as potential contributors know that the shield they develop and possibly sell will be compatible we several boards and future ones.
+Another example is the Google ARA project, it is a smart-phone with modular elements. It is possible to change only the processor or the camera without having to change the whole phone. To achieve such design, they created interface block (see REF). Therefore any modules following the interface rules can be plugged on the phone.
+
+
+Add the fact what people should be able to change easily a part of the robot
+
+To improve the potential impact of Poppy for technology we need to follow such ideas. Indeed the methodology to build Poppy allows for modularity but the actual hardware design is interdependent. The functioning of each mechanical part depends also on element connected to it, for example, the way the pelvis is designed changes the mobility of the legs. Also the particular shape of the IO board and the way connectors are placed, are designed to fit in the current design of Poppy's head.
+
+It does not avoid the reuse of such components into other projects but it reduces their relevance. Among all it raise difficulties for potential contributor as they have to understand the whole mechatronics architecture rather than focusing on one precise element.
+
+
+Thus the new technology development will be more oriented toward hardware modularity. This work is already under process for the two main aspect of the robot.
+
+\begin{figure}[tb]
+\centering
+    \subfloat[][IO Module schematics (under production)]{\includegraphics[height=3.5cm]{io-module.png}}
+    \hfil
+     \subfloat[][Size comparison between the IO board and SO-DIMM format]{\includegraphics[height=3.5cm]{compare-io-boards.jpg}}\\
+    \caption{}
+    \label{fig:poppy-electronic-modularity}
+\end{figure}
+
+For the mechanics, a first step could be to split the robot into modules (e.g. head, torso, arms and legs) with defined interface. In this way, contributors could create new design while just having to ensure the interface compatibility. Therefore anyone could create a whole new head or legs system and distribute it so people can test on their Poppy.
+
+For the electronics, we are also exploring splitting it into modules. We are working on a new design of the IO board, which will involve 2 boards, one IO module with the core of the technology we need (Arduino, motor control) and a shield with connectors.
+While the shield is custom to a robot, depending on the needs and motors used, the IO module is very small and versatile so it can be integrate both in small and big robot.
+The design of this IO module is already done (see REF) and is based on a DDR2 SO-DIMM format (67x30 mm) with up to 200 pins. This board involves an Arduino Mega with all its GPIO, two modified motor buses compatible for TTL and RS485 communication and an inertial unit MPU6000.
+
+
 
 \section{Production/Distribution: an alternative approach} % (fold)
 
@@ -111,7 +157,7 @@ Yet, the mission of a research team at Inria is to do research, and find ways to
 
 But Poppy is not designed to be a standard commercial product. While it might foster the creation of an economical ecosystem and jobs, its main purpose is to become an educational tool that remains open, as well as rather low cost and easily reproducible. If the goal would have been to make it profitable, it would be necessary to sell it at a much higher price. The robot wouldn't be as accessible at it should to ensure the achievement of its scientific diffusion and educational missions... We would loose the intrinsic purpose of Poppy.
 
-\section{Toward local open factories } % (fold)
+\subsection{Toward local open factories } % (fold)
 
 Meanwhile, the "makers revolution" is gaining momentum~\parencite{anderson2012makers} and more and more Fablabs are created around the world. As a main mission of Poppy is to be a educational platform, Poppy could become a popular platform used, hacked, transformed within the natural FabLab activities. But also, and this is the direction explored below,  it would make sense that Poppy, as a whole or subsets of its components, be produced and distributed by Fablabs, and thus becoming a tool used by Fab Lab to develop and robustify the economic ecosystem in which they live.
 
@@ -170,8 +216,6 @@ On the Inria side, the creation of an association which role would be to spin-of
 
 \subsection{conclusion} % (fold)
 Poppy can be one of the first project launching this new kind of production and distribution process. The last months we met several of the main French FabLab. While their are quite enthousiast with this idea, the organisation is not completely ready to go on this way and we will certainly have to use the two ways to distribute Poppy. The first ones will be to let reseller create kit and sold them.
-
-
 
 
 
