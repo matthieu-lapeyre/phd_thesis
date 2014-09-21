@@ -1,7 +1,7 @@
 ergo_robot_config = {
     'controllers': {
         'my_dxl_controller': {
-            'port': '/dev/ttyUSB0', # Depends on your the system. Since Pypot 1.7, it is possible set the port to 'auto' in the dictionary. When loading the configuration, Pypot will automatically try to find the port with the corresponding attached motor ids.
+            'port': '/dev/ttyUSB0',
             'sync_read': False,
             'attached_motors': ['base', 'head'], # You can mix motorgroups or individual motors
         },
