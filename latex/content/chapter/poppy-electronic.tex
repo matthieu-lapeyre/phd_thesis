@@ -1,13 +1,13 @@
 % !TEX root = ../../thesis.tex
 
 \section{Electronic architecture} % (fold)
+\label{sec:poppy-electronic}
 
-To keep in the spirit of the project as described by its guidelines (see previous section REF), the electronic architecture has to be simple, easily reproducible, relatively low-cost and modular. Of course the performance of each component is very important and should be correctly dimensioned.
+To keep in the spirit of the project as described by its guidelines (see chapter~\ref{cha:methodology}), the electronic architecture has to be simple, easily reproducible, relatively low-cost and modular. Of course the performance of each component is very important and should be correctly dimensioned.
 
 The first version of Poppy (beta) had a handmade electronics architecture, which required hacking several components before soldering them together. This design was not compliant with the design guidelines of Poppy (i.e. easy to use and to reproduce) and was actually the main reason Poppy was considered as a beta version. Recent work has been done toward the simplification and the reproducibility of the electronics part.
 
 Yet the electronic integration is challenging. Indeed, because Poppy has 5 degrees of freedom in the torso, there is not enough room for all electronic components needed. Therefore we had to embed most of them in the head which raises not only a problem of space but also of mass.
-
 
 Poppy's electronic architecture is based on several key-components communicating with each other (see Figure Ref):
 \begin{itemize}
@@ -29,7 +29,7 @@ We will describe in this section, the design choices we made for these various c
 
 \subsection{Poppy IO Board} % (fold)
 
-With the aim of offering easy-to-use modular electronics architecture and to make it fit in the head of Poppy, we decided to create a custom board. We could argue it makes the diffusion of the platform more complex, since a custom board is too complex to make by hand and therefore may necessitate the kind of industrialization process we have been trying to avoid since the early days of the project. Nevertheless the maker’s revolution brings novel solutions for producing electronics. Indeed, there are now companies (such as CircuitHub\footnote{\url{https://circuithub.com}}), which offer scalable solution tools from 1 sample to a 10,000 batch. It is possible to upload our design and anyone can ask to have it produced. Of course ordering one part is more expansive but remains relatively low compared to the cost of the robot.
+With the aim of offering easy-to-use modular electronics architecture and to make it fit in the head of Poppy, we decided to create a custom board\footnote{This board has been developped by Fabien Depraetre during his mster internship}. We could argue it makes the diffusion of the platform more complex, since a custom board is too complex to make by hand and therefore may necessitate the kind of industrialization process we have been trying to avoid since the early days of the project. Nevertheless the maker’s revolution brings novel solutions for producing electronics. Indeed, there are now companies (such as CircuitHub\footnote{\url{https://circuithub.com}}), which offer scalable solution tools from 1 sample to a 10,000 batch. It is possible to upload our design and anyone can ask to have it produced. Of course ordering one part is more expansive but remains relatively low compared to the cost of the robot.
 
 The board we designed included the basic elements needed both for the control of the robot and for its extensibility.
 
@@ -141,7 +141,7 @@ The Hardkernel Odroid U3 (see \figurename~\ref{fig:odroid_U3}) is a low-cost (\$
 
 
 Among the plug-n-play small computers, the Odroid U3 is currently the most suitable board for our application with regards the size, the computing power and the I/O positions.
-Yet as we will explain in the limitations part (see section REF), this solution is still not perfectly satisfactory and the use of plug-n-play computers raises a lot of integration problems.
+Yet as we will explain in the limitations part (see section~\ref{sub:electronic-limitations}), this solution is still not perfectly satisfactory and the use of plug-n-play computers raises a lot of integration problems.
 
 \subsection{Display} % (fold)
 

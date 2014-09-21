@@ -141,7 +141,7 @@ Moreover, 3D printing does not only permit the shape of a part to be changed, it
 
 
 \subsection{Scalable actuation} % (fold)
-
+\label{sub:scalable-actuation}
 As explained in chapter~\ref{cha:methodology}, the chosen methodology relies on the all-in-one Robotis actuator. They are really convenient to use as they directly embed drivers, encoders and communication buses. They are also quite powerful, robust and rather precise. This is done by the combination of Maxxon motors, metal gearbox and precise magnetic rotation sensor (resolution: 0.1\textsuperscript{o}).
 
 Also Robotis offers a range of motors with different actuation power (see \figurename~\ref{fig:dynamixel_powa}). They are different in size and power but their API remains the same and we can easily switch from one to another without either changing the code or the electronic integration. Yet, even if the size changes, the footprint keeps the same pattern (see \figurename~\ref{fig:dynamixel_dimension}).
@@ -171,6 +171,7 @@ Being able to change the morphology easily is of paramount importance in the Pop
 
 
 \section{Lightweight} % (fold)
+\label{sec:lightweight-robot}
 
 Many humanoid robots use powerful motors often associated with highly accurate sensors. This has a cost, both in terms of weight and computation resources. Moreover, to ensure the accuracy of the sensory-motor space it is necessary to design very rigid mechanical parts. The whole structure obtained is powerful but very heavy and not very agile due to inertia.
 In the Poppy platform, lightness is very important both for dynamic properties and safety:
@@ -256,38 +257,61 @@ Thanks to the use of this design on all of Poppy's limbs (see \figurename~\ref{f
 
 
 
-\section{Discussion} % (fold)
-
-Poppy s'integre dans le monde des makers
-
-et s'ouvre à l'education et l'art
 
 
 
+\section{Limitations} % (fold)
+
+The design and the choice we made have raised several limitations:
+
+\subsection{Simplicity} % (fold)
+Creating a robot those one of the main objective is to be easy to duplicate implies strong constraints on the design. As we saw in chapter~\ref{cha:experimental-methods}, humanoid robots have often a complex design involving many components. Achieving such complexity is not possible if we want to keep the robot easy and quick to assemble by non-expert users. Therefore, Poppy's mechanics is simple, with only one part per motor. However they are several joints those performance could be improved by changing the design. For example, just by adding a complementary mechanism such as a reduction gear, we could increase the applied torque on critical joint (e.g. knee, ankle, hip).
+
+\subsection{No hands} % (fold)
+The current version of Poppy does not have articulated hands. The grasping ability was not a top priority and is challenging, so we preferred to only design fixed hand. They are several laboratories working on this topic so we hope one of them will be interested to contribute in the Poppy project and design articulated hands. We already have had contact with the Bristol Robotics Lab and the Open hand project for this purpose.
+
+\subsection{Motor modularity} % (fold)
+The parametric modeling is great if we are we want to create variation of the same pattern with different dimensions. Thus, we can easily create configuration of all Robotis Dynamixel motors. Yet, if we are interested to use another motor brand, the configuration will not be direct and we will have to redo a part of the design process to ensure the compatibility.
 
 
-\section{Conclusion} % (fold)
+\subsection{Electronic} % (fold)
+\label{sub:electronic-limitations}
 
-
-\subsection{Electronic limitations} % (fold)
-
-The electronics we developed are compatible with the exploration of morphology for sensory space because they have a lot of I/O ports to extend Poppy's sensorimotor space. Yet it has several limitations that make the final solution unsatisfactory.
+The electronics we developed is compatible with the exploration of morphology for sensory space because they have a lot of I/O ports to extend Poppy's sensorimotor space. Yet it has several limitations that make the final solution unsatisfactory.
 
 Commonly used electronic components are not designed for robotic integration but rather for building small personal computers. Thus even if the electronic boards are often quite small, they have big common connectors such as USB, HDMI and Ethernet, which are of course never placed exactly where they should be for integration on the robot.
 Above all, cables are really annoying, they take up a surprising amount of room (connector size, the wire length and they are heavy) while being totally useless for our applications.
 
 Also the size of the IO Board is finally fairly big, more so than expected and while it is still compatible with Poppy’s design, it is too large, with a shape that is too strange to be appropriate for other open source projects.
 
-Great open source projects keep their work modular so other projects can use one or several modules directly. Therefore the IO Board is not compatible with such principles and we are currently moving toward building modular Poppy electronics (we will discuss this new version in the discussion see REF). Yet this IO Board was the first electronic board developed in the Poppy project and through the experience we acquired a better understanding of electronic integration. If we had to do it today we would make the same mistakes.
-
-In particular, even if we tried to remove most of the necessary cables, we saw it is still complicated to integrate. We really have to develop a board that does not require any wires at all.
-
-Actually, I spent more time looking for the fitting cable on the web than thinking about the electronics architecture. The wire-problem is often under-estimated and therefore becomes one of the biggest problems for robotics. We experienced the same issue during the ergo-robot experiment and during the use of Poppy with artists (see chapter REF). So basically, the wire problem is one of the most overlooked issues…
+Great open source projects keep their work modular so other projects can use one or several modules directly. Therefore the IO Board is not compatible with such principles and we are currently moving toward building modular Poppy electronics (we will discuss this new version in the discussion see section~\ref{sec:improve-hardware-modularity}). Yet this IO Board was the first electronic board developed in the Poppy project and through the experience we acquired a better understanding of electronic integration.
 
 
 
+\section{Conclusion} % (fold)
 
-Thanks to this methodology, we achieved the creation of the first fully functionnal Poppy in 4.5 months.
+Thanks to the methodology presented in the chapter~\ref{cha:methodology}, the design and production of a completely new humanoid robot has been very fast and low cost. Indeed, the project began at the end of May 2012 and the first fully-functional version of Poppy (the one we can see in \figurename~\ref{fig:TER_cognitic}) has been presented at the end of September 2012 at Collège de France. By cumulating the work of the different people involved, it is equivalent to about 8 months and cost less than \texteuro10,000 in material.
 
-We let the design of articulated hands to the community.
+Because of the lack of easy and cheap tooling to produce custom electronic board, the new design of the electronic architecture took more time and is still in progress for few elements.
+
+TODO Add photo of the kit
+
+Yet Poppy cost about \texteuro8,000 and it only takes one or two day to be assembled (see REF). Also its morphology design allows for modularity both for the mechanics as the parametric parts can be easily customized and reprint, and for the electronic thanks to the compatibility with the Arduino environment. This modularity is completed by the control library those will be presented in the next chapter.
+
+Example of Poppy morphology's variations will be presented in chapter~\ref{cha:changing_morphology}. Also thanks to its simple design, Poppy can be relevant for educational and artistic purposes. Applications will be presented in chapter~\ref{cha:education} and chapter~\ref{cha:art}.
+
+
+
+
+
+% If we had to do it today we would make the same mistakes.
+
+% In particular, even if we tried to remove most of the necessary cables, we saw it is still complicated to integrate. We really have to develop a board that does not require any wires at all.
+
+% Actually, I spent more time looking for the fitting cable on the web than thinking about the electronics architecture. The wire-problem is often under-estimated and therefore becomes one of the biggest problems for robotics. We experienced the same issue during the ergo-robot experiment and during the use of Poppy with artists (see chapter REF). So basically, the wire problem is one of the most overlooked issues…
+
+
+
+
+
 
