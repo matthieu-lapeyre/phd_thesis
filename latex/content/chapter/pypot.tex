@@ -2,6 +2,7 @@
 
 \cleartoleftpage
 \includepdf{../media/chapter_illustration/pypot}
+
 \chapter{Pypot: An open source modular python library for robot control} % (fold)
 
 \section{Introduction} % (fold)
@@ -26,9 +27,9 @@ Even if pypot has been developed within the context of the Poppy project, in the
 
 \begin{figure}[tb]
 \centering
-    \subfloat[][]{\label{fig:cpu-load}\includegraphics[height=5cm]{ergo-robot-stem.jpg}}
+    \subfloat{\label{fig:cpu-load}\includegraphics[height=5cm]{ergo-robot-stem.jpg}}
     \hfil
-    \subfloat[][]{\label{fig:pypy-opti}\includegraphics[height=5cm]{ergo-robot.jpg}}
+    \subfloat{\label{fig:pypy-opti}\includegraphics[height=5cm]{ergo-robot.jpg}}
     \caption{Ergo-robot are a 6 DoF serial robots with a stem shape those were developed in the Flowers Lab. In particular, they were involved for the Fondation Cartier exhibition (see chapter~\ref{cha:art})}
     \label{fig:ergo-robot}
 \end{figure}
@@ -97,7 +98,7 @@ To give a complete overview of what a config can look like, the \codename~\ref{c
 
 \lstinputlisting[
     language = XML,
-    caption = {},
+    caption = {Example of a pypot configuration file. Here is the one of an Ergorobot.},
     label = {code:robot_config_file},
     float = p]
     {code/robot_configuration.json}
@@ -130,7 +131,7 @@ Therefore the user can set up their robot with just few lines of code and then u
 \subsection{Move recording} % (fold)
 \label{sub:move_recording}
 
-Pypot involves a really convenient, yet simple, feature for recording movementss. Indeed, when a robot's motor is compliant (Dynamixel property), a user can demonstrate a desired gesture by physically moving the motor position. Those Moves are simply defined as a sequence of positions.
+Pypot involves a really convenient, yet simple, feature for recording movements. Indeed, when a robot's motor is compliant (Dynamixel property), a user can demonstrate a desired gesture by physically moving the motor position. Those Moves are simply defined as a sequence of positions.
 
 The move module can be used to:
 
@@ -195,10 +196,10 @@ This modularity is expressed through the I/O controllers and the primitive parad
 
 
 \begin{figure}[p]
-    \begin{center}
+    \centering
         \includegraphics[width=\linewidth]{pypot.pdf}
-    \end{center}
-    \caption{}
+
+    \caption{Diagram showing the modular structure of the pypot library.  I/O controllers handle communication with devices while behaviour can be scripted thanks to the primitive paradigms. Between, pypot synchronizes all data and generates easy-to-use accessors.}
     \label{fig:pypot-modular-architecture}
 \end{figure}
 
@@ -218,7 +219,7 @@ As it is often easier to work in simulation rather than with the real robot, Pyp
     \begin{center}
         \includegraphics[width=\linewidth]{pypot_vrep.jpg}
     \end{center}
-    \caption{}
+    \caption{Pypot can be used on real robot as well as simulated ones. Its current version is compatible with the V-REP simulator and it is possible to switch from real world to simulation in just one line of code.}
     \label{fig:pypot-vrep}
 \end{figure}
 
@@ -226,7 +227,7 @@ As it is often easier to work in simulation rather than with the real robot, Pyp
 The connection with V-REP was created using the I/O controllers presented previously and the V-REP’s remote API.
 Thanks to the low-level modularity of pypot, it permits to seamlessly switch from your real robot to the simulated one because it only requires switching the low-level I/O controller from the Dynamixel (\emph{DxlController} class) one to the V-REP one (\emph{VrepController} class).
 
-The switch between the simulation and the real robot is possible with a single line of code, and in most case, only requires changing the way the robot is instantiated see \codename~\ref{code:vrep_pypot_switch}.
+The switch between the simulation and the real robot is possible with a single line of code, and in most case, only requires changing the way the robot is instantiated:
 
 \lstinputlisting[
     language = Python,
@@ -252,7 +253,7 @@ The I/O controller is actually defined by two classes:
 It is therefore possible to extend the number of controllers to any connected object. For example, it could be used to change the type of motors used and replace the Robotis motors with more low-cost ones, or to control a robot with a simulator other than V-REP, and the switch should be as straightforward.
 
 
-\textbf{TODO put code ?}
+% \textbf{TODO put code ?}
 
 
 \subsubsection{Automatic generation of the robot} % (fold)
@@ -277,7 +278,7 @@ Currently there are two kinds of primitives.
 
 \lstinputlisting[
     language = Python,
-    caption = {},
+    caption = {Example of a script primitive, this kind of primitive is called by the start() method then runs its content and stops then reaching the end of the script.},
     label = {code:primitive},
     float,
     floatplacement = h]
@@ -285,7 +286,7 @@ Currently there are two kinds of primitives.
 
 \lstinputlisting[
     language = Python,
-    caption = {},
+    caption = {Example of a Loop primitive, this primitive is also called by the start() method but, unlike the script primitive, loops until the stop() method is called.},
     label = {code:loop_primitive},
     float,
     floatplacement = h]
@@ -298,7 +299,7 @@ When overriding the Primitive, you are responsible for correctly handling those 
 
 \lstinputlisting[
     language = Python,
-    caption = {},
+    caption = {Simple call of a primitive.},
     label = {code:start_primitive},
     float,
     floatplacement = h]
@@ -306,7 +307,7 @@ When overriding the Primitive, you are responsible for correctly handling those 
 
 \lstinputlisting[
     language = Python,
-    caption = {},
+    caption = {Here the same primitive is first attached to the robot, by doing so, the robot is "aware" of this primitive. In particular, attached primitives can be called or stopped by the robot or another primitives},
     label = {code:attach_primitive},
     float,
     floatplacement = h]
@@ -337,7 +338,7 @@ The \emph{HTTPServer }is based on the bottle python framework (http://bottlepy.o
 
 \lstinputlisting[
     language = Python,
-    caption = {},
+    caption = {Example of the use of the HTTP server},
     label = {code:http_server},
     float,
     floatplacement = h]
@@ -354,7 +355,7 @@ The Zmq server is faster than the HTTP version and should be preferred when work
 
 \lstinputlisting[
     language = Python,
-    caption = {},
+    caption = {Example of the use of the ZMQ server.},
     label = {code:zmq_server},
     float,
     floatplacement = h]
@@ -389,20 +390,21 @@ Pypot is written in python because it allows fast development and simple API for
 While it is not a problem on modern personal computers, it is more limiting on very light configurations (see \figurename~\ref{fig:pypot-board-comparaison}). For example, running pypot on a Raspberry Pi takes all CPU resources and the sensorimotor acquisition of Poppy at $50Hz$ (i.e. $<20ms$) is not achieved.
 The performance could be improved by splitting pypot with the low-level executed on
 
-\begin{figure}[tb]
-    \begin{center}
-        \includegraphics[width=0.7\linewidth]{board-cmp.pdf}
-    \end{center}
-    \caption{Time spent to communicate with one motor.}
-    \label{fig:pypot-board-comparaison}
-\end{figure}
+% \begin{figure}[tb]
+%     \begin{center}
+%         \includegraphics[width=0.7\linewidth]{board-cmp.pdf}
+%     \end{center}
+%     \caption{ }
+%     \label{fig:pypot-board-comparaison}
+% \end{figure}
 
 \begin{figure}[tb]
 \centering
-    \subfloat[][ CPU load during pypot run]{\label{fig:cpu-load}\includegraphics[width=0.5\linewidth]{cpu_load.pdf}}
-    \hfil
-    \subfloat[][Time spend to synchronize the 25 Poppy's motors]{\label{fig:pypy-opti}\includegraphics[width=0.5\linewidth]{controller.pdf}}
-    \caption{}
+    \subfloat[][ Time spent to synchronise one motor]{\label{fig:cpu-load}\includegraphics[width=0.69\linewidth]{board-cmp.pdf}}\\
+    \subfloat[][ CPU load when pypot run on Poppy to synchronize the 25 motors]{\label{fig:cpu-load}\includegraphics[width=0.5\linewidth]{cpu_load.pdf}}
+    \hfill
+    \subfloat[][Time spent in each synchronization loop for 25 motors]{\label{fig:pypy-opti}\includegraphics[width=0.5\linewidth]{controller.pdf}}
+    \caption{These charts show a comparison between a normal computer, the odroid U3 board and raspberry pi board, concerning the time spent to synchronize data of Dynamixels motors with pypot when interpreted by Python 2.7 and Pypy. We can notice the Odroid U3 performances are equivalent to a standard computer while the raspberry pi is clearly slower.}
     \label{fig:pypot-run}
 \end{figure}
 
@@ -439,6 +441,3 @@ Pypot is open source and distributed under GPLv3 license. All sources are availa
 %     float,
 %     floatplacement = h]
 %     {code/mockup.py}
-
-
-
