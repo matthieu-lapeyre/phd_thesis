@@ -6,7 +6,7 @@
 
 In the previous section we showed how Poppy can be used to explore the actual role of morphology for humanoid behaviours. However, Poppy is a prototyping platform designed to test and experiment quickly several technological solution, especially thanks to modular properties, but until now, we did not actually evaluate it.
 
-Therefore while we were working on a new design for Poppy's feet and exploring a design similar to "foot 1" (see \figurename~\ref{fig:pic_foot_1}), we decided to use this as a context to conduct an experiment into multiple variations of the foot morphology as an illustration of the methodology we have initiated with Poppy and presented in section REF.
+Therefore while we were working on a new design for Poppy's feet and exploring a design similar to "foot 1" (see \figurename~\ref{fig:pic_foot_1}), we decided to use this as a context to conduct an experiment into multiple variations of the foot morphology as an illustration of the methodology we have initiated with Poppy and presented in chapter~\ref{cha:methodology-review}.
 
 
 The aim of this experiment is to quickly explore the effect of foot morphology on stability. Here, we are particularly interested in the stability of the head after a stepping impact. These impacts are quite challenging to simulate realistically and the natural compliance of the Poppy platform means it is even more important to test this on the real robot.
@@ -24,25 +24,21 @@ For the sake of lightness, the initial design of Poppy's feet only had one degre
     \subfloat[][Foot\_4]{\label{fig:pic_foot_4}\includegraphics[width=0.45\linewidth]{pic_foot_4.JPG}}
 
 
-    \subfloat[][Foot\_4]{\label{fig:foot_experience_blueprint}\includegraphics[width=0.95\linewidth]{foot_experience.pdf}}
+    \subfloat[][Blueprints of the various foot designs studied in this experiments.]{\label{fig:foot_experience_blueprint}\includegraphics[width=0.95\linewidth]{foot_experience.pdf}}
     % \subfloat[][]{\label{fig:pic_shoe}\includegraphics[width=0.48\linewidth]{pic_shoe.JPG}}
-    \caption{}
+    \caption{Visual and technical descriptions of the foot designs explored in this experiments.}
     \label{fig:foot_variants}
 \end{figure}
 
 
 \begin{table}
     \begin{center}
-        \begin{tabular}{|l|c|c|c|c|}
+        \begin{tabular}{ l c c c c }
         \hline
         \textbf{Type} & \textbf{Foot 1} & \textbf{Foot 2} & \textbf{Foot 3} & \textbf{Foot 4}\\
-        \hline
         \textbf{Double rotation} & Passive & No & Active & Passive\\
-        \hline
         \textbf{Human-like foot} & Yes & Yes & No & Yes\\
-        \hline
         \textbf{Toes} & Yes & No & No & Yes\\
-        \hline
         \textbf{Rotation axis height} & 75.70 mm & 33 mm & 39 mm & 35.5 mm\\
         \hline
 
@@ -114,7 +110,7 @@ Regarding the effect of the shoes, results are less clear but most of the time (
 
 \begin{figure}[ht]
     \begin{center}
-        \includegraphics[width=\linewidth]{head_y.pdf}
+        \includegraphics[width=0.95\linewidth]{head_y.pdf}
     \end{center}
     \caption{Evolution of the position of the head in the $y$ axis for
     each foot tested (see \figurename~\ref{fig:foot_variants} for illustration of each foot).}
@@ -123,7 +119,7 @@ Regarding the effect of the shoes, results are less clear but most of the time (
 
 \begin{figure}[ht]
     \begin{center}
-        \includegraphics[width=\linewidth]{head_z.pdf}
+        \includegraphics[width=0.95\linewidth]{head_z.pdf}
     \end{center}
     \caption{Evolution of the position of the head in the $z$ axis for
     each foot tested (see \figurename~\ref{fig:foot_variants} for illustration of each foot).}
