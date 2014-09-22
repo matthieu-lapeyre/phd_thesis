@@ -74,7 +74,7 @@ This controller embeds very useful synchronization loops, which should be enough
 
 
 \subsection{Robot abstraction} % (fold)you
-
+\label{sec:pypot-robot-abstraction}
 The robot abstraction allows, from a configuration, to automatically generate both all low-level controllers and high-level accessors needed to control a whole robot. More precisely, through the use of the class Robot it is possible to:
 
 \begin{itemize}
@@ -409,6 +409,7 @@ The performance could be improved by splitting pypot with the low-level executed
 
 
 \subsubsection{The primitive paradigms: The Good, the Bad and the Ugly}
+\label{sec:pypot-primitives-problems}
 
 The use of primitives (see section~\ref{sub:primitive-paradigms}) raises some complicated limitations. Indeed it is really convenient to run complex behaviours by splitting them into more simple ones but the interaction between primitives is really complex to manage and can lead to undesired behaviours. Indeed, while multiple primitives can request to change the same value, the final value is the result of the combination (e.g. mean, sum) of several primitives.
 
