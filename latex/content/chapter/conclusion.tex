@@ -3,8 +3,48 @@
 \chapter{Conclusion} % (fold)
 \label{cha:conclusion}
 
-A key-aspect of Science is the results reproducibility but unfortunately in the robotics field, the amount of material resources and the techniques involved makes it difficult to transfer robot platforms from one lab to another. Because Poppy allows cheap and quick reproduction in any labs, and because it is freely distributed under open source licenses, Poppy is intrinsically designed to permit reproducibility.
 
-The Poppy platform was designed within the ERC Starting Grant project Explorers 240007 (2009-2014). Explorers has been studying mechanisms allowing open-ended learning and development in robots and humans. In particular, Explorers targeted to study how the morphological properties of the body could impact the acquisition of motor or social skills. In the ERC project, we realized that if one wanted to really study the role of the body in cognition, one needed to be able to consider the body as an experimental variable: something that can be easily changed and experimented. Yet, this was so far impossible because robot platforms were developed using classical machining techniques requiring a lot of time, energy and funding. Also, classical machining techniques did not allow to build certain shapes. In Explorers, we decided to take advantage of the 3D printing revolution by transposing it to humanoid robotics, and this lead us to design the Poppy platform. All aspects of the platform were designed to be highly modular, modifiable, robust, and easily replicable in other labs for cumulative science. In just a few days, we can now systematically study how various shapes of the legs or feet influence balance in biped locomotion, or how various head morphologies will provoke different reactions when socially interacting with humans. Several research labs in Europe have already began to use the Poppy platform for their own projects (e.g. Collège de France, Bristol Robotics Lab., Inria Nancy …). Such properties of the platform then revealed a very high potential for a the much larger field of education and FabLab communities, which is the topic of this ERC PoC.
+\section{Contributions of this thesis} % (fold)
+\label{sec:rappel_des_contributions}
 
-% chapter conclusion (end)
+This thesis started with the desire to study mechanisms allowing open-ended learning and development in robots and humans. In particular, this thesis targeted to study how the morphological properties of the body could impact the acquisition of motor or social skills.
+We realized that if one wanted to really study the role of the body in cognition, one needed to be able to consider the body as an experimental variable: something that can be easily changed and experimented.
+
+Eventually we shifted from this first goal to foster our attention on more pragmatical ones. If we want to study the role of morphology in the real world, we need a real robotic platform those morphology allows exploring morphological variants. Furthermore, a key-aspect of Science is the results reproducibility so we need also to find appropriate methods so our work can be evaluated in another laboratory.
+Yet, this was so far impossible because robot platforms were developed using classical machining techniques requiring a lot of time, energy and funding. Also, classical machining techniques did not allow building certain shapes. In this thesis, we decided to take advantage of the 3D printing revolution by transposing it to humanoid robotics, and this lead us to design the Poppy platform.
+
+All aspects of the platform were designed to be highly modular, modifiable, robust, and easily replicable in other labs for cumulative science. In just a few days, we can now systematically study how various shapes of the legs or feet influence balance in biped locomotion, or how various head morphologies will provoke different reactions when socially interacting with humans.
+
+Poppy has been firstly presented as an easily hackable platforms in the AMAM2013 conference~\parencite{REF} while its design was explained with more details for IROS 2013~\parencite{REF} as well as its potential relevance for exploring interaction~\parencite{REF}. Then we conducted several experiments to demonstrate its unique properties. On one hand, by exploring the role of thigh morphology over bipedal dynamics presented at Humanoids2013~\parencite{REF}. On the other hand, by demonstrating it is indeed possible to make the morphology an experimental variable. Such experiments has been done for testing various feet designs and will be presented at Humanoids2014~\parencite{REF}.
+
+Secondly, we used the open source release, which drew particular attention, to start the creation of a multidisciplinary community. Thanks to the lot of interest we had, we find educational actors and artists motivated by exploring novel applications with robots. These work lead us to conduct several instructive experiences opening perspectives for the use of Poppy for Art and Education, an associated paper was published for DI2014~\parencite{REF}.
+
+Finally, the main contribution is certainly the open source release of the first complete 3D printed humanoid robot those can be freely use by anyone as an experimental platform. It permits to fill the lack of open science tools available, so robotics researchers, even working the robot morphology, can share their work with the scientific community. Moreover, Poppy offers an alternative to laboratories desiring to experiment in the real world. They are no more constrained to either to buy a closed and limited robot, or invest resources on the development of a new experimental platform, they can choose to use the work already done with Poppy and adapt it to their needs.
+Several research labs in Europe have already began to use the Poppy platform for their own projects (e.g. Collège de France, Bristol Robotics Lab., Inria Nancy…).
+
+
+
+\section{Limits} % (fold)
+
+Numerous limitations have already been discussed during this thesis. In this general discussion, we would like to focus especially on the one associated with the initial motivations leading to the design of Poppy: creating an open source experimental robot for exploring the role of morphology.
+
+Firstly as we saw in the previous discussion chapter, the creation of a community is really challenging. For us, it appears even more difficult than designing a whole humanoid robot because we are not in our expertise field.
+Consequently, we have not had the opportunity to test Poppy in real case of open science, sharing the same experiments between two laboratories. Currently, too few labs are involved in the project and sharing science discussion on a public forum did not become widely accepted by the research community. Thus there is also internal community mediation needed to promote open collaboration.
+
+Secondly, because there is for the moment only few science labs involved, no clear scientific contributions on the role of morphology have been made thanks to Poppy. We conducted an experiments on the role of the thigh morphology showing great improvements of bio-inspired design over classical straight thigh, yet these results are very limited to a specific case where the robot balance is ensured by physical guidance.
+
+Finally, we designed Poppy to explore the role of morphology, especially for biped locomotion. The design of the platform has been directed toward new way to achieve biped locomotion. Poppy has small feet, under-actuated legs, multi-articulated torso and so on. While we are convinced these solutions are more interesting for research purposes, they are still less efficient than classical approach using big feet and powerful actuators.
+Therefore currently, Poppy cannot walk by itself and it is clearly a limitation of the platform.
+
+
+
+\section{What is Poppy ?} % (fold)
+\label{sec:what_is_poppy}
+
+
+In this thesis, we suggest a novel approach to create experimental robot platforms. To implement this methodology we created a set of tools based on open source environment and emergent technologies involving mechanics, electronics, software and a community (under construction). As a first instance, we used these tools to create a humanoid robot but actually, these tools could have be used for any kind of robot those has to move and act in the real world.
+
+To conclude this thesis,
+
+In this context, "Poppy" is more a meta-robot than an actual humanoid robot. The Poppy humanoid is an instance of this meta-robot, and thanks to the in progress modularization of our hardware technology, it will be more and more clear than we can easily reshape and reconfigure Poppy into any kind of robot, with various, size, number of DoF, limbs and so on. The community tools we are organizing will allow a multidisciplinary community of robotics enthusiast creating and sharing new creatures based on the same technological bricks. Of course the challenges of creating a multidisciplinary community and hardware modularity presented in section RE and section REF will have to be addressed. In this way, the open source actuators we will develop will represent an essential technological brick to foster the creature creation.
+

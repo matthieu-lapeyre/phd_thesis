@@ -1,7 +1,7 @@
 % !TEX root = ../../thesis.tex
 
-% \cleartoleftpage
-% \includepdf{../media/chapter_illustration/poppy_prairie_2.pdf}
+\cleartoleftpage
+\includepdf{../media/chapter_illustration/poppy_prairie_2.pdf}
 
 \chapter{Open diffusion of Poppy} % (fold)
 \label{cha:diffusion}
@@ -20,15 +20,6 @@ Finally, the possibility to easily modify both the hardware and the software als
 The major challenge is now to succeed in the diffusion of the platform in all these fields. As we can see we the Arduino example, the user community is a paramount of importance and both the diffusion strategy and community management tools are critical.
 
 We think this challenge relies on 3 main aspect: create a playful and motivating multidisciplinary community, improve the hardware modularity and integrate Poppy in the maker revolution by using Fablab for production and distribution.
-
-
-% 1) Parle un peu plus des limites de la plateforme pour le côté science et open science (e.g. il n’y a pas encore d’exemple de résultat fait par un labo et reproduit par un autre avec Poppy; pas encore d’autres papiers d’autres labos avec Poppy; pas encore de contributions d’autres labos; pourquoi le robot marche pas tout seul et est-ce-que c’est grave?;
-
-% 2) (à mon avis) un élément essentiel du développement de la plateforme dans les milieux éducatifs/FabLabs est le développement de contenus pédagogiques (e.g. le IniRobot de Poppy, peut être fait avec l’ENSAM pour les écoles et Cap Sciences pour les FabLabs) bien mis en avant et accessibles sur le net (e.g. sur le modèle https://learn.sparkfun.com ). Bref, des activités clé en main.
-
-% 3) Evolution du concept “Poppy” dans la tête des gens: Poppy n’est pas “un robot humanoide”, mais une plateforme hard+soft+web+communauté permettant de créer et partager des créatures robotiques diverses (pas forcément humanoïdes, et pourquoi pas des composants comme des moteurs)
-
-% 4) Les moteurs: parler des moteurs open-source
 
 
 
@@ -158,6 +149,15 @@ Another point is the pelvis/torso interface, on one hand, it would be simpler to
 These kinds of submodules still raise a limitation because the interface has a fixed size, which will constraint the overall size of the robot elements. It should be possible to create a bigger robot, maybe until 120cm but it will be difficult to have a smaller robot than 60cm while keeping the same interface.
 
 
+\section{Create relevant educational content} % (fold)
+
+The first experiments we had with the educational field appeared promising (see chapter~\ref{cha:education}). We also received numerous requests from educational structures in France as well as in the world. Indeed robotics is an atypical "science" intrinsically multidisciplinary merging engineering, computer science, biology, cognition and even humanities. Beyond the robotics teaching, it allows creating original multidisciplinary course. Also robots are very motivating tools as they can be incarnated in tangible objects.
+
+However this impact cannot relies only on a technological platform, it requires to create relevant content, which are real educational vector.
+In this way, we are setting a partnership with the ENSAM\footnote{REF} and Aérocampus\footnote{REF} to create and evaluate educational content associated with the use of Poppy on the students from baccalaureate -3 to +3 i.e. high-school and bachelor. For each type, the content will be produced and disseminated under Creative Commons and will be composed by: ready-to-use sheets of practical experiments with robots, specifying objectives and concrete progress in the classroom, and their organization into a coherent and integrated curriculum; and tutorials in the form of videos or multimedia pages webs. They may take the form of a MOOC that can be disseminated on the national platform FUN\footnote{REF}. Also being open source, anyone can contribute to its improvement. A particular extension of this work could be the evaluation for self-training through experiments in Fablab.
+
+
+
 
 \section{Production/Distribution: an alternative approach} % (fold)
 
@@ -242,49 +242,37 @@ On the Inria side, the creation of an association which role would be to spin-of
 Therefore, Poppy can be one of the first projects launching this new kind of production and distribution process. The last months we met several of the main French FabLab. While there are quite enthusiast with this idea, the organization is not completely ready to go on this way and we will certainly have to use the two ways to distribute Poppy.
 
 
-% \section{Add educational content} % (fold)
-% \label{sec:add_educationnal_content}
-% (à mon avis) un élément essentiel du développement de la plateforme dans les milieux éducatifs/FabLabs est le développement de contenus pédagogiques (e.g. le IniRobot de Poppy, peut être fait avec l’ENSAM pour les écoles et Cap Sciences pour les FabLabs) bien mis en avant et accessibles sur le net (e.g. sur le modèle https://learn.sparkfun.com ). Bref, des activités clé en main.
 
-% section add_educationnal_content (end)
+\section{Open source force control actuator} % (fold)
+\label{sec:open_sourcing_the_robotic_actuations}
 
-% \section{What is Poppy} % (fold)
-% \label{sec:what_is_poppy}
-% Evolution du concept “Poppy” dans la tête des gens: Poppy n’est pas “un robot humanoide”, mais une plateforme hard+soft+web+communauté permettant de créer et partager des créatures robotiques diverses (pas forcément humanoïdes, et pourquoi pas des composants comme des moteurs)
-% % section what_is_poppy (end)
+All the development we have made for Poppy has been released under open source licenses, the mechanical structure and electronics boards are under creative commons licenses and the pypot control library is distributed under GPL license. These various technological bricks allow exploring new experiment about the role of morphology, as well as creating a creative environment for students and artists. Yet a very important technology brick remains closed, the robot actuation.
 
+The Robotis Actuators are expensive (more than 60\% of the robot cost), proprietary and no modification is permitted neither on the low level control nor the hardware. Furthermore, these actuators are limited as they use a classical position control based on PID and do not permit the force control.
 
-% \section{Open source actuation} % (fold)
+The technical limits are firstly problematic for scientific reasons. Indeed, the actuator properties are elements that must be possible to experimentally control. It is not possible with the Robotis ones beyond tuning the PID controller values and an estimation of maximum output torque. In addition, these actuators act as a black-box, we do not have any way nor guarantee to control how the tuning of some parameters actually change the actuator behaviour. For example, parameter such as the delay and the internal loop frequency are very important when we explore reinforcement learning. Indeed, the algorithm needs to have a controlled synchronization between action and observation, and we have been confronted to this issue while exploring biped learning with Poppy.
 
-% Un potentiel très important a déjà été démontré, mais pour l’exploiter des défis de plusieurs natures restent à relever.
+Secondly, the last scientific work in the robotics field seems to show the efficiency of force control actuator over position control to create robot able to act robustly in the real world (e.g. Boston Dynamics robots, MIT Cheetah). Hydraulic and pneumatic actuators are too complicated to be integrated in small and safe robot, but technology based on serie elastic actuators or impedance controls seem very promising.
 
-% D’abord, une partie importante de la plateforme est encore propriétaire : les actuateurs actuels sont des moteurs électriques Robotis (Corée) basés sur une technologie mécatronique classique de servo-moteurs contrôlés en position avec des PID. Ces actuateurs ont de fortes limites techniques (pas de contrôle en force, pas de sécurité mécaniquement assurée, ce qui peut être dangereux pour les utilisateurs). Enfin, ils sont chers, leur prix représentant environ 60\% du prix de la plateforme dans son ensemble (chaque moteur coute entre 250 et 300 euros).
+The series elastic actuation~\parencite{pratt1995series} is a technology based on adding a spring between the motor output and the actuator output (see \figurename~\ref{fig:SEA-principle}). The offset between the motor position and the actuator output is proportional to the external force applied (Hooke law). It is a simple, yet effective way to obtain direct force measurement at the actuator output. Then a controller can drive the motors following the force feedback to create the desired output torque.
 
-% Les limites techniques sont d’abord problématiques pour des raisons scientifiques. En effet, les propriétés mécaniques des moteurs font partie des éléments qu’il doit être possible de contrôler expérimentalement, et il est impossible de le faire avec des moteurs propriétaires. Ensuite, de nombreux aspects essentiels du contrôle moteur ne peuvent être étudiés qu’avec des moteurs contrôlables en force avec une grande bande passante de contrôle. C’est pourquoi par rapport aux objectifs scientifiques du projet, il est essentiel de mettre au point des moteurs basés sur la même approche méthodologique que celle du squelette.
+The impedance control is ...
 
-% Avoir des moteurs propriétaires, chers et peu sûrs est par ailleurs un gros handicap pour la diffusion sociétale et éducative de la plateforme. Nous pensons qu’il est possible, en utilisant les techniques de l’impression 3D, de mettre au point des actuateurs (mécanique + contrôle embarqué) plus sûrs, plus performants, et de diminuer le coût d’un ordre de grandeur.
+\begin{figure}[tb]
+    \centering
+        \includegraphics[width=0.8\linewidth]{SEA_basic_principle.png}
+    \caption{}
+    \label{fig:SEA-principle}
+\end{figure}
 
-% Aujourd’hui, la plupart des robots réellement performants sont pilotés en force. Une technique très efficace est l’utilisation de pistons hydrauliques. C’est la technologie utilisée par Boston Dynamics sur tous ces robots. Le problème est qu’elle nécessite un réseau hydraulique complex ainsi qu’une pompe puissante afin de mettre l’huile sous pression. Cette solution est très lourde à mettre en œuvre et n’est pas adapté à la réalisation de petits robots ayant vocation à être pratiquement et financièrement accessibles.
-
-% L’approche que nous choisissons est celle de la technologie « Series Electric Actuators ». Cette technologie est basée sur l’ajout d’un ressort à la sortie d’un servo-moteur (voir figure 10). La différence entre la position du moteur et sa sortie est proportionnelle à la force exercée (loi de Hooke). C’est un moyen très simple pour obtenir une mesure directe et précise de la force exercée en sortie. Le contrôle d’un tel système est assez similaire à celui d’un servo-moteur classique.
-
-% Figure 10 - Principe de la technologie "Series Elastic Actuator"
-% Bien qu’encore émergente et réservée aux robots construits dans les meilleurs laboratoires du monde, cette technologie devient mature. En effet elle est déjà utilisée dans la plupart des robots de nouvelle génération comme Baxter, Schaft (vainqueur de la première partie du DARPA challenge) mais aussi le robot Meka déjà utilisé dans l’équipe Flowers.
-
-% De plus, le principe de cette technologie étant simple, il existe de nombreuses possibilités techniques de la mettre en œuvre. En effet, actuellement chaque robot utilisant des SEA dispose d’une réalisation technique qui lui est propre. Néanmoins, il apparaît certaines catégories :
-%   Une motorisation par câble mis en série avec un ressort de traction qui peut être réalisé de différente manière par exemple : Roboy (figure 11) ou Low-cost compliant manipulator.
-
-% Figure 11 - Mise en oeuvre du principe SEA sur les actuateurs de Roboy
-%   Un système à double système ressort-moteur qui permet d’ajuster en permanence la compliance mécanique de l’articulation en modifiant la précontrainte appliquée sur chaque ressort:
-
-% Figure 12 - Exemple d'un actuateur SEA avec double système ressort-moteur pour la réalisation d’une prothèse de jambe
-% Un système équivalent à un ressort de torsion en sortie moteur que l’on retrouve par exemple sur COMAN (figure 13) ou sur les robots MEKA. Cette solution permet la réalisation d’actuateurs assez compacts et sera surement le point de départ de la réflexion sur la conception des moteurs de Poppy 2.
+These simple technologies have been successfully implemented in several robots ...
 
 
-% Figure 13 - Actuateurs SEA du robot COMAN
-
-% Malgré ce nombre important de réalisation dans le monde de la recherche, il n’existe à notre connaissance, aucun projet de développement de servomoteurs open source basé sur l’impression 3D et la technologie SEA. Il existe néanmoins un projet open source pour les servomoteurs mais il s’agit uniquement de la partie électronique voir open servo. En ce qui concerne les SEA, on peut trouver des sources d’un gros actuateur (qui utilise des techniques classique de réalisation mécanique) ainsi que des projets fait par des passionnés dans leur atelier. Il existe donc déjà les briques nécessaires pour la réalisation des objectifs de cette ADT. Le challenge sera de les mettre en commun et de produire un design peu coûteux afin de réduire significativement le prix de Poppy 2.
+Although numerous robots based on control impedance or SEA actuator, to our best knowledge, there is no project currently trying to create open source force controlled actuators. Nevertheless, there is some open source project to create open source servomotor called open servo and supermodified, yet they only address the electronic parts by offering open source electronic board compatible with low cost RC servomotors.
 
 
+Thus a strong challenge we have already engaged is to create novel open source actuator allowing force control. Inria supports this 2 years project and two engineers have been hired for the development. The plan is to first create open source motors equivalent to the Robotis ones, then create a force control module. All the work, mechanics, electronics and software control will be released with open source license. In addition, special attention will be draw to create 3D printable element so user can hack the actuators mechanics.
 
+On a scientific aspect, this actuator will permit a free exploration of robot control with open source control library, allowing to use classical PID control or to implement more exotic one.
 
+Finally, we will try to keep a cost as low as possible to increase the potential impact in the robotics field. In particular, using these actuators, we hope to create either a cheaper version of Poppy or a more advanced one implementing force control for a similar cost.
