@@ -24,11 +24,11 @@
 % **************************************************
 % Information and Commands for Reuse
 % **************************************************
-\newcommand{\thesisTitle}{Title}
+\newcommand{\thesisTitle}{Poppy: Open source 3D printed and modular humanoid robot for Science, Art and Education.}
 \newcommand{\thesisName}{Matthieu Lapeyre}
 \newcommand{\thesisSubject}{Submitted in fulfillment of requirements for the degree of Doctor of Philosophy Specialized in Computer Science }
-\newcommand{\thesisDate}{September 20, 2014}
-\newcommand{\thesisVersion}{0.9}
+\newcommand{\thesisDate}{September 21, 2014}
+\newcommand{\thesisVersion}{0.10}
 
 \newcommand{\thesisFirstReviewer}{Fethi Ben Ouezdou}
 \newcommand{\thesisFirstReviewerUniversity}{\protect{Université de Versailles Saint-Quentin-en-Yvelines}}
@@ -161,7 +161,7 @@
 
 \lstset{style=mystyle}
 
-\renewcommand\floatpagefraction{0.7}
+\renewcommand\floatpagefraction{0.6}
 % \renewcommand\topfraction{0.8}
 \newenvironment{NFfigure}{\captionsetup{type=figure}}{}
 
@@ -365,21 +365,21 @@ backrefpages={cited on pp\adddot}
 % --------------------------
 % Front matter
 % --------------------------
-% \pagenumbering{roman}           % roman page numbing (invisible for empty page style)
-% \pagestyle{empty}               % no header or footers
-% \input{content/titlepages}      % INCLUDE: all titlepages
-% \cleardoublepage
+\pagenumbering{roman}           % roman page numbing (invisible for empty page style)
+\pagestyle{empty}               % no header or footers
+\input{content/titlepages}      % INCLUDE: all titlepages
+\cleardoublepage
 
-% \pagestyle{plain}               % display just page numbers
+\pagestyle{plain}               % display just page numbers
 % \input{content/abstract}        % INCLUDE: the abstracts (english and german)
 % \cleardoublepage
 % %
 % \input{content/acknowledgement} % INCLUDE: acknowledgement
 % \cleardoublepage
 
-% \setcounter{tocdepth}{1}        % define depth of toc
-% \tableofcontents                % display table of contents
-% \cleardoublepage
+\setcounter{tocdepth}{1}        % define depth of toc
+\tableofcontents                % display table of contents
+\cleardoublepage
 
 % --------------------------
 % Body matter
@@ -398,20 +398,19 @@ backrefpages={cited on pp\adddot}
 
 \cleartoleftpage
 \part{The Poppy project} % (fold)
-The Poppy project aims to ...
+% The Poppy project aims to ...
 \input{content/chapter/approach.tex} %OK
-\input{content/chapter/poppy.tex}
+\input{content/chapter/poppy.tex} %ok
 \input{content/chapter/pypot.tex} %OK
-\input{content/chapter/community.tex}
 
 \cleartoleftpage
 \part{Applications} % (fold)
-\begin{quotation}
-    Usage is like oxygen for ideas. You can never fully anticipate how an audience is going to react to something you’ve created until it’s out there. That means every moment you’re working on something without it being in the public it’s actually dying, deprived of the oxygen of the real world.\\
-    \signed{Matt Mullenweg - Wordpress}
-\end{quotation}
+% \begin{quotation}
+%     Usage is like oxygen for ideas. You can never fully anticipate how an audience is going to react to something you’ve created until it’s out there. That means every moment you’re working on something without it being in the public it’s actually dying, deprived of the oxygen of the real world.\\
+%     \signed{Matt Mullenweg - Wordpress}
+% \end{quotation}
 
-Exploring applications of Poppy has been ...
+% Exploring applications of Poppy has been ...
 
 \input{content/chapter/morphology.tex} %OK
 \input{content/chapter/education.tex} %OK
@@ -420,16 +419,27 @@ Exploring applications of Poppy has been ...
 \cleartoleftpage
 \part{Discussions} % (fold)
 \input{content/chapter/diffusion.tex}
-\input{content/chapter/discussion.tex}
-\input{content/chapter/conclusion.tex}
+% % \input{content/chapter/discussion.tex}
+% % \input{content/chapter/conclusion.tex}
 
 
 
 % --------------------------
 % Back matter
 % --------------------------
+\cleardoublepage
+\begin{appendices}
+% \part*{Appendix}
+\input{content/appendix/thigh_theory_model.tex}
+\input{content/appendix/knee_optimization.tex}
+\input{content/appendix/foot_fsr_optimization.tex}
+% \input{content/appendix/education_material.tex}
+% \input{content/appendix/blueprint.tex}
+% \input{content/appendix/electronics.tex}
+\end{appendices}
 
 
+% \cleardoublepage
 
 {%
 \setstretch{1.1}
@@ -438,7 +448,7 @@ Exploring applications of Poppy has been ...
 \setlength{\bibitemsep}{0.5\baselineskip plus 0.5\baselineskip}
 \printbibliography[nottype=online]
 }
-% \cleardoublepage
+\cleardoublepage
 
 % \listoffigures
 % \cleardoublepage
@@ -446,16 +456,6 @@ Exploring applications of Poppy has been ...
 % \listoftables
 
 
-% \cleardoublepage
-% \begin{appendices}
-% % \part*{Appendix}
-% \input{content/appendix/thigh_theory_model.tex}
-% \input{content/appendix/knee_optimization.tex}
-% \input{content/appendix/foot_fsr_optimization.tex}
-% % \input{content/appendix/education_material.tex}
-% % \input{content/appendix/blueprint.tex}
-% % \input{content/appendix/electronics.tex}
-% \end{appendices}
 
 
 
