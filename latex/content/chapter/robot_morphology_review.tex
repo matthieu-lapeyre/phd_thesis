@@ -6,7 +6,7 @@
 \chapter{Exploring robot morphology: some fascinating work} % (fold)
 \label{cha:morphology-review}
 
-\cleanchapterquote{Cognition needs a body to think}{Rodney Brooks}
+% \cleanchapterquote{Cognition needs a body to think}{Rodney Brooks}
 
 \section{Introduction} % (fold)
 
@@ -28,7 +28,7 @@ These complex behaviours, which can be compared to the ones found in nature, wer
 
 
 With the arrival of digital computers, researchers imagined the opening up of a field where it could be possible to replace pre-wired analog electronic behaviours by the use of computer-run programs. Not dependent on the hardware platform, robots would be therefore more versatile.
-Artificial intelligence (AI) term was introduced in a workshop organized in 1956 by a MIT professor John McCarthy (REF). On the whole, participants were convinced, that by using the notion of computation or abstract symbol manipulation, it would be possible to reproduce interesting abilities similar to human ones~(\cite{kaufmann1979machines}, \cite{haugeland1989artificial}). The symbol-processing paradigm or cognitivist paradigm sees cognition as pure computation. In other words, the abstract algorithm or the program doing calculus constitutes the actual process of intelligence. Eventually, researchers following this paradigm no longer saw physical incarnation as a relevant component. Cognitive and computationalist hypotheses state that thought is reducible to a set of symbolic calculations being established~\parencite{fodor1987psychosemantics}. The body, on the other hand, is forgotten, irreparably separated from the mechanisms of intelligence~\parencite{kaplan2008corps}.
+Artificial intelligence (AI) term was introduced in a workshop organized in 1956 by a MIT professor John McCarthy~\parencite{mccarthy1978history}. On the whole, participants were convinced, that by using the notion of computation or abstract symbol manipulation, it would be possible to reproduce interesting abilities similar to human ones~(\cite{kaufmann1979machines}, \cite{haugeland1989artificial}). The symbol-processing paradigm or cognitivist paradigm sees cognition as pure computation. In other words, the abstract algorithm or the program doing calculus constitutes the actual process of intelligence. Eventually, researchers following this paradigm no longer saw physical incarnation as a relevant component. Cognitive and computationalist hypotheses state that thought is reducible to a set of symbolic calculations being established~\parencite{fodor1987psychosemantics}. The body, on the other hand, is forgotten, irreparably separated from the mechanisms of intelligence~\parencite{kaplan2008corps}.
 Moreover, the robot body became a handicap, which often ruined the efficiency of algorithms and programs created by AI researchers. Indeed, the real world body is non-perfect, there is some noise in sensory acquisition, there is gravity, friction and inertia acting on actuators, and the environment is always changing and unpredictable.
 
 To overcome these issues of real world applications, the other side of the robotics community, still interested in the hardware challenges strove to design more reliable and powerful robots which can react as fast and as closely as possible to the model used for its control. To do that far more precise sensors and actuators powerful enough to overcome inertia and mechanical friction are needed. Thanks to this work on hardware, industrial robots have become increasingly fast and precise, enough so to outclass any human on certain assembly tasks.
@@ -45,7 +45,7 @@ Thanks to researchers such as Rodney Brooks~\parencite{brooks1986achieving}, Rol
 
 Following this paradigm, several researchers tried to tackle challenges in which the classical cognitivist approach failed i.e. the understanding of natural forms of intelligence, which requires a direct interaction with the real world. Locomotion is a great example of a task where classical robotic approaches did not yield expected results.
 
-Animals are incredibly skilled. Even if we consider an insect with a brain a thousand times smaller than the human one, their abilities to move in an open world is simply incomparable to the most advanced current robots. One important reason for this is that in the classical view, the ability to figure out where you are is based on detailed inner models or representations having been either programmed into the robots or learned by interacting with the environment and continuously updated. The more complex these models are, the more effort is needed to acquire the relevant data to maintain them, leading to major problems when learning tasks in highly dimensional spaces (plein de REF). Brooks even argued that intelligence always requires a body and that we should forget about complex internal representations and models of the outside world; that we should not focus on sophisticated reasoning processes but rather capitalize on the system-environment interaction~\parencite{brooks1991intelligence}~\parencite{brooks1995intelligence}. Then he started to work on insect locomotion because if we understand insect-level-intelligence it will be much easier and faster to understand and build human-level intelligence~\parencite{brooks1996prospects}.
+Animals are incredibly skilled. Even if we consider an insect with a brain a thousand times smaller than the human one, their abilities to move in an open world is simply incomparable to the most advanced current robots. One important reason for this is that in the classical view, the ability to figure out where you are is based on detailed inner models or representations having been either programmed into the robots or learned by interacting with the environment and continuously updated. The more complex these models are, the more effort is needed to acquire the relevant data to maintain them, leading to major problems when learning tasks in highly dimensional spaces. Brooks even argued that intelligence always requires a body and that we should forget about complex internal representations and models of the outside world; that we should not focus on sophisticated reasoning processes but rather capitalize on the system-environment interaction~\parencite{brooks1991intelligence}~\parencite{brooks1995intelligence}. Then he started to work on insect locomotion because if we understand insect-level-intelligence it will be much easier and faster to understand and build human-level intelligence~\parencite{brooks1996prospects}.
 
 % \textbf{TODO: petite review du boulot de brooks avec les insects}
 
@@ -94,10 +94,10 @@ The dynamics of the system are formalized by an equation of motion linearized cl
 
 \begin{figure}[tb]
 \centering
-    \subfloat[][]{\includegraphics[width=0.4\linewidth]{simple_leg_wheel.jpg}}
+    \subfloat[][The simplest of walking models is the synthetic wheel, a biped with straight legs and semi-circular feet]{\includegraphics[width=0.4\linewidth]{simple_leg_wheel.jpg}}
     \hfil
-    \subfloat[][]{\includegraphics[width=0.4\linewidth]{simple_leg_wheel_trajectories.jpg}}
-    \caption{The simplest of walking models is the synthetic wheel, a biped with straight legs and semi-circular feet (a). The stance leg rolls forward steadily like a spoke in a wheel, while the free leg swings ahead like a pendulum. Support is transferred between legs when their speeds and angles match (b). The cycle is naturally stable and will repeat continuously, thus synthesizing the motion of an ordinary wheel~\parencite{mcgeer1992principles}.}
+    \subfloat[][The stance leg rolls forward steadily like a spoke in a wheel, while the free leg swings ahead like a pendulum. Support is transferred between legs when their speeds and angles match.]{\includegraphics[width=0.4\linewidth]{simple_leg_wheel_trajectories.jpg}}
+    \caption{The cycle of a passive walker is naturally stable and will repeat continuously, thus synthesizing the motion of an ordinary wheel~\parencite{mcgeer1992principles}.}
     \label{fig:synthetic-wheel}
 \end{figure}
 
@@ -179,9 +179,9 @@ Thus the work of Theo Jansen goes beyond kinematic art and is really instructive
 
 
 \subsection{Compliant robotics} % (fold)
-Compliance describes the stiffness of a system. It is mostly used in robotics to describe how an actuator or a mechanical part reacts to external forces when trying to reach a position. The real output of a compliant actuator will be modified by its interaction with the environment while a rigid actuator will force the output to be the desired one. Compliance can also be achieved by the use of soft materials for the mechanical structure (also called soft robotics), whereby the link or the shape of the robot can be deformed by its interaction with the environment.
+Compliance describes the stiffness of a system. It is mostly used in robotics to describe how an actuator or a mechanical part reacts to external forces when trying to reach a position. The real output of a compliant actuator will be modified by its interaction with the environment while a rigid actuator will force the output to be the desired one. Compliant actuators can be obtained with several kind of actuators (e.g. impedance control~\parencite{park2001impedance}, hydraulic~\parencite{alfayad2011high}, SEA~\parencite{pratt1995series}). Compliance can also be achieved by the use of soft materials for the mechanical structure (also called soft robotics), whereby the link or the shape of the robot can be deformed by its interaction with the environment.
 
-Several projects have already shown the importance of an adequately compliant morphology in achieving complex sensory-motor behaviour such as legged locomotion in complex environments with relatively little control.  This is illustrated by the quadruped Big Dog those compliance relies on hydraulic actuators~\parencite{raibert2008bigdog} as well as the RHex robot~\parencite{saranli2001rhex} using six compliant legs. Both demonstrate impressive adaptability and crossing behaviour over rough-terrain.
+Several projects have already shown the importance of an adequately compliant morphology in achieving complex sensory-motor behaviour such as legged locomotion in complex environments with relatively little control. This is illustrated by the quadruped Big Dog those compliance relies on hydraulic actuators~\parencite{raibert2008bigdog} as well as the RHex robot~\parencite{saranli2001rhex} using six compliant legs. Both demonstrate impressive adaptability and crossing behaviour over rough-terrain.
 
 \begin{figure}[tb]
 \centering

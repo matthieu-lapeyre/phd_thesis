@@ -1,24 +1,51 @@
 % !TEX root = ../../thesis.tex
 
-% \cleartoleftpage
-% \includepdf{../media/chapter_illustration/poppy_prairie_2.pdf}
+\cleartoleftpage
+\includepdf{../media/chapter_illustration/poppy_prairie_2.pdf}
 
 \chapter{Open diffusion of Poppy} % (fold)
+\label{cha:diffusion}
+
+\section{Introduction} % (fold)
+
+Poppy was initially designed with a scientific objective, aiming to be a new experimental platform opening the possibility to systematically study the role of morphology in sensorimotor control, in human-robot interaction and in cognitive development. Yet, until recently it was complicated because building a robot relied on heavy and costly manufacturing techniques. 3D printing has changed the landscape of what is possible: the design of Poppy transposed it to humanoid robotics and we developed complementary open source electronic and software. As we saw in chapter~\ref{cha:changing_morphology}, it allows to explore new body shapes in just a few days.
+In addition, it enables and simplifies the experimentation, the reproduction and the modification of the morphology in research laboratories. It also allows collaborative working, sharing and replication of the results between laboratories.
+
+On the scientific aspect, the ambition is to become a reference platform for benchmarking and dissemination of scientific results. Also the simple design of Poppy also targets non-engineering scientists so humanities, biologist and so on can contribute to the robotics field by using Poppy as experimental tool.
+Moreover, thanks to the fact that it integrates advanced and yet easily accessible techniques in an embodiment that motivates students and the wider public, this platform also meets a growing societal need: education and training in technologies combining computer science, electronics and mechanics, as well as a training tool to the emergent revolutionary 3D printing process. With its openness, its design and its rather low-cost, Poppy provides a unique context for experimentation and learning of these technologies in a Do-It-Yourself (DIY) approach.
+Finally, the possibility to easily modify both the hardware and the software also makes Poppy a useful tool for artistic projects working with interactive computerized installations.
+
+% Poppy is an open source/open science project, even if the technology developed have high potential to be relevant in Art, Education and of course Science, the user community is a paramount of importance. Because the robot and tools own to the community, it is crucial to have a place to exchange idea and works.
+
+The major challenge is now to succeed in the diffusion of the platform in all these fields. As we can see we the Arduino example, the user community is a paramount of importance and both the diffusion strategy and community management tools are critical.
+
+We think this challenge relies on 3 main aspect: create a playful and motivating multidisciplinary community, improve the hardware modularity and integrate Poppy in the maker revolution by using Fablab for production and distribution.
 
 
-\section{Creating an interdisciplinary community} % (fold)
+\section{Creating a multidisciplinary community} % (fold)
+\label{sec:creating_a_multi}
+Toward the creation of such a community, some people are really interesting and have been a great source of inspiration for our work. Among them we can cite Massimo Banzi one of the co-founder of Arduino which spent near 10 years working on the Arduino community. We can also cite Jeff Atwood, co-founder of stack-exchange, he is a software developer who become specialist in creating tool for web community. Along his work he developed a really sight and pragmatic vision of the management of people into a community. The feedback he shares on its blog (ref) is really worth reading for anyone wanting to create a community.
 
-The Poppy Project develops an open-source 3D printed humanoid platform based on robust, flexible, easy-to-use and reproduce hardware and software.
+The creation of a Poppy's community began when we released Poppy under open source license (October 2013).
+The first interaction people has with the project is the website. We managed to create a nice and simple website on \url{www.poppy-project.org} so experts can see potential of the platform while newbies are not afraid by too much technical information.
+Yet this website and the open source release draw a lot of attention and we eventually got submerged by emails and community management. We globally failed to absorb all this enthusiasm as we were not prepared with adapted community tools such as wiki, forum and so on.
 
-Poppy targets three domains of use: science, education and art.
+\begin{figure}[tb]
+\centering
+    \subfloat[][Old BBpress forum]{\includegraphics[height=5.2cm]{poppy_forum_bbpress.jpg}}
+    \hfil
+    \subfloat[][Current Discourse forum]{\includegraphics[height=5.2cm]{poppy_forum_discourse.jpg}}
+    \caption{Evolution of the forum for the Poppy project}
+    \label{fig:poppy_forum}
+\end{figure}
 
-Poppy was initially designed with a scientific objective, aiming to be a new experimental platform opening the possibility to systematically study the role of morphology in sensorimotor control, in human-robot interaction and in cognitive development.
-Indeed, a suitable design of a robot morphology can greatly simplify control problems, increase robustness, and open new modes of interaction with the physical and social world. Thus, being able to study the body as an experimental variable, something which can be systematically changed and experimented, is of paramount importance.
+Since several months, we set-up a novel forum technology called Discourse\footnote{\url{www.discourse.com}} and created by Jeff Atwood. This forum available on \url{forum.poppy-project.org} greatly help us to manage the community, as it is playful and simple (see \figurename~\ref{fig:poppy_forum}). It is so efficient that we began to use it also for our internal discussions about Poppy's development. These discussions are made public so we can merge time between communication and development.
 
-Yet, until recently it was complicated because building a robot relied on heavy and costly manufacturing techniques.
-3D printing has changed the landscape of what is possible: Poppy Project transposed it to humanoid robotics, and it is now possible to explore new body shapes in just a few days.
-It enables and simplifies the experimentation, the reproduction and the modification of the morphology in research laboratories. It also allows collaborative working, sharing and replication of the results on these issues between laboratories.
-The ambition is to become a reference platform for benchmarking and dissemination of scientific results.
+While this technology solves one of our problems, there are still several others. Firstly, we did not find a wiki technology as simple and playful as Discourse, therefore currently the project lack of documentation (excepted for pypot those documentation is complete).
+
+Secondly, as science project, we naturally decided to use the English as main language for all communication associated with the project. This implies the main website for presenting the project, as well as support on the forum and the current documentation. However, as we can see in the \figurename~\ref{fig:poppy_community}, english-native people only represent the third of the Poppy's community. While English is usually not a problem for Germanic country, we have been confronted to a lack of contribution from Latin countries on our forum. It is especially the case with French educational and artistic communities those never contributed to the forum even after the successful experiments we have had (see chapter~\ref{cha:education} and chapter~\ref{cha:art}).
+
+Following the Arduino example, we now turned our forum multilingual\footnote(see this topic \url{}) by allowing and creating the associated categories for French, German, Italian, Espagnol and Portuguese. We are also currently translating the main website. This work did not yet produce result, but we missed the opportunity during the experiments we had, and we certainly have to wait until the new experiments with education and artist to see the results.
 
 \begin{figure}[tb]
 \centering
@@ -30,48 +57,22 @@ The ambition is to become a reference platform for benchmarking and disseminatio
 \end{figure}
 
 
-Thanks to the fact that it integrates advanced and yet easily accessible techniques in an embodiment that motivates students and the wider public, this platform also meets a growing societal need: education and training in technologies combining computer science, electronics and mechanics, as well as a training tool to the emergent revolutionary 3D printing process. With its openness, its design and its rather low-cost, Poppy provides a unique context for experimentation and learning of these technologies in a Do-It-Yourself (DIY) approach.
-Finally, the possibility to easily modify both the hardware and the software also makes Poppy a useful tool for artistic projects working with interactive computerized installations.
-
-Poppy is an open source/open science project, even if the technology developed have high potential to be relevant in Art, Education and of course Science, the user community is a paramount of importance. Because the robot and tools own to the community, it is crucial to have a place to exchange idea and works.
-
-Yet this task require well designed tools, high communication ability and we are not really competent
-
-Yet the potential impact of Poppy and associated tools cannot be expressed without
-
-
-\begin{figure}[tb]
-\centering
-    \subfloat[][Old BBpress forum]{\includegraphics[height=5.2cm]{poppy_forum_bbpress.jpg}}
-    \hfil
-    \subfloat[][Current Discourse forum]{\includegraphics[height=5.2cm]{poppy_forum_discourse.jpg}}
-    \caption{Evolution of the forum for the Poppy project}
-    \label{fig:poppy_forum}
-\end{figure}
 
 
 
-The communication is no-more vertical and one directionnal,
 
+% \section{Improve accessibility} % (fold)
 
-\subsection{Multilingual} % (fold)
+% For artists and students
 
-As a science project, we naturally decided to use the English as main language for all communication associated with the project. This implies the main website for presenting the project, as well as support and documentation on the forum and the wiki.
+% Heidi referenced the Paradox of the Active User (pdf), which has been around as a concept since 1987. I highly recommend reading the original paper, but if you don't have time, Jakob Nielsen summarizes:
 
+% \begin{formal}
+% Users never read manuals but start using the software immediately. They are motivated to get started and to get their immediate task done: they don't care about the system as such and don't want to spend time up front on getting established, set up, or going through learning packages.
+% The "paradox of the active user" is a paradox because users would save time in the long term by learning more about the system. But that's not how people behave in the real world, so we cannot allow engineers to build products for an idealized rational user when real humans are irrational. We must design for the way users actually behave.
+% \end{formal}
 
-
-\section{Improve accessibility} % (fold)
-
-For artists and students
-
-Heidi referenced the Paradox of the Active User (pdf), which has been around as a concept since 1987. I highly recommend reading the original paper, but if you don't have time, Jakob Nielsen summarizes:
-
-\begin{formal}
-Users never read manuals but start using the software immediately. They are motivated to get started and to get their immediate task done: they don't care about the system as such and don't want to spend time up front on getting established, set up, or going through learning packages.
-The "paradox of the active user" is a paradox because users would save time in the long term by learning more about the system. But that's not how people behave in the real world, so we cannot allow engineers to build products for an idealized rational user when real humans are irrational. We must design for the way users actually behave.
-\end{formal}
-
-The assembly of Poppy has several point what indicates to the user how they should mount a part.
+% The assembly of Poppy has several point what indicates to the user how they should mount a part.
 
 
 \section{Improving the hardware modularity} % (fold)
@@ -105,8 +106,7 @@ The hardware modularity is not as developed as the software one because it is no
 Yet some projects have already addressed these challenges. For example, the Arduino boards (Uno, Leonardo, Yun, Mega, Due) share a same footprint (i.e. where are placed the main I/O pins), in this way any shield developed for one of these Arduino board can also be used on other one. This modularity is a lever arm for the community as potential contributors know that the shield they develop and possibly sell will be compatible we several boards and future ones.
 Another example is the Google ARA project, it is a smart-phone with modular elements. It is possible to change only the processor or the camera without having to change the whole phone. To achieve such design, they created interface block (see REF). Therefore any modules following the interface rules can be plugged on the phone.
 
-
-Add the fact what people should be able to change easily a part of the robot
+% Add the fact what people should be able to change easily a part of the robot
 
 To improve the potential impact of Poppy for technology we need to follow such ideas. Indeed the methodology to build Poppy allows for modularity but the actual hardware design is interdependent. The functioning of each mechanical part depends also on element connected to it, for example, the way the pelvis is designed changes the mobility of the legs. Also the particular shape of the IO board and the way connectors are placed, are designed to fit in the current design of Poppy's head.
 
@@ -134,7 +134,7 @@ The design of this IO module is already done (see REF) and is based on a DDR2 SO
 
 \section{Production/Distribution: an alternative approach} % (fold)
 
-\subsection{A research lab is not a Start-Up} % (fold)
+% \subsection{A research lab is not a Start-Up} % (fold)
 Poppy includes three main parts: its mechatronic structure (skeleton and motors); its electronics; its software.
 
 Reproducing and rebuilding the mechatronic structure is easy: the open-source skeleton can be printed on personal 3D printers (or using online services for higher quality printing), and motors are bought off-the-shelf (motors are currently not open-source, but very standard). Obtaining and using the software is very easy: just download on the Poppy web site.

@@ -1,8 +1,8 @@
 % !TEX root = ../../thesis.tex
 
 % Photo Yves Gellie
-% \cleartoleftpage
-% \includepdf{../media/chapter_illustration/robot_setup.pdf}
+\cleartoleftpage
+\includepdf{../media/chapter_illustration/robot_setup.pdf}
 \chapter{Review of experimental methods} % (fold)
 \label{cha:experimental-methods}
 
@@ -19,7 +19,7 @@ However as Rodney Brooks explained, exploring interaction between morphology, co
 From another angle, "The world is its own best model" and if we can use simulation for exploring well-defined concepts, the exploration of emergent complex behaviours based on interaction between robot self-dynamics and the environment appears easier and less expensive if conducted directly in the real world.
 Moreover, as Luc Steels explained~\parencite{Steels1991emergence}, actual behaviour emerges from the interaction between the controller, morphology and the environment. Some could argue that adding actual morphology and an ecological niche add unnecessary complexities to a problem we already have difficulty solving, even just in terms of the control. Yet it appears some behaviour cannot be achieved without real physical complexity. Brilliant examples are the passive/semi-passive walking robots (presented in section~\ref{sub:passive_principle}). These robots are technically rather simple, just composed of a mechanical structure with the proper link size and foot shape. The establishment of a model should be rather easy but their real dynamic is very difficult to simulate on a classical physical simulator. Indeed, all complex physical effects (e.g. shocks, friction, inertia) contribute to the achievement of passive walking.
 
-One of the best state of the art works in this domain was achieved by Delft University with the different passive and semi passive walkers they built (REF). Desiring to explore biped locomotion, we had a discussion with Martijn Wisse on simulation strategies for adding semi-passive abilities to Poppy. Here is his testimony about their attempt to make their robot walk in simulation after managing to create the real one:
+One of the best state of the art works in this domain was achieved by Delft University with the different passive and semi passive walkers they built~\parencite{wisse2005three}. Desiring to explore biped locomotion, we had a discussion with Martijn Wisse on simulation strategies for adding semi-passive abilities to Poppy. Here is his testimony about their attempt to make their robot walk in simulation after managing to create the real one:
 
 \begin{formal}
 
@@ -56,7 +56,7 @@ However, while the robot seems promising for exploring both locomotion and human
 
 \subsection{Passive dynamic walkers} % (fold)
 
-There are numerous passive and semi-passive dynamic walkers. We can indeed cite the one from Tad McGeer~\parencite{mcgeer1990passive}, the work of Steve Collins~\parencite{collins2001three} and Russ Tedrake~\parencite{tedrake2005learning}, the robots made in Delft University Denise(REF) and Flame~\parencite{Hobbelen2008}, and also the recent work from the REF lab, which managed to create a fully passive robot able to walk robustly for 30 minutes. All these robots demonstrate impressive results and show the interest of using clever morphologies for the achievement of tasks as complex as bipedal walking.
+There are numerous passive and semi-passive dynamic walkers. We can indeed cite the one from Tad McGeer~\parencite{mcgeer1990passive}, the work of Steve Collins~\parencite{collins2001three} and Russ Tedrake~\parencite{tedrake2005learning}, the robots made in Delft University Denise~\parencite{wisse2005three} and Flame~\parencite{Hobbelen2008}. Also more recently a passive walking robot designed and built by the Nagoya Institute of Technology (Japan) walked non-stop for 13 hours and 45 minutes on a treadmill, completing some 100,650 steps over a distance of around 15.2 km. All these robots demonstrate impressive results and show the interest of using clever morphologies for the achievement of tasks as complex as bipedal walking.
 
 However these robots are really difficult to transfer and reproduce in the robotics community.
 
@@ -77,9 +77,9 @@ It is a problem for the diffusion of such an idea as the laboratory desiring to 
 
 \subsection{Modular robotics} % (fold)
 
-Despite the numerous robotic platform developed, there are only a few whose hardware design can be completely reconfigured. .
+Despite the numerous robotic platform developed, there are only a few whose hardware design can be completely reconfigured.
 
-We can find some modular robots examples such as Molecubes~\parencite{zykov2007molecubes}, M-Tran~\parencite{murata2002m}, Superbot~\parencite{salemi2006superbot}, ATRON~\parencite{jorgensen2004modular} or Roombots~\parencite{sproewitz2009roombots}. They are independent robot modules, which can be assembled together to create various robot form and applications (see \figurename~\ref{fig:modular-robots}). However, these kinds of robot are not suitable for exploring morphological properties or creating humanoid robots.
+We can find some modular robots~\parencite{murata2007self} examples such as Molecubes~\parencite{zykov2007molecubes}, M-Tran~\parencite{murata2002m}, Superbot~\parencite{salemi2006superbot}, ATRON~\parencite{jorgensen2004modular} or Roombots~\parencite{sproewitz2009roombots}. They are independent robot modules, which can be assembled together to create various robot form and applications (see \figurename~\ref{fig:modular-robots}). However, these kinds of robot are not suitable for exploring morphological properties or creating humanoid robots.
 
 \begin{figure}[tb]
 \centering
