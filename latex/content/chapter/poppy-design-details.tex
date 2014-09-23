@@ -26,10 +26,9 @@ From an anatomical point of view, Poppy reproduces the human proportions as desc
 As the human grows from child to adult, his body proportions change~\parencite{bogin2010leg}. One hypothesis we made is that human proportions converge toward an optimal link ratio. Based on this hypothesis, we decided to respect the human body proportion of an adult, thus the size of the robot described previously (see section~\ref{sec:poppy-little-robot}) has defined all\footnote{An exception was made for the head, which is bigger to make it cuter and will be discussed in section~\ref{sec:head-design}.} dimensions  of Poppy's links with the proportions presented on \figurename~\ref{fig:poppy-human-proportion}.
 
 \begin{figure}[tb]
-    \begin{center}
+    \centering
         \includegraphics[width=0.8\linewidth]{proportion_poppy.jpg}
-    \end{center}
-    \caption{}
+    \caption{Human proportion used for the design of Poppy~\parencite{dufour2005biomecanique}}
     \label{fig:poppy-human-proportion}
 \end{figure}
 
@@ -48,25 +47,51 @@ Because they are the furthest element from the torso, the mass of the feet has a
 Finally, while current state of the art robots show that it is still simpler to achieve biped locomotion with big and heavy feet, some projects show impressive results thanks to the use of small or flexible feet~\parencite{bruneau2001dynamic}. We can cite in particular Petman who demonstrates cutting-edge skills in biped locomotion over very complex terrain\footnote{Link youtube}.
 Moreover this aspect seems to be coherent with multi-legged animal species, indeed most animals have really thin legs and very small feet.
 
-So even if common humanoid robots still use big and powerful feet, for the above mentioned reasons, we decided to explore bio-inspired, small, and lightweight feet.
+So even if common humanoid robots still use big and powerful feet, for the above mentioned reasons, we decided to explore bio-inspired, small, and lightweight feet (see \figurename~\ref{fig:poppy-foot-v1-design}).
+
+
+
+% \begin{figure}[p]
+%     \centering
+%         \includegraphics[width=\linewidth]{poppy_foot_v1.pdf}
+%     \caption{Blueprint of Poppy's right leg. Parts have a truss structure to reduce the mass, and each leg has 6 DoF. Only the one on the hip use a powerful motors (MX-64), others are powered by MX-28. This choice makes the robot could not support its weight if knees keep bended during walking. Therefore it constraints the research of more human-like gait with straight support leg.}
+%     \label{fig:poppy_leg_design}
+% \end{figure}
 
 While the human foot is very complex system involving dozens of bones, muscles and tendons, we simplified the design by extracting a few relevant functional human foot properties such as toes, which are key features concerning in both human walking~\cite{Hughes1990} and biped robots with a human-like gait~\cite{Sellaouti2006}. On Poppy's feet, to reduce the weight and complexity, we designed a passive articulation with torsion spring (see \figurename~\ref{fig:poppy-foot-v1-design}).
-Also Poppy has very small feet compared to common humanoids, the ratio of height/length of feet is close to the human one at about 17\% while robots such as Nao have feet that represent 27\% of its height (see table~\ref{tab:poppy_feet_compare}).
+Also Poppy has very small feet compared to common humanoids, the ratio of height/length of feet is about 17\%,  close to the human one (see \figurename~\ref{fig:poppy-human-proportion}) while robots such as Nao have feet that represent 27\% of the height.
 
-\begin{table}[!ht]
-\centering
-\begin{tabular}{l| c c c c c}
-    & Human & Nao & Darwin Op & Nimbro-OP & Poppy \\
-    \hline
-    height (cm) & NA & 58 & 45 & 20 & 83\\
-    Foot length (cm) & NA & 16 & 23 & 20 & 14.5\\
-    ratio (\%) & 16 & 27 & 23 & 20 & 17\\
-\end{tabular}
-\caption{}
-\label{tab:poppy_feet_compare}
-\end{table}
+% (see table~\ref{tab:poppy_feet_compare}).
 
-Finally, unlike most humanoids, Poppy has only one active DoF. Indeed, while Poppy has small feet, it appears the actual moment it can transmit to the ground is really little for the lateral motion. Also creating an active articulation would add a lot of mass (72 gr) for little actual effect. Yet this DoF is still useful for ground adaptation. We therefore preferred to design an articulation based on a passive joint with torsion springs (see \figurename~\ref{fig:poppy-foot-v1-design}).
+% \begin{table}[!ht]
+% \centering
+% \begin{tabular}{l| c c c c c}
+%     & Human & Nao & Darwin Op & Nimbro-OP & Poppy \\
+%     \hline
+%     height (cm)     &   NA & 58 & 45 & 95 & 83\\
+%     Foot length (cm) &  NA & 16 & 23 & 20 & 14.5\\
+%     ratio (\%)      &   16 & 27 & 23 & 20 & 17\\
+% \end{tabular}
+% \caption{This table shows the classic height/foot size proportion used for humanoid robotic platform. }
+% \label{tab:poppy_feet_compare}
+% \end{table}
+
+Finally, unlike most humanoids, Poppy has only one active DoF. Indeed, while Poppy has small feet, it appears the actual moment it can transmit to the ground is really little for the lateral motion.
+
+
+\begin{figure}[p]
+    \centering
+        \includegraphics[width=\linewidth]{poppy_foot_v1.pdf}
+    \caption{Blueprint of Poppy's foot. This foot has two passive joints, one for the toes and one for the ankle roll. As we can see on the section A-A and detail B, both use torsion springs.}
+    \label{fig:poppy-foot-v1-design}
+\end{figure}
+
+% \clearpage
+Also creating an active articulation would add a lot of mass (72 gr) for little actual effect. Yet this DoF is still useful for ground adaptation.
+We therefore preferred to design an articulation based on a passive joint with torsion springs (see \figurename~\ref{fig:poppy-foot-v1-design}).
+
+This design choice has a strong impact on the overall design, because we have lightweight feet, the power required to make the legs move is reduced, we can therefore use smaller motors which are also lighter.
+
 
 % \begin{figure}[tb]
 % \centering
@@ -77,37 +102,22 @@ Finally, unlike most humanoids, Poppy has only one active DoF. Indeed, while Pop
 %     \label{fig:poppy_torso}
 % \end{figure}
 
-% \begin{figure}[p]
-%     \centering
-%         \includegraphics[width=\linewidth]{poppy_foot_v1.pdf}
-%     \caption{Caption}
-%     \label{fig:poppy-foot-v1-design}
-% \end{figure}
 
-\begin{figure}[p]
-    \centering
-        \includegraphics[width=\linewidth]{poppy_foot_v1.pdf}
-    \caption{}
-    \label{fig:poppy-foot-v1-design}
-\end{figure}
-
-
-This design choice has a strong impact on the overall design, because we have lightweight feet, the power required to make the legs move is reduced, we can therefore use smaller motors which are also lighter.
 
 
 \subsection{Legs} % (fold)
-\label{sec:poppy-leg-design}
+\label{sub:poppy-leg-design}
 
-Poppy's legs have 6 DoF each, three on the sagittal plane (ankle, knee, hip), one on the horizontal plane (hip) and one on the frontal plane (hip). These joints allow reproduce the main DoF of the human legs. In addition, if we look closely at the morphology of the human femur, it appears that it is inclined by 6 degrees (see \figurename~\ref{fig:human_thigh}). This particularity is reproduced on Poppy's thigh (see \figurename~\ref{fig:poppy_leg_design}).
+Poppy's legs have 6 DoF each, three on the sagittal plane (ankle, knee, hip), one on the horizontal plane (hip) and one on the frontal plane (hip). These joints allow reproduce the main DoF of the human legs. In addition, if we look closely at the morphology of the human femur, it appears that it is inclined by 6 degrees (see \figurename~\ref{fig:human_thigh_appendix}). This particularity is reproduced on Poppy's thigh (see \figurename~\ref{fig:poppy_leg_design}).
 
-\begin{figure}[tb]
-\centering
-    \subfloat[][]{\label{fig:human_thigh}\includegraphics[height=6.5cm]{human_thigh.jpg}}
-    \hfil
-    \subfloat[][]{\label{fig:model_thigh}\includegraphics[height=6.5cm]{model_thigh.jpg}}
-    \caption{ On \ref{fig:human_thigh}, effect of the bended femur on human biped locomotion. \ref{fig:model_thigh} Model used for the morphological comparison of the two thighs.}
-    \label{fig:poppy_thigh}
-\end{figure}
+% \begin{figure}[tb]
+% \centering
+%     \subfloat[][]{\label{fig:human_thigh}\includegraphics[height=6.5cm]{human_thigh.jpg}}
+%     \hfil
+%     \subfloat[][]{\label{fig:model_thigh}\includegraphics[height=6.5cm]{model_thigh.jpg}}
+%     \caption{ On \ref{fig:human_thigh}, effect of the bended femur on human biped locomotion. \ref{fig:model_thigh} Model used for the morphological comparison of the two thighs.}
+%     \label{fig:poppy_thigh}
+% \end{figure}
 
 
 This slight bending makes the feet closer to the projection of the center of gravity and therefore changes the dynamic behavior.
@@ -116,8 +126,8 @@ In this thesis we describe both a theoretical model (see appendix~\ref{appendix:
 
 \begin{figure}[p]
     \centering
-        \includegraphics[width=\linewidth]{poppy_leg_design.pdf}
-    \caption{}
+        \includegraphics[width=0.97\linewidth]{poppy_leg_design.pdf}
+    \caption{Blueprint of Poppy's right leg. Parts have a truss structure to reduce the mass, and each leg has 6 DoF. Only the one on the hip use a powerful motors (MX-64), others are powered by MX-28. This choice makes the robot could not support its weight if knees keep bended during walking. Therefore it constraints the research of more human-like gait with straight support leg.}
     \label{fig:poppy_leg_design}
 \end{figure}
 
@@ -125,7 +135,7 @@ In this thesis we describe both a theoretical model (see appendix~\ref{appendix:
 Also, following the principles previously mentioned, the leg design is made to be as light as possible. This was achieved by using truss structure (see section~\ref{sec:lightweight-robot}) and the minimum required amount of power, involving two Dynamixel MX-28 for the ankle and knee joint, and a Dynamixel MX-64 for the hip joint (see \figurename~\ref{fig:poppy_leg_design}). Yet as explained in section REF, most of our parts have several configurations allowing the actuator to be changed. Thus it is possible to easily replace the knee actuator by a Dynamixel MX-64 (see \figurename~\ref{sub:scalable-actuation}).
 
 
-\section{Hip} % (fold)
+\section{Pelvis} % (fold)
 \label{sec:hip}
 
 
@@ -147,7 +157,7 @@ This configuration allows us:
     \begin{center}
         \includegraphics[width=\linewidth]{poppy_zoom_hip_blueprint.pdf}
     \end{center}
-    \caption{}
+    \caption{This blueprint shows the design of Poppy's pelvis. The use of a non-symmetrical configuration of motors permits to embed 6 DoFs in a compact space while keeping a wide range of motion in all direction.}
     \label{fig:poppy_zoom_hip_blueprint}
 \end{figure}
 
@@ -159,15 +169,15 @@ This enables us to keep the CoG within the support polygon and to increase the r
 
 Humanoid robots mostly have a rigid torso without any joints (e.g DarwinOp, Nao, NimbroOP) or few DoFs (e.g. two for Icub, one for HRP-2). However if we look at the human trunk and in particular at the spine, it has a complex mechanical structure and a large network of dense muscles controlling a very large number of DoFs. It allows for complex motions in several directions while keeping balance. Its movements are regulated by a complex combination of anticipatory and reactive muscle actions.
 
-Before 1982 and the work of Thorstensson (58), few scientists had really approached the subject. Since then, several studies have investigated the activity of the trunk during walking, and showed that the trunk is not only an additional mass but for example, participates actively in the human walk.
-Electromyographic studies have shown the importance of the erector spinae muscles in the organization of motor patterns during walking (61),(62),(63) but also of other rhythmic tasks (62). Like the salamander (8), a sequential activation of erector spinae muscles was found (64),(62).
-They also show that the trunk leans forward and oscillates from 1.5 to 6 degrees during walking. In addition, lateral flexion during a gait cycle on the frontal plane promotes the weight shift and opposite rotations of the lumbar and thoracic belts on the horizontal plane allow for the extension of the footstep (59); (60).
+Before 1982 and the work of Thorstensson~\parencite{thorstensson1982lumbar}, few scientists had really approached the subject. Since then, several studies have investigated the activity of the trunk during walking, and showed that the trunk is not only an additional mass but for example, participates actively in the human walk.
+Electromyographic studies have shown the importance of the erector spinae muscles in the organization of motor patterns during walking~\parencite{anders2007trunk} but also of other rhythmic tasks~\parencite{de2008sequential}. Like the salamander~\parencite{ijspeert2007swimming}, a sequential activation of erector spinae muscles was found~\parencite{prince1994anticipatory}.
+They also show that the trunk leans forward and oscillates from 1.5 to 6 degrees during walking. In addition, lateral flexion during a gait cycle on the frontal plane promotes the weight shift and opposite rotations of the lumbar and thoracic belts on the horizontal plane allow for the extension of the footstep (\cite{feipel2001three}, \cite{lamoth2006effects}).
 
 \begin{figure}[ht]
     \begin{center}
         \includegraphics[width=0.7\linewidth]{human_trunk.jpg}
     \end{center}
-    \caption{}
+    \caption{This figure shows the main human spine mobility in horizontal, frontal and sagittal plane. Figure extracted from~\parencite{ceccatoPlos09}}
     \label{fig:human_spine_system}
 \end{figure}
 
@@ -184,13 +194,13 @@ Thus Poppy's trunk involves five degree of freedom, we use two Dynamixel MX-64 f
 
 \begin{figure}[p]
 \centering
-    \subfloat[][]{\label{fig:torso_blueprint}\includegraphics[width=0.95\linewidth]{poppy_torso.pdf}}
+    \subfloat{\label{fig:torso_blueprint}\includegraphics[width=0.95\linewidth]{poppy_torso.pdf}}
 
 
-    \subfloat[][]{\label{fig:frontal_trunk}\includegraphics[width=0.48\linewidth]{trunk_face.png}}
-    \hfil
-    \subfloat[][]{\label{fig:sagittal_trunk}\includegraphics[width=0.48\linewidth]{trunk_sagittal.png}}
-    \caption{These figures illustrate some morphological features of the Poppy humanoid Robot:\newline a) Poppy's limbs follow human proportions as described in~\parencite{dufour2005biomecanique}.\newline b) and c) Poppy has an articulated trunk of 5 DoFs which allows more natural and fluid motion while improving the user experience during physical interaction and actively participating in the balance of the robot.}
+    \subfloat{\label{fig:frontal_trunk}\includegraphics[width=0.48\linewidth]{trunk_face.png}}
+    \hfill
+    \subfloat{\label{fig:sagittal_trunk}\includegraphics[width=0.48\linewidth]{trunk_sagittal.png}}
+    \caption{This figure shows the blueprint of Poppy's 5 DoF torso as well as illustration of the resulting mobility.}
     \label{fig:poppy_torso}
 \end{figure}
 
@@ -202,9 +212,9 @@ Poppy's arms were not designed for exploring grasping but rather for balancing, 
 
 A first version of the robot arms involved low-cost AX-12 motors(\$50), but these motors do not allow the same degree of compliance as MX-28 so the interaction was not smooth enough. We quickly replaced them with MX-28 motors, even if they are more expensive (\$250), powerful and heavy (72gr rather than 50gr), the compliance ability is needed for playful physical interaction and demonstration.
 
-This ability was especially useful for the experiments we made with Poppy walking while being socially guided by its hands see videos\footnote{} and experiments on chapter~\ref{cha:changing_morphology}.
+This ability was especially useful for the experiments we made with Poppy walking while being socially guided by its hands\footnote{see video \url{https://vimeo.com/74557773}} and experiments on chapter~\ref{cha:changing_morphology}.
 
-Also these arms combined with the complex spine make Poppy a particularly adapted tool for creating and studying emotions and gestural social communication (see \figurename~\ref{fig:TER_cognitic}). An example of such use has been demonstrated by two cognitivist students. Their goal was to study the transfer of emotion between robots and humans. Using Poppy's upper body and the pypot recording feature (see section~\ref{sub:move_recording}), they were able to program a wide range of emotions (see \figurename~\ref{fig:TER_cognitic}).
+Also these arms combined with the complex spine make Poppy a particularly adapted tool for creating and studying emotions and gestural social communication (see \figurename~\ref{fig:TER_cognitic}). An example of such use has been demonstrated by two Cognitics students. Their goal was to study the transfer of emotion between robots and humans. Using Poppy's upper body and the pypot recording feature (see section~\ref{sub:move_recording}), they were able to program a wide range of emotions (see \figurename~\ref{fig:TER_cognitic}).
 
 
 \begin{figure}[tb]
@@ -215,7 +225,7 @@ Also these arms combined with the complex spine make Poppy a particularly adapte
     \subfloat[][\url{http://youtu.be/qrcmLXbpUVo}]{\includegraphics[width=0.45\linewidth]{TER_sad.jpg}}
     \hfil
     \subfloat[][\url{http://youtu.be/ms2niFLevv8}]{\includegraphics[width=0.45\linewidth]{TER_fear.jpg}}
-    \caption{}
+    \caption{The upper body mobility of Poppy allows for rich exploration of humanoid robot behaviour. Cognitics students have used Poppy to create and explore robotic emotion and study how people reacts. Using the multi-articulated torso and arms, they created a wide range of emotion those video links is displayed under each illustration. }
     \label{fig:TER_cognitic}
 \end{figure}
 

@@ -21,7 +21,7 @@ Poppy's electronic architecture is based on several key-components communicating
     \begin{center}
         \includegraphics[width=\linewidth]{poppy_electro_archi_overview.pdf}
     \end{center}
-    \caption{}
+    \caption{Overview of the Poppy electronics architecture.}
 
 \end{figure}
 
@@ -47,12 +47,12 @@ For use on Poppy, these devices have several main advantages:
 
 \begin{figure}[tb]
 \centering
-    \subfloat[][]{\label{fig:usb2ax_dongle}\includegraphics[height=4.5cm]{usb2ax.jpg}}
+    \subfloat[][USB2AX dongle]{\label{fig:usb2ax_dongle}\includegraphics[height=5cm]{usb2ax.jpg}}
     \hfil
-    \subfloat[][]{\label{fig:USB2AX_vs_USB2Dxl}\includegraphics[height=4.5cm]{USB2AX_vs_USB2Dxl.jpg}}\\
+    \subfloat[][Comparison of size with the Robotis controller.]{\label{fig:USB2AX_vs_USB2Dxl}\includegraphics[height=5cm]{USB2AX_vs_USB2Dxl.jpg}}\\
 
-    \subfloat[][]{\label{ig:usb2ax-perf}\includegraphics[height=5.5cm]{motor-bench.pdf}}
-    \caption{}
+    \subfloat[][Comparison of communication speed. We can notice the strong speed improvement the SYNC\_READ instruction brings to the USB2AXS]{\label{fig:usb2ax-perf}\includegraphics[height=5.5cm]{motor-bench.pdf}}
+    \caption{These figures show comparison between standard Robotis controller and USB2AX dongle developed by Nicolas Saugnier. }
     \label{fig:usb2ax}
 \end{figure}
 
@@ -74,12 +74,11 @@ In addition, it integrates two sensors: an ADXL345 accelerometer, which has four
 
 The board has been designed using KiCad\footnote{Open source EDA software}, the source files are distributed under open source license\footnote{Creative Commons CC-BY-SA} and available on our GitHub project\footnote{\url{https://github.com/poppy-project/poppy-electronics/tree/master/CarteIo}}. The production of the board can be done using CircuitHub\footnote{\url{https://circuithub.com/projects/Poppy_project/CarteIo}} and costs \$250 for one board or \$90 for ten\footnote{The cost decrease with quantity is up to \$50.}.
 
+
 \begin{figure}[p]
 \centering
-    \subfloat[][]{\includegraphics[width=\linewidth]{IO_Board.pdf}}
-
-
-    \subfloat[][]{\label{tab:io-board-specs}
+    \subfloat[][Current design of the IO Board.]{\includegraphics[width=\linewidth]{IO_Board.pdf}}\\
+    \subfloat[][Main IOs available]{\label{tab:io-board-specs}
         \begin{tabularx}{0.8\linewidth}{r X}
         \textbf{2x} & high-speed motors buses\\
         \textbf{2x} & UART ports\\
@@ -92,26 +91,20 @@ The board has been designed using KiCad\footnote{Open source EDA software}, the 
         \textbf{4x} & 5v ports to supply power to external devices\\
         \end{tabularx}
         }
-    \caption{}
+    \caption{The IO Board is a custom and open source electronic board encapsulating two USB2AX for motor control and one Arduino to easily extend the sensorymotor space if needed.}
     \label{fig:IO-board}
 \end{figure}
-
 
 \subsection{Embedded computing module} % (fold)
 
 The integration of a computing module is rather complex and not fundamental if the robot cannot walk for more than 5 m, therefore the Poppy beta version was controlled using an external computer connected by USB.
 However, Poppy is aimed at becoming a shared research platform with people addressing challenges in which embedded control could be necessary. Also as all users have different computer configurations (Windows, MacOS and wide Linux distribution), it is easier to maintain the control software if only one OS is used. Embedding linux allows us to have the control and ensure same performance for every Poppy.
 
-Yet as I said previously, embedding control is complex. Indeed, the computer has to be small enough to fit inside the robot. With such a size, where are mostly ARM based computer. Most works are developed on x86 or 64 architecture and the switch to ARM architecture is not direct. Some software modules used do not exist or are not optimized, leading to major performance problems.
-
-It is the case with one of the most famous micro-computer, the raspberry pi. The first trials we did with Pypot were really disappointing on the performance level. As we can see in section REF, it takes about 10-12 minutes just to read and write a motor position (mostly computing) while it is only 2 minutes on a normal computer (mostly serial communication). Therefore we oriented our choice toward the Hardkernel Odroid U3 board (8\~12 times faster than the Raspberry Pi).
 
 \begin{figure}[p]
     \centering
-    \subfloat[][]{\includegraphics[width=\linewidth]{Odroid_U3.jpg}}
-
-
-    \subfloat[][]{\begin{tabularx}{\linewidth}{r X}
+    \subfloat{\includegraphics[width=\linewidth]{Odroid_U3.jpg}}\\
+    \subfloat{\begin{tabularx}{\linewidth}{r X}
         % \hline
         \textbf{Processor} & Samsung Exynos4412 Prime Cortex-A9 Quad Core 1.7Ghz with 1MB L2 cache\\
         \textbf{Memory} & 2048MB(2GB) LP-DDR2 880Mega data rate\\
@@ -133,9 +126,14 @@ It is the case with one of the most famous micro-computer, the raspberry pi. The
         % \hline
         \end{tabularx}
         }
-    \caption{Hardkernel Odroid U3 computer board}
+    \caption{Hardkernel Odroid U3 computer board.}
     \label{fig:odroid_U3}
 \end{figure}
+
+Yet as I said previously, embedding control is complex. Indeed, the computer has to be small enough to fit inside the robot. With such a size, where are mostly ARM based computer. Most works are developed on x86 or 64 architecture and the switch to ARM architecture is not direct. Some software modules used do not exist or are not optimized, leading to major performance problems.
+
+It is the case with one of the most famous micro-computer, the raspberry pi. The first trials we did with Pypot were really disappointing on the performance level. As we can see in section~\ref{sub:pypot-performance}, it takes about 6-10 ms just to read and write a motor position (mostly computing) while it is only 2 ms on a normal computer (mostly serial communication). Therefore we oriented our choice toward the Hardkernel Odroid U3 board those performance with pypot are similar to a classic computer (see \figurename~\ref{fig:pypot-board-comparaison}).
+
 
 The Hardkernel Odroid U3 (see \figurename~\ref{fig:odroid_U3}) is a low-cost (\$65) and powerful Linux computer embedding a 1.7GHz Quad-Core processor and 2GByte RAM while being very small (83 x 48 mm) and lightweight (48 grams) (see Tab.~\ref{tab:table_feet} for the detail of all specifications).
 
@@ -149,10 +147,10 @@ The video out port on all new mini computer boards such as Raspberry Pi, Beagle 
 
 \begin{figure}[ht]
 \centering
-    \subfloat[][]{\includegraphics[height=4.9cm]{manga-screen.png}}
+    \subfloat{\includegraphics[height=4.9cm]{manga-screen.png}}
     \hfil
-    \subfloat[][]{\includegraphics[height=4.9cm]{poppy_screen.jpg}}
-    \caption{}
+    \subfloat{\includegraphics[height=4.9cm]{poppy_screen.jpg}}
+    \caption{The future face display embedded in Poppy is an open source project called manga-screen (see \url{https://bitbucket.org/intelligentagent/manga-screen/}). This project is the only one we have found allowing to have both a 4.3inch display and HDMI connexion.}
     \label{fig:manga-screen}
 \end{figure}
 
@@ -177,12 +175,12 @@ Poppy is not yet able to walk by itself, being energetically autonomous does not
 
 \begin{figure}[tb]
 \centering
-    \subfloat[][]{\label{fig:battery_size}\includegraphics[height=3.5cm]{tyva_battery_pack.jpg}}
+    \subfloat{\label{fig:battery_size}\includegraphics[height=3.5cm]{tyva_battery_pack.jpg}}
     \hfil
-    \subfloat[][]{\label{fig:battery_specs}\includegraphics[height=4cm]{tyva_batteries.png}}\\
-    \caption{}
+    \subfloat{\label{fig:battery_specs}\includegraphics[height=4cm]{tyva_batteries.png}}\\
+    \caption{Example of batteries we can find on the market.}
     \label{fig:tyva_batteries}
 \end{figure}
 
-However, using Poppy away from any power source is still possible. Is it indeed rather simple to connect external 12V batteries. These batteries can be easily found on the internet and have already been tested with Poppy for an artistic project where Poppy had to be surrounded by nature\footnote{see associated projects on our forum}.
+However, using Poppy away from any power source is still possible. Is it indeed rather simple to connect external 12V batteries. These batteries can be easily found on the internet and have already been tested with Poppy for an artistic project where Poppy had to be surrounded by nature\footnote{see associated topic on our forum: \url{https://forum.poppy-project.org/t/projet-artistique-en-pleine-nature-avec-poppy/298}}.
 

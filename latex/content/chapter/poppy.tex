@@ -20,12 +20,12 @@
 
 In 2012, when we started this project, none of the existing humanoid platforms were suitable for exploring the role of morphology. There were two kinds of platform. On one hand commercial robots that are rather easy to use and accessible but with a static and frozen morphology. On the other hand, prototype robots produced in labs to address specific experimentation needs, studying interesting morphologies but complicated to use and impossible to reproduce outside the lab. In both cases, only a few are open source, limiting hacks, extensions or modifications of their morphologies even further.
 
-In the Flowers Lab, we had both kinds of robot. We used Nao (see \figurename~\ref{fig:nao_platform}) to study human robot interaction (REF PIERRE cadeau). It was really convenient for use by researchers who are not interested in hardware issue since they are addressing more high-level research challenges. Yet such a platform is limited as it is not possible to modify the robot if it is not strictly adapted to our experiment. For example, back at this time the Nao camera was not efficient, with a closed field of view and a slow framerate. We have difficultly achieved 5 frames/seconds. Although we had the necessary skills to hack Nao and change the camera to fit our needs, its hardware was not designed to be changed. Improving the vision performance would only be possible with the addition of an external camera on the Nao head which could ruin the user experience. In addition, it would have been interesting to explore how the camera parameters (FOV, framerate, resolution...) can change the user experience but again, it is not possible with this robot.
+In the Flowers Lab, we had both kinds of robot. We used Nao (see \figurename~\ref{fig:nao_platform}) to study human robot interaction (\cite{rouanet2009integrated} \cite{rouanet2012apprendre}). It was really convenient for use by researchers who are not interested in hardware issue since they are addressing more high-level research challenges. Yet such a platform is limited as it is not possible to modify the robot if it is not strictly adapted to our experiment. For example, back at this time the Nao camera was not efficient, with a closed field of view and a slow framerate. We have difficultly achieved 5 frames/seconds. Although we had the necessary skills to hack Nao and change the camera to fit our needs, its hardware was not designed to be changed. Improving the vision performance would only be possible with the addition of an external camera on the Nao head which could ruin the user experience. In addition, it would have been interesting to explore how the camera parameters (FOV, framerate, resolution...) can change the user experience but again, it is not possible with this robot.
 
 
-We also used Acroban (see \figurename~\ref{fig:acroban_platform}) designed by Olivier Ly~\parencite{Ly2010}. It is a handcrafted humanoid platform created to explore certain morphological properties, especially compliance, with the aim of achieving dynamic locomotion and playful physical human robot interaction.
+We also used Acroban (see \figurename~\ref{fig:acroban_platform}) designed by Olivier Ly~\parencite{ly2011bio}. It is a handcrafted humanoid platform created to explore certain morphological properties, especially compliance, with the aim of achieving dynamic locomotion and playful physical human robot interaction.
 While it actually allows modification of its is morphology, it is manufactured from aluminium mechanical parts, Robotis Dynamixel motors, scotch, and rubber bands cobbled together, and changing it requires lot of effort . The manufacture of aluminium parts required is especially complicated and requires either very good handiwork or a 3-axis CNC.
-In addition, its use was quite complicated and while several researchers could have been interested by Acroban to study human robot interaction and social acceptance, it was not possible to use it without getting our hands dirty.
+In addition, its use was quite complicated and while several researchers could have been interested by Acroban to study human robot interaction and social acceptance, It was not possible to use it without significant mechanical work.
 Finally, the material and manufacturing process make the platform non-stationary. Even if a lab manages to reproduce it, there is a high probability that the physical properties will not be the same. Therefore, the diffusion and the reproducibility of results are limited.
 
 
@@ -47,7 +47,7 @@ As we saw in the related work (chapter~\ref{cha:morphology-review}), the emergen
 While using simulators can be helpful as a first step to design robots, it appears incomplete when showing results on the role of morphology without real world experimentation.
 Therefore, when one wants to study the role of morphology on robot behavior, being able to explore it in the real world is of paramount importance. Unfortunately, current tools make the experimental step really hard to achieve for researchers.
 
-Throughout our work on building cognitive and developmental learning algorithms, we have experienced these issues, especially while building and using Acroban~\cite{Ly2010} and during the Ergo robot experience (see chapter~\ref{cha:art}). Much time has been spent debugging non-robust technologies but it has been very instructive for understanding those that are efficient and those that should be avoided.
+Throughout our work on building cognitive and developmental learning algorithms, we have experienced these issues, especially while building and using Acroban~\cite{ly2011bio} and during the Ergo robot experience (see chapter~\ref{cha:art}). Much time has been spent debugging non-robust technologies but it has been very instructive for understanding those that are efficient and those that should be avoided.
 Therefore Poppy has been designed based on the background experience we have acquired building using robots acting in the real world.
 
 \begin{description}
@@ -102,10 +102,10 @@ We prefered the use of Selective Laser Sintering (SLS)\footnote{The process uses
 
 The table~\ref{tab:materials} compares mechanical properties of polyamide with classic metallic materials. We can see the relatively good properties of the polyamide material. The young modulus represents the stiffness of the part. The polyamide one has a very low young modulus meaning it is very flexible while keeping correct yield strength and very low density.
 
-\begin{table}[h]
+\begin{table}[tb]
     \centering
     \begin{tabularx}{0.8\linewidth }{l X X X}
-        Material & Mass Density $\rho$ ($kg/m^3$) &  Yield strength $\sigma$~($MPa$) & Young Modulus $E$($GPa$)\\
+        \textbf{Material} & \textbf{Mass Density $\rho$ ($kg/m^3$)} &  \textbf{Yield strength $\sigma$~($MPa$)} & \textbf{Young Modulus $E$($GPa$)}\\
         % \hline
         Polyamide & $930$ & $49$ & $1.65$\\
 
@@ -129,11 +129,10 @@ A SLS printer is much too costly for a lab, but outsourcing the production to an
 
 3D printing is a key feature of Poppy that permits the exploration of morphological variants. Indeed it is now cheap and easy to produce custom parts, and because Poppy is open source, anyone has access to the source files and can freely change the parameters he or she wants. Indeed Poppy is designed using Solidworks, a parametric CAD Software very widespread in small-size engineering companies. The parametric modeling allows to create mechanical parts those design are based on a set of parametric sketches and functions. Parameters can be modified and the final part will be changed accordingly\footnote{If designed correctly}. Therefore it is possible to easily change the mechanical structure and properties just by tuning associated parameters in the source file and re-printing the part (see \figurename~\ref{fig:exploring-morpho-poppy}).
 
-\begin{figure}[ht]
-    \begin{center}
+\begin{figure}[p]
+    \centering
         \includegraphics[width=\linewidth]{morpho_variation.pdf}
-    \end{center}
-    \caption{}
+    \caption{The use of 3D printing open new perspectives to explore the role of morphology in the robotics field. Indeed we can now easily produce on site new mechanical parts, therefore it is possible to create numerous variations of body properties. Poppy's modularity makes the part substitution easy and fast so we can directly iterate with real world experiments. Then we can share online a reproducible experimental setup.}
     \label{fig:exploring-morpho-poppy}
 \end{figure}
 
@@ -147,22 +146,24 @@ As explained in chapter~\ref{cha:methodology}, the chosen methodology relies on 
 
 Also Robotis offers a range of motors with different actuation power (see \figurename~\ref{fig:dynamixel_powa}). They are different in size and power but their API remains the same and we can easily switch from one to another without either changing the code or the electronic integration. Yet, even if the size changes, the footprint keeps the same pattern (see \figurename~\ref{fig:dynamixel_dimension}).
 
-Poppy is designed with Solidworks, a parametric modeler that offers features like configurations which define sets of parameters. Configurations allow to create multiple variations of a part or assembly model within a single document. Configurations provide a convenient way to develop and manage families of models with different dimensions, components, or other parameters. It is therefore possible to create, for each part, a configuration compatible with each motor just by setting the suitable parameters. The \figurename~\ref{fig:leg_configuration} shows an example with Poppy's leg. It just takes a couple of minute to transform a part designed for Dynamixel MX-28 to one compatible with Dynamixel MX-64 as we only have to change the parametric dimensions accordingly to the Robotis motor shape. Then it is possible to switch from one to another with one click.
+Poppy is designed with Solidworks, a parametric modeler that offers features like configurations which define sets of parameters. Configurations allow to create multiple variations of a part or assembly model within a single document. Configurations provide a convenient way to develop and manage families of models with different dimensions, components, or other parameters. It is therefore possible to create, for each part, a configuration compatible with each motor just by setting the suitable parameters. The \figurename~\ref{fig:leg_configuration} shows an example with Poppy's leg.
 
-\begin{figure}[!ht]
+
+\begin{figure}[p]
     \centering
         \includegraphics[width=\linewidth]{leg_configuration.pdf}
     \caption{Example of the use of mechanical configuration. Here the CAD source of the leg involves 2 configurations so it can be compatible with Dynamixel MX-28 (up) or Dynamixel MX-64 (down). Configuration define the set of parameter suitable for both and can be changed just in one mousse click.}
     \label{fig:leg_configuration}
 \end{figure}
 
+It just takes a couple of minute to transform a part designed for Dynamixel MX-28 to one compatible with Dynamixel MX-64 as we only have to change the parametric dimensions accordingly to the Robotis motor shape. Then it is possible to switch from one to another with one click.
 On Poppy, most of the parts are already distributed with multiple configurations suitable for different motors power. It allows the actuation power to be scaled and introduces it also as an experimental (discrete) variable.
 
 
 \subsection{Electronic} % (fold)
 
 Unlike the mechanical parts, there is no quick and low-cost solution for producing custom electronics yet.
-However, exploring morphology may also require the sensors space (e.g. number, type, properties, positions) to be varied. As we explained in the chapter REF, we address this challenge through the use of the Arduino environment.
+However, exploring morphology may also require the sensors space (e.g. number, type, properties, positions) to be varied. As we explained in the chapter~\ref{cha:morphology-review}, we address this challenge through the use of the Arduino environment.
 
 Arduino has developed both hardware and software, so creating and programming electronics systems becomes very easy. Their boards have plenty of I/O pins (digital and analog) suitable to power and control almost any electronics components. Also these pins can be used to handle low-level communication such as UART, SPI and I2C, useful to plug sub-module (e.g. IMU, LCD Matrix, tactile interface and so on).
 The software they developed abstracts the complexity of low level control\footnote{we can turn a led on/off with just one line of code.} and communication\footnote{Using just print-like functions we can communicate on serial bus.} very well. Therefore, it allows wide variety and flexibility in the extension of the electronic system, while keeping an ease of use adapted to a non-expert audience.
@@ -184,7 +185,7 @@ In the Poppy platform, lightness is very important both for dynamic properties a
 
 \begin{figure}[!t]
     \centering
-        \includegraphics[width=0.7\linewidth]{virtuous_circle.png}
+        \includegraphics[width=0.6\linewidth]{virtuous_circle.png}
     \caption{Using small actuation power reduces the amount of stress applied on the mechanical structure. Thus it is possible to reduce the robustness of mechanical parts by removing matter. Because the global weight is reduced, we can use smaller actuation power, and so on.}
     \label{fig:virtuous_circle}
 \end{figure}
@@ -206,7 +207,7 @@ Truss is a well-known design technique from structural mechanics to create light
 
 \begin{figure}[tb]
     \begin{center}
-        \includegraphics[width=0.6\linewidth]{truss_bridges.jpg}
+        \includegraphics[width=0.5\linewidth]{truss_bridges.jpg}
     \end{center}
     \caption{The truss structure has been massively used in civil engineering, especially to construct bridges. Here is shown several truss structure configurations.}
     \label{fig:truss_bridges}
@@ -226,10 +227,10 @@ Thus the main idea is to remove -the no effective- matter at the center and plac
 
 \begin{figure}[!ht]
 \centering
-    \subfloat[][Section of Poppy's leg]{\label{fig:Poppy_leg_section}\includegraphics[height=3cm]{Poppy_leg_section.jpg}}
+    \subfloat{\label{fig:Poppy_leg_section}\includegraphics[height=2.5cm]{Poppy_leg_section.jpg}}
     \hfil
-    \subfloat[][Equivalent rectangular section]{\label{fig:basic_leg_section}\includegraphics[height=3cm]{basic_leg_section.jpg}}
-    \caption{Comparison of poppy's leg section and an equivalent rectangular beam.}
+    \subfloat{\label{fig:basic_leg_section}\includegraphics[height=2.5cm]{basic_leg_section.jpg}}
+    \caption{Comparison of poppy's leg section and a rectangular beam having the same second moment of area.}
     \label{fig:leg_section}
 \end{figure}
 
@@ -239,10 +240,9 @@ Considering the length of the leg part (i.e. $190 mm$), the total mass would be 
 
 \begin{figure}[!tb]
 \centering
-    \subfloat[][Poppy's arm mechanical structure]{\label{fig:poppy_arm_truss}\includegraphics[width=0.6\linewidth]{arm_truss.jpg}}
-
-
-    \subfloat[][Poppy's leg mechanicalt structure]{\label{fig:poppy_leg_truss}\includegraphics[width=0.6\linewidth]{leg_truss.jpg}}
+    \subfloat[][Poppy's arm mechanical structure]{\label{fig:poppy_arm_truss}\includegraphics[width=0.49\linewidth]{arm_truss.jpg}}
+    \hfill
+    \subfloat[][Poppy's leg mechanicalt structure]{\label{fig:poppy_leg_truss}\includegraphics[width=0.49\linewidth]{leg_truss.jpg}}
     \caption{The whole design of Poppy is based on the use of truss structure to reduce its weight while keeping sufficient robustness.}
     \label{fig:poppy_truss_structure}
 \end{figure}
@@ -290,9 +290,16 @@ Thanks to the methodology presented in the chapter~\ref{cha:methodology}, the de
 
 Because of the lack of easy and cheap tooling to produce a custom electronics board, the new design of the electronic architecture took more time and several elements are still in progress for.
 
-TODO Add photo of the kit
 
-Yet Poppy cost about \texteuro8,000 and it only takes one or two days to assemble (see REF). Also its morphological design allows for modularity both for the mechanics, as the parametric parts can be easily customized and reprinted, and for the electronics thanks to the compatibility with the Arduino environment. This modularity is completed by the control library which will be presented in the next chapter.
+\begin{figure}[tb]
+    \begin{center}
+        \includegraphics[width=\linewidth]{poppy_components.jpg}
+    \end{center}
+    \caption{Time lapse of the assembly is available here: \url{https://vimeo.com/96262428}}
+    \label{fig:poppy_components}
+\end{figure}
+
+Yet Poppy cost about \texteuro8,000 and it only takes one or two days to assemble (see \figurename~\ref{fig:poppy_components}). Also its morphological design allows for modularity both for the mechanics, as the parametric parts can be easily customized and reprinted, and for the electronics thanks to the compatibility with the Arduino environment. This modularity is completed by the control library which will be presented in the next chapter.
 
 Examples of variations in Poppy’s morphology will be presented in chapter~\ref{cha:changing_morphology}. Also thanks to its simple design, Poppy can be relevant for educational and artistic purposes. Applications will be presented in chapter~\ref{cha:education} and chapter~\ref{cha:art}.
 
