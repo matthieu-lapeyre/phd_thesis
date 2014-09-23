@@ -3,7 +3,7 @@
 \cleartoleftpage
 \includepdf{../media/chapter_illustration/poppy_prairie_2.pdf}
 
-\chapter{Open diffusion of Poppy} % (fold)
+\chapter{Open diffusion of Poppy: perspectives and challenges} % (fold)
 \label{cha:diffusion}
 
 \section{Introduction} % (fold)
@@ -17,9 +17,13 @@ Finally, the possibility to easily modify both the hardware and the software als
 
 % Poppy is an open source/open science project, even if the technology developed have high potential to be relevant in Art, Education and of course Science, the user community is a paramount of importance. Because the robot and tools own to the community, it is crucial to have a place to exchange idea and works.
 
-The major challenge is now to succeed in the diffusion of the platform in all these fields. As we can see we the Arduino example, the user community is a paramount of importance and both the diffusion strategy and community management tools are critical.
+The major challenge is now to succeed in the diffusion of the platform in all these fields.
+We think this challenge relies on several aspects: create a playful and motivating multidisciplinary community, create educationnal content, improve the hardware modularity, integrate Poppy in the maker revolution by using Fablab for production and distribution, and continue the development of open hardware robotics tools.
 
-We think this challenge relies on 3 main aspect: create a playful and motivating multidisciplinary community, improve the hardware modularity and integrate Poppy in the maker revolution by using Fablab for production and distribution.
+% As we can see we the Arduino example, the user community is a paramount of importance and both the diffusion strategy and community management tools are critical.
+% Futhermore, the development of Poppy itself
+% In addtion there are still challenges for the Poppy platform itself
+
 
 
 
@@ -51,16 +55,15 @@ Following the Arduino example, we now made our forum multilingual\footnote(see t
 
 \begin{figure}[tb]
 \centering
-    \subfloat[][]{\includegraphics[height=4.5cm]{world_map.jpg}}
+    \subfloat{\includegraphics[height=4.5cm]{world_map.jpg}}
     \hfil
-    \subfloat[][]{\includegraphics[height=4.5cm]{user_country.pdf}}
+    \subfloat{\includegraphics[height=4.5cm]{user_country.pdf}}
     \caption{Activity tracked during October 2013 to February 2014}
     \label{fig:poppy_community}
 \end{figure}
 
 
 Third, creating a multidisciplinary community implies that participants do not speak the same language and do not have the same technical level. Therefore we will have to improve the accessibility of the project to create a motivational learning curve. This can be achieved thanks to a well-designed interface, playful content and gamification (\cite{deterding2011game} \cite{groh2012gamification}).
-
 
 Also we have to take into account the fact that people do not read documentation, described as the paradox of the active user in~\parencite{carroll1987paradox}:
 \begin{formal}
@@ -72,6 +75,7 @@ Jeff Atwood also explained this behaviour in his post on the "just in time theor
 
 Understanding users’ needs is very complicated, especially as Poppy users can be young students, artists or robotics experts. Therefore a major part of the community is not even aware of basic robotic problems such as motor orientations, the concept of communication buses, the fact motors can burn if too loaded. Thus in addition to complete documentation (for the good students), we will have to work on the “just in time” reminders so other people can easily assemble and use Poppy.
 We already explored some solutions for the assembly. For example, motors can be oriented with 16 potential configurations, we need to use one so everyone can share the same robot configuration code (see section~\ref{sec:pypot-robot-abstraction}). We put a directly visible indication on the 3D-printed parts so users can see how the motor has to be oriented (see \figurename~\ref{fig:motor_orientation}).
+
 \begin{figure}[tb]
     \centering
         \includegraphics[width=0.6\linewidth]{motor_orientation.png}
@@ -81,14 +85,20 @@ We already explored some solutions for the assembly. For example, motors can be 
 
 Yet this work should be propagated on all elements. On electronics devices so users have important information (e.g. max voltage, ground/ VCC orientation) directly printed on the board, like Arduino did on their boards. On the software so users can be reminded that the primitive paradigms can create undesired behaviours\footnote{The primitive paradigms: The Good, the Bad and the Ugly, see section\ref{sec:pypot-primitives-problems}} as well as being informed when the robot is suffering from too much load.
 
+\section{Create relevant educational content} % (fold)
 
+The first experiments we had with the educational field appeared promising (see chapter~\ref{cha:education}). We also received numerous requests from educational structures in France as well as in the world. Indeed robotics is an atypical "science" intrinsically multidisciplinary merging engineering, computer science, biology, cognition and even humanities. Beyond the robotics teaching, it allows creating original multidisciplinary course. Also robots are very motivating tools as they can be incarnated in tangible objects.
+
+However this impact cannot relies only on a technological platform, it requires to create relevant content, which are real educational vector.
+In this way, we are setting a partnership with the ENSAM\footnote{Arts et Métiers ParisTech is a French engineering and research graduate school in the fields of mechanics and industrialization.} and Aérocampus to create and evaluate educational content associated with the use of Poppy on the students from baccalaureate -3 to +3 i.e. high-school and bachelor. For each type, the content will be produced and disseminated under Creative Commons and will be composed by: ready-to-use sheets of practical experiments with robots, specifying objectives and concrete progress in the classroom, and their organization into a coherent and integrated curriculum; and tutorials in the form of videos or multimedia pages webs.
+They may take the form of a MOOC that can be disseminated on the national platform FUN\footnote{REF}. Also being open source, anyone can contribute to its improvement. A particular extension of this work could be the evaluation for self-training through experiments in Fablab.
 
 \section{Improving hardware modularity} % (fold)
 \label{sec:improve-hardware-modularity}
 
 As we discussed in detail in this thesis, Poppy has a modular morphology. This modularity is expressed with all the technologies involved. For the mechanics, we use 3D printing techniques allowing producing quick and low-cost parts. For the electronics, we designed a board based on Arduino allowing to easily plug new sensors in. Finally for the software, we built a library using a modular architecture both for the low-level thanks to I/O controllers and for the high-level with primitive paradigms.
 
-As we saw in the chapter REF, this modularity allows for quick experimentation with morphological variants. This functional modularity seems to be enough to allow a wide range of scientific experiments with Poppy and hopefully have a real scientific impact. However, to have an actual impact in the open source community, technological modularity is essential.
+As we saw in the chapter~\ref{cha:changing_morphology}, this modularity allows for quick experimentation with morphological variants. This functional modularity seems to be enough to allow a wide range of scientific experiments with Poppy and hopefully have a real scientific impact. However, to have an actual impact in the open source community, technological modularity is essential.
 
 In software, modularity refers to the manner in which a design is decomposed into different "modules". It is based on the notion of interdependence within modules and independence between modules~\parencite{baldwin2000design}. This concept involves two related ideas: the need to allow work on a given module to be carried out without affecting other modules in the design, a concept known as "loose-coupling", and the need for well-designed "interfaces" between these modules~\parencite{maccormack2006exploring}.
 
@@ -107,7 +117,7 @@ In hardware, modularity is not as developed as in software because it is not pos
     \subfloat[][Arduino form factor]{\includegraphics[height=3.5cm]{arduino-shield.png}}
     \hfil
      \subfloat[][Google Ara project]{\includegraphics[height=3.5cm]{project-ara.jpg}}\\
-    \caption{}
+    \caption{Examples of hardware modularity acheived so far.}
     \label{fig:hardware-modularity}
 \end{figure}
 
@@ -128,13 +138,13 @@ Our future technological development will be more oriented toward hardware modul
     \subfloat[][IO Module schematics (under production)]{\includegraphics[height=3.5cm]{io-module.png}}
     \hfil
      \subfloat[][Size comparison between the IO board and SO-DIMM format]{\includegraphics[height=3.5cm]{compare-io-boards.jpg}}\\
-    \caption{}
+    \caption{A novel IO module is under development. This IO module only include the core components for controlling robots such as Poppy. Its tiny size and standard interface make it easy to embed.}
     \label{fig:poppy-electronic-modularity}
 \end{figure}
 
 We are also exploring splitting the electronics into modules. We are working on a new design of the IO board, which will involve 2 boards, one IO module with the core of the technology we need (Arduino, motor control) and a shield with connectors.
 While the shield is customized to one robot, depending on the needs and motors used, the IO module is very small and versatile so it can be integrated both in small and big robots.
-The design of this IO module has already been done (see REF) and is based on a DDR2 SO-DIMM format (67x30 mm) with up to 200 pins. This board involves an Arduino Mega with all its GPIO, two modified motor buses compatible for TTL and RS485 communication and an inertial unit MPU6000.
+The design of this IO module has already been done (see \figurename~\ref{fig:poppy-electronic-modularity}) and is based on a DDR2 SO-DIMM format (67x30 mm) with up to 200 pins. This board involves an Arduino Mega with all its GPIO, two modified motor buses compatible for TTL and RS485 communication and an inertial unit MPU6000.
 
 
 For the mechanics, a first step toward more modularity could be to split the robot into interchangeable sub-modules with defined interfaces. In this way, contributors could create new designs while only having to ensure that the interface is compatible. Therefore anyone could create a whole new head or legs system and distribute it so people could test it on their Poppy.
@@ -150,17 +160,6 @@ Another point is the pelvis/torso interface, on one hand, it would be simpler to
 These kinds of submodules still raise a limitation because the interface has a fixed size, which will constrain the overall size of the robot elements. It should be possible to create a bigger robot, maybe up to 120cm high but it will be difficult to have a robot smaller than 60cm while keeping the same interface.
 
 
-
-\section{Create relevant educational content} % (fold)
-
-The first experiments we had with the educational field appeared promising (see chapter~\ref{cha:education}). We also received numerous requests from educational structures in France as well as in the world. Indeed robotics is an atypical "science" intrinsically multidisciplinary merging engineering, computer science, biology, cognition and even humanities. Beyond the robotics teaching, it allows creating original multidisciplinary course. Also robots are very motivating tools as they can be incarnated in tangible objects.
-
-However this impact cannot relies only on a technological platform, it requires to create relevant content, which are real educational vector.
-In this way, we are setting a partnership with the ENSAM\footnote{REF} and Aérocampus\footnote{REF} to create and evaluate educational content associated with the use of Poppy on the students from baccalaureate -3 to +3 i.e. high-school and bachelor. For each type, the content will be produced and disseminated under Creative Commons and will be composed by: ready-to-use sheets of practical experiments with robots, specifying objectives and concrete progress in the classroom, and their organization into a coherent and integrated curriculum; and tutorials in the form of videos or multimedia pages webs. They may take the form of a MOOC that can be disseminated on the national platform FUN\footnote{REF}. Also being open source, anyone can contribute to its improvement. A particular extension of this work could be the evaluation for self-training through experiments in Fablab.
-
-
-
-
 \section{Production/Distribution: an alternative approach} % (fold)
 
 Poppy includes three main parts: its mechatronic structure (skeleton and motors); its electronics; its software.
@@ -169,11 +168,11 @@ Reproducing and rebuilding the mechatronic structure is easy: the open-source sk
 
 But manufacturing electronics is a bit more challenging. It is not yet possible to produce electronics components at home, and many institutional users do not have the skills or motivation to do so. There are some kick-starter projects on the way to facilitating the process, yet they are not ready and will not be ready for a couple of years. The current classical approach to building and distributing these electronics boards is to raise funding allowing for hundreds of boards to be manufactured, which can then be sold by a distribution company. Thanks to new online platforms such as CircuitHub it is easy to produce anything from a single model to thousands of boards. Yet the cost is exponentially decreasing and unlike 3D printing. But a French research institute like Inria is not a distributor, it cannot raise funding to "mass" produce electronic components before reselling them. It is not even legally allowed to do so.
 
-Indeed, the mission of a research team at Inria is to do research, and find ways to apply and transfer the results of this research, but not directly to produce and sell a commercial product. If a commercial products emerge from our research, one way to take advantage of it is to create a start-up company which will set up a business plan around it, probably based on production in Asia and then worldwide distribution to research laboratories, universities and fablabs (see Figure \ref{fig:classic})
+Indeed, the mission of a research team at Inria is to do research, and find ways to apply and transfer the results of this research, but not directly to produce and sell a commercial product. If a commercial products emerge from our research, one way to take advantage of it is to create a start-up company which will set up a business plan around it, probably based on production in Asia and then worldwide distribution to research laboratories, universities and fablabs (see \figurename~\ref{fig:classic})
 
-\begin{figure}[ht]
+\begin{figure}[tb]
     \begin{center}
-        \includegraphics[width=14cm]{classic_production_distribution.jpg}
+        \includegraphics[width=\linewidth]{classic_production_distribution.jpg}
     \end{center}
     \caption{Classical approach for technological production and distribution}
     \label{fig:classic}
@@ -195,7 +194,7 @@ An original and constructive organizational process would be to take advantage o
 
 \begin{figure}[tb]
     \begin{center}
-
+        \includegraphics[width=\linewidth]{fabusine_distribution_world.jpg}
     \end{center}
     \caption{Local production and distribution by Fablabs}
     \label{fig:world_fab}
@@ -250,33 +249,34 @@ Therefore, Poppy can be one of the first projects launching this new kind of pro
 \section{Open source force control actuator} % (fold)
 \label{sec:open_sourcing_the_robotic_actuations}
 
-All the development we have made for Poppy has been released under open source licenses, the mechanical structure and electronics boards are under creative commons licenses and the pypot control library is distributed under GPL license. These various technological bricks allow exploring new experiment about the role of morphology, as well as creating a creative environment for students and artists. Yet a very important technology brick remains closed, the robot actuation.
+All the development we have done for Poppy has been released under open source licenses; the mechanical structure and electronics boards are under creative commons licenses and the pypot control library is distributed under GPL license. These various technological bricks allow for new experiments on the role of morphology to be explored, and foster a creative environment for students and artists. Yet a very important technology brick remains closed: robot actuation.
 
-The Robotis Actuators are expensive (more than 60\% of the robot cost), proprietary and no modification is permitted neither on the low level control nor the hardware. Furthermore, these actuators are limited as they use a classical position control based on PID and do not permit the force control.
+The Robotis Actuators are expensive (more than 60\% of the cost of the robot), proprietary and no modification is permitted either to the low-level control or the hardware. Furthermore, these actuators are limited as they use a classical position control based on PID and do not permit force control.
 
-The technical limits are firstly problematic for scientific reasons. Indeed, the actuator properties are elements that must be possible to experimentally control. It is not possible with the Robotis ones beyond tuning the PID controller values and an estimation of maximum output torque. In addition, these actuators act as a black-box, we do not have any way nor guarantee to control how the tuning of some parameters actually change the actuator behaviour. For example, parameter such as the delay and the internal loop frequency are very important when we explore reinforcement learning. Indeed, the algorithm needs to have a controlled synchronization between action and observation, and we have been confronted to this issue while exploring biped learning with Poppy.
+The technical limits are firstly problematic for scientific reasons. Indeed, the actuator properties are elements that it must be possible to experimentally control. This is not possible with the Robotis ones, beyond tuning the PID controller values and estimating the maximum output torque. In addition, these actuators act as a black box, we do not have any way of guaranteeing or controlling how the tuning of some parameters actually changes the actuator behaviour. For example, parameters such as the delay and the internal loop frequency are very important when we explore reinforcement learning. Indeed, the algorithm needs to have a controlled synchronization between action and observation, and we were confronted with this issue while exploring biped learning with Poppy.
 
-Secondly, the last scientific work in the robotics field seems to show the efficiency of force control actuator over position control to create robot able to act robustly in the real world (e.g. Boston Dynamics robots, MIT Cheetah). Hydraulic and pneumatic actuators are too complicated to be integrated in small and safe robot, but technology based on serie elastic actuators or impedance controls seem very promising.
+Secondly, the latest scientific work in the robotics field seems to show the efficiency of force control actuators over position control in creating robots able to act robustly in the real world (e.g. Boston Dynamics robots, MIT Cheetah). Hydraulic and pneumatic actuators are too complicated to be integrated in small and safe robots, but technology based on series elastic actuators\footnote{The series elastic actuation~\parencite{pratt1995series} is a technology based on adding a spring between the motor output and the actuator output. The offset between the motor position and the actuator output is proportional to the external force applied (Hooke law). It is a simple, yet effective way of obtaining direct force measurements at the actuator output. Then a controller can drive the motors following the force feedback to create the desired output torque.} or impedance controls seem very promising.
 
-The series elastic actuation~\parencite{pratt1995series} is a technology based on adding a spring between the motor output and the actuator output (see \figurename~\ref{fig:SEA-principle}). The offset between the motor position and the actuator output is proportional to the external force applied (Hooke law). It is a simple, yet effective way to obtain direct force measurement at the actuator output. Then a controller can drive the motors following the force feedback to create the desired output torque.
+% The impedance control is ...
 
-The impedance control is ...
+% \begin{figure}[tb]
+%     \centering
+%         \includegraphics[width=0.8\linewidth]{SEA_basic_principle.png}
+%     \caption{}
+%     \label{fig:SEA-principle}
+% \end{figure}
 
-\begin{figure}[tb]
-    \centering
-        \includegraphics[width=0.8\linewidth]{SEA_basic_principle.png}
-    \caption{}
-    \label{fig:SEA-principle}
-\end{figure}
-
-These simple technologies have been successfully implemented in several robots ...
+% These simple technologies have been successfully implemented in several robots ...
 
 
-Although numerous robots based on control impedance or SEA actuator, to our best knowledge, there is no project currently trying to create open source force controlled actuators. Nevertheless, there is some open source project to create open source servomotor called open servo and supermodified, yet they only address the electronic parts by offering open source electronic board compatible with low cost RC servomotors.
+Although there are numerous robots based on control impedance or SEA actuators, to our best knowledge, there is no project currently trying to create open source force-controlled actuators. Nevertheless, there are some open source projects to create open source servomotors called open servo and supermodified, yet they only address the electronic parts by offering open source electronic boards compatible with low cost RC servomotors.
 
 
-Thus a strong challenge we have already engaged is to create novel open source actuator allowing force control. Inria supports this 2 years project and two engineers have been hired for the development. The plan is to first create open source motors equivalent to the Robotis ones, then create a force control module. All the work, mechanics, electronics and software control will be released with open source license. In addition, special attention will be draw to create 3D printable element so user can hack the actuators mechanics.
+Thus an important challenge we have already committed to is to create novel open source actuators allowing force control. Inria is supporting this 2-year project and two engineers have been hired for its development. The plan is to first create open source motors equivalent to the Robotis ones, then create a force control module. All the work, mechanics, electronics and software control will be released with open source licenses. In addition, special attention will be focused on creating 3D printable element so users can hack the actuator’s mechanics.
 
-On a scientific aspect, this actuator will permit a free exploration of robot control with open source control library, allowing to use classical PID control or to implement more exotic one.
+On a scientific level, this actuator will permit free exploration of robot control with an open source control library, allowing to use classical PID control or even to implement a more exotic one.
 
-Finally, we will try to keep a cost as low as possible to increase the potential impact in the robotics field. In particular, using these actuators, we hope to create either a cheaper version of Poppy or a more advanced one implementing force control for a similar cost.
+Finally, we will try to keep as low a cost as possible to increase the potential impact in the robotics field. In particular, using these actuators, we hope to create either a cheaper version of Poppy or a more advanced one, implementing force control for a similar cost.
+
+
+
