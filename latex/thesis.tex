@@ -16,6 +16,18 @@
     draft=false,                % value for draft version
 ]{scrreprt}%
 
+\usepackage[utf8]{inputenc}     % defines file's character encoding
+\usepackage[english]{babel} % babel system, adjust the language of the content
+\usepackage[                    % clean thesis style
+    figuresep=colon,% none,colon,period,space,quad,endash
+    sansserif=false,%
+    hangfigurecaption=false,%
+    hangsection=true,%
+    hangsubsection=true,%
+    colorize=full,% reduced, bw
+    colortheme=bluemagenta,% bluegreen
+]{template/cleanthesis}
+
 % **************************************************
 % Debug LaTeX Information
 % **************************************************
@@ -27,8 +39,8 @@
 \newcommand{\thesisTitle}{Poppy: Open source 3D printed and modular humanoid robot for Science, Art and Education.}
 \newcommand{\thesisName}{Matthieu Lapeyre}
 \newcommand{\thesisSubject}{Submitted in fulfillment of requirements for the degree of Doctor of Philosophy Specialized in Computer Science }
-\newcommand{\thesisDate}{September 23, 2014}
-\newcommand{\thesisVersion}{0.11.1}
+\newcommand{\thesisDate}{September 26, 2014}
+\newcommand{\thesisVersion}{0.12}
 
 \newcommand{\thesisFirstReviewer}{Fethi Ben Ouezdou}
 \newcommand{\thesisFirstReviewerUniversity}{\protect{Université de Versailles Saint-Quentin-en-Yvelines}}
@@ -52,17 +64,7 @@
 % **************************************************
 % Load and Configure Packages
 % **************************************************
-\usepackage[utf8]{inputenc}     % defines file's character encoding
-\usepackage[english]{babel} % babel system, adjust the language of the content
-\usepackage[                    % clean thesis style
-    figuresep=colon,% none,colon,period,space,quad,endash
-    sansserif=false,%
-    hangfigurecaption=false,%
-    hangsection=true,%
-    hangsubsection=true,%
-    colorize=full,% reduced, bw
-    colortheme=bluemagenta,% bluegreen
-]{template/cleanthesis}
+
 
 \hypersetup{                    % setup the hyperref-package options
     pdftitle={\thesisTitle},    %   - title (PDF meta)
@@ -410,13 +412,13 @@ backrefpages={cited on pp\adddot}
 \cleartoleftpage
 \part{Discussions} % (fold)
 \input{content/chapter/diffusion.tex}
-% \input{content/chapter/conclusion.tex}
+\input{content/chapter/conclusion.tex}
 
 
 
-% --------------------------
-% Back matter
-% --------------------------
+% % --------------------------
+% % Back matter
+% % --------------------------
 \cleardoublepage
 \begin{appendices}
 % \part*{Appendix}
@@ -447,6 +449,9 @@ backrefpages={cited on pp\adddot}
 
 
 
+\newpage
+\thispagestyle{empty}
+\mbox{}
 
 
 % \cleardoublepage
