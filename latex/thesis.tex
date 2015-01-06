@@ -36,11 +36,11 @@
 % **************************************************
 % Information and Commands for Reuse
 % **************************************************
-\newcommand{\thesisTitle}{Poppy: Open source 3D printed and modular humanoid robot for Science, Art and Education.}
+\newcommand{\thesisTitle}{Poppy: open-source, 3D printed and fully-modular robotic platform for science, art and education.}
 \newcommand{\thesisName}{Matthieu Lapeyre}
 \newcommand{\thesisSubject}{Submitted in fulfillment of requirements for the degree of Doctor of Philosophy Specialized in Computer Science }
 \newcommand{\thesisDate}{September 26, 2014}
-\newcommand{\thesisVersion}{0.12.1}
+\newcommand{\thesisVersion}{0.13}
 
 \newcommand{\thesisFirstReviewer}{Fethi Ben Ouezdou}
 \newcommand{\thesisFirstReviewerUniversity}{\protect{Université de Versailles Saint-Quentin-en-Yvelines}}
@@ -86,7 +86,6 @@
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{grid-system}
-\usepackage{tabularx}
 \usepackage{boxedminipage}
 \usepackage{textcomp} % euro sign
 \usepackage{listings}
@@ -374,10 +373,10 @@ backrefpages={cited on pp\adddot}
 
 % \pagestyle{plain}               % display just page numbers
 % \input{content/abstract}        % INCLUDE: the abstracts (english and german)
-% \cleardoublepage
-% %
-% \input{content/acknowledgement} % INCLUDE: acknowledgement
-% \cleardoublepage
+\cleardoublepage
+%
+\input{content/acknowledgement} % INCLUDE: acknowledgement
+\cleardoublepage
 
 \setcounter{tocdepth}{1}        % define depth of toc
 \tableofcontents                % display table of contents
@@ -399,6 +398,7 @@ backrefpages={cited on pp\adddot}
 \input{content/chapter/OP_RP_review.tex}
 
 \cleartoleftpage
+\part{The Poppy project} % (fold)
 \input{content/chapter/approach.tex} %OK
 \input{content/chapter/poppy.tex} %ok
 \input{content/chapter/pypot.tex} %OK
