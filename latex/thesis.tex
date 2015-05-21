@@ -28,6 +28,7 @@
     colortheme=bluemagenta,% bluegreen
 ]{template/cleanthesis}
 
+
 % **************************************************
 % Debug LaTeX Information
 % **************************************************
@@ -37,10 +38,13 @@
 % Information and Commands for Reuse
 % **************************************************
 \newcommand{\thesisTitle}{Poppy: open-source, 3D printed and fully-modular robotic platform for science, art and education.}
+\newcommand{\thesisTitleFr}{Poppy: plate-forme robotique open source, imprimée en 3D et totalement modulaire pour l'experimentation scientifique, artistique et pédagogique}
 \newcommand{\thesisName}{Matthieu Lapeyre}
-\newcommand{\thesisSubject}{Submitted in fulfillment of requirements for the degree of Doctor of Philosophy Specialized in Computer Science }
-\newcommand{\thesisDate}{September 26, 2014}
-\newcommand{\thesisVersion}{0.13}
+\newcommand{\thesisSubject}{Submitted in fulfillment of requirements for the degree of Doctor of Philosophy Specialized in Computer Science}
+\newcommand{\thesisSubjectFr}{Thèse pour l'obtention du titre de Docteur en Sciences\\ Spécialité informatique}
+\newcommand{\thesisDate}{Defended on November 14, 2014}
+\newcommand{\thesisDateFr}{Soutenue le 14 novembre 2014}
+\newcommand{\thesisVersion}{0.15}
 
 \newcommand{\thesisFirstReviewer}{Fethi Ben Ouezdou}
 \newcommand{\thesisFirstReviewerUniversity}{\protect{Université de Versailles Saint-Quentin-en-Yvelines}}
@@ -53,6 +57,7 @@
 \newcommand{\thesisFirstSupervisor}{Pierre Yves Oudeyer}
 \newcommand{\thesisFSecondSupervisor}{Pierre Yves Oudeyer}
 
+\newcommand{\thesisUniversitytwo}{\protect{Université de Bordeaux}}
 \newcommand{\thesisUniversity}{\protect{Inria Bordeaux Sud-Ouest}}
 \newcommand{\thesisUniversityDepartment}{Flower team}
 % \newcommand{\thesisUniversityInstitute}{}
@@ -366,18 +371,28 @@ backrefpages={cited on pp\adddot}
 % --------------------------
 % Front matter
 % --------------------------
+%French Part
+\pagenumbering{roman}           % roman page numbing (invisible for empty page style)
+\pagestyle{empty}               % no header or footers
+\input{content/titlepages_fr}      % INCLUDE: all titlepages
+\cleartoleftpage 
+\cleardoublepage
+\input{content/french_abstract}    
+
+%English part
+\cleartoleftpage 
+\cleardoublepage
 \pagenumbering{roman}           % roman page numbing (invisible for empty page style)
 \pagestyle{empty}               % no header or footers
 \input{content/titlepages}      % INCLUDE: all titlepages
-\cleardoublepage
-
-% \pagestyle{plain}               % display just page numbers
-% \input{content/abstract}        % INCLUDE: the abstracts (english and german)
-\cleardoublepage
-%
+\cleartoleftpage 
+\input{content/abstract}        % INCLUDE: the abstracts (english and german)
+\cleartoleftpage              % display just page numbers
 \input{content/acknowledgement} % INCLUDE: acknowledgement
-\cleardoublepage
 
+\pagestyle{plain} 
+\cleartoleftpage 
+\cleardoublepage
 \setcounter{tocdepth}{1}        % define depth of toc
 \tableofcontents                % display table of contents
 \cleardoublepage
@@ -442,10 +457,10 @@ backrefpages={cited on pp\adddot}
 }
 \cleardoublepage
 
-% \listoffigures
-% \cleardoublepage
+\listoffigures
+\cleardoublepage
 
-% \listoftables
+\listoftables
 
 
 
@@ -454,10 +469,10 @@ backrefpages={cited on pp\adddot}
 \mbox{}
 
 
-% \cleardoublepage
+\cleardoublepage
 
-% \input{content/colophon}
-% \cleardoublepage
+\input{content/colophon}
+\cleardoublepage
 
 % \input{template/content/declaration}
 % \clearpage
