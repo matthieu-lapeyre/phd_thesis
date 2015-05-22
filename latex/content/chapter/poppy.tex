@@ -14,22 +14,22 @@
     \subfloat[][Darwin-Op]{\label{fig:darwin_platform}\includegraphics[height=5cm]{darwin_op_face.jpg}}
     \hfil
     \subfloat[][Acroban]{\label{fig:acroban_platform}\includegraphics[height=5cm]{acroban_wout_background.jpg}}
-    \caption{None of the existing platforms in 2012 were suitable for exploring the role of morphology. Nao was impossible to modify. Darwin Op and Acroban used aluminium parts that are really difficult and expensive to produce.}
+    \caption{None of the existing platforms in 2012 was suitable for exploring the role of morphology. Nao was impossible to modify. Darwin Op and Acroban used aluminium parts that are really difficult and expensive to produce.}
     \label{fig:2012_Humanoids}
 \end{figure}
 
-In 2012, when we started this project, none of the existing humanoid platforms were suitable for exploring the role of morphology. There were two kinds of platform. On one hand commercial robots that are rather easy to use and accessible but with a static and frozen morphology. On the other hand, prototype robots produced in labs to address specific experimentation needs, studying interesting morphologies but complicated to use and impossible to reproduce outside the lab. In both cases, only a few are open source, limiting hacks, extensions or modifications of their morphologies even further.
+In 2012, when we started this project, none of the existing humanoid platforms was suitable for exploring the role of morphology. There were two kinds of platforms. On one hand commercial robots that are rather easy to use and accessible but with a static and frozen morphology. On the other hand, prototype robots produced in labs to address specific experimentation needs, studying interesting morphologies but complicated to use and impossible to reproduce outside the lab. In both cases, only a few are open source, limiting hacks, extensions or modifications of their morphologies even further.
 
-In the Flowers Lab, we had both kinds of robot. We used Nao (see \figurename~\ref{fig:nao_platform}) to study human robot interaction (\cite{rouanet2009integrated} \cite{rouanet2012apprendre}). It was really convenient for use by researchers who are not interested in hardware issue since they are addressing more high-level research challenges. Yet such a platform is limited as it is not possible to modify the robot if it is not strictly adapted to our experiment. For example, back at this time the Nao camera was not efficient, with a closed field of view and a slow framerate. We have difficultly achieved 5 frames/seconds. Although we had the necessary skills to hack Nao and change the camera to fit our needs, its hardware was not designed to be changed. Improving the vision performance would only be possible with the addition of an external camera on the Nao head which could ruin the user experience. In addition, it would have been interesting to explore how the camera parameters (FOV, framerate, resolution...) can change the user experience but again, it is not possible with this robot.
+In the Flowers Lab, we had both kinds of robots. We used Nao (see \figurename~\ref{fig:nao_platform}) to study human-robot interaction (\cite{rouanet2009integrated} \cite{rouanet2012apprendre}). It was really convenient for use by researchers who are not interested in hardware issue since they are addressing more high-level research challenges. Yet such a platform is limited as it is not possible to modify the robot if it is not strictly adapted to our experiment. For example, back at this time the Nao camera was not efficient, with a closed field of view and a slow frame rate. We have difficulty achieved 5 frames/seconds. Although we had the necessary skills to hack Nao and change the camera to fit our needs, its hardware was not designed to be changed. Improving the vision performance would only be possible with the addition of an external camera on the Nao head which could ruin the user experience. In addition, it would have been interesting to explore how the camera parameters (FOV, framerate, resolution...) can change the user experience but again, it is not possible with this robot.
 
 
-We also used Acroban (see \figurename~\ref{fig:acroban_platform}) designed by Olivier Ly~\parencite{ly2011bio}. It is a handcrafted humanoid platform created to explore certain morphological properties, especially compliance, with the aim of achieving dynamic locomotion and playful physical human robot interaction.
-While it actually allows modification of its is morphology, it is manufactured from aluminium mechanical parts, Robotis Dynamixel motors, scotch, and rubber bands cobbled together, and changing it requires lot of effort . The manufacture of aluminium parts required is especially complicated and requires either very good handiwork or a 3-axis CNC.
-In addition, its use was quite complicated and while several researchers could have been interested by Acroban to study human robot interaction and social acceptance, It was not possible to use it without significant mechanical work.
+We also used Acroban (see \figurename~\ref{fig:acroban_platform}) designed by Olivier Ly~\parencite{ly2011bio}. It is a handcrafted humanoid platform created to explore certain morphological properties, especially compliance, with the aim of achieving dynamic locomotion and playful physical human-robot interaction.
+While it actually allows modification of its is morphology, it is manufactured from aluminium mechanical parts, Robotis Dynamixel motors, scotch, and rubber bands cobbled together, and changing it requires a lot of efforts. The manufacture of aluminium parts required is especially complicated and requires either very good handiwork or a 3-axis CNC.
+In addition, its use was quite complicated and while several researchers could have been interested in Acroban to study human-robot interaction and social acceptance, It was not possible to use it without significant mechanical work.
 Finally, the material and manufacturing process make the platform non-stationary. Even if a lab manages to reproduce it, there is a high probability that the physical properties will not be the same. Therefore, the diffusion and the reproducibility of results are limited.
 
 
-A last alternative would be the use of Darwin Op robot (see \figurename~\ref{fig:darwin_platform}) which is both open source and easily accessible (Robotis sells it already assembled for \$10K), yet as Acroban its hardware consists of manufactured metal parts making its morphology very difficult and expensive to modify. Moreover, even if Darwin is open source and very popular, to our knowledge its morphology has never be modified by the research community\footnote{We can also notice the lack of community management tools such as wiki, forum and correct versionning system. If someone create a variation of Darwin, there is no place where he can share it.}.
+A last alternative would be the use of Darwin Op robot (see \figurename~\ref{fig:darwin_platform}) which is both open source and easily accessible (Robotis sells it already assembled for \$10K), yet as Acroban its hardware consists of manufactured metal parts making its morphology very difficult and expensive to modify. Moreover, even if Darwin is open source and very popular, to our knowledge its morphology has never be modified by the research community\footnote{We can also notice the lack of community management tools such as wiki, forum and correct versioning system. If someone create a variation of Darwin, there is no place where he can share it.}.
 
 Thus one of the main goals was to successfully design a humanoid robot which can merge the advantages of both kind of robot, i.e. simple, accessible, reproducible and allowing to easily change and hack its morphology for scientific experiments that can be both customized and shared.
 
@@ -38,17 +38,17 @@ Thus one of the main goals was to successfully design a humanoid robot which can
 
 Most researchers can attest to the difficulty and frustration faced while conducting robotic experimentation in the real world. We are challenged daily by bugs, technical issues, unpredicted events and side effects. While a bug in software can be fixed, an error with a hardware platform can cause damage to the robot and postpone the results of an experiment by several weeks.
 
-Therefore many researchers in robotics avoid technical issues associated with the real world experimentation by using simple models and physical simulation. But the real world is extremely more complex and richer than the virtual one.
+Therefore, many researchers in robotics avoid technical issues associated with the real world experimentation by using simple models and physical simulation. But the real world is extremely more complex and richer than the virtual one.
 Some high-level behaviour experiments are conducted in simulators based on the hypothesis that real-world constraints are not relevant, yet it is really certain?
 Indeed, while the real world constitutes a lot of constraints, it is also rich in complex physical effects (gravity, friction, inertia), which should be taken into consideration and could be very useful if interacting with the agent.
 
-As we saw in the related work (chapter~\ref{cha:morphology-review}), the emergence of complex behaviours appears thanks to the interaction between the real world and simple robotic systems. We cannot program behaviour because behaviour is the result of interaction  between the program and the real world. Thus we cannot design behaviour without the ecological niche of the robot~\cite{Steels1991emergence}.
+As we saw in the related work (chapter~\ref{cha:morphology-review}), the emergence of complex behaviours appears thanks to the interaction between the real world and simple robotic systems. We cannot program behaviour because behaviour is the result of interaction  between the program and the real world. Thus, we cannot design behaviour without the ecological niche of the robot~\cite{Steels1991emergence}.
 
 While using simulators can be helpful as a first step to design robots, it appears incomplete when showing results on the role of morphology without real world experimentation.
 Therefore, when one wants to study the role of morphology on robot behavior, being able to explore it in the real world is of paramount importance. Unfortunately, current tools make the experimental step really hard to achieve for researchers.
 
-Throughout our work on building cognitive and developmental learning algorithms~(\cite{Oudeyer07},\cite{moulin2013exploration}), we have experienced these issues, especially while building and using Acroban~\cite{ly2011bio} and during the Ergo robot experience (see chapter~\ref{cha:art}). Much time has been spent debugging non-robust technologies but it has been very instructive for understanding those that are efficient and those that should be avoided.
-Therefore Poppy has been designed based on the background experience we have acquired building using robots acting in the real world.
+Throughout our work on building cognitive and developmental learning algorithms~(\cite{Oudeyer07},\cite{moulin2013exploration}), we have experienced these issues, especially while building and using Acroban~\cite{ly2011bio} and during the Ergo robot experience (see chapter~\ref{cha:art}). Much time has been spent debugging non-robust technologies, but it has been very instructive for understanding those that are efficient and those that should be avoided.
+Therefore, Poppy has been designed based on the background experience we have acquired building using robots acting in the real world.
 
 \begin{description}
     \item[Robustness and Safety:] Demanding and lengthy real-world experimentation necessitates that the robot be robust and safe. It should be able to sustain experiments and fall down without easily breaking. At the same time, one should ensure that physical interaction with the robot is safe for humans.
@@ -85,7 +85,7 @@ Poppy is the first open source and 3D-printed complete humanoid robot, the desig
 
 The whole structure must be easily reconfigurable both for the purposes of repairing and hacking. This means the process of replacing Poppy's parts must be simple, low-cost and not require time or special tooling. Also, in order to have a real impact in the open hardware community, special attention is given to the modularity and the reusability of our technological bricks.
 Poppy is fully modular (mechanic, electronic, software) allowing freely exploration and modification of Poppy's body.
-Its modularity and the use of 3D printing make Poppy highly hackable. Therefore it can be easily adapted to particular experimental setups and allows diverse exploration into its morphology.
+Its modularity and the use of 3D printing make Poppy highly hackable. Therefore, it can be easily adapted to particular experimental setups and allows diverse exploration into its morphology.
 
 
 \subsection{3D printed parts} % (fold)
@@ -96,9 +96,9 @@ We introduced for the first time the use of 3D-printed mechanical parts in our w
 
 Several 3D techniques exist and were presented in the related work (see chapter~\ref{cha:3Dprint-OSH}). The Stereo-Lithography\footnote{This technique relies on a photosensitive monomer resin, which forms a polymer and solidifies when exposed to ultraviolet (UV) light.} (SLA) is very precise yet the material is not well adapted to support mechanical stresses.
 
-Alternatively, we can use Fused Deposition Modelling\footnote{The FDM technique relies on melting and selectively depositing a thin filament of thermoplastic polymer (ABS - PLA) in a cross-hatching fashion to form each layer of the part.} (FDM), which has the great advantage of being very low cost (2000\$ for the printer + 40\$/kg of material) and therefore, accessible directly in the lab. The parts produced are good yet the finish is not perfect and often needs to be reworked by hand. Also the process creates non-uniform parts, less resistant on one axis. Above all the FDM printers have low reliability, leading to a large number of printing failures. Nevertheless low-cost FDM printers are really useful when we just want to produce initial or single-use parts.
+Alternatively, we can use Fused Deposition Modelling\footnote{The FDM technique relies on melting and selectively depositing a thin filament of thermoplastic polymer (ABS - PLA) in a cross-hatching fashion to form each layer of the part.} (FDM), which has the great advantage of being very low cost (2000\$ for the printer + 40\$/kg of material) and therefore, accessible directly in the lab. The parts produced are good yet the finish is not perfect and often needs to be reworked by hand. Also, the process creates non-uniform parts, less resistant on one axis. Above all the FDM printers have low reliability, leading to a large number of printing failures. Nevertheless, low-cost FDM printers are really useful when we just want to produce initial or single-use parts.
 
-We prefered the use of Selective Laser Sintering (SLS)\footnote{The process uses a high power (25-50W) CO2 laser beam, which melts and fuses fine powdered material spread on a layer.}. This 3D printing process allows the production of almost any shape without constraint. In addition, the price of the part depends on the total size and not on the complexity of the shape. This permits the production of very optimized shapes without increasing the total price of the robot. Moreover the use of polyamide material produces high quality parts with very good mechanical properties: uniform, lightweight, flexible and robust.
+We preferred the use of Selective Laser Sintering (SLS)\footnote{The process uses a high power (25-50W) CO2 laser beam, which melts and fuses finely powdered material spread on a layer.}. This 3D printing process allows the production of almost any shape without constraint. In addition, the price of the part depends on the total size and not on the complexity of the shape. This permits the production of very optimized shapes without increasing the total price of the robot. Moreover, the use of polyamide material produces high-quality parts with very good mechanical properties: uniform, lightweight, flexible and robust.
 
 The table~\ref{tab:materials} compares mechanical properties of polyamide with classic metallic materials. We can see the relatively good properties of the polyamide material. The young modulus represents the stiffness of the part. The polyamide one has a very low young modulus meaning it is very flexible while keeping correct yield strength and very low density.
 
@@ -122,41 +122,41 @@ The table~\ref{tab:materials} compares mechanical properties of polyamide with c
     \label{tab:materials}
 \end{table}
 
-A SLS printer is much too costly for a lab, but outsourcing the production to an external company\footnote{\url{http://i.materialise.com/}} is really easy\footnote{In most cases, the company offers automatic scalable orders through an on-line platform} and relatively low cost\footnote{Printing all the parts to build a Poppy costs about 1200\texteuro HT.}
+An SLS printer is much too costly for a lab, but outsourcing the production to an external company\footnote{\url{http://i.materialise.com/}} is real easy\footnote{In most cases, the company offers automatic scalable orders through an on-line platform} and relatively low cost\footnote{Printing all the parts to build a Poppy costs about 1200\texteuro HT.}
 
 \subsection{Exploring morphological variants} % (fold)
 
 
-3D printing is a key feature of Poppy that permits the exploration of morphological variants. Indeed it is now cheap and easy to produce custom parts, and because Poppy is open source, anyone has access to the source files and can freely change the parameters he or she wants. Indeed Poppy is designed using Solidworks, a parametric CAD Software very widespread in small-size engineering companies. The parametric modeling allows to create mechanical parts those design are based on a set of parametric sketches and functions. Parameters can be modified and the final part will be changed accordingly\footnote{If designed correctly}. Therefore it is possible to easily change the mechanical structure and properties just by tuning associated parameters in the source file and re-printing the part (see \figurename~\ref{fig:exploring-morpho-poppy}).
+3D printing is a key feature of Poppy that permits the exploration of morphological variants. Indeed, it is now cheap and easy to produce custom parts, and because Poppy is open source, anyone has access to the source files and can freely change the parameters he or she wants. Indeed, Poppy is designed using Solidworks, a parametric CAD Software very widespread in small-size engineering companies. The parametric modeling allows to create mechanical parts those design are based on a set of parametric sketches and functions. Parameters can be modified and the final part will be changed accordingly\footnote{If designed correctly}. Therefore, it is possible to easily change the mechanical structure and properties just by tuning associated parameters in the source file and re-printing the part (see \figurename~\ref{fig:exploring-morpho-poppy}).
 
 \begin{figure}[p]
     \centering
         \includegraphics[width=\linewidth]{morpho_variation.pdf}
-    \caption{The use of 3D printing open new perspectives to explore the role of morphology in the robotics field. Indeed we can now easily produce on site new mechanical parts, therefore it is possible to create numerous variations of body properties. Poppy's modularity makes the part substitution easy and fast so we can directly iterate with real world experiments. Then we can share online a reproducible experimental setup.}
+    \caption{The use of 3D printing open new perspectives to explore the role of morphology in the robotics field. Indeed, we can now easily produce on-site new mechanical parts, therefore it is possible to create numerous variations of body properties. Poppy's modularity makes the part substitution easy and fast so we can directly iterate with real world experiments. Then we can share online a reproducible experimental setup.}
     \label{fig:exploring-morpho-poppy}
 \end{figure}
 
 
-Moreover, 3D printing does not only permit the shape of a part to be changed, it can actually produce it with different materials. In particular, Direct Metal Laser Sintering (DMLS) - very similar to the SLS process - permits to produce the same parts using materials such as steel\footnote{http://i.materialise.com/materials/stainless-steel} or titanium\footnote{\url{http://i.materialise.com/materials/titanium}}. It is therefore possible to extend the exploration to material mechanical properties (e.g. flexibility, density).
+Moreover, 3D printing does not only permit the shape of a part to be changed, it can actually produce it with different materials. In particular, Direct Metal Laser Sintering (DMLS) - very similar to the SLS process - permits to produce the same parts using materials such as steel\footnote{http://i.materialise.com/materials/stainless-steel} or titanium\footnote{\url{http://i.materialise.com/materials/titanium}}. It is, therefore, possible to extend the exploration to material mechanical properties (e.g. flexibility, density).
 
 
 \subsection{Scalable actuation} % (fold)
 \label{sub:scalable-actuation}
-As explained in chapter~\ref{cha:methodology}, the chosen methodology relies on the all-in-one Robotis actuator. They are really convenient to use as they directly embed drivers, encoders and communication buses. They are also quite powerful, robust and rather precise. This is done by the combination of Maxxon motors, metal gearbox and precise magnetic rotation sensor (resolution: 0.1\textsuperscript{o}).
+As explained in chapter~\ref{cha:methodology}, the chosen methodology relies on the all-in-one Robotis actuator. They are really convenient to use as they directly embed drivers, encoders and communication buses. They are also quite powerful, robust and rather precise. This is done by the combination of Maxon motors, metal gearbox and precise magnetic rotation sensor (resolution: 0.1\textsuperscript{o}).
 
-Also Robotis offers a range of motors with different actuation power (see \figurename~\ref{fig:dynamixel_powa}). They are different in size and power but their API remains the same and we can easily switch from one to another without either changing the code or the electronic integration. Yet, even if the size changes, the footprint keeps the same pattern (see \figurename~\ref{fig:dynamixel_dimension}).
+Also, Robotis offers a range of motors with different actuation power (see \figurename~\ref{fig:dynamixel_powa}). They are different in size and power but their API remains the same and we can easily switch from one to another without either changing the code or the electronic integration. Yet, even if the size changes, the footprint keeps the same pattern (see \figurename~\ref{fig:dynamixel_dimension}).
 
-Poppy is designed with Solidworks, a parametric modeler that offers features like configurations which define sets of parameters. Configurations allow to create multiple variations of a part or assembly model within a single document. Configurations provide a convenient way to develop and manage families of models with different dimensions, components, or other parameters. It is therefore possible to create, for each part, a configuration compatible with each motor just by setting the suitable parameters. The \figurename~\ref{fig:leg_configuration} shows an example with Poppy's leg.
+Poppy is designed with Solidworks, a parametric modeler that offers features like configurations which define sets of parameters. Configurations allow to create multiple variations of a part or assembly model within a single document. Configurations provide a convenient way to develop and manage families of models with different dimensions, components, or other parameters. It is, therefore, possible to create, for each part, a configuration compatible with each motor just by setting the suitable parameters. The \figurename~\ref{fig:leg_configuration} shows an example with Poppy's leg.
 
 
 \begin{figure}[p]
     \centering
         \includegraphics[width=\linewidth]{leg_configuration.pdf}
-    \caption{Example of the use of mechanical configuration. Here the CAD source of the leg involves 2 configurations so it can be compatible with Dynamixel MX-28 (up) or Dynamixel MX-64 (down). Configuration define the set of parameter suitable for both and can be changed just in one mousse click.}
+    \caption{Example of the use of mechanical configuration. Here the CAD source of the leg involves 2 configurations so it can be compatible with Dynamixel MX-28 (up) or Dynamixel MX-64 (down). Configuration defines the set of parameter suitable for both and can be changed just in one mouse click.}
     \label{fig:leg_configuration}
 \end{figure}
 
-It just takes a couple of minute to transform a part designed for Dynamixel MX-28 to one compatible with Dynamixel MX-64 as we only have to change the parametric dimensions accordingly to the Robotis motor shape. Then it is possible to switch from one to another with one click.
+It just takes a couple of minutes to transform a part designed for Dynamixel MX-28 to one compatible with Dynamixel MX-64 as we only have to change the parametric dimensions accordingly to the Robotis motor shape. Then it is possible to switch from one to another with one click.
 On Poppy, most of the parts are already distributed with multiple configurations suitable for different motors power. It allows the actuation power to be scaled and introduces it also as an experimental (discrete) variable.
 
 
@@ -165,8 +165,8 @@ On Poppy, most of the parts are already distributed with multiple configurations
 Unlike the mechanical parts, there is no quick and low-cost solution for producing custom electronics yet.
 However, exploring morphology may also require the sensors space (e.g. number, type, properties, positions) to be varied. As we explained in the chapter~\ref{cha:morphology-review}, we address this challenge through the use of the Arduino environment.
 
-Arduino has developed both hardware and software, so creating and programming electronics systems becomes very easy. Their boards have plenty of I/O pins (digital and analog) suitable to power and control almost any electronics components. Also these pins can be used to handle low-level communication such as UART, SPI and I2C, useful to plug sub-module (e.g. IMU, LCD Matrix, tactile interface and so on).
-The software they developed abstracts the complexity of low level control\footnote{we can turn a led on/off with just one line of code.} and communication\footnote{Using just print-like functions we can communicate on serial bus.} very well. Therefore, it allows wide variety and flexibility in the extension of the electronic system, while keeping an ease of use adapted to a non-expert audience.
+Arduino has developed both hardware and software, so creating and programming electronics systems becomes very easy. Their boards have plenty of I/O pins (digital and analog) suitable to power and control almost any electronics components. Also, these pins can be used to handle low-level communication such as UART, SPI and I2C, useful to plug sub-module (e.g. IMU, LCD Matrix, tactile interface and so on).
+The software they developed abstracts the complexity of low level control\footnote{we can turn a led on/off with just one line of code.} and communication\footnote{Using just print-like functions we can communicate on serial bus.} very well. Therefore, it allows wide variety and flexibility in the extension of the electronic system while keeping an ease of use adapted to a non-expert audience.
 In addition, Arduino has a growing community - already relatively large - which creates, shares and produces low-cost, various and multipurpose electronic components. Actually almost all kinds of sensors have an Arduino version with ready-to-use hardware and software.
 
 Being able to change the morphology easily is of paramount importance in the Poppy project. Using Arduino-compatible architecture permits electronic modularity, which means the sensory-motor space can be considered as an experimental variable.
@@ -186,7 +186,7 @@ In the Poppy platform, lightness is very important both for dynamic properties a
 \begin{figure}[!t]
     \centering
         \includegraphics[width=0.6\linewidth]{virtuous_circle.png}
-    \caption{Using small actuation power reduces the amount of stress applied on the mechanical structure. Thus it is possible to reduce the robustness of mechanical parts by removing matter. Because the global weight is reduced, we can use smaller actuation power, and so on.}
+    \caption{Using small actuation power reduces the amount of stress applied on the mechanical structure. Thus, it is possible to reduce the robustness of mechanical parts by removing the matter. Because the global weight is reduced, we can use smaller actuation power, and so on.}
     \label{fig:virtuous_circle}
 \end{figure}
 
@@ -222,8 +222,8 @@ The second moment of area is computed as follow:
 
     $I_y = \iint_s x^2 dxdy$
 \end{center}
-where $s = dxdy$ is the surface integrated along the two axes of the cross-sectioned surface. We can see the  on each dimension varies with a quadratic factor meaning the variation is not linear. Therefore matter placed far away from the origin is much more effective in increasing the second moment of area.
-Thus the main idea is to remove -the no effective- matter at the center and place it on the rim. In truss structure, matter is assembled by linkage avoiding local deformation.
+where $s = dxdy$ is the surface integrated along the two axes of the cross-sectioned surface. We can see the  on each dimension varies with a quadratic factor meaning the variation is not linear. Therefore, matter placed far away from the origin is much more effective in increasing the second moment of area.
+Thus, the main idea is to remove -the no effective- matter at the center and place it on the rim. In truss structure, the matter is assembled by linkage avoiding local deformation.
 
 \begin{figure}[!ht]
 \centering
@@ -261,13 +261,13 @@ Thanks to the use of this design on all of Poppy's limbs (see \figurename~\ref{f
 The design and the choices we made have raised several limitations:
 
 \subsection{Simplicity} % (fold)
-Creating a robot  for which one of the main objectives is to be easy to duplicate imposes strong constraints on the design. As we saw in chapter~\ref{cha:experimental-methods}, humanoid robots often have a complex design involving many components. Achieving such complexity is not possible if we want to keep the robot easy and quick to assemble by non-expert users. Therefore, Poppy's mechanics are simple, with only one part per motor. However there are several joints whose performance could be improved by changing the design. For example, just by adding a complementary mechanism such as a reduction gear, we could increase the applied torque on critical joint (e.g. knee, ankle, hip).
+Creating a robot  for which one of the main objectives is to be easy to duplicate imposes strong constraints on the design. As we saw in chapter~\ref{cha:experimental-methods}, humanoid robots often have a complex design involving many components. Achieving such complexity is not possible if we want to keep the robot easy and quick to assemble by non-expert users. Therefore, Poppy's mechanics is simple, with only one part per motor. However, there are several joints whose performance could be improved by changing the design. For example, just by adding a complementary mechanism such as a reduction gear, we could increase the applied torque on a critical joint (e.g. knee, ankle, hip).
 
 \subsection{No hands} % (fold)
 The current version of Poppy does not have articulated hands. The grasping ability was not a top priority and is challenging, so we preferred to only design fixed hands. There are several laboratories working on this topic so we hope one of them will be interested in contributing to the Poppy project and design articulated hands. We have already been in contact with the Bristol Robotics Lab and the Open hand project for this purpose.
 
 \subsection{Motor modularity} % (fold)
-Parametric modelling is great if we want to create variation of the same pattern with different dimensions. Thus, we can easily create configurations of all Robotis Dynamixel motors. Yet, if we are interested in using another motor brand, the configuration will not be direct and we will have to redo a part of the design process to ensure the compatibility.
+Parametric modelling is great if we want to create a variation of the same pattern with different dimensions. Thus, we can easily create configurations of all Robotis Dynamixel motors. Yet, if we are interested in using another motor brand, the configuration will not be direct and we will have to redo a part of the design process to ensure the compatibility.
 
 
 \subsection{Electronic} % (fold)
@@ -286,7 +286,7 @@ Great open source projects keep their work modular so other projects can use one
 
 \section{Conclusion} % (fold)
 
-Thanks to the methodology presented in the chapter~\ref{cha:methodology}, the design and production of a completely new humanoid robot has been very fast and low cost. Indeed, the project began at the end of May 2012 and the first fully-functional version of Poppy (the one we can see in \figurename~\ref{fig:TER_cognitic}) was presented at the end of September 2012 at Collège de France. The cumulative work of all the different people involved was equivalent to about 8 months and cost less than \texteuro10,000 in material.
+Thanks to the methodology presented in the chapter~\ref{cha:methodology}, the design and production of a completely new humanoid robot has been very fast and low cost. Indeed, the project began at the end of May 2012 and the first fully-functional version of Poppy (the one we can see in \figurename~\ref{fig:TER_cognitic}) was presented at the end of September 2012 at Collège de France. The cumulative work of all the different people involved was equivalent to about 8 months and cost less than \texteuro10,000 in the material.
 
 Because of the lack of easy and cheap tooling to produce a custom electronics board, the new design of the electronic architecture took more time and several elements are still in progress for.
 
@@ -305,14 +305,11 @@ Examples of variations in Poppy’s morphology will be presented in chapter~\ref
 
 
 
-
-
-
 % If we had to do it today we would make the same mistakes.
 
 % In particular, even if we tried to remove most of the necessary cables, we saw it is still complicated to integrate. We really have to develop a board that does not require any wires at all.
 
-% Actually, I spent more time looking for the fitting cable on the web than thinking about the electronics architecture. The wire-problem is often under-estimated and therefore becomes one of the biggest problems for robotics. We experienced the same issue during the ergo-robot experiment and during the use of Poppy with artists (see chapter REF). So basically, the wire problem is one of the most overlooked issues…
+% Actually, I spent more time looking for the fitting cable on the web than thinking about the electronics architecture. The wire-problem is often underestimated and, therefore, becomes one of the biggest problems for robotics. We experienced the same issue during the ergo-robot experiment and during the use of Poppy with artists (see chapter REF). So basically, the wire problem is one of the most overlooked issues…
 
 
 

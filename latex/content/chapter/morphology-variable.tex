@@ -4,7 +4,7 @@
 \section{Rapid morphological exploration} % (fold)
 \label{sec:morphology-variable}
 
-In the previous section we showed how Poppy can be used to explore the actual role of morphology for humanoid behaviours. However, Poppy is a prototyping platform designed to test and experiment quickly several technological solution, especially thanks to modular properties, but until now, we did not actually evaluate it.
+In the previous section, we showed how Poppy can be used to explore the actual role of morphology for humanoid behaviours. However, Poppy is a prototyping platform designed to test and experiment quickly several technological solution, especially thanks to modular properties, but until now, we did not actually evaluate it.
 
 Therefore while we were working on a new design for Poppy's feet and exploring a design similar to "foot 1" (see \figurename~\ref{fig:pic_foot_1}), we decided to use this as a context to conduct an experiment into multiple variations of the foot morphology as an illustration of the methodology we have initiated with Poppy and presented in chapter~\ref{cha:morphology-review}.
 
@@ -46,7 +46,7 @@ For the sake of lightness, the initial design of Poppy's feet only had one degre
         \caption{Table summarizing the different types of feet used.\\
         \textbf{Passive double-rotation:}  one active rotation (motor: Dynamixel MX 28) for the sagittal plan and a passive rotation for the frontal plan with two springs.\\
         \textbf{Active double-rotation:}  A two motorized rotations (sagittal plan and frontal plan). No double-rotation:  one motorized rotation (sagittal plan).\\
-        \textbf{Human-like foot:} a foot design resembling a human foot of a two year-old child (size: 130.7 mm shoes size: 23 EU). The feet were tested with and without shoes.\\
+        \textbf{Human-like foot:} a foot design resembling a human foot of a two-year-old child (size: 130.7 mm shoes size: 23 EU). The feet were tested with and without shoes.\\
         \textbf{Rotation axis height:} the height between the axis of rotation of the sagittal plan and the floor without shoes.\\
         \textbf{Toes:} Indicates that the foot has toes.
         }
@@ -55,7 +55,7 @@ For the sake of lightness, the initial design of Poppy's feet only had one degre
 \end{table}
 
 
-Moreover, it appeared that a proper foot/ground contact with convenient friction was difficult to obtain based only on 3D-printed material. One simple solution to this problem is to use a shoe which can provide a high friction and adapt slightly to imperfections on the ground. Furthermore, this solution also allows keeping the feet close to humans ones. Thus, the feet tested (with the exception of the flat foot) were designed from a moulding of the interior of a shoe. It is to be noted that we also included passive toes (with springs) on some of the feet tested for future work on locomotion. These toes should not have any significant impact on the criterion tested.
+Moreover, it appeared that a proper foot/ground contact with convenient friction was difficult to obtain based only on the 3D-printed material. One simple solution to this problem is to use a shoe which can provide a high friction and adapt slightly to imperfections on the ground. Furthermore, this solution also allows keeping the feet close to humans ones. Thus, the feet tested (with the exception of the flat foot) were designed from a molding of the interior of a shoe. It is to be noted that we also included passive toes (with springs) on some of the feet tested for future work on locomotion. These toes should not have any significant impact on the criterion tested.
 
 
 \subsection{Experimental setup} % (fold)
@@ -131,22 +131,22 @@ This first experiment allowed us to determine that the use of an active double r
 
 Moreover, we observed that the shoes added extra friction in relation to the ground without really impairing the stability. Although rarely used in humanoid robotics, these early results encourage us to explore this possibility in more depth.
 
-Finally the most important aspect for us was to actually evaluate the amount of time needed to conduct such experiments with Poppy. The starting point was "foot 1" as it was the work in progress. Thus morphological design modifications only concern foot 3 and 4:
+Finally, the most important aspect for us was to actually evaluate the amount of time needed to conduct such experiments with Poppy. The starting point was "foot 1" as it was the work in progress. Thus, morphological design modifications only concern foot 3 and 4:
 \begin{itemize}
     \item \textbf{Foot 3 (flat):} Modifying Poppy’s initial foot design to permit the integration of two Dynamixel motors and the associated flat feet required 16 hours of CAD design. The printing of the whole required part (2 legs, 2 feet and 2 ankles) took approximately 30 hours on a low-cost FDM printer (Makerbot Replicator 2).
     \item \textbf{Foot 4:} While the difference with foot 1 concerns only one parameter (i.e. the joint position), the modification needed to produce foot 4 based on foot 1 was done in approximately 2 hours of CAD. Then the printing of the new part was achieved in 10 hours.
 \end{itemize}
 
-Then, conducting the whole experiment (i.e. design the leg motion, establishment of the experimental setup and data acquisition) was achieved in about one week with two people. \textbf{In particular, the actual experimentation involving changing Poppy's feet seven times and acquiring at least 20 trials for each took less than two days.}
+Then, conducting the whole experiment (i.e. design the leg motion, the establishment of the experimental setup and data acquisition) was achieved in about one week with two people. \textbf{In particular, the actual experimentation involving changing Poppy's feet seven times and acquiring at least 20 trials for each took less than two days.}
 
 \subsection{Reuse of this experiment} % (fold)
 
 Everything necessary to obtain and use Poppy is available on our GitHub project page: \url{www.github.com/poppy_project}. Also, to complete the illustration of this Poppy use-case, we diffuse along with the present paper:
 \begin{itemize}
      \item the whole setup materials i.e. the code used for the experiment and the 3D files to reproduce/modify each foot,
-     \item the raw data acquired that include for each trial: all markers position, head IMU measurement and the complete motors data (proprioceptive position evaluation overtime),
+     \item the raw data acquired that include for each trial: all markers position, head IMU measurement and the complete motors data (proprioceptive position evaluation over time),
      \item the code used to extract and plot the results presented.
 \end{itemize}
 
-All these materials are available on the repository associated with this experiment: \url{https://github.com/matthieu-lapeyre/Humanoids2014} and can be freely used e.g. for further investigation with the acquired data, or to reproduce and extend the experiment.
+All these materials are available on the repository associated with this experiment: \url{https://github.com/Matthieu-lapeyre/Humanoids2014} and can be freely used e.g. for further investigation with the acquired data, or to reproduce and extend the experiment.
 

@@ -13,10 +13,10 @@
 
 With the democratization of personal computers and the development of the internet, computer science and related applications have seen a great expansion. Open source software played a major role, indeed most of the web servers are running on the Linux operating system and Apache, while open source software like WordPress, Qt, Firefox, VLC and so on have permitted the realization of a wide variety of applications in daily life~\parencite{peeling2001analysis}.
 
-However, while copying and sharing bits of software is virtually free and can often be run on any computer, producing the atoms of a real object both has a potentially high cost and requires expert tooling. Thus the production of mechanic or electronic hardware components is limited to two options: either it is handcrafted or mass produced. Also the step between the handcrafted prototype and mass production is so large that only big companies can achieve it. Conventional manufacturing processes require the production of specific tools, the programming of complex machines, the human intervention to put the part along the different tool and so on, most of the costs are in the up-front tooling, and the more complicated a product is, the more it costs. Thus, most companies would not accept to run a whole production process just for a few units and if they accept the cost will be so high than most prototypes never find a way of reaching people outside the workshop where they had been created. So until now, production in small or medium series has been extremely difficult to achieve because it has not been profitable.
+However, while copying and sharing bits of software is virtually free and can often be run on any computer, producing the atoms of a real object both has a potentially high cost and requires expert tooling. Thus, the production of the mechanic or electronic hardware components is limited to two options: either it is handcrafted or mass produced. Also, the step between the handcrafted prototype and mass production is so large that only big companies can achieve it. Conventional manufacturing processes require the production of specific tools, the programming of complex machines, the human intervention to put the part along the different tool and so on, most of the costs are in the up-front tooling, and the more complicated a product is, the more it costs. Thus, most companies would not accept to run a whole production process just for a few units and if they accept the cost will be so high that most prototypes never find a way of reaching people outside the workshop where they had been created. So until now, production in small or medium series has been extremely difficult to achieve because it has not been profitable.
 Only big companies have been able to raise enough money to produce new hardware, meaning niche products and personalization are left aside.
 
-Over the last few years, a novel evolution has begun that is going to completely change the current rules of production and distribution of goods. This evolution is acting on both technological and political/societal front, which tends to confirm the claims of those who argue it will be the next industrial revolution~\parencite{anderson2012makers}. Indeed, new rapid prototyping technologies are emerging and make production cheap, fast and easy to anyone. At the same time the associated machines and tools are diffused under open source hardware licenses, acting as an unexpected lever arm toward the diffusion of these technologies to anyone. All these radical changes are contextualized by the phenomenon of \emph{makers} and the exponential growth of associative production spaces (e.g Fab Lab, Makerspace, Tech Shop or Hackerspace).
+Over the last few years, a novel evolution has begun that is going to completely change the current rules of production and distribution of goods. This evolution is acting on both technological and political/societal front, which tends to confirm the claims of those who argue it will be the next industrial revolution~\parencite{anderson2012makers}. Indeed, new rapid prototyping technologies are emerging and make production cheap, fast and easy to anyone. At the same time, the associated machines and tools are diffused under open source hardware licenses, acting as an unexpected lever arm toward the diffusion of these technologies to anyone. All these radical changes are contextualized by the phenomenon of \emph{makers} and the exponential growth of associative production spaces (e.g Fab Lab, Makerspace, Tech Shop or Hackerspace).
 
 In this chapter, we will first present and discuss ground-breaking 3D printing technology. Then we will present the open source hardware movement and how its interaction with 3D printing is changing the current production paradigm.
 
@@ -39,7 +39,7 @@ Prototyping is an essential step in a product development and manufacturing cycl
 The term 3D printing  encompasses various processes for making a three-dimensional object from a digital model, primarily through additive processes in which successive layers of material are laid down under computer control.
 Accurate parts can be produced right from a digital model in few hours and with minimum handling tasks. Consequently, errors are minimized and product development costs and lead times substantially reduced. It has been claimed that rapid prototyping can cut new product costs by up to 70\% and the time to market them by 90\%~\parencite{waterman1994rapid}.
 
-Recent progress in the 3D printing process mean 3D printing can be considered not only as a way to produce prototypes but also as an actual production technique. Indeed the layered method of assembly allows intricate designs - geometries, which are either impossible or too expensive to achieve with conventional metal casting (see \figurename~\ref{fig:3D_printed_objects}).
+Recent progress in the 3D printing process means 3D printing can be considered not only as a way to produce prototypes but also as an actual production technique. Indeed, the layered method of assembly allows intricate designs - geometries, which are either impossible or too expensive to achieve with conventional metal casting (see \figurename~\ref{fig:3D_printed_objects}).
 
 
 
@@ -76,15 +76,15 @@ This technique relies on a photosensitive monomer resin, which forms a polymer a
         \hfil
         \subfloat[][Some parts made with a SLA printer]{\label{fig:SLA_parts}\includegraphics[height=5cm]{SLA_part.jpg}}
         \hfil
-    \caption{The stereo-lithography technique: a UV laser beam polymerizes the top layer of a photosensitive resin in a horizontal direction (X/Y) while the platform moves in a vertical direction.}
+    \caption{The stereolithography technique: a UV laser beam polymerizes the top layer of a photosensitive resin in a horizontal direction (X/Y) while the platform moves in a vertical direction.}
     \label{fig:SLA_technique}
 \end{figure}
 
-This technique has several advantages, such as a good surface finish (see \figurename~\ref{fig:SLA_parts}), and is capable of producing highly detailed parts with thin walls, but is limited by material (only photo polymers) and support structures are always needed which can be difficult to remove.
+This technique has several advantages, such as a good surface finish (see \figurename~\ref{fig:SLA_parts}), and is capable of producing highly detailed parts with thin walls, but is limited by material (only photopolymers) and support structures are always needed which can be difficult to remove.
 
 \subsubsection{Selective Laser Sintering (SLS)} % (fold)
 The Selective Laser Sintering process uses a high-power (25-50W) CO2 laser beam that melts and fuses finely powdered material spread on a layer. Before the powder is sintered, the entire bed is heated to just below the melting point of the material in order to minimize thermal distortion and facilitate fusion with the previous layer.
-While the laser moves on the horizontal plane, the platforms move along the vertical axis -through a distance corresponding to the layer thickness (usually 0.01 mm) - and a counter-rotating roller spreads a precise amount of fresh powder above the sintered layer. The unsintered powder serves as the support for overhanging portions, if there are any in the subsequent layers.
+While the laser moves on the horizontal plane, the platforms move along the vertical axis -through a distance corresponding to the layer thickness (usually 0.01 mm) - and a counter-rotating roller spreads a precise amount of fresh powder above the sintered layer. The unsintered powder serves as the support for overhanging portions if there are any in the subsequent layers.
 
 \begin{figure}[tb]
     \centering
@@ -96,7 +96,7 @@ While the laser moves on the horizontal plane, the platforms move along the vert
     \label{fig:SLS_technique}
 \end{figure}
 
-This technique has a really interesting advantage: it is compatible with different materials (Polyamide, Alumide), morevore it does not require support and mechanical properties of parts are homogeneous (the same in any direction). However, this technique requires some handling to extract extra powder from the part and SLS 3D printers are very expensive (+\$50K).
+This technique has a really interesting advantage: it is compatible with different materials (Polyamide, Alumide), moreover it does not require support and mechanical properties of parts are homogeneous (the same in any direction). However, this technique requires some handling to extract extra powder from the part and SLS 3D printers are very expensive (+\$50K).
 
 
 \subsubsection{Direct Metal Laser Sintering (DMLS)} % (fold)
@@ -116,11 +116,11 @@ Direct Metal Laser Sintering is very similar to the SLS process but uses a high-
 
 \subsection{Major impact expected in days to come} % (fold)
 
-The 3D printing is revolutionizing the way people can produce parts. On one hand, it brings very affordable numeric production tools to a wide-audience. Using these tools, communities have emerged with Fablab, makerspace or hackerspace, where people can create together new project involving specific and home-made hardware components. As computers have allowed people to produce in their garage new software or websites and eventually develop a novel e-economy, the 3D printing open the landscape of possibilities for hobbyists to innovate by developing novel hardware prototypes and niche products at a fraction of the cost of classical manufacturing techniques.
+The 3D printing is revolutionizing the way people can produce parts. On one hand, it brings very affordable numeric production tools to a wide audience. Using these tools, communities have emerged with Fablab, makerspace or hackerspace, where people can create together new projects involving specific and home-made hardware components. As computers have allowed people to produce in their garage new software or websites and eventually develop a novel e-economy, the 3D printing open the landscape of possibilities for hobbyists to innovate by developing novel hardware prototypes and niche products at a fraction of the cost of classical manufacturing techniques.
 
 On the other hand, these techniques also open new horizons for the industry. At The University of Southern California, Professor Behrokh Khoshnevis has built a robot equipped with a nozzle that spews out concrete. This  colossal 3D printer can build a house in 24 hours and therefore dramatically reduces its cost.
 
-Another example is the SuperDraco engine (see \figurename~\ref{fig:superdraco}), this rocket engine has its combustion chamber 3D-printed by direct metal laser sintering (DMLS). The regeneratively-cooled combustion chamber is made of inconel; a family of nickel-chromium alloy that is noteworthy for its high strength and toughness.
+Another example is the SuperDraco engine (see \figurename~\ref{fig:superdraco}), this rocket engine has its combustion chamber 3D-printed by direct metal laser sintering (DMLS). The regeneratively-cooled combustion chamber is made of Inconel; a family of nickel-chromium alloy that is noteworthy for its high strength and toughness.
 
 \begin{formal}
     Through 3D printing, robust and high-performing engine parts can be created at a fraction of the cost and time of traditional manufacturing methods. SpaceX is pushing the boundaries of what additive manufacturing can do in the 21st century, ultimately making our vehicles more efficient, reliable and robust than ever before.
@@ -128,7 +128,7 @@ Another example is the SuperDraco engine (see \figurename~\ref{fig:superdraco}),
     \signed{Elon Musk, SpaceX CEO/CTO and Tesla Motors CEO.}
 \end{formal}
 
-Thus parts for vehicles can be optimized to be lighter and - simultaneously - incredibly robust (see \figurename~\ref{fig:EADS_hinge}). The AMAZE project has been able to print airplane wing sections as well as jet engine parts, and the ESA hopes to one day print a satellite as one piece:
+Thus, parts for vehicles can be optimized to be lighter and - simultaneously - incredibly robust (see \figurename~\ref{fig:EADS_hinge}). The AMAZE project has been able to print airplane wing sections as well as jet engine parts, and the ESA hopes to one day print a satellite as one piece:
 \begin{formal}
     This novel technology offers many advantages. 3D printing, formally known as additive manufacturing, can create complex shapes that are impossible to manufacture with traditional casting and machining techniques. Little to no material is wasted and cutting the number of steps in a manufacturing chain offers enormous cost benefits.
 
@@ -150,8 +150,8 @@ Thus parts for vehicles can be optimized to be lighter and - simultaneously - in
 
 3D printers open new horizons as they are able to produce parts which were, until now, either not possible or extremely expensive to produce using classical techniques while adding several key abilities:
 \begin{itemize}
-    \item \textbf{Accessible:} 3D printed parts can be obtained everywhere, either by personal printing or by using an online service\footnote{examples: i.materialise, shapeways or sclupteo}.
-    \item \textbf{Low cost:}  from tens of cents if produced on personal printer to tens of euros if outsourced through web services. Also the cost is not proportional to the part’s complexity, meaning designers are free to explore the shape they want with almost no constraints.
+    \item \textbf{Accessible:} 3D printed parts can be obtained everywhere, either by personal printing or by using an online service\footnote{examples: i.materialise, Shapeways or Sclupteo}.
+    \item \textbf{Low cost:}  from tens of cents if produced on a personal printer to tens of euros if outsourced through web services. Also, the cost is not proportional to the part’s complexity, meaning designers are free to explore the shape they want with almost no constraints.
     \item \textbf{Fast:} Production takes only a few hours from scratch and does not require any specific upfront tooling.
     \item \textbf{Skill-free:} while the production process is fully digital, few or no specialist skills are required.
     \item \textbf{Multi-material, precise and robust:} the current 3D printers can create precise (up to 0.1mm) parts from different materials such as Polyamide, PLA, ABS and even titanium or flexible material. The obtained parts are robust and can often be used as final parts for several years.
@@ -166,7 +166,7 @@ The concept of "open-source hardware" or "open hardware" is not as well known or
 
 \subsection{Open hardware in the industrial history.} % (fold)
 
-In the 18th century London and Lyon (France) were two majors silk manufacturing towns. Because London was on the way to taking the lead, Lyon tried a new and original policy for innovation. They decided to freely diffuse new techniques. Inventors were invited to the city hall to present their innovations publicly. They were then rewarded a first time for the presentation, and a second time when the innovation was actually implemented on Lyon machines. This policy was followed by decades of cumulative inventions such as: perforated paper tape (1725 B. Bouchon), punched card programming (1728, J-B. Falcon), the Jacquard loom (1801, J-M. Jacquard), and the sewing machine (1829, B.Thimonnier). Meanwhile, silk production in London was governed by patents, techniques were kept secret and monopolized by theirs inventors~\parencite{alain1997fate}.
+In the 18th century, London and Lyon (France) were two majors silk manufacturing towns. Because London was on the way to taking the lead, Lyon tried a new and original policy for innovation. They decided to freely diffuse new techniques. Inventors were invited to the city hall to present their innovations publicly. They were then rewarded a first time for the presentation, and a second time when the innovation was actually implemented on Lyon machines. This policy was followed by decades of cumulative inventions such as perforated paper tape (1725 B. Bouchon), punched card programming (1728, J-B. Falcon), the Jacquard loom (1801, J-M. Jacquard), and the sewing machine (1829, B.Thimonnier). Meanwhile, silk production in London was governed by patents, techniques were kept secret and monopolized by their inventors~\parencite{alain1997fate}.
 
 The impact of these two opposed political choices turned out largely in Lyon’s favour. In 1815, Lyon had 14,500 looms and London 12,000. But in 1853, Lyon had 60,000 looms while London fell to only 5,000 and became a silk importer.
 
@@ -273,7 +273,7 @@ One of the most meaningful open hardware project is Arduino. Massimo Banzi was a
 
 \begin{row}{4}{2}
     \begin{cell}{3}
-      In 2005 Banzi and David Cuartielles, a Spanish microchip engineer, decided to design their own board. The Arduino project aimed to offer an affordable and easy to use electronics board for a student-friendly price: \$30. The first wiring design was done during the PhD thesis of Hernando Barragan~\parencite{barragan2004wiring} and the software by another student: David Cuartielles.
+      In 2005 Banzi and David Cuartielles, a Spanish microchip engineer, decided to design their own board. The Arduino project aimed to offer an affordable and easy to use electronics board for a student-friendly price: \$30. The first wiring design was done during the Ph.D. thesis of Hernando Barragan~\parencite{barragan2004wiring} and the software by another student: David Cuartielles.
       After the wiring platform was complete, researchers worked to make it lighter, less expensive, and available to the open source community.
     \end{cell}
     \begin{cell}{1}
@@ -297,9 +297,9 @@ They define their work as:
 \end{formal}
 
 
-By 2006, Arduino has sold 5,000 boards, the next year 30,000. Following the idea of open source collaboration the community eventually grows until 100,000 people and thousand of side projects and derivatives emerged. In 2013 Arduino has registered over 700,000 official boards, but has estimated that there is at least one derivative or clone board per every official one.
+By 2006, Arduino has sold 5,000 boards, the next year 30,000. Following the idea of open source collaboration the community eventually grows until 100,000 people and thousand of side projects and derivatives emerged. In 2013, Arduino has registered over 700,000 official boards but has estimated that there is at least one derivative or clone board per every official one.
 
-Today, Arduino is a very successful project with more than 1,000,000 boards sold and a wide range of low cost electronics boards\footnote{http://arduino.cc/en/Main/Products}. Moreover, there are now dozens of open-hardware orientied companies building new products on top of Arduino environment, the most famous ones being Sparkfun\footnote{\url{http://www.sparkfun.com/}} and Adafruit\footnote{\url{http://www.adafruit.com/}}.
+Today, Arduino is a very successful project with more than 1,000,000 boards sold and a wide range of low-cost electronics boards\footnote{http://arduino.cc/en/Main/Products}. Moreover, there are now dozens of open-hardware oriented companies building new products on top of Arduino environment, the most famous ones being Sparkfun\footnote{\url{http://www.sparkfun.com/}} and Adafruit\footnote{\url{http://www.adafruit.com/}}.
 
 \subsubsection{Shapeoko}
 
@@ -311,7 +311,7 @@ Today, Arduino is a very successful project with more than 1,000,000 boards sold
     \label{fig:shapeoko}
 \end{figure}
 
-Designed by Edward Ford, Shapeoko (see \figurename~\ref{fig:shapeoko}) is a simple, low cost (\$685) and open source (CC BY-SA) CNC milling machine. It is based on two other open hardware projects: MakerSlide\footnote{Open a source linear bearing system under Creative Common BY-SA licenses: \url{http://makerslide.com/}} for linear motion and an Arduino board for the control.
+Designed by Edward Ford, Shapeoko (see \figurename~\ref{fig:shapeoko}) is a simple, low cost (\$685) and open source (CC-BY-SA) CNC milling machine. It is based on two other open hardware projects: MakerSlide\footnote{Open a source linear bearing system under Creative Common BY-SA licenses: \url{http://makerslide.com/}} for linear motion and an Arduino board for the control.
 
 
 
@@ -320,7 +320,7 @@ Designed by Edward Ford, Shapeoko (see \figurename~\ref{fig:shapeoko}) is a simp
 The RepRap project started in 2005 and based on the Fab@Home\footnote{\url{http://www.fabathome.org/}} principles, developed a multi-purpose open source 3D printer using Fused Deposition Modeling, a technique with the particularity of being largely self-replicating:
 
 \begin{formal}
-    RepRap is an open-source, self-replicating, rapid prototyping machine. It is a robot that uses fused-filament fabrication1 to make engineering components and other products from a variety of thermoplastic polymers. RepRap has been designed to be able automatically to print out a significant fraction of its own parts. All its remaining parts have been selected to be standard engineering materials and components available cheaply worldwide. As the machine is free and open-source anyone may – without royalty payments – make any number of copies of it ether for themselves or for others, using RepRap machines themselves to reproduce those copies.
+    RepRap is an open-source, self-replicating, rapid prototyping machine. It is a robot that uses fused-filament fabrication1 to make engineering components and other products from a variety of thermoplastic polymers. RepRap has been designed to be able automatically to print out a significant fraction of its own parts. All its remaining parts have been selected to be standard engineering materials and components available cheaply worldwide. As the machine is free and open-source anyone may – without royalty payments – make any number of copies of it either for themselves or for others, using RepRap machines themselves to reproduce those copies.
 
     \signed{~\cite{jones2011reprap}}
 \end{formal}
@@ -336,7 +336,7 @@ The RepRap project started in 2005 and based on the Fab@Home\footnote{\url{http:
 \end{figure}
 
 
-Distributed under GNU General Public License, the RepRap (see \figurename~\ref{fig:RepRap_v2}) was one of the first low-cost 3D printers. Thanks to the the fact that it is genuinely collaborative, this project generated such a large number of variations and interpretations that is difficult to even count. One of them is the famous Makerbot Replicator (see \figurename~\ref{fig:makerbot-replicator}). Now Makerbot is one of the major worldwide general public 3D printer distributors.
+Distributed under GNU General Public License, the RepRap (see \figurename~\ref{fig:RepRap_v2}) was one of the first low-cost 3D printers. Thanks to the fact that it is genuinely collaborative, this project generated such a large number of variations and interpretations that is difficult to even count. One of them is the famous Makerbot Replicator (see \figurename~\ref{fig:makerbot-replicator}). Now Makerbot is one of the major worldwide general public 3D printer distributors.
 
 
 
@@ -344,10 +344,10 @@ Distributed under GNU General Public License, the RepRap (see \figurename~\ref{f
 
 The emergence of new and accessible rapid prototyping techniques changes ways of producing things. Because it is now quick, simple and cheap to make things, it opens the realm of possibility of sharing hardware because anyone can produce it.
 
-The 3D printing and open source hardware are complementary. Indeed, open source projects are more relevant when, as the software, people contributing can build the project at home. In this way 3D printing can act as a lever arms for open hardware projects while open hardware projects are meaningful to widespread the use of 3D printers.
+The 3D printing and open source hardware are complementary. Indeed, open source projects are more relevant when, as the software, people contributing can build the project at home. In this way, 3D printing can act as a lever arms for open hardware projects while open hardware projects are meaningful to widespread the use of 3D printers.
 
 Also, Arduino has shown how useful can be open hardware projects and opened new perspectives allowing non-expert people to easily create interactive objects. While ones could think open sourcing is dangerous for economic viability, Arduino demonstrated that it actually generates new kind of economy, derivative contributing to the development of the community rather than stealing commercial parts.
 
-Following this example, Tesla Motor have recently released open source all their patents about electric cars. Elon Musk\footnote{SpaceX CEO/CTO and Tesla Motors CEO} is genuine inventor, yet also a very good business man. This act is not a philanthropic idea, it will actually permit Tesla to develop its economy. Indeed, they are the only active actor on the electric car market. To increase the market, more actor are needed. By releasing their patents, Tesla hope to create dynamic favorable to the expansion of their market. By this way, they target to have a good part of a big market rather than having a big part of a small market.
+Following this example, Tesla Motor have recently released open source all their patents about electric cars. Elon Musk\footnote{SpaceX CEO/CTO and Tesla Motors CEO} is a genuine inventor, yet also a very good businessman. This act is not a philanthropic idea, it will actually permit Tesla to develop its economy. Indeed, they are the only active actor on the electric car market. To increase the market, more actor are needed. By releasing their patents, Tesla hopes to create dynamically favorable to the expansion of their market. By this way, they target to have a good part of a big market rather than having a big part of a small market.
 
 Therefore, using 3D printing technique and open hardware distribution model appear to be promising for the future of technology and economic development.
