@@ -19,50 +19,101 @@
 \begin{titlepage}
     \pdfbookmark[0]{Titlepage}{Titlepage}
     \tgherosfont
+
+    % \begin{figure}[!t]
+    % % \centering
+    %     \subfloat{\includegraphics[width=5cm]{Universite_Bordeaux_logo.jpg}}
+    %     \hfil
+    %     \subfloat{\includegraphics[width=5cm]{Universite_Bordeaux_logo.jpg}}
+    % \end{figure}
+
+    % \begin{figure}
+      % {\raggedleft
+      % \begin{minipage}{6cm}
+      % \includegraphics[width=6cm]{Universite_Bordeaux_logo.jpg}
+      % \end{minipage}}
+
+
+    % \begin{figure}
+    %     \begin{minipage}{.1\textwidth}
+    %         \includegraphics[width=6cm]{Universite_Bordeaux_logo.jpg}
+    %     % \hfill
+    %     \end{minipage}
+    % \end{figure}
+
+    % \begin{figure}
+    %     \begin{minipage}{.9\textwidth}
+    %     \hfill
+    %         \includegraphics[width=6cm]{Universite_Bordeaux_logo.jpg}
+    %     \end{minipage}
+    % \end{figure}
+
+
     \centering
 
-    {\Large \thesisUniversitytwo} \\[4mm]
-    {\Large \thesisUniversity} \\[4mm]
-    % \includegraphics[width=6cm]{gfx/Clean-Thesis-Logo} \\[2mm]
+    {\Large \thesisUniversitytwo} \\
+    \textsf{\thesisUniversityInstitute} \\[4mm]
     % \textsf{\thesisUniversityDepartment} \\
-    % \textsf{\thesisUniversityInstitute} \\
     % \textsf{\thesisUniversityGroup} \\
 
     \vfill
     {\large \thesisSubject} \\[5mm]
     {\LARGE \color{ctcolormain}\textbf{\thesisTitle} \\[10mm]}
-    {\Large \thesisName} \\
+    {\Large \thesisName} \\ [2mm]
+    {\large \thesisUniversity \\
+    \thesisUniversityDepartment} \\[4mm]
 
     \vfill
-    \begin{minipage}[t]{.27\textwidth}
+    \begin{minipage}[t]{.21\textwidth}
         \raggedleft
-        \textit{Reviewer}
+        {\small \textit{Reviewer}}
     \end{minipage}
     \hspace*{15pt}
-    \begin{minipage}[t]{.65\textwidth}
-        {\Large \thesisFirstReviewer} \\
-        {\small \thesisFirstReviewerDepartment} \\[-1mm]
+    \begin{minipage}[t]{.7\textwidth}
+        {\large \thesisFirstReviewer} \\
+        {\small \thesisFirstReviewerTitle},
         {\small \thesisFirstReviewerUniversity}
     \end{minipage} \\[5mm]
-    \begin{minipage}[t]{.27\textwidth}
+    \begin{minipage}[t]{.21\textwidth}
         \raggedleft
-        \textit{Reviewer}
+        {\small \textit{Reviewer}}
     \end{minipage}
     \hspace*{15pt}
-    \begin{minipage}[t]{.65\textwidth}
-        {\Large \thesisSecondReviewer} \\
-        {\small \thesisSecondReviewerDepartment} \\[-1mm]
+    \begin{minipage}[t]{.7\textwidth}
+        {\large \thesisSecondReviewer} \\
+        {\small \thesisSecondReviewerTitle},
         {\small \thesisSecondReviewerUniversity}
-    \end{minipage} \\[10mm]
-    \begin{minipage}[t]{.27\textwidth}
+    \end{minipage} \\[5mm]
+    \begin{minipage}[t]{.21\textwidth}
         \raggedleft
-        \textit{Supervisor}
+        {\small \textit{President}}
     \end{minipage}
     \hspace*{15pt}
-    \begin{minipage}[t]{.65\textwidth}
-        {\Large \thesisFirstSupervisor}\\
-        {\small \thesisUniversity} \\[-1mm]
-        {\small \thesisUniversityDepartment}
+    \begin{minipage}[t]{.7\textwidth}
+        {\large \thesisPresident} \\
+        {\small \thesisPresidentTitle},
+        {\small \thesisPresidentUniversity}
+    \end{minipage} \\[5mm]
+    \begin{minipage}[t]{.21\textwidth}
+        \raggedleft
+        {\small \textit{Examinator}}
+    \end{minipage}
+    \hspace*{15pt}
+    \begin{minipage}[t]{.7\textwidth}
+        {\large \thesisExaminator} \\
+        {\small \thesisExaminatorTitle},
+        {\small \thesisExaminatorUniversity}
+    \end{minipage} \\[5mm]
+
+    \begin{minipage}[t]{.21\textwidth}
+        \raggedleft
+        {\small \textit{Supervisor}}
+    \end{minipage}
+    \hspace*{15pt}
+    \begin{minipage}[t]{.7\textwidth}
+        {\large \thesisFirstSupervisor}\\
+        {\small \thesisUniversityTitle},
+        {\small \thesisUniversity}
     \end{minipage} \\[15mm]
 
     \thesisDate \\
@@ -78,11 +129,13 @@
 \textit{\thesisTitle} \\
 \thesisSubject, \thesisDate \\
 Reviewers: \thesisFirstReviewer\ and \thesisSecondReviewer \\
-Supervisors: \thesisFirstSupervisor\\[1.5em]
+Jury members: \thesisPresident, \thesisFirstReviewer, \thesisSecondReviewer, \thesisExaminator\ and \thesisFirstSupervisor\\
+Supervisor: \thesisFirstSupervisor\\[1.5em]
 \textbf{\thesisUniversity} \\
 % \textit{\thesisUniversityGroup} \\
 % \thesisUniversityInstitute \\
 \thesisUniversityDepartment \\
 \thesisUniversityStreetAddress \\
-\thesisUniversityPostalCode\ and \thesisUniversityCity
+\thesisUniversityPostalCode\ \thesisUniversityCity\\
+France
 }

@@ -21,48 +21,69 @@
     \tgherosfont
     \centering
 
-    {\Large \thesisUniversitytwo} \\[4mm]
-    {\Large \thesisUniversity} \\[4mm]
-    % \includegraphics[width=6cm]{gfx/Clean-Thesis-Logo} \\[2mm]
+    {\Large \thesisUniversitytwo} \\
+    \textsf{\thesisUniversityInstitute} \\[4mm]
     % \textsf{\thesisUniversityDepartment} \\
-    % \textsf{\thesisUniversityInstitute} \\
     % \textsf{\thesisUniversityGroup} \\
 
     \vfill
     {\large \thesisSubjectFr} \\[5mm]
     {\LARGE \color{ctcolormain}\textbf{\thesisTitleFr} \\[10mm]}
-    {\Large \thesisName} \\
+    {\Large \thesisName} \\ [2mm]
+    {\large \thesisUniversity \\
+    \thesisUniversityDepartment} \\[4mm]
 
     \vfill
-    \begin{minipage}[t]{.27\textwidth}
+    \begin{minipage}[t]{.21\textwidth}
         \raggedleft
-        \textit{Rapporteur}
+        {\small \textit{Rapporteur}}
     \end{minipage}
     \hspace*{15pt}
-    \begin{minipage}[t]{.65\textwidth}
-        {\Large \thesisFirstReviewer} \\
-        {\small \thesisFirstReviewerDepartment} \\[-1mm]
+    \begin{minipage}[t]{.7\textwidth}
+        {\large \thesisFirstReviewer} \\
+        {\small \thesisFirstReviewerTitle},
         {\small \thesisFirstReviewerUniversity}
     \end{minipage} \\[5mm]
-    \begin{minipage}[t]{.27\textwidth}
+    \begin{minipage}[t]{.21\textwidth}
         \raggedleft
-        \textit{Rapporteur}
+        {\small \textit{Rapporteur}}
     \end{minipage}
     \hspace*{15pt}
-    \begin{minipage}[t]{.65\textwidth}
-        {\Large \thesisSecondReviewer} \\
-        {\small \thesisSecondReviewerDepartment} \\[-1mm]
+    \begin{minipage}[t]{.7\textwidth}
+        {\large \thesisSecondReviewer} \\
+        {\small \thesisSecondReviewerTitle},
         {\small \thesisSecondReviewerUniversity}
-    \end{minipage} \\[10mm]
-    \begin{minipage}[t]{.27\textwidth}
+    \end{minipage} \\[5mm]
+    \begin{minipage}[t]{.21\textwidth}
         \raggedleft
-        \textit{Directeur}
+        {\small \textit{Président}}
     \end{minipage}
     \hspace*{15pt}
-    \begin{minipage}[t]{.65\textwidth}
-        {\Large \thesisFirstSupervisor}\\
-        {\small \thesisUniversity} \\[-1mm]
-        {\small \thesisUniversityDepartment}
+    \begin{minipage}[t]{.7\textwidth}
+        {\large \thesisPresident} \\
+        {\small \thesisPresidentTitle},
+        {\small \thesisPresidentUniversity}
+    \end{minipage} \\[5mm]
+    \begin{minipage}[t]{.21\textwidth}
+        \raggedleft
+        {\small \textit{Examinateur}}
+    \end{minipage}
+    \hspace*{15pt}
+    \begin{minipage}[t]{.7\textwidth}
+        {\large \thesisExaminator} \\
+        {\small \thesisExaminatorTitle},
+        {\small \thesisExaminatorUniversity}
+    \end{minipage} \\[5mm]
+
+    \begin{minipage}[t]{.21\textwidth}
+        \raggedleft
+        {\small \textit{Directeur}}
+    \end{minipage}
+    \hspace*{15pt}
+    \begin{minipage}[t]{.7\textwidth}
+        {\large \thesisFirstSupervisor}\\
+        {\small \thesisUniversityTitle},
+        {\small \thesisUniversity}
     \end{minipage} \\[15mm]
 
     \thesisDateFr \\
@@ -75,14 +96,16 @@
 \vfill
 {\small
 \textbf{\thesisName} \\
-\textit{\thesisTitle} \\
-\thesisSubject, \thesisDate \\
-Reviewers: \thesisFirstReviewer\ and \thesisSecondReviewer \\
-Supervisors: \thesisFirstSupervisor\\[1.5em]
+\textit{\thesisTitleFr} \\
+\thesisSubjectFr, \thesisDateFr \\
+Rapporteurs: \thesisFirstReviewer\ and \thesisSecondReviewer \\
+Membres du jury: \thesisPresident, \thesisFirstReviewer, \thesisSecondReviewer, \thesisExaminator\ and \thesisFirstSupervisor\\
+Directeur: \thesisFirstSupervisor\\[1.5em]
 \textbf{\thesisUniversity} \\
 % \textit{\thesisUniversityGroup} \\
 % \thesisUniversityInstitute \\
 \thesisUniversityDepartment \\
 \thesisUniversityStreetAddress \\
-\thesisUniversityPostalCode\ and \thesisUniversityCity
+\thesisUniversityPostalCode\ \thesisUniversityCity\\
+France
 }
